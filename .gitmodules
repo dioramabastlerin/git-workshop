@@ -1,0 +1,3 @@
+[submodule "revealjs"]
+	path = revealjs
+	url = ../reveal.js/
