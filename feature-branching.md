@@ -1,4 +1,4 @@
-# Workflow: In Features entwickeln
+# In Features entwickeln
 
 ![Feature-Branching](abb/feature-branching.jpg)
 

@@ -1,4 +1,4 @@
-# Workflow: Pull-Requests mit Reviews
+# Pull-Requests mit Reviews
 
  * Forks 68
  * GitHub, GitLab & Co. 35

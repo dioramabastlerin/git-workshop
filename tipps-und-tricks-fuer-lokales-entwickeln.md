@@ -1,4 +1,4 @@
-# Workflow: Lokal entwickeln weitere Möglichkeiten
+# Lokal entwickeln weitere Möglichkeiten
 
 _________________________________________
 

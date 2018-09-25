@@ -1,4 +1,4 @@
-# Workflow: Lokal alleine entwickeln (easy)
+# Lokal alleine entwickeln (easy)
 _________________________________________
 
  * Datei bearbeiten und ändern

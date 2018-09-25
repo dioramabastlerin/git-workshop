@@ -1,4 +1,4 @@
-# Workflow: Alleine entwickeln (dezentral mit Server)
+# Mit einem Git-Server arbeiten
 
 _________________________________________
 

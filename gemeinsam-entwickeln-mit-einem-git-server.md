@@ -1,4 +1,4 @@
-# Workflow: Gemeinsam auf dem `master` arbeiten
+# Gemeinsam auf dem `master` arbeiten
 
 _________________________________________
 
