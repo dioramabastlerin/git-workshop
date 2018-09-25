@@ -2,18 +2,35 @@
 
 _________________________________________
 
+## Lernziel
+
+| Konzept              | Begriff              | Befehl               |
+|----------------------|----------------------|----------------------|
+| Synchroniation       | Origin               | `push`               |
+| Garbage Collection   | Parent               | `fetch`              |
+| Git-Hoster           |                      | `pull`               |
+| Git-Protokolle       |                      |                      |
+| Neues Repo           |                      |                      |
+| Repo-Upload          |                      |                      |
+
+_________________________________________
+
+# Basis für Synchronisation
  * Git-Repository Struktur
    - Git-Hashes
    - Repository Struktur 9, 10
-   - Basis für Synchronisation
+
 _________________________________________
 
- * Push
+# Push
    - `push` 40,41,45,47
+
 _________________________________________
 
- * Pull
+# Pull
    - `pull` 44
+
+
 _________________________________________
 
- * Mehrere Klone
+
