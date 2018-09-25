@@ -10,6 +10,24 @@
 
 _________________________________________
 
+### Hinweis
+
+
+Diese Unterlagen stellen aber keine Anleitung zur Nutzung von Git dar. Sie enthalten:
+
+ * Stichworte für den Trainer
+ * Beispiele für typische Git-Kommandoaufrufe
+ * Fotos der Whiteboardskizzen
+_________________________________________
+
+Eine solche finden Sie zum Beispiel in unserem Buch. Weitere Informationen in unserem Blog [Kapitel 26](http://kapitel26.github.io)
+
+![Git Buch](abb/git-buch.png)
+
+
+_________________________________________
+
+
 # Basics
 
  * Ein Git-Repository klonen und untersuchen
