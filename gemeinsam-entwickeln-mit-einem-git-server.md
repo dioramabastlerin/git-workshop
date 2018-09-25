@@ -2,6 +2,17 @@
 
 _________________________________________
 
+## Lernziel
+
+| Konzept              | Begriff              | Befehl               |
+|----------------------|----------------------|----------------------|
+| Remote Branch        | `origin/master`      | `fetch`              |
+| Merge                | Verzweigung          | `log --grap --all`   |
+| Merge-Konflikt       | 3-Wege-Merge         | `HEAD, MERGE_HEAD`   |
+| Inhaltlicher Konflikt| Fast-Forward         | `log A..B`           |
+
+_________________________________________
+
   * `push` 40,41,45,47
 _________________________________________
 
@@ -9,9 +20,14 @@ _________________________________________
     - `log --oneline --all --graph -10`
 _________________________________________
 
-  * Merge
-     ![Push, Pull and Merge Conflicts](abb/push-pull-merge.jpg)
-     * `merge` 29,30,31,43,44
+### Merge
+
+![Push, Pull and Merge Conflicts](abb/push-pull-merge.jpg)
+
+
+_________________________________________
+
+### `merge` 29,30,31,43,44
        - `config --global merge.conflictStyle diff3`
        - `fast-forward` 34
        - Konflikte 41
@@ -36,7 +52,7 @@ _________________________________________
 
 _________________________________________
 
-  * Workflow: Gemeinsamem auf `master` arbeiten 48,52
+# Workflow: Gemeinsamem auf `master` arbeiten 48,52
     - Was wurde reingemerged
       - `log HEAD^2..HEAD`
       - `diff HEAD^2...HEAD`
