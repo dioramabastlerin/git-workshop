@@ -1,6 +1,6 @@
 # Workflow: In Features entwickeln
 
-![Feature-Branching](feature-branching.jpg)
+![Feature-Branching](abb/feature-branching.jpg)
 
  * `branch` 25,26,38
  * `fetch` 42,47

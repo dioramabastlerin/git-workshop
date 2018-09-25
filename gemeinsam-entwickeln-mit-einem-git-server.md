@@ -10,7 +10,7 @@ _________________________________________
 _________________________________________
 
   * Merge
-     ![Push, Pull and Merge Conflicts](push-pull-merge.jpg)
+     ![Push, Pull and Merge Conflicts](abb/push-pull-merge.jpg)
      * `merge` 29,30,31,43,44
        - `config --global merge.conflictStyle diff3`
        - `fast-forward` 34
@@ -25,13 +25,13 @@ _________________________________________
 
      * Wenn sich auf einer Seite des Merges nichts getan hat,
        macht Git idR. ein *fast-forward*:
-       ![Fast-Forward](fast-forward.jpg)
+       ![Fast-Forward](abb/fast-forward.jpg)
      * Techniken, die helfen, Probleme mit Merges zu mildern:
-       ![Merges mildern](merges-mildern.jpg)
+       ![Merges mildern](abb/merges-mildern.jpg)
      * Wenn man einem Merge per `revert` rückgängig macht,
        muss man dieses später mit einem weiteren `revert` rückgängig machen,
        um die Änderungen zu reaktivieren:
-       ![Reverting Merges](reverting-merges.jpg)
+       ![Reverting Merges](abb/reverting-merges.jpg)
      * [Merges und  widersprüchliche Umbenennungen](renames-und-merges.md)
 
 _________________________________________

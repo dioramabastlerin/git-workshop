@@ -55,7 +55,7 @@ _________________________________________
 
 ## Zentral vs. Dezentral
 
- * ![Zentral vs. dezentral](zentral-dezentral.jpg)
+ * ![Zentral vs. dezentral](abb/zentral-dezentral.jpg)
  * Warum Git? 6-8
 
 _________________________________________

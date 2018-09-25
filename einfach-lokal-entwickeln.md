@@ -16,7 +16,7 @@ _________________________________________
 
  * Neues Verzeichnis
  * Exkurs: Trees and the Object Storage
-    ![Trees and the Object Storage](trees-and-object-storage.jpg)
+    ![Trees and the Object Storage](abb/trees-and-object-storage.jpg)
    - Zeigen, woraus ein Commit-Hash gebildet wird
      `git log --pretty=raw`
 _________________________________________
