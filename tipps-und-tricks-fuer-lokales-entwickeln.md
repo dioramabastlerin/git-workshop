@@ -2,17 +2,21 @@
 
 _________________________________________
 
- * Datein unversioniert lassen
+## Rebasing
+
+_________________________________________
+
+## Datein unversioniert lassen
    - `.gitignore` 21
 _________________________________________
 
- * Staging
+## Staging
    - `diff --staged`
 
    - Selektives Staging (Hunks)
 _________________________________________
 
- * Oops
+## Oops
    - Datei zu früh "geaddet"
      - `reset` 22,23,27
      - `reset HEAD protokoll.md`
