@@ -8,7 +8,6 @@ _________________________________________
 | Object Storage       | Tree, treeish        | `status`             |
 | Garbage Collection   | Blob                 | `add`                |
 |                      |                      | `commit`             |
-|                      |                      | `gc`                 |
 |                      |                      | `init`               |
 |                      |                      | `stash`              |
 
