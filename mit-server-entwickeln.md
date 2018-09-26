@@ -20,6 +20,8 @@ _________________________________________
    - Git-Hashes
    - Repository Struktur 9, 10
 
+    git log origin/master..master
+    
 _________________________________________
 
 # Push
