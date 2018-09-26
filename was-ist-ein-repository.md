@@ -33,8 +33,8 @@ _________________________________________
  * Installation, Setup 11,31
 
 ```
-   config --global user.email egal
-   config --global user.name bstachmann
+   git config --global user.email egal
+   git config --global user.name bstachmann
 ```
 _________________________________________
 
