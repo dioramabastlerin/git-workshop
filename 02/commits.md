@@ -1,4 +1,4 @@
-# Lokal alleine entwickeln (easy)
+# Commits
 _________________________________________
 
 ## Lernziel
