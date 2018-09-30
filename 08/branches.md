@@ -2,6 +2,17 @@
 
 _________________________________________
 
+
+## Lernziele
+
+```
+  branch / checkout -b
+```
+
+ * Branches zeigen auf Commits
+ * Remote Branches
+
+
 ## Lernziel
 
 | Konzept              | Begriff              | Befehl               |

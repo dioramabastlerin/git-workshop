@@ -4,6 +4,10 @@ _________________________________________
 
 ## Lernziele
 
+```
+    rebase / rebase --interactive
+```
+
  * Rebasing **dupliziert Commits**
  * Rebase und Merge sind **nahe Verwandte**
  * **Anwendung:** Welche Commits? Wohin?
@@ -11,4 +15,3 @@ _________________________________________
  * Anwendung auf **Workflows**
  * **Interaktives Rebasing**
 
-    `rebase`, `rebase --interactive`

@@ -1,16 +1,17 @@
 # Remotes
+
 _________________________________________
 
 ## Lernziel
 
-| Konzept              | Begriff              | Befehl               |
-|----------------------|----------------------|----------------------|
-| Synchroniation       | Origin               | `push`               |
-| Garbage Collection   | Parent               | `fetch`              |
-| Git-Hoster           |                      | `pull`               |
-| Git-Protokolle       |                      |                      |
-| Neues Repo           |                      |                      |
-| Repo-Upload          |                      |                      |
+```
+  remote add / remote -v / push / fetch / pull
+```
+
+ * Austausch über **verschiedene** Protokolle: `http`, `ssh`, `file`
+ * Wie funktiert die Synchronisation zwischen Repos?
+ * GitHub, GitLab & Co.
+
 
 _________________________________________
 
@@ -25,6 +26,14 @@ _________________________________________
 
 # Push
    - `push` 40,41,45,47
+
+
+
+  * `push` 40,41,45,47
+_________________________________________
+
+  * `fetch`
+
 
 _________________________________________
 

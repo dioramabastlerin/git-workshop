@@ -1,23 +1,24 @@
 # Merges
-_________________________________________
-
-
-## Lernziel
-
-| Konzept              | Begriff              | Befehl               |
-|----------------------|----------------------|----------------------|
-| Remote Branch        | `origin/master`      | `fetch`              |
-| Merge                | Verzweigung          | `log --grap --all`   |
-| Merge-Konflikt       | 3-Wege-Merge         | `HEAD, MERGE_HEAD`   |
-| Inhaltlicher Konflikt| Fast-Forward         | `log A..B`           |
 
 _________________________________________
 
-  * `push` 40,41,45,47
+
+## Lernziele
+
+```bash
+  log --all --graph | log branchA..branchB
+  merge | mergetool | HEAD | MERGE_HEAD
+```
+
+ * `master` vs. `origin/master`
+ * Commit-Tree
+ * 3-Wege-Merge
+ * Mergekonflikte
+ * Fast-Forwards
+
 _________________________________________
 
-  * `fetch`
-    - `log --oneline --all --graph -10`
+ *  `log --oneline --all --graph -10`
 _________________________________________
 
 ### Merge

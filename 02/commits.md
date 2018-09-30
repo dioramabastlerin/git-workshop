@@ -3,13 +3,16 @@ _________________________________________
 
 ## Lernziel
 
-| Konzept              | Begriff              | Befehl               |
-|----------------------|----------------------|----------------------|
-| Object Storage       | Tree, treeish        | `status`             |
-| Garbage Collection   | Blob                 | `add`                |
-|                      |                      | `commit`             |
-|                      |                      | `init`               |
-|                      |                      | `stash`              |
+```
+    status / add / rm / commit -a / stash / revert
+```
+
+ * Lokale entickeln können
+ * Commits **erstellen**
+ * Neue, bereits versionierte und zu löschende Dateien
+ * **Object Storage, Tree, Blob:** Verstehen, wie Git Commits speichert?
+ * **Oops!:** Was tun, wenn etwas schief geht?
+
 
 _________________________________________
 

@@ -2,23 +2,15 @@
 
 _________________________________________
 
-
-
-Wir klonen und untersuchen ein Git-Repository. Dabei lernen wir ein paar wichtige Begriffe und Eigenschaften von Git kennen. Außerdem hören wir ein paar Anekdoten über Linus Torvalds und die Entstehung von Git.
-
-_________________________________________
-
 ## Lernziel
 
-| Konzept              | Begriff              | Befehl               |
-|----------------------|----------------------|----------------------|
-| Dezentralität        | Klon                 | `help`               |
-| Revision Hashes      | Revision             | `config`             |
-|                      | Repository           | `clone`              |
-|                      | Workspace            | `log`                |
-|                      | Commit               | `show`               |
-|                      | `master`             | `diff`               |
+```
+    log / show / diff
+```
 
+ * Repository
+ * Dezentralität, Klon
+ * Revision Hashes
 _________________________________________
 
 ## Intro
