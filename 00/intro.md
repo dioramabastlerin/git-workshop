@@ -44,3 +44,14 @@ _________________________________________
 # Inhalte
 
 (ESC-Taste drücken)
+
+
+_________________________________________
+
+## Setup
+
+ 1. Git installieren
+ 2. Git-Hoster aufrufen, z. B. Gitlab
+ 3. User anlegen bzw. einloggen, falls User schon vorhanden ist.
+ 4. `git-workshop`-Projekt klonen.
+
