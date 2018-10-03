@@ -11,39 +11,6 @@ _________________________________________
  * Repository
  * Dezentralität, Klon
  * Revision Hashes
-_________________________________________
-
-## Intro
-
- * Git Entstehung 5
- * Warum Git? 4
-
-_________________________________________
-
-## Setup
-
- * Installation, Setup 11,31
-
-```
-   config --global user.email egal
-   config --global user.name bstachmann
-```
-_________________________________________
-
-
-## Hilfe und Infos zu Git
-
-```
-$ git
-$ git --version
-$ git help
-$ git help log
-$ git help --all
-$ git help --guides
-$ git help revisions
-```
-_________________________________________
-
 
 ## Zentral vs. Dezentral
 
