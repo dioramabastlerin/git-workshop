@@ -5,13 +5,27 @@ _________________________________________
 ## Lernziel
 
 ```
-  remote add / remote -v / push / fetch / pull
+  clone / remote add / remote -v / push / fetch / pull
 ```
 
  * Austausch über **verschiedene** Protokolle: `http`, `ssh`, `file`
  * Wie funktiert die Synchronisation zwischen Repos?
  * GitHub, GitLab & Co.
 
+_________________________________________
+
+
+## Klonen
+
+```
+$ git clone https://<server>/<pfad>/git-training-protocol.git
+```
+
+ * `clone` 36, 39
+ * `--reference` (Schneller klonen bei großen Repos)
+ * Anzeigen, woher geklont wurde (`origin`)
+   - `git remote -v`
+ * Bare-Repositorys
 
 _________________________________________
 

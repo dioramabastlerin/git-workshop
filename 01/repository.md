@@ -18,19 +18,6 @@ _________________________________________
  * Warum Git? 6-8
 
 _________________________________________
-
-## Klonen
-
-```
-$ git clone https://<server>/<pfad>/git-training-protocol.git
-```
-
- * `clone` 36, 39
- * `--reference` (Schneller klonen bei großen Repos)
- * Anzeigen, woher geklont wurde (`origin`)
-   - `git remote -v`
-_________________________________________
-
 ## Was ist drin, im Repository?
 
  * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
