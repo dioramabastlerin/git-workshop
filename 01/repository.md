@@ -12,13 +12,53 @@ _________________________________________
  * Dezentralität, Klon
  * Revision Hashes
 
-## Zentral vs. Dezentral
+_________________________________________
 
- * ![Zentral vs. dezentral](abb/zentral-dezentral.jpg)
- * Warum Git? 6-8
+# Zentral vs. Dezentral
 
 _________________________________________
-## Was ist drin, im Repository?
+
+
+ * ![Zentral vs. dezentral](abb/zentral-dezentral.jpg)
+
+
+_________________________________________
+
+## Zentrale Versionsverwaltungen
+
+ * Entwickler-Workspaces enthalten nur die aktuelle Version.
+ * Zentrales Repository enthält historische Informationen und verwaltet
+Branches und Tags.
+ * Alle Commits und Updates erfordern den Zugriff auf einen zentralen Server.
+
+_________________________________________
+
+## Dezentrale Versionsverwaltungen
+
+ * Jeder Entwickler hat einen Workspace und ein vollständiges Repository
+ * Commits werden nur lokaldurchgeführt.
+ * Zwischen Repositories können Commits mit Pull und Push ausgetauscht
+werden.
+ * Einzelne Repositories können als „besonders“ definiert werden und
+halten den offiziellen Stand („Blessed Repository“).
+
+
+_________________________________________
+
+## Vorteile
+
+ * Hohe Performance
+  Die meisten Operationen finden lokal auf dem Rechner des Entwicklers statt.
+ * Offline Fähigkeit
+   Commits, Branches, Tags können auch ohneSerververbindung durchgeführt werden.
+ * Effiziente Arbeitsweisen
+   Lokale Branches und Tags erleichtern den Entwickler-Alltag.
+ * Automatische Backups
+   Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
+
+_________________________________________
+
+Was ist drin, im Repository?
 
  * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
  * `--oneline`
