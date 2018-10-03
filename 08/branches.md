@@ -9,7 +9,8 @@ _________________________________________
   branch / checkout -b
 ```
 
- * Branches zeigen auf Commits
+ * Wechseln zwischen Branches
+ * Repräsentation Branches zeigen auf Commits
  * Remote Branches
 
 

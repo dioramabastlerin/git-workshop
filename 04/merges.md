@@ -6,8 +6,8 @@ _________________________________________
 ## Lernziele
 
 ```bash
-  log --all --graph | log branchA..branchB
   merge | mergetool | HEAD | MERGE_HEAD
+  log --all --graph | log branchA..branchB
 ```
 
  * `master` vs. `origin/master`

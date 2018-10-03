@@ -1,19 +1,29 @@
 # Tipps & Tricks
 
+## Lernziele
+
+```
+    add / reset
+```
+
+ * Mit `.gitignore` Dateien ausblendeb
+ * Staging bzw. "der Index"
+ * Trouble Shooting.
+   Verschiedene Szenarien.
+
+
 _________________________________________
 
-## Rebasing
-
-_________________________________________
-
-## Datein unversioniert lassen
+## Dateien unversioniert lassen
    - `.gitignore` 21
 _________________________________________
 
 ## Staging
-   - `diff --staged`
 
+   - `diff --staged`
+   - `reset`
    - Selektives Staging (Hunks)
+
 _________________________________________
 
 ## Oops

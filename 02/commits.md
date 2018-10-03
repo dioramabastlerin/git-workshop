@@ -4,10 +4,10 @@ _________________________________________
 ## Lernziel
 
 ```
-    status / add / rm / commit -a / stash / revert
+    status / add / commit -a / rm / stash / revert
 ```
 
- * Lokale entickeln können
+ * Lokale entwickeln können
  * Commits **erstellen**
  * Neue, bereits versionierte und zu löschende Dateien
  * **Object Storage, Tree, Blob:** Verstehen, wie Git Commits speichert?
