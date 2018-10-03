@@ -4,12 +4,13 @@ _________________________________________
 ## Lernziel
 
 ```
-    status / add / commit -a / rm / stash / revert
+    status / add / commit -a / rm / stash / revert / tag
 ```
 
  * Lokale entwickeln können
  * Commits **erstellen**
  * Neue, bereits versionierte und zu löschende Dateien
+ * Tags vergeben
  * **Object Storage, Tree, Blob:** Verstehen, wie Git Commits speichert?
  * **Oops!:** Was tun, wenn etwas schief geht?
 
