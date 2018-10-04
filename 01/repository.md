@@ -5,10 +5,11 @@ _________________________________________
 ## Lernziel
 
 ```
-    log / show / diff
+    log / show / diff / checkout
 ```
 
  * Repository
+ * Workspace
  * Dezentralität, Klon
  * Revision Hashes
 
@@ -65,6 +66,7 @@ Was ist drin, im Repository?
      - `log -3` Ausgabe limitieren
      - `log <file>`
    - Aktuelle Version und Vorgänger: `HEAD`, `HEAD~1`, `HEAD~2`
+ * `--all`, `--graph`
  * *Revision Hashes* werden als Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
 
 _________________________________________
@@ -82,6 +84,19 @@ Der diff-Befehl kann auch auf eine einzelne Datei angewendet werden.
 Der diff-Befehl kann auch beliebige Commits vergleichen.
 
     git diff 7ac0f3 2f43cd
+
+_________________________________________
+
+##  Diff
+
+   - `diff`
+      - `diff 9f5c3`, vergleicht mit HEAD
+      - `diff 1a8a2 9f5c3`, 2 Versionen vergleichen
+      - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
+      - `diff --word-diff`
+   - `difftool`
+
+
 _________________________________________
 
 ##  Weitere Befehle zum untersuchen der Historie
@@ -90,17 +105,31 @@ _________________________________________
       - `git show 9f5c3`
       - `show 1a8a24a:protokoll.md`
    - `ls-tree`
-   - `checkout` von Revisionen 22 (26,38)
+
 _________________________________________
 
-##  Weitere Befehle zum Untersuchen der Historie
+## Checkout: Repository -> Workspace
 
-   - `diff`
-      - `diff 9f5c3`, vergleicht mit HEAD
-      - `diff 1a8a2 9f5c3`, 2 Versionen vergleichen
-      - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
-      - `diff --word-diff`
-   - `difftool`
+Bestimmt Version ausgewählter Dateien wieder herstellen:
+
+
+    git checkout 83fe378 -- foo.bar
+
+Um Änderungen im Workspace zu verwerfen, wird der checkout-Befehl mit dem
+Argument HEAD verwendet. ACHTUNG: „checkout HEAD“ ohne Dateiname verwirft nichts.
+
+    git checkout HEAD foo.txt #Änderung einer Datei verwerfen
+    git checkout HEAD . #Alle geänderten und gelöschten Dateien wiederherstellen
+
+_________________________________________
+
+## Checkout
+
+Auf eine ältere Version zurückgehen
+
+    git checkout 83fe378
+
+ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnvoll weiterbearbeiten. Dazu benötigt man einen Branch (späteres Kapitel).
 
 _________________________________________
 
