@@ -3,17 +3,15 @@ _________________________________________
 
 ## Lernziel
 
-```
-    status / add / commit -a / rm / stash / revert / tag
-```
+    status / add / commit -a / tag
+    stash / revert
 
- * Lokale entwickeln können
  * Commits **erstellen**
- * Neue, bereits versionierte und zu löschende Dateien
  * Tags vergeben
- * **Object Storage, Tree, Blob:** Verstehen, wie Git Commits speichert?
- * **Oops!:** Was tun, wenn etwas schief geht?
-
+ * Woraus besteht ein Commit?
+   Commit Description, Tree, Blob
+ * **Oops!:**
+   Was tun, falls doch mal was schief geht?
 
 _________________________________________
 
@@ -29,13 +27,13 @@ Status abfragen nach Änderungen:
 
 _________________________________________
 
-### Bearbeitete Datei committen
+### Commit - geänderte Dateien
 
-Einzelne Datei
+Einzelne Datei:
 
     git commit <file>
 
-Geänderte bereits versionierten Dateien
+Alle geänderen Dateien, die bereits versioniert sind.
 
     git commit -a
 
@@ -44,7 +42,9 @@ Und gleich mit Message:
     git commit -am "Edit some files."
 _________________________________________
 
-## Neue Dateien
+### Commit - neue Dateien
+
+Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen zunächst angemeldet werden.
 
     git add <file>
 
@@ -56,50 +56,18 @@ Dann Commit, wie gehabt.
 
 _________________________________________
 
-## Gelöschte Datei
+### Commit - gelöschte Dateien
 
+    rm my-file # Oder über file explorer
 
+Löschungen werden bei `-a` übernommen:
 
-_________________________________________
+    git commit -am 'deleted my-file'
 
- * Exkurs: Trees and the Object Storage
-    ![Trees and the Object Storage](abb/trees-and-object-storage.jpg)
-   - Zeigen, woraus ein Commit-Hash gebildet wird
-     `git log --pretty=raw`
+Es gibt auch einen Git-Befehl zum Löschen:
 
-_________________________________________
-
-
-## Neues Verzeichnis
-
-_________________________________________
-
-## Oops
-
-   - Unterbrechung
-     - `stash` 66
-     - `stash list`
-     - `stash pop`
-     - `stash -u`
-
-_________________________________________
-
-## Oops
-
-   - Datei sollte gar nicht geändert werden.
-     - `checkout` 22,26
-       - lokale Änderungen?!
-     - `git checkout HEAD~2  protokoll.md`
-   - War falsch, aber schon länger her
-     - `revert`
-   - Änderungen Rückgängig 22,23
-   - Vorsicht mit `reset`
-
-_________________________________________
-
-## Löschen von Dateien
-
-   - `rm`
+    git rm my-file
+    git commit -am 'deleted my-file'
 
 _________________________________________
 
@@ -112,4 +80,74 @@ _________________________________________
      1. Commit
      1. Change
      1. Commit
+
+
+
+_________________________________________
+
+Was genau ist in einem Commit enthalten?
+
+    git log --pretty=raw
+
+_________________________________________
+
+Commit Trees
+
+![Commit Trees](abb/commit-tree.jpg)
+
+_________________________________________
+
+
+## Verzeichnisse
+
+Verzeichnisse verden in Git nicht explizit versioniert.
+
+Ein Verzeichnis muss mindestens eine Datei enthalten.
+
+Ggf. legt man ein hidden File an, z. B. `.gitkeep`
+
+_________________________________________
+
+
+## Tags
+
+    git tag v0.1.7
+git
+_________________________________________
+
+### Oops - Unterbrechung!
+
+Angefangene Änderungen kann man jeder zeit mit `stash` wegsichern.
+
+    git stash
+    git stash -u
+    git stash --all
+    git stash -m "bugfix started"
+    git stash pop
+
+
+_________________________________________
+
+### Oops - fehlerhaftes Commit
+
+
+    revert  HEAD~3
+
+_________________________________________
+
+### Oops - versehentlich geändert
+
+Vorsicht: Dateien werden überschrieben!
+
+Datei versehentlich geändert
+
+    git checkout HEAD -- foo
+
+Alte Version einer Datei wieder herstellen
+
+    git checkout HEAD~3 -- foo
+
+Ganzen Workspace zurücksetzen
+
+    git stash -u
 
