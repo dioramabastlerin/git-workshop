@@ -69,6 +69,21 @@ Was ist drin, im Repository?
 
 _________________________________________
 
+Der `diff`-Befehl mit `HEAD`-Argument zeigt die Änderungen des
+Workspace zum dem letzten Commit (`HEAD` ist der symbolische Name
+des letzten Commit).
+
+    git diff HEAD
+
+Der diff-Befehl kann auch auf eine einzelne Datei angewendet werden.
+
+    git diff HEAD foo.txt
+
+Der diff-Befehl kann auch beliebige Commits vergleichen.
+
+    git diff 7ac0f3 2f43cd
+_________________________________________
+
 ##  Weitere Befehle zum untersuchen der Historie
 
    - `show` zeigt Details zu einer Version
