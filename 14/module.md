@@ -4,7 +4,7 @@ _________________________________________
 ## Lernziele
 
 ```
-    subtree / submodule
+    init / subtree / submodule
 ```
 
  * Überblick Modularisierungsszenarien.
@@ -16,4 +16,12 @@ _________________________________________
    - extrahieren eines Unterverzeichnisses in  Subtree-Repo
    - arbeiten mit dem Subtree
  * Integrieren eines anderen Repos (z. B. subtree/submodule) als Unterverzeichnis.
+
+_________________________________________
+
+## Neues Repo
+
+ * `init`
+ * Ad-Hoc-Versionierung
+
 

@@ -17,21 +17,47 @@ _________________________________________
 
 _________________________________________
 
-## Datei bearbeiten
+## Status
 
-   - `status` 13
-   - `diff` 19
-   - `add`, Staging 14,18
-   - `commit <file>` 12,15
-   - `commit -a` 12,15
+Status abfragen nach Änderungen:
+
+  * Aktiver Branch (und ggf. Synchronisationsstatus)
+  * Datei gelöscht,
+  * Datei geändert,
+  * Datei neu angelegt
+  * Ggf. Staging- und Mergekonfliktinformationen (spätere Abschnitte)
 
 _________________________________________
 
-## Neue Datei
+### Bearbeitete Datei committen
 
-   - `add <file>`
-   - `add <dir>`
-   - `add .`
+Einzelne Datei
+
+    git commit <file>
+
+Geänderte bereits versionierten Dateien
+
+    git commit -a
+
+Und gleich mit Message:
+
+    git commit -am "Edit some files."
+_________________________________________
+
+## Neue Dateien
+
+    git add <file>
+
+    git add <dir>
+
+    git add .
+
+Dann Commit, wie gehabt.
+
+_________________________________________
+
+## Gelöschte Datei
+
 
 
 _________________________________________
@@ -45,13 +71,6 @@ _________________________________________
 
 
 ## Neues Verzeichnis
-
-_________________________________________
-
-## Neues Repo
-
- * `init` 12
- * Ad-Hoc-Versionierung
 
 _________________________________________
 
