@@ -47,10 +47,6 @@ _________________________________________
 
     git merge origin/master
 
-### Pull = Fetch + Merge
-
-    git pull
-
 _________________________________________
 
 ### Wie funktioniert ein Merge
