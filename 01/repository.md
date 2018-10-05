@@ -67,8 +67,36 @@ Was ist drin, im Repository?
      - `log <file>`
    - Aktuelle Version und Vorgänger: `HEAD`, `HEAD~1`, `HEAD~2`
  * `--all`, `--graph`
- * *Revision Hashes* werden als Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
 
+
+_________________________________________
+
+
+## Commit/Revision
+
+ 1. Revision Hash: ID
+ 1. Tree
+   - exakter Stand aller versionierten Dateien und Verzeichnisse
+ 1. Metadaten:
+   - Autor und Zeitpunkt der Änderung
+   - Message: Beschreibung der Änderung
+   - Parent(s): Vorgängerversion(en)
+
+*Revision Hashes* werden als Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
+
+_________________________________________
+
+
+### Historie
+
+Die Historie die die Menge aller Vorfahren eines Commits.
+
+`git log master` zeigt alle Commits, die zur Entstehung des aktuellen Master-Standas beigetragen haben.
+
+Die Historie kann verzweigungen enthalten,
+z. B. wenn mehrere Entwickler beteiligt waren.
+
+`git log --graph` stellt diese verzweigunten dar.
 _________________________________________
 
 Der `diff`-Befehl mit `HEAD`-Argument zeigt die Änderungen des

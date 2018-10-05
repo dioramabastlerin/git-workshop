@@ -135,7 +135,3 @@ _________________________________________
  1. holt Änderungen aus dem anderen Repository (`git fetch`)
  1. und übernimmt Änderungen in den aktuellen Branch (`git merge`, nächstes Kapitel).
 
-
-_________________________________________
-
-
