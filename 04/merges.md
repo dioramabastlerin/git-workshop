@@ -71,6 +71,17 @@ Aus dem Merge entsteht idR. ein Commit:
 
 _________________________________________
 
+### Merge und Diff
+
+Die "Stimmgabel"
+
+       - `diff HEAD^1`
+       - `diff HEAD^2`
+
+Welches Diff ich sehe, hängt davon ab, von wo ich schaue.git
+
+_________________________________________
+
 ### Merge - Fast Forward
 
 
@@ -109,8 +120,6 @@ Merges zu mildern:
        ![Reverting Merges](abb/reverting-merges.jpg)
      * [Merges und  widersprüchliche Umbenennungen](renames-und-merges.md)
 
-       - `diff HEAD^1`
-       - `diff HEAD^2`
 
 
 _________________________________________
