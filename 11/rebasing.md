@@ -9,9 +9,58 @@ _________________________________________
 ```
 
  * Rebasing **dupliziert Commits**
- * Rebase und Merge sind **nahe Verwandte**
- * **Anwendung:** Welche Commits? Wohin?
  * **Risiken** und Nebenwirkungen
- * Anwendung auf **Workflows**
  * **Interaktives Rebasing**
 
+_________________________________________
+
+### Rebase und Merge sind verwandte
+
+_________________________________________
+
+### Rebase - Anwendung
+
+    git rebase newbase
+
+Welche Commits? Wohin?
+
+ * Die neuen Commits entstehen auf `newbase`
+ * Dupliziert werden
+   - HEAD..newbase
+   - Alle Commits in HEAD, die noch
+     nicht in newbase enthalten sind
+
+Ohne Parameter: Upstream Branch.
+
+    git rebase
+
+_________________________________________
+
+### Rebase - Konflikte
+
+ * theirs vs. ours
+
+_________________________________________
+
+
+## Risiken und Nebenwirkungen
+
+### Probleme mit duplizierten Commits
+
+### (Un-)sichtbarkeit von Integrationen
+
+_________________________________________
+
+
+### Verwandte Befehle
+
+ * `commit --amend`
+ * `reset HEAD~1`
+ * `cherry-pick`
+ * `filter-branch`
+
+
+_________________________________________
+
+
+### Anwendung auf **Workflows**
