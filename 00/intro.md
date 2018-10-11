@@ -91,7 +91,7 @@ Versionsverwaltung für die Linux Kernel Entwicklung
 _________________________________________
 
 
-## Warum Git
+## Warum Git?
 
   * Robustes und einfaches Branching und Merging
   * Dezentraler Ansatz
