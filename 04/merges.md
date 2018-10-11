@@ -41,6 +41,12 @@ Anders ausgedrückt: Es dürfen keine Commits in der Historie verloren gehen. Al
 
 _________________________________________
 
+Situation nach dem Reject
+
+![Push, Pull and Merge Conflicts](04/push-pull-merge.jpg)
+
+_________________________________________
+
 ### Merge
 
     git fetch
@@ -49,11 +55,9 @@ _________________________________________
 
 _________________________________________
 
-### Wie funktioniert ein Merge
+### 3-Wege-Merge
 
-3-Wege-Merge
-
-![Push, Pull and Merge Conflicts](push-pull-merge.jpg)
+![Push, Pull and Merge Conflicts](04/push-pull-merge.jpg)
 
 _________________________________________
 
@@ -87,7 +91,12 @@ _________________________________________
 
 Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-forward*:
 
-![Fast-Forward](fast-forward.jpg)
+_________________________________________
+
+![Fast-Forward](04/fast-forward.jpg)
+
+_________________________________________
+
 
     git merge --no-ff
 
@@ -111,14 +120,22 @@ _________________________________________
 
 _________________________________________
 
-     * Techniken, die helfen, Probleme mit
-Merges zu mildern:
-       ![Merges mildern](abb/merges-mildern.jpg)
-     * Wenn man einem Merge per `revert` rückgängig macht,
+![Merges mildern](04/merges-mildern.jpg)
+
+_________________________________________
+
+Wenn man einem Merge per `revert` rückgängig macht,
        muss man dieses später mit einem weiteren `revert` rückgängig machen,
-       um die Änderungen zu reaktivieren:
-       ![Reverting Merges](abb/reverting-merges.jpg)
-     * [Merges und  widersprüchliche Umbenennungen](renames-und-merges.md)
+       um die Änderungen zu reaktivieren
+
+_________________________________________
+
+![Reverting Merges](04/reverting-merges.jpg)
+
+_________________________________________
+
+
+[Renames und Merges](renames-und-merges.md)
 
 
 
