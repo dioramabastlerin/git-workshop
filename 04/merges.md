@@ -79,8 +79,8 @@ _________________________________________
 
 Die "Stimmgabel"
 
-       - `diff HEAD^1`
-       - `diff HEAD^2`
+    diff HEAD^1
+    diff HEAD^2
 
 Welches Diff ich sehe, hängt davon ab, von wo ich schaue.git
 
