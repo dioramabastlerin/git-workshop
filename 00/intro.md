@@ -6,19 +6,22 @@
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="00/cc-by-nc-sa-4.0.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Diese Unterlagen zum Git-Workshop</span> von <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/kapitel26/kapitel26.github.com" property="cc:attributionName" rel="cc:attributionURL">Bjørn Stachmann und René Preißel</a> sind <a href="LICENSE">lizenziert</a> unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.
 </font>
 
+<a href="/?print-pdf">Print</a>
+
+<a href="/?print-pdf&showNotes=true">Print with speaker notes</a>
+
 _________________________________________
 
-### Hinweis
-
-
-Diese Unterlagen stellen aber keine Anleitung zur Nutzung von Git dar. Sie enthalten:
+### Inhalte
 
  * Stichworte für den Trainer
+ * Whiteboardskizzen
  * Beispiele für typische Git-Kommandoaufrufe
- * Fotos der Whiteboardskizzen
+
+Dies ist jedoch keine durchängig lesbase Anleitung für Git, ...
 _________________________________________
 
-Eine solche finden Sie zum Beispiel in unserem Buch.
+... eine solche finden Sie zum Beispiel in unserem Buch.
 
 <img src="00/git-buch.png" width="20%"/>
 
