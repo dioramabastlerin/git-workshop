@@ -111,7 +111,7 @@ _________________________________________
 
 Wie funktioniert die Synchronisation
 
-![Trees and Object Store](abb/trees-and-object-storage.jpg)
+![Trees and Object Store](03/trees-and-object-storage.jpg)
 
 _________________________________________
 

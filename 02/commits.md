@@ -93,7 +93,7 @@ _________________________________________
 
 Commit Trees
 
-![Commit Trees](abb/commit-tree.jpg)
+![Commit Trees](02/commit-tree.jpg)
 
 _________________________________________
 

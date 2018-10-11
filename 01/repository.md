@@ -20,7 +20,7 @@ _________________________________________
 _________________________________________
 
 
- * ![Zentral vs. dezentral](abb/zentral-dezentral.jpg)
+ * ![Zentral vs. dezentral](01/zentral-dezentral.jpg)
 
 
 _________________________________________
