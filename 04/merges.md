@@ -79,10 +79,10 @@ _________________________________________
 
 Die "Stimmgabel"
 
-    diff HEAD^1
-    diff HEAD^2
+    git diff HEAD^1
+    git diff HEAD^2
 
-Welches Diff ich sehe, hängt davon ab, von wo ich schaue.git
+Welches Diff ich sehe, hängt davon ab, von wo ich schaue.
 
 _________________________________________
 
