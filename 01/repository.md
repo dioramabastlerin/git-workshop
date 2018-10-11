@@ -138,7 +138,7 @@ _________________________________________
 
 ## Checkout: Repository -> Workspace
 
-Bestimmt Version ausgewählter Dateien wieder herstellen:
+Bestimmte Version ausgewählter Dateien wieder herstellen:
 
 
     git checkout 83fe378 -- foo.bar
