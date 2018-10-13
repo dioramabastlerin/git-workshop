@@ -128,6 +128,20 @@ Hinweis: `origin master` (Remote + lokaler branch) nicht `origin/master`
 
 _________________________________________
 
+# Fetch
+
+Synchronisiert und aktualisiert die Remote-Refs.
+
+    git fetch
+
+Oder genauer:
+
+    git fetch origin
+
+Berührt weder Workspace, noch den aktiven Branch (noch irgendwelche anderen Branches).
+
+_________________________________________
+
 # Pull
 
     git pull
