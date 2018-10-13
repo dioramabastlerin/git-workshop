@@ -18,7 +18,7 @@ _________________________________________
 
 _________________________________________
 
-### Wie entstehen Verzweigungen im Commit-Graphen
+### Wie entstehen Verzweigungen im Commit-Graphen?
 
  1. Zwei Entwickler A und B klonen ein Repository
  1. Beide erstellen ein Commit
@@ -26,24 +26,20 @@ _________________________________________
  1. B pushed zuerst (und gewinnt!)
  1. A versucht zu pushen, aber ...
 
+_________________________________________
 
+![Verzweigungen bim Push](04/push-pull-diverging.jpg)
 _________________________________________
 
 ### Push rejected
 
-Grundregel:
+> Grundregel: Nie Historie vernichten!
 
-> Beim Push muss das alte Commit Vorfahr des neuen sein!
+Alle Commits, die vorher in der Historie des Branches waren, müssen es nachher auch noch sein.
 
-Anders ausgedrückt: Es dürfen keine Commits in der Historie verloren gehen. Alle Commits, die vorher da waren, müssen auch in der neuen Historie enthalten sein.
+Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 
 -> Der Konflikt muss jetzt lokal aufgelöst werden!
-
-_________________________________________
-
-Situation nach dem Reject
-
-![Push, Pull and Merge Conflicts](04/push-pull-merge.jpg)
 
 _________________________________________
 
@@ -57,7 +53,7 @@ _________________________________________
 
 ### 3-Wege-Merge
 
-![Push, Pull and Merge Conflicts](04/push-pull-merge.jpg)
+![3-Wege-Merge](04/3-wege-merge.png)
 
 _________________________________________
 
