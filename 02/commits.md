@@ -7,9 +7,9 @@ _________________________________________
     stash / revert
 
  * Commits **erstellen**
- * Tags vergeben
  * Woraus besteht ein Commit?
    Commit Description, Tree, Blob
+ * Tags vergeben
  * **Oops!:**
    Was tun, falls doch mal was schief geht?
 
@@ -24,6 +24,15 @@ Status abfragen nach Änderungen:
   * Datei geändert,
   * Datei neu angelegt
   * Ggf. Staging- und Mergekonfliktinformationen (spätere Abschnitte)
+
+_________________________________________
+
+### Aktiver Branch
+
+ * Ein Branch ist ein Zeiger auf ein Commit
+ * (max.) 1 Branch ist aktiv
+ * Default `master`
+ * Neues Commit: Zeiger des aktiven Branches wird aktualisiert.
 
 _________________________________________
 
@@ -54,6 +63,7 @@ Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen 
 
 Dann Commit, wie gehabt.
 
+    git commit
 _________________________________________
 
 ### Commit - gelöschte Dateien
@@ -81,8 +91,6 @@ _________________________________________
      1. Change
      1. Commit
 
-
-
 _________________________________________
 
 Was genau ist in einem Commit enthalten?
@@ -108,11 +116,10 @@ Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
 _________________________________________
 
-
 ## Tags
 
     git tag v0.1.7
-git
+
 _________________________________________
 
 ### Oops - Unterbrechung!
