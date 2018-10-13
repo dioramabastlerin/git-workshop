@@ -6,12 +6,13 @@
 von René Preißel und Bjørn Stachman
 
 <font size="4">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="00/cc-by-nc-nd.png" /></a><br />Dieses Werk ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-  Creative Commons Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 International Lizenz
-</a>.
-<br/>
-<a href="/?print-pdf">Print</a> / <a href="/?print-pdf&showNotes=true">Print with speaker notes</a>
-
+  <a href="/?print-pdf">Print</a> / <a href="/?print-pdf&showNotes=true">Print with speaker notes
+  </a>
+</font>
+<p/>
+<font size="4">
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img   alt="Creative Commons Lizenzvertrag" style="border-width:0" src="00/cc-by-nc-nd.png" /></a><br />Dieses Werk ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 International Lizenz
+  </a>.
 </font>
 _________________________________________
 
@@ -65,7 +66,8 @@ _________________________________________
 ```
 
  * Wissen, wie Git entstanden ist
- * Wichtige Eigenschaften von Git kennen
+ * Wichtige Eigenschaften von Git kennen:
+
    Dezentral, Performant, Robust, Validierbar, Open-Source + breites Tooling
  * Setup: Git installieren, konfigurieren und Hilfe finden
 
@@ -99,7 +101,7 @@ _________________________________________
   * Robustes und einfaches Branching und Merging
   * Dezentraler Ansatz
   * Performant, auch bei sehr vielen Quelltexten
-  * Sehr flexiblen Workflow
+  * Sehr flexibler Workflow
   * Open-Source
   * Easy to Contribute
   * Quasi-Standard: Viele Projekte und Unternehmen nutzen Git
