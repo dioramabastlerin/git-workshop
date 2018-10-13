@@ -59,7 +59,7 @@ _________________________________________
 
 _________________________________________
 
-Was ist drin, im Repository?
+### Was ist drin, im Repository?
 
  * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
  * `--oneline`
@@ -69,20 +69,20 @@ Was ist drin, im Repository?
  * `--all`, `--graph`
 
 
+
 _________________________________________
 
+## Commit
 
-## Commit/Revision
+(Synonym: Revision)
 
- 1. Revision Hash: ID
- 1. Tree
-   - exakter Stand aller versionierten Dateien und Verzeichnisse
- 1. Metadaten:
-   - Autor und Zeitpunkt der Änderung
-   - Message: Beschreibung der Änderung
-   - Parent(s): Vorgängerversion(en)
 
-*Revision Hashes* werden als Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
+ * **Tree** - exakter Stand aller versionierten Dateien und Verzeichnisse
+ * **Metadaten**
+     - Autor und Zeitpunkt der Änderung
+     - Message: Beschreibung der Änderung
+     - Parent(s): Vorgängerversion(en)
+ * **Revision Hash** - Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
 
 _________________________________________
 
@@ -96,7 +96,8 @@ Die Historie die die Menge aller Vorfahren eines Commits.
 Die Historie kann verzweigungen enthalten,
 z. B. wenn mehrere Entwickler beteiligt waren.
 
-`git log --graph` stellt diese verzweigunten dar.
+`git log --graph` stellt diese Verzweigungen dar.
+
 _________________________________________
 
 Der `diff`-Befehl mit `HEAD`-Argument zeigt die Änderungen des
@@ -129,10 +130,10 @@ _________________________________________
 
 ##  Weitere Befehle zum untersuchen der Historie
 
-   - `show` zeigt Details zu einer Version
-      - `git show 9f5c3`
+   - `show` zeigt Details zu einem Commit
+      - `show 9f5c3`
       - `show 1a8a24a:protokoll.md`
-   - `ls-tree`
+   - `ls-tree` zeigt Verzeichnisinhalte im Commit-Tree
 
 _________________________________________
 
@@ -167,7 +168,6 @@ Mitreden, wo es um Git geht
    * Repository
    * Workspace
    * Klon
-   * Commit
-   * Revision, Revision-Hash
-   * `master`
+   * Commit, Revision, Revision-Hash
+   * Tree
 
