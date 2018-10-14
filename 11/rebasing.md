@@ -14,7 +14,9 @@ _________________________________________
 
 _________________________________________
 
-### Rebase und Merge sind verwandte
+### Rebase und Merge sind verwandt
+
+![Rebasing und Merging](11/rebasing-and-merging.png)
 
 _________________________________________
 
@@ -64,3 +66,8 @@ _________________________________________
 
 
 ### Anwendung auf **Workflows**
+
+_________________________________________
+
+
+![Feature Branching mit Rebasing](11/feature-branching-with-rebasing.png)

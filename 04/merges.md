@@ -28,7 +28,7 @@ _________________________________________
 
 _________________________________________
 
-![Verzweigungen bim Push](04/push-pull-diverging.jpg)
+![Verzweigungen bim Push](04/push-pull-diverging.png)
 _________________________________________
 
 ### Push rejected
