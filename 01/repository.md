@@ -108,8 +108,9 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
   - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
   - `diff 1a8a2 9f5c3  --stat`, Anzahl geänderter Zeilen je Datei
-  - `diff --word-diff`
   - `difftool`
+
+Optionen: `-b/--ignore-space-change`, `--word-diff`
 
 _________________________________________
 
