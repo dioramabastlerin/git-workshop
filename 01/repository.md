@@ -100,31 +100,16 @@ z. B. wenn mehrere Entwickler beteiligt waren.
 
 _________________________________________
 
-Der `diff`-Befehl mit `HEAD`-Argument zeigt die Änderungen des
-Workspace zum dem letzten Commit (`HEAD` ist der symbolische Name
-des letzten Commit).
+##  Diff
 
-    git diff HEAD
-
-Der diff-Befehl kann auch auf eine einzelne Datei angewendet werden.
-
-    git diff HEAD foo.txt
-
-Der diff-Befehl kann auch beliebige Commits vergleichen.
+Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
     git diff 7ac0f3 2f43cd
 
-_________________________________________
-
-##  Diff
-
-   - `diff`
-      - `diff 9f5c3`, vergleicht mit HEAD
-      - `diff 1a8a2 9f5c3`, 2 Versionen vergleichen
-      - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
-      - `diff --word-diff`
-   - `difftool`
-
+  - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
+  - `diff 1a8a2 9f5c3  --stat`, Anzahl geänderter Zeilen je Datei
+  - `diff --word-diff`
+  - `difftool`
 
 _________________________________________
 

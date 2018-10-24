@@ -27,6 +27,21 @@ Status abfragen nach Änderungen:
 
 _________________________________________
 
+
+Der `diff`-Befehl nur einem Parameter vergleicht geine Revision
+mit dem *Workspace*,
+
+bei `HEAD`  mit dem aktuellen Commit. HEAD ist Default, wenn keine Revision angegeben ist.
+
+    git diff HEAD
+
+Der diff-Befehl kann auch auf eine einzelne Datei angewendet werden.
+
+    git diff HEAD -- foo.txt
+
+
+_________________________________________
+
 ### Aktiver Branch
 
  * Ein Branch ist ein Zeiger auf ein Commit
