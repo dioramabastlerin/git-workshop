@@ -173,3 +173,22 @@ Ganzen Workspace zurücksetzen
 
     git stash -u
 
+_________________________________________
+
+## Übung
+
+ 1. "Alte" Datei änden, dann Commit.
+ 1. Selbe Datei ändern, dann `stash`.
+ 1. Neue Datei hinzufügen, dann Commit.
+ 1. Stash wieder zurückholen, dann Commit.
+ 1. Die hinzugefügte Datei ändern. Dann Commit.
+ 1. Die "alte" Datei umbenennen und Commit.
+ 1. Änderungen aus vorvorletzten Commit reverten (Stash-Rückholung).
+
+_________________________________________
+
+## Nach der Übung
+
+    git tag meine-loesung
+    git reset --hard origin/master
+

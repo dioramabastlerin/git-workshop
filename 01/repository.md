@@ -189,7 +189,7 @@ _________________________________________
    `.gitmodules` (in `b4db3f6`)
  * Welcher "seltsame Autor" hat beigetragen?
    Torsten Test (`git log --pretty="%an" | uniq`)
-   git
+
 _________________________________________
 
 ## Nach der Übung
