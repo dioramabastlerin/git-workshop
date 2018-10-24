@@ -37,7 +37,7 @@ _________________________________________
 
 | 1. Tag               | 2. Tag               |
 |----------------------|----------------------|
-|  9:30 - 10:45        |  9:00 - 10:15        |
+|  9:00 - 10:45        |  9:00 - 10:15        |
 | 11:00 - 12:30        | 10:30 - 12:00        |
 |     Mittag           |     Mittag           |
 | 13:30 - 14:45        | 13:00 - 14:15        |
@@ -109,7 +109,8 @@ _________________________________________
 
 ## Setup
 
- 1. Git installieren
+
+ 1. Git icd nstallieren
  2. Git-Hoster aufrufen, z. B. Gitlab
  3. User anlegen bzw. einloggen, falls User schon vorhanden ist.
  4. `git-workshop`-Projekt klonen.
