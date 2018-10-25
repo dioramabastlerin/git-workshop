@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Git Starter Kit</title>
+</head>
+
+<body>
+
+<div id="content"></div>
+
+<div id="markdown">
+
+# Heading 1
+## Heading 2
+### Heading 3
+
+* Moin
+* MOin
+
+```
+    torfnase
+    nochne torfnase
+```
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+
+    document.getElementById('content').innerHTML
+        = marked(document.getElementById('markdown').innerHTML);
+    document.getElementById('markdown').innerHTML = '';
+  </script>
+</body>
+</html>
