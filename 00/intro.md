@@ -138,6 +138,11 @@ _________________________________________
  $ git help revisions
  ```
 
+_________________________________________
+
+# Git Starter
+
+[Git Starter Kit](/git-starter-kit.html)
 
 
 
