@@ -9,29 +9,74 @@
 
 <div id="content"></div>
 
-<div id="markdown">
-
-# Heading 1
-## Heading 2
-### Heading 3
-
-* Moin
-* MOin
-
-```
-    torfnase
-    nochne torfnase
-```
-
 </div>
 
 <script src="/revealjs/plugin/markdown/marked.js"></script>
-<!--<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>-->
 <script>
 
+    const m = `
+# Git Starter Kit
+
+## Repository untersuchen
+
+Ein Repository vom Server klonen
+
+    git clone git http://0.0.0.0:8080/git/bjoern/git-workshop.git
+
+Die letzen 15 Commits ansehen
+
+    git log --oneline --graph -15
+
+    git log --follow my-file
+
+    git show HEAD~2
+
+    git checkout 3faa78
+
+    git diff
+
+    git diff 3faa78 893edc --stat
+
+
+## Commits erstellen
+
+    git status
+
+    git commit -am "Ein Commit-Kommentar"
+
+    git add my-file
+
+    git tag my-tag 3faa78
+
+## Remote Repositorys
+
+    git remote add
+
+    git remote -v
+
+    git branch -r
+
+    git push
+
+    git log origin/master..
+    git diff origin/master...
+
+## Oops
+
+    git stash -u
+    git stash pop
+
+    git revert HEAD~2
+
+    git checkout HEAD~4 -- my-file
+
+`;
+
+
     document.getElementById('content').innerHTML
-        = marked(document.getElementById('markdown').innerHTML);
-    document.getElementById('markdown').innerHTML = '';
+        = marked(m);
+//        = marked(document.getElementById('markdown').innerHTML);
   </script>
+<!--<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>-->
 </body>
 </html>
