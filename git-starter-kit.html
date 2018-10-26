@@ -3,12 +3,16 @@
 <head>
     <meta charset="utf-8"/>
     <title>Git Starter Kit</title>
+
+    <link rel="stylesheet" href="/revealjs/css/reveal.css">
+    <link rel="stylesheet" href="/revealjs/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
 </head>
 
 <body>
-
-<div id="content"></div>
-
+<div class="reveal" style="overflow: scroll">
+        <div id="content"></div>
 </div>
 
 <script src="/revealjs/plugin/markdown/marked.js"></script>
@@ -19,23 +23,37 @@
 
 ## Repository untersuchen
 
-Ein Repository vom Server klonen
+### Notation
 
-    git clone git http://0.0.0.0:8080/git/bjoern/git-workshop.git
+    05ef20d8e641f09ec24c736e97c7e5604df96c48
 
-Die letzen 15 Commits ansehen
+    05ef20d8
 
-    git log --oneline --graph -15
+    master
 
-    git log --follow my-file
+    feature/cheat-sheet
+
+Mit ^1
+
+    05ef20d8~2
+
+    05ef20d8^2
+
+### Befehle
+
+    git clone git http://0.0.0.0:8080/git/bjoern/git-workshop.git my-git-workshop
+
+    git log --oneline --graph -10
+
+    git log --follow my-file myDir/
 
     git show HEAD~2
 
-    git checkout 3faa78
-
-    git diff
+    git show HEAD~2:myfilegit
 
     git diff 3faa78 893edc --stat
+
+    git checkout 3faa78
 
 
 ## Commits erstellen
@@ -47,6 +65,8 @@ Die letzen 15 Commits ansehen
     git add my-file
 
     git tag my-tag 3faa78
+
+    git diff
 
 ## Remote Repositorys
 
