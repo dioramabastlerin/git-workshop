@@ -23,19 +23,31 @@
 
 ## Repository untersuchen
 
-### Notation
+### Notation: Rvision
+
+    git help revisions
+
+Git Versionsnummer sind SHA1-Hashes,
 
     05ef20d8e641f09ec24c736e97c7e5604df96c48
 
+und dürfen abgekürzt werden (sofern im aktuellen Repo eindeutig).
+
     05ef20d8
+
+Branche und Tags sind zeiger auf Commits (ähnliche Konvention, wie Dateinamen)
 
     master
 
+Slashes als Trenner sind üblich.
+
     feature/cheat-sheet
 
-Mit ^1
+Mit ~ erreicht man Vorgänger-Commit.
 
     05ef20d8~2
+
+Mit ^2 erreicht man den zweiten Vorgänger eines Merges.
 
     05ef20d8^2
 
@@ -43,7 +55,10 @@ Mit ^1
 
     git clone git http://0.0.0.0:8080/git/bjoern/git-workshop.git my-git-workshop
 
+
     git log --oneline --graph -10
+
+Historie über Umbenennung:
 
     git log --follow my-file myDir/
 
@@ -53,8 +68,9 @@ Mit ^1
 
     git diff 3faa78 893edc --stat
 
-    git checkout 3faa78
+Achtung `Detache HEAD` (Wenn man darauf weiter arbeiten möchte -> Branch erstellen)
 
+    git checkout 3faa78
 
 ## Commits erstellen
 
@@ -64,13 +80,15 @@ Mit ^1
 
     git add my-file
 
-    git tag my-tag 3faa78
+    git tag my-tag 3faa78 -m "Eine Nachricht"
 
     git diff
 
 ## Remote Repositorys
 
-    git remote add
+Schreibablkürzung für andere Repositorys.
+
+    git remote add my-remote https://...
 
     git remote -v
 
@@ -81,6 +99,10 @@ Mit ^1
     git log origin/master..
     git diff origin/master...
 
+    git fetch
+
+    git pull
+
 ## Oops
 
     git stash -u
@@ -89,6 +111,13 @@ Mit ^1
     git revert HEAD~2
 
     git checkout HEAD~4 -- my-file
+
+     git config --global merge.conflictstyle=diff3
+
+     git log HEAD^1..
+     git log HEAD^2..
+
+
 
 `;
 
