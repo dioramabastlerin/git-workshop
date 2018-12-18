@@ -8,10 +8,10 @@ _________________________________________
     log / show / diff / checkout
 ```
 
- * Repository
- * Workspace
  * Dezentralität, Klon
+ * Repository
  * Revision Hashes
+ * Workspace
 
 _________________________________________
 
@@ -37,7 +37,7 @@ _________________________________________
 ## Dezentrale Versionsverwaltungen
 
  * Jeder Entwickler hat einen Workspace und ein vollständiges Repository
- * Commits werden nur lokaldurchgeführt.
+ * Commits werden nur lokal durchgeführt.
  * Zwischen Repositories können Commits mit Pull und Push ausgetauscht
 werden.
  * Einzelne Repositories können als „besonders“ definiert werden und
