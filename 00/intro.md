@@ -5,6 +5,10 @@
 
 von René Preißel und Bjørn Stachman
 
+_________________________________________
+
+
+
 <font size="4">
   <a href="/?print-pdf">Print</a> / <a href="/?print-pdf&showNotes=true">Print with speaker notes
   </a>
@@ -14,7 +18,9 @@ von René Preißel und Bjørn Stachman
   <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img   alt="Creative Commons Lizenzvertrag" style="border-width:0" src="00/cc-by-nc-nd.png" /></a><br />Dieses Werk ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 International Lizenz
   </a>.
 </font>
+
 _________________________________________
+
 
 ### Inhalte
 
@@ -22,7 +28,7 @@ _________________________________________
  * Whiteboardskizzen
  * Beispiele für typische Git-Kommandoaufrufe
 
-Dies ist jedoch keine durchängig lesbase Anleitung für Git, ...
+Dies ist jedoch keine durchängig lesbare Anleitung für Git, ...
 _________________________________________
 
 ... eine solche finden Sie zum Beispiel in unserem Buch.
