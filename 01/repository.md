@@ -15,6 +15,20 @@ _________________________________________
 
 _________________________________________
 
+## Begriffe
+
+ * **Repository:** Eine Datenbank
+   - mit allen Dateien des Projekts
+   - und der Historie über alle Versionen
+   - inklusive Metadaten (Wer? Wann?)
+
+ * **Workspace** (auch **Worktree**): Ein Verzeichnis
+   - Dateien der aktuellen Version
+   - ggf. mit lokal bearbeiteten und neuen Dateien
+   - plus von Git ignorierte Dateien
+
+_________________________________________
+
 # Zentral vs. Dezentral
 
 _________________________________________
