@@ -1,43 +1,131 @@
 # Commits
-_________________________________________
-
-## Lernziel
-
-    status / add / commit -a / tag
-    stash / revert
-
- * Commits **erstellen**
- * Woraus besteht ein Commit?
-   Commit Description, Tree, Blob
- * Tags vergeben
- * **Oops!:**
-   Was tun, falls doch mal was schief geht?
 
 _________________________________________
 
-## Status
+### Lernziel
 
-Status abfragen nach Änderungen:
+Wie *erstelle* ich Commits?
 
-  * Aktiver Branch (und ggf. Synchronisationsstatus)
-  * Datei gelöscht,
-  * Datei geändert,
-  * Datei neu angelegt
-  * Ggf. Staging- und Mergekonfliktinformationen (spätere Abschnitte)
+Was genau *ist* eigentlich ein Commit?
+
+Wie *markiere* ich Commits mit *Tags*?
+
+**Oops!** Was tun, wenn mal was schief geht?
+
+_________________________________________
+
+### Lernziel (Befehle)
+
+```bash
+    # Commits erstellen
+    git status
+    git diff
+    git commit
+
+    # Änderungen hinzufügen (Staging,Index)
+    git add
+    git commit -a
+
+    # Commits mit Tags markieren
+    git tag
+
+    # Oops!
+    git stash
+    git revert
+```
+
+_________________________________________
+
+### Begriff: `HEAD`
+
+`HEAD` bezeichnet die vorige Version.
+
+(von vorigem `commit`, oder `checkout`)
+
+```bash
+git show HEAD
+```
 
 _________________________________________
 
 
-Der `diff`-Befehl nur einem Parameter vergleicht geine Revision
-mit dem *Workspace*,
+### `git status`
 
-bei `HEAD`  mit dem aktuellen Commit. HEAD ist Default, wenn keine Revision angegeben ist.
+zeigt, was im Workspace los ist:
 
-    git diff HEAD
+  * Welches ist der *aktive Branch*?
+  * Wurden Dateien (bezogen auf `HEAD`)
+    - gelöscht?
+    - bearbeitet?
+    - neu angelegt?
+  * Außerdem: Mergekonflikte, Synchr.-Status
 
-Der diff-Befehl kann auch auf eine einzelne Datei angewendet werden.
+Notes:
 
-    git diff HEAD -- foo.txt
+ * Verzeichnisse werden zusammengefasst
+ * Außerdem Änderungen bezogen auf HEAD oder Index
+
+_________________________________________
+
+### Tipp
+
+Vor wichtigen Operationen,
+
+immer checken, ob der Status *clean* ist:
+
+```bash
+    $ git status
+      ...
+    nothing to commit, working tree clean
+```
+
+Notes:
+
+ * Hinweise auf stash
+ * TODO Hinweis auf Prompts
+
+_________________________________________
+
+### `git diff`
+
+vergleicht Commits, den Workspace, den Index, Verzeichnisse und Dateien.
+
+ * **ohne Paramater:** HEAD -> Workspace
+   ```bash
+   git diff
+   ```
+
+ * **1 Parameter:** Workspace -> Commit
+   ```bash
+   git diff HEAD~2
+   ```
+
+Notes:
+
+ * Was Index/Stage ist, kommt später
+ * Diff-Format kurz zeigen und beschreiben
+_________________________________________
+
+### `git diff`
+
+ * **2 Parameter:** Commit -> Commit
+   ```bash
+   git diff HEAD~5 HEAD~2
+   ```
+
+ * **Auf Datei/Verzeichnis einschränken:**
+   ```bash
+   git diff HEAD~2 -- src/main/java/
+   ```
+
+Notes:
+
+ * Reihenfolge ist relevant. +/- vertauscht sich
+ * `difftool` zeigen
+ * `--` kann weggelassen werden, wenn es keine Namenskonflikte zwischen Datein und Commits gibt.
+
+_________________________________________
+
 
 
 _________________________________________
@@ -64,6 +152,7 @@ Alle geänderen Dateien, die bereits versioniert sind.
 Und gleich mit Message:
 
     git commit -am "Edit some files."
+
 _________________________________________
 
 ### Commit - neue Dateien
