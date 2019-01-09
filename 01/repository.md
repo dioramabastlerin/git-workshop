@@ -162,6 +162,37 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
 
 _________________________________________
 
+### Ref - Zeiger auf ein Commit
+
+Ein *Ref* ist ein Zeiger auf ein Commit.
+Der Log-Befehl zeigt die Refs idR. mit an, d. h. `--decorate` kann weggelassen werden.
+
+```bash
+git log --decorate --oneline
+
+1d8425c (HEAD -> master, tag: testtag) Add content to commits chapter.
+bb00978 (origin/master) Add content to repository chapter.
+```
+
+
+z. B.
+
+ * `HEAD`
+ * `master` (Branch)
+ * weitere Branches
+ * Tags
+
+_________________________________________
+
+## Branches und Tags anzeigen
+
+```bash
+git branch
+
+git tag
+```
+_________________________________________
+
 ## Elementare Begriffe
 
 Mitreden, wo es um Git geht
@@ -170,6 +201,7 @@ Mitreden, wo es um Git geht
    * Klon
    * Commit, Revision, Revision-Hash
    * Tree
+   * Ref, Branch, Tag
 
 _________________________________________
 

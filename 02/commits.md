@@ -124,9 +124,6 @@ Notes:
  * `difftool` zeigen
  * `--` kann weggelassen werden, wenn es keine Namenskonflikte zwischen Datein und Commits gibt.
 
-_________________________________________
-
-
 
 _________________________________________
 
