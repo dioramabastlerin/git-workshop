@@ -59,7 +59,7 @@ _________________________________________
 
 ### Klonen
 
-Mit dem clone-Befehl können Repository geklont werden. Dabei werden alle
+Mit dem clone-Befehl können Repositorys geklont werden. Dabei werden alle
 Objekte (Blobs, Commits, Branches, Tags) kopiert.
 
 ```
@@ -121,7 +121,7 @@ _________________________________________
 
 ### Remote Refs - Ahead/Behind
 
-*Remote Refs* ermöglichen, lokale Stände mit entfernten zu vergleichen.
+*Remote Refs* ermöglichen, lokale Stände mit fernen Repository zu vergleichen.
 
 ```bash
     $ git status
