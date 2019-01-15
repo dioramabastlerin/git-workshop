@@ -3,18 +3,32 @@
 _________________________________________
 
 
-## Lernziele
+## Lernziel
 
-```bash
-  merge | mergetool | HEAD | MERGE_HEAD
-  log --all --graph | log branchA..branchB
-```
 
- * `master` vs. `origin/master`
  * Commit-Graph
+   - `master` vs. `origin/master`
  * 3-Wege-Merge
  * Mergekonflikte
+   - `HEAD` | `MERGE_HEAD`
  * Fast-Forwards
+
+_________________________________________
+
+### Lernziel (Befehle)
+
+
+```bash
+  git log --all --graph
+
+  git merge
+
+  git mergetool
+
+  git log branchA..branchB
+  git log HEAD^1..HEAD^2
+```
+
 
 _________________________________________
 
