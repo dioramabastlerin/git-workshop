@@ -7,13 +7,33 @@ import java.io.File
 import java.util.stream.Stream
 import kotlin.streams.toList
 
-class GitSampleBuilderTest : StringSpec( {
+class GitSampleBuilderTest : StringSpec({
 
     "sandbox"  {
         GitSamplesBuilder(testDir()).run {
             clear()
-            inDir("base") {
-                show("ls -lah ..")
+
+            val serverRepo = createServerRepo() {
+                execute("touch myfile")
+                git("add myfile")
+                git("commit -m add-my-file")
+            }
+
+
+            val alice = clone(serverRepo, "alice") {
+                show("git log --oneline")
+            }
+
+            val bob = clone(serverRepo, "bob") {
+                execute("touch bobsfile")
+                git("add bobsfile")
+                git("commit -m add-bobsfile-file")
+                git("push")
+            }
+
+            inRepo(alice) {
+                show("git pull")
+                show("ls -lah")
             }
         }
     }
@@ -33,7 +53,6 @@ class GitSampleBuilderTest : StringSpec( {
 
 private fun TestContext.testDir() = File("build/tests/${this.description().name}")
 
-
 class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
 
 
@@ -49,8 +68,6 @@ class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
 
 
     fun execute(command: String): Stream<String> = executeRaw(command, false).inputStream.bufferedReader().lines()
-
-    fun git(gitCommand: String): Stream<String> = execute("git $gitCommand")
 
     fun show(command: String): Process = executeRaw(command, true)
 
@@ -75,8 +92,44 @@ class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
 
 
     fun inDir(subDir: String, function: GitSamplesBuilder.() -> Unit) {
-        GitSamplesBuilder(File(workingDir, subDir)).run(function)
+        inDir(File(workingDir, subDir), function)
+    }
+
+    fun inDir(dir: File, function: GitSamplesBuilder.() -> Unit) {
+        GitSamplesBuilder(dir).run(function)
+    }
+
+    fun git(gitCommand: String): Stream<String> = execute("git $gitCommand")
+
+
+    fun createServerRepo(newRepBasename: String = "server", function: GitSamplesBuilder.() -> Unit): GitRepo {
+        val tmpDirName = ".$newRepBasename"
+        inDir(tmpDirName) {
+            git("init")
+            function()
+        }
+
+        val serverRepoName = "$newRepBasename.git"
+        git("clone --bare $tmpDirName $serverRepoName")
+        return GitRepo(File(workingDir, serverRepoName).absoluteFile)
+    }
+
+
+    fun clone(origin: GitRepo, to: String, function: GitSamplesBuilder.() -> Unit): GitRepo {
+        git("clone ${origin.rootDir} $to")
+        inDir(to, function)
+        return GitRepo(File(workingDir, to).absoluteFile)
+    }
+
+
+    fun inRepo(repo: GitRepo, function: GitSamplesBuilder.() -> Unit) {
+        inDir(repo.rootDir, function)
     }
 
 
 }
+
+data class GitRepo(val rootDir: File) {
+    val name: String get() = rootDir.name
+}
+
