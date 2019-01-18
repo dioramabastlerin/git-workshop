@@ -4,99 +4,114 @@ _________________________________________
 
 ## Lernziel
 
-```
-    log / show / diff / checkout
-```
+Was findet man in einem Git-Repository? Wie untersucht man es?
 
- * Dezentralität, Klon
  * Repository
- * Revision Hashes
+    * Commit-Graph: Commit, Tree, File (Blob)
+    * Branches und Tags (Refs)
  * Workspace
 
 _________________________________________
 
-## Begriffe
+### Lernziel (Befehle)
 
- * **Repository:** Eine Datenbank
-   - mit allen Dateien des Projekts
-   - und der Historie über alle Versionen
-   - inklusive Metadaten (Wer? Wann?)
+```bash
+    # Commit-Graph
+    git log
+    git show
+    git diff
 
- * **Workspace** (auch **Worktree**): Ein Verzeichnis
-   - Dateien der aktuellen Version
-   - ggf. mit lokal bearbeiteten und neuen Dateien
-   - plus von Git ignorierte Dateien
+    # Refs
+    git branch -v
+    git tag
 
-_________________________________________
-
-# Zentral vs. Dezentral
-
-_________________________________________
-
-
- * ![Zentral vs. dezentral](01/zentral-dezentral.jpg)
-
+    # Workspace
+    git checkout
+```
 
 _________________________________________
 
-## Zentrale Versionsverwaltungen
+## Übung
 
- * Entwickler-Workspaces enthalten nur die aktuelle Version.
- * Zentrales Repository enthält historische Informationen und verwaltet
-Branches und Tags.
- * Alle Commits und Updates erfordern den Zugriff auf einen zentralen Server.
+Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um es zu untersuchen.
 
-_________________________________________
-
-## Dezentrale Versionsverwaltungen
-
- * Jeder Entwickler hat einen Workspace und ein vollständiges Repository
- * Commits werden nur lokal durchgeführt.
- * Zwischen Repositories können Commits mit Pull und Push ausgetauscht
-werden.
- * Einzelne Repositories können als „besonders“ definiert werden und
-halten den offiziellen Stand („Blessed Repository“).
-
+```bash
+    git clone <server-url>/git-workshop.git
+    cd git-workshop
+    ls -lah
+```
 
 _________________________________________
 
-## Vorteile
 
- * Hohe Performance
-  Die meisten Operationen finden lokal auf dem Rechner des Entwicklers statt.
- * Offline Fähigkeit
-   Commits, Branches, Tags können auch ohneSerververbindung durchgeführt werden.
- * Effiziente Arbeitsweisen
-   Lokale Branches und Tags erleichtern den Entwickler-Alltag.
- * Automatische Backups
-   Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
+Zwei Dinge sind aufgetaucht:
 
-_________________________________________
+ 1. Das **Repository**
 
-### Was ist drin, im Repository?
+    (in `git-workshop/.git`)
 
- * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
- * `--oneline`
-     - `log -3` Ausgabe limitieren
-     - `log <file>`
-   - Aktuelle Version und Vorgänger: `HEAD`, `HEAD~1`, `HEAD~2`
- * `--all`, `--graph`
+ 1. Der **Workspace**
 
+    (alle anderen Dateien unter `git-workshop`)
 
 
 _________________________________________
 
-## Commit
+## Repository
 
-(Synonym: Revision)
+Damit Git **dezentral** (unabhängig vom Server) arbeiten kann enthälte es eine Datenbank
+
+ * alle **Versionen** aller Dateien über die **volle Historie**
+
+Außerdem:
+
+ * **Metadaten**: Wer? Wann?
+ * Projektdaten
+   - **Branches** (falls parallel an verschiedenen Versionen gearbeitet wird)
+   - **Releases** (genannt *Tags*)
+
+_________________________________________
 
 
- * **Tree** - exakter Stand aller versionierten Dateien und Verzeichnisse
+### Commits/Revisions
+
+Ein Versionsstand eines Projekts wird *Commit* (Synonym *Revision*) genannt.
+
+In einem Repository ist immer (höchsten) ein Commit aktiv, dieses nennt man `HEAD`.
+
+
+_________________________________________
+
+## Befehle zum Untersuchen von Commits
+
+```bash
+    # show zeigt detaillierte Informationen zu Commits
+    git show HEAD
+    git show HEAD:README         # Inhalt der Datei
+    git show --pretty=raw HEAD   # Was Git in der DB hat
+
+    # mit ls-tree kann man den Verzeichnisbaum untersuchen
+    git ls-tree -r HEAD
+    git ls-tree --abbrev HEAD src/main/java
+```
+
+_________________________________________
+
+Ein *Commit* enthält
+
+ * **Tree**
+
+   Exakter Stand aller versionierten Dateien in ihren Verzeichnissen
+
  * **Metadaten**
+
      - Autor und Zeitpunkt der Änderung
      - Message: Beschreibung der Änderung
      - Parent(s): Vorgängerversion(en)
- * **Revision Hash** - Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
+
+ * **Revision Hash**
+
+   Prüfsumme über Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
 
 _________________________________________
 
@@ -111,6 +126,20 @@ Die Historie kann verzweigungen enthalten,
 z. B. wenn mehrere Entwickler beteiligt waren.
 
 `git log --graph` stellt diese Verzweigungen dar.
+
+_________________________________________
+
+
+
+### Was ist drin, im Repository?
+
+ * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
+ * `--oneline`
+     - `log -3` Ausgabe limitieren
+     - `log <file>`
+   - Aktuelle Version und Vorgänger: `HEAD`, `HEAD~1`, `HEAD~2`
+ * `--all`, `--graph`
+
 
 _________________________________________
 
@@ -134,6 +163,21 @@ _________________________________________
       - `show 9f5c3`
       - `show 1a8a24a:protokoll.md`
    - `ls-tree` zeigt Verzeichnisinhalte im Commit-Tree
+
+
+_________________________________________
+
+## Workspace
+
+Hier kann man Folgendes finden:
+
+ * Dateien des gerade akutellen Projektstandes (`HEAD`)
+   - die können lokal bearbeitet werden
+ * noch unversionierte Dateien
+ * von Git ignorierte Dateien
+
+
+
 
 _________________________________________
 
