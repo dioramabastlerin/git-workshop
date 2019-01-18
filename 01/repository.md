@@ -124,6 +124,8 @@ Bis auf das Erste haben alle Commits einen Parent.
 Die Historie ist die Menge aller Vorfahren eines Commits.
 Sie kann Verzweigungen enthalten,
 z. B. wenn mehrere Entwickler parallel gearbeitet haben.
+Mit `~` kann man Vorfahren adressieren.
+
 
 ```bash
     # log zeigt die Historie
@@ -131,44 +133,29 @@ z. B. wenn mehrere Entwickler parallel gearbeitet haben.
     git log HEAD -- README    # Historie einer Datei
     git log --oneline HEAD
     git log --graph HEAD
+
+    git show HEAD~2          # vorvorletztet Commit
 ```
 
-_________________________________________
-
-
-
-### Was ist drin, im Repository?
-
- * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
- * `--oneline`
-     - `log -3` Ausgabe limitieren
-     - `log <file>`
-   - Aktuelle Version und Vorgänger: `HEAD`, `HEAD~1`, `HEAD~2`
- * `--all`, `--graph`
-
 
 _________________________________________
 
-##  Diff
+## `diff`: Versionen vergleichen
 
-Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
-    git diff 7ac0f3 2f43cd
+```bash
+    # diff vergleicht zwei Commits
+    git diff HEAD~4 HEAD
+    git diff 1a8a2 9f5c3 -- inhalt.md  # einzelne Datei
+    git diff 1a8a2 9f5c3 --stat        # Überblick
+    git diff HEAD~3                    # Vergleich mit HEAD
 
-  - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
-  - `diff 1a8a2 9f5c3  --stat`, Anzahl geänderter Zeilen je Datei
-  - `difftool`
+
+    # externes tool nutzen
+    git difftool HEAD~4 HEAD
+```
 
 Optionen: `-b/--ignore-space-change`, `--word-diff`
-
-_________________________________________
-
-##  Weitere Befehle zum untersuchen der Historie
-
-   - `show` zeigt Details zu einem Commit
-      - `show 9f5c3`
-      - `show 1a8a24a:protokoll.md`
-   - `ls-tree` zeigt Verzeichnisinhalte im Commit-Tree
 
 
 _________________________________________
@@ -177,12 +164,10 @@ _________________________________________
 
 Hier kann man Folgendes finden:
 
- * Dateien des gerade akutellen Projektstandes (`HEAD`)
+ * Dateien des gerade aktuellen Projektstandes (`HEAD`)
    - die können lokal bearbeitet werden
  * noch unversionierte Dateien
  * von Git ignorierte Dateien
-
-
 
 
 _________________________________________
@@ -232,6 +217,8 @@ z. B.
  * weitere Branches
  * Tags
 
+
+    git log --all --graph
 _________________________________________
 
 ## Branches und Tags anzeigen
