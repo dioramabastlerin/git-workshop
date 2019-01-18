@@ -1,11 +1,12 @@
-# Klone und Remotes
+# Dezentralität, Klone und Remotes
+
 
 _________________________________________
 
 ## Lernziel
 
 
- * Dezentralität, Klon
+ * Dezentralität, Klone
  * Wie klone ich Repositorys?
  * Repository-URLs und der `origin`
  * `push` und `pull` oder wie synchronisiert man Repos?
@@ -15,8 +16,6 @@ _________________________________________
 _________________________________________
 
 ### Lernziel (Befehle)
-
-
 
 ```bash
     # Commits erstellen
@@ -32,9 +31,11 @@ _________________________________________
     git push
 ```
 
+
 _________________________________________
 
 # Zentral vs. Dezentral
+
 
 _________________________________________
 
@@ -50,6 +51,7 @@ _________________________________________
  * Zentrales Repository enthält historische Informationen und verwaltet
 Branches und Tags.
  * Alle Commits und Updates erfordern den Zugriff auf einen zentralen Server.
+
 
 _________________________________________
 
@@ -76,9 +78,6 @@ _________________________________________
  * Automatische Backups
    Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
 
-_________________________________________
-
-
 
 _________________________________________
 
@@ -102,7 +101,6 @@ Notes:
 Es gibt noch mehr Möglichkeiten.
 
 
-
 _________________________________________
 
 
@@ -115,12 +113,14 @@ Objekte (Blobs, Commits, Branches, Tags) kopiert.
 $ git clone https://<server>/<pfad>/git-training-protocol.git
 ```
 
+
 _________________________________________
 
 
 ### Klonen - Bare Repository
 
  * Bare-Repository: `clone --bare` erzeugt ein Repository ohne Workspace
+
 
 _________________________________________
 
@@ -131,11 +131,9 @@ _________________________________________
  * Tipp: `--reference` (Schneller klonen bei großen Repos)
 
 
-
 _________________________________________
 
 ## Remote Repositories
-
 
 Anzeigen, woher geklont wurde (`origin`)
 
@@ -214,6 +212,7 @@ Wie funktioniert die Synchronisation?
 
 ![Trees and Object Store](03/trees-and-object-storage.jpg)
 
+
 _________________________________________
 
 ### Push
@@ -248,6 +247,7 @@ Oder genauer:
 ```
 
 Berührt weder Workspace, noch den aktiven Branch.
+
 
 _________________________________________
 
