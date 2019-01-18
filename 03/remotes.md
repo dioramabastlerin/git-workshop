@@ -34,7 +34,7 @@ _________________________________________
 
 _________________________________________
 
-# Zentral vs. Dezentral
+## Zentral vs. Dezentral
 
 
 _________________________________________
@@ -78,6 +78,18 @@ _________________________________________
  * Automatische Backups
    Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
 
+_________________________________________
+
+### Klonen
+
+Mit dem clone-Befehl können Repositorys geklont werden.
+Dabei werden alle Objekte (Blobs, Commits, Branches, Tags) kopiert.
+Ein Workspace wird mit dem `HEAD`-Stand initialisiert.
+
+```
+$ git clone https://<server>/<pfad>/git-training-protocol.git
+```
+
 
 _________________________________________
 
@@ -102,20 +114,6 @@ Es gibt noch mehr Möglichkeiten.
 
 
 _________________________________________
-
-
-### Klonen
-
-Mit dem clone-Befehl können Repositorys geklont werden. Dabei werden alle
-Objekte (Blobs, Commits, Branches, Tags) kopiert.
-
-```
-$ git clone https://<server>/<pfad>/git-training-protocol.git
-```
-
-
-_________________________________________
-
 
 ### Klonen - Bare Repository
 
