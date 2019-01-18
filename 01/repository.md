@@ -95,6 +95,8 @@ _________________________________________
     git ls-tree --abbrev HEAD src/main/java
 ```
 
+Tipp: `HEAD` ist bei vielen Befehlen der Default-Wert und kann oft weggelassen werden.
+
 _________________________________________
 
 Ein *Commit* enthält
@@ -116,16 +118,20 @@ Ein *Commit* enthält
 _________________________________________
 
 
-### Historie
+### Das Log / die Historie
 
-Die Historie die die Menge aller Vorfahren eines Commits.
+Bis auf das Erste haben alle Commits einen Parent.
+Die Historie ist die Menge aller Vorfahren eines Commits.
+Sie kann Verzweigungen enthalten,
+z. B. wenn mehrere Entwickler parallel gearbeitet haben.
 
-`git log master` zeigt alle Commits, die zur Entstehung des aktuellen Master-Standas beigetragen haben.
-
-Die Historie kann verzweigungen enthalten,
-z. B. wenn mehrere Entwickler beteiligt waren.
-
-`git log --graph` stellt diese Verzweigungen dar.
+```bash
+    # log zeigt die Historie
+    git log HEAD
+    git log HEAD -- README    # Historie einer Datei
+    git log --oneline HEAD
+    git log --graph HEAD
+```
 
 _________________________________________
 
