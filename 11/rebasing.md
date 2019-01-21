@@ -1,6 +1,6 @@
 # Rebasing
 
-_________________________________________
+---
 
 ## Lernziele
 
@@ -12,13 +12,13 @@ _________________________________________
  * **Risiken** und Nebenwirkungen
  * **Interaktives Rebasing**
 
-_________________________________________
+---
 
 ### Rebase und Merge sind verwandt
 
-![Rebasing und Merging](11/rebasing-and-merging.png)
+![Rebasing und Merging](rebasing-and-merging.png)
 
-_________________________________________
+---
 
 ### Rebase - Anwendung
 
@@ -36,13 +36,13 @@ Ohne Parameter: Upstream Branch.
 
     git rebase
 
-_________________________________________
+---
 
 ### Rebase - Konflikte
 
  * theirs vs. ours
 
-_________________________________________
+---
 
 
 ## Risiken und Nebenwirkungen
@@ -51,7 +51,7 @@ _________________________________________
 
 ### (Un-)sichtbarkeit von Integrationen
 
-_________________________________________
+---
 
 
 ### Verwandte Befehle
@@ -62,12 +62,12 @@ _________________________________________
  * `filter-branch`
 
 
-_________________________________________
+---
 
 
 ### Anwendung auf **Workflows**
 
-_________________________________________
+---
 
 
-![Feature Branching mit Rebasing](11/feature-branching-with-rebasing.png)
+![Feature Branching mit Rebasing](feature-branching-with-rebasing.png)

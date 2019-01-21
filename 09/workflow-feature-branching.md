@@ -1,10 +1,10 @@
 # Workflow
 ## Feature Branching
-_________________________________________
+---
 
-![Feature-Branching](09/workflow-feature-branching.png)
+![Feature-Branching](workflow-feature-branching.png)
 
-_________________________________________
+---
 
 # In Features entwickeln
 

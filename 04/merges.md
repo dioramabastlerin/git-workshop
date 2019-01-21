@@ -1,6 +1,6 @@
 # Merges
 
-_________________________________________
+---
 
 
 ## Lernziel
@@ -13,7 +13,7 @@ _________________________________________
    - `HEAD` | `MERGE_HEAD`
  * Fast-Forwards
 
-_________________________________________
+---
 
 ### Lernziel (Befehle)
 
@@ -30,7 +30,7 @@ _________________________________________
 ```
 
 
-_________________________________________
+---
 
 ### Wie entstehen Verzweigungen im Commit-Graphen?
 
@@ -40,10 +40,19 @@ _________________________________________
  1. B pushed zuerst (und gewinnt!)
  1. A versucht zu pushen, aber ...
 
-_________________________________________
+---
 
-![Verzweigungen bim Push](04/push-pull-diverging.png)
-_________________________________________
+absolut
+
+![Verzweigungen bim Push](http:/push-pull-diverging.png)
+ 1. A versucht zu pushen, aber ...
+
+---
+
+relativ
+
+![Verzweigungen bim Push](push-pull-diverging.png)
+---
 
 ### Push rejected
 
@@ -55,7 +64,7 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 
 -> Der Konflikt muss jetzt lokal aufgelöst werden!
 
-_________________________________________
+---
 
 ### Merge
 
@@ -63,13 +72,13 @@ _________________________________________
 
     git merge origin/master
 
-_________________________________________
+---
 
 ### 3-Wege-Merge
 
-![3-Wege-Merge](04/3-wege-merge.png)
+![3-Wege-Merge](3-wege-merge.png)
 
-_________________________________________
+---
 
 ### Eigenschaften des Merge
 
@@ -83,7 +92,7 @@ Aus dem Merge entsteht idR. ein Commit:
  * Das Merge Commit kann frei bearbeitet werden (`--no-commit`, dann manuelles commit)
 
 
-_________________________________________
+---
 
 ### Merge und Diff
 
@@ -94,18 +103,18 @@ Die "Stimmgabel"
 
 Welches Diff ich sehe, hängt davon ab, von wo ich schaue.
 
-_________________________________________
+---
 
 ### Merge - Fast Forward
 
 
 Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-forward*:
 
-_________________________________________
+---
 
-![Fast-Forward](04/fast-forward.jpg)
+![Fast-Forward](fast-forward.jpg)
 
-_________________________________________
+---
 
 
     git merge --no-ff
@@ -115,7 +124,7 @@ _________________________________________
  `fast-forward` 34
 
 
-_________________________________________
+---
 
 ### Merge - Konflikt
 
@@ -128,21 +137,21 @@ _________________________________________
 
 `merge` 29,30,31,43,44
 
-_________________________________________
+---
 
-![Merges mildern](04/merges-mildern.jpg)
+![Merges mildern](merges-mildern.jpg)
 
-_________________________________________
+---
 
 Wenn man einem Merge per `revert` rückgängig macht,
        muss man dieses später mit einem weiteren `revert` rückgängig machen,
        um die Änderungen zu reaktivieren
 
-_________________________________________
+---
 
-![Reverting Merges](04/reverting-merges.jpg)
+![Reverting Merges](reverting-merges.jpg)
 
-_________________________________________
+---
 
 
 [Renames und Merges](renames-und-merges.md)

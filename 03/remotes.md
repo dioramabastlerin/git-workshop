@@ -1,6 +1,6 @@
 # Remotes
 
-_________________________________________
+---
 
 ## Lernziel
 
@@ -11,7 +11,7 @@ _________________________________________
  * Hosting: GitHub, GitLab & Co.
 
 
-_________________________________________
+---
 
 ### Lernziel (Befehle)
 
@@ -31,7 +31,7 @@ _________________________________________
     git push
 ```
 
-_________________________________________
+---
 
 ## Repository URLs
 
@@ -54,7 +54,7 @@ Es gibt noch mehr Möglichkeiten.
 
 
 
-_________________________________________
+---
 
 
 ### Klonen
@@ -66,14 +66,14 @@ Objekte (Blobs, Commits, Branches, Tags) kopiert.
 $ git clone https://<server>/<pfad>/git-training-protocol.git
 ```
 
-_________________________________________
+---
 
 
 ### Klonen - Bare Repository
 
  * Bare-Repository: `clone --bare` erzeugt ein Repository ohne Workspace
 
-_________________________________________
+---
 
 
 ### Klonen - Performance
@@ -83,7 +83,7 @@ _________________________________________
 
 
 
-_________________________________________
+---
 
 ## Remote Repositories
 
@@ -97,14 +97,14 @@ git remote add mein-backup /backup/sample-repo.git
 ```
 
 
-_________________________________________
+---
 
 ### Erinnerung: Ref - Zeiger auf ein Commit
 
 Branches sind Zeiger auf Commits, z. B. `myfeature`, `master`
 
 
-_________________________________________
+---
 
 ### Remote Refs
 
@@ -117,7 +117,7 @@ git show origin/master        # origin nach letztem Synch
 ```
 
 
-_________________________________________
+---
 
 ### Remote Refs - Ahead/Behind
 
@@ -136,7 +136,7 @@ _________________________________________
 ```
 
 
-_________________________________________
+---
 
 
 ### Synchronisation
@@ -158,14 +158,14 @@ Notes:
 Man kann auch mit unrelated Repos synchen.
 
 
-_________________________________________
+---
 
 
 Wie funktioniert die Synchronisation?
 
-![Trees and Object Store](03/trees-and-object-storage.jpg)
+![Trees and Object Store](trees-and-object-storage.jpg)
 
-_________________________________________
+---
 
 ### Push
 
@@ -182,7 +182,7 @@ git push origin master
 Achtung: `origin master` (Remote + lokaler branch) nicht `origin/master`
 
 
-_________________________________________
+---
 
 ### Fetch
 
@@ -200,7 +200,7 @@ Oder genauer:
 
 Berührt weder Workspace, noch den aktiven Branch.
 
-_________________________________________
+---
 
 ### Pull
 

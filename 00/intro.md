@@ -5,7 +5,7 @@
 
 von René Preißel und Bjørn Stachman
 
-_________________________________________
+---
 
 
 
@@ -19,7 +19,7 @@ _________________________________________
   </a>.
 </font>
 
-_________________________________________
+---
 
 
 ### Inhalte
@@ -29,15 +29,15 @@ _________________________________________
  * Beispiele für typische Git-Kommandoaufrufe
 
 Dies ist jedoch keine durchängig lesbare Anleitung für Git, ...
-_________________________________________
+---
 
 ... eine solche finden Sie zum Beispiel in unserem Buch.
 
-<img src="00/git-buch.png" width="20%"/>
+<img src="git-buch.png" width="20%"/>
 
 Weitere Informationen finden Sie in unserem Blog [Kapitel 26](http://kapitel26.github.io).
 
-_________________________________________
+---
 
 ## Zeiten
 
@@ -50,19 +50,19 @@ _________________________________________
 | 15:00 - 15:45        | 13:00 - 14:15        |
 | 16:00 - 17:00        | 14:30 - 16:00        |
 
-_________________________________________
+---
 
 
 # Inhalte
 
 (ESC-Taste drücken)
 
-_________________________________________
+---
 
 
 # Setup
 
-_________________________________________
+---
 
 ## Lernziel für diesen Abschnitt
 
@@ -76,7 +76,7 @@ _________________________________________
    Dezentral, Performant, Robust, Validierbar, Open-Source + breites Tooling
  * Setup: Git installieren, konfigurieren und Hilfe finden
 
-_________________________________________
+---
 
 
 > Subversion used to say it is CVS done right:
@@ -87,7 +87,7 @@ _________________________________________
 (Linus Torvalds, Mai 2007)
 
 
-_________________________________________
+---
 
 
 Initiale Entwicklung durch Linus Torvalds (ab 2005)
@@ -98,7 +98,7 @@ Versionsverwaltung für die Linux Kernel Entwicklung
  * Viele Patches
  * Parallele Entwicklung
 
-_________________________________________
+---
 
 
 ## Warum Git?
@@ -111,7 +111,7 @@ _________________________________________
   * Easy to Contribute
   * Quasi-Standard: Viele Projekte und Unternehmen nutzen Git
 
-_________________________________________
+---
 
 ## Setup
 
@@ -121,7 +121,7 @@ _________________________________________
  3. User anlegen bzw. einloggen, falls User schon vorhanden ist.
  4. `git-workshop`-Projekt klonen.
 
-_________________________________________
+---
 
  ## Setup
 
@@ -129,7 +129,7 @@ _________________________________________
     config --global user.email <Ihre-Email>
     config --global user.name <Ihr-Name>
  ```
-_________________________________________
+---
 
 
  ## Hilfe und Infos zu Git
@@ -144,11 +144,14 @@ _________________________________________
  $ git help revisions
  ```
 
-_________________________________________
+---
 
 # Git Starter
 
 [Git Starter Kit](/git-starter-kit.html)
+
+
+---
 
 
 

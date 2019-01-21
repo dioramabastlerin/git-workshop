@@ -1,5 +1,6 @@
 # Module
-_________________________________________
+
+---
 
 ## Lernziele
 
@@ -17,7 +18,7 @@ _________________________________________
    - arbeiten mit dem Subtree
  * Integrieren eines anderen Repos (z. B. subtree/submodule) als Unterverzeichnis.
 
-_________________________________________
+---
 
 ## Neues Repo
 

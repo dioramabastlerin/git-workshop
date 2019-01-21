@@ -1,6 +1,9 @@
+
+
+
 # Repository
 
-_________________________________________
+---
 
 ## Lernziel
 
@@ -13,7 +16,7 @@ _________________________________________
  * Revision Hashes
  * Workspace
 
-_________________________________________
+---
 
 ## Begriffe
 
@@ -27,17 +30,17 @@ _________________________________________
    - ggf. mit lokal bearbeiteten und neuen Dateien
    - plus von Git ignorierte Dateien
 
-_________________________________________
+---
 
 # Zentral vs. Dezentral
 
-_________________________________________
+---
 
 
- * ![Zentral vs. dezentral](01/zentral-dezentral.jpg)
+ * ![Zentral vs. dezentral](zentral-dezentral.jpg)
 
 
-_________________________________________
+---
 
 ## Zentrale Versionsverwaltungen
 
@@ -46,7 +49,7 @@ _________________________________________
 Branches und Tags.
  * Alle Commits und Updates erfordern den Zugriff auf einen zentralen Server.
 
-_________________________________________
+---
 
 ## Dezentrale Versionsverwaltungen
 
@@ -58,7 +61,7 @@ werden.
 halten den offiziellen Stand („Blessed Repository“).
 
 
-_________________________________________
+---
 
 ## Vorteile
 
@@ -71,7 +74,7 @@ _________________________________________
  * Automatische Backups
    Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
 
-_________________________________________
+---
 
 ### Was ist drin, im Repository?
 
@@ -84,7 +87,7 @@ _________________________________________
 
 
 
-_________________________________________
+---
 
 ## Commit
 
@@ -98,7 +101,7 @@ _________________________________________
      - Parent(s): Vorgängerversion(en)
  * **Revision Hash** - Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
 
-_________________________________________
+---
 
 
 ### Historie
@@ -112,7 +115,7 @@ z. B. wenn mehrere Entwickler beteiligt waren.
 
 `git log --graph` stellt diese Verzweigungen dar.
 
-_________________________________________
+---
 
 ##  Diff
 
@@ -126,7 +129,7 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
 Optionen: `-b/--ignore-space-change`, `--word-diff`
 
-_________________________________________
+---
 
 ##  Weitere Befehle zum untersuchen der Historie
 
@@ -135,7 +138,7 @@ _________________________________________
       - `show 1a8a24a:protokoll.md`
    - `ls-tree` zeigt Verzeichnisinhalte im Commit-Tree
 
-_________________________________________
+---
 
 ## Checkout: Repository -> Workspace
 
@@ -150,7 +153,7 @@ Argument HEAD verwendet. ACHTUNG: „checkout HEAD“ ohne Dateiname verwirft ni
     git checkout HEAD foo.txt #Änderung einer Datei verwerfen
     git checkout HEAD . #Alle geänderten und gelöschten Dateien wiederherstellen
 
-_________________________________________
+---
 
 ## Checkout
 
@@ -160,7 +163,7 @@ Auf eine ältere Version zurückgehen
 
 ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnvoll weiterbearbeiten. Dazu benötigt man einen Branch (späteres Kapitel).
 
-_________________________________________
+---
 
 ### Ref - Zeiger auf ein Commit
 
@@ -182,7 +185,7 @@ z. B.
  * weitere Branches
  * Tags
 
-_________________________________________
+---
 
 ## Branches und Tags anzeigen
 
@@ -191,7 +194,7 @@ git branch
 
 git tag
 ```
-_________________________________________
+---
 
 ## Elementare Begriffe
 
@@ -203,7 +206,7 @@ Mitreden, wo es um Git geht
    * Tree
    * Ref, Branch, Tag
 
-_________________________________________
+---
 
 ## Übung: Repository untersuchen
 
@@ -211,7 +214,7 @@ Starten mit:
 
      git checkout uebung/repository
 
-_________________________________________
+---
 
 ## Übung: Fragen
 
@@ -221,7 +224,7 @@ _________________________________________
  * Welches Datei wurde im "Ur-Commit" hinzugefügt?
  * Welcher "seltsame Autor" hat beigetragen?
 
-_________________________________________
+---
 
 ## Übung: Anworten
 
@@ -236,7 +239,7 @@ _________________________________________
  * Welcher "seltsame Autor" hat beigetragen?
    Torsten Test (`git log --pretty="%an" | uniq`)
 
-_________________________________________
+---
 
 ## Nach der Übung
 

@@ -1,14 +1,14 @@
 # Workflow
 ## Auf dem `master` entwickeln
 
-_________________________________________
+---
 
 
 ### Pull = Fetch + Merge
 
     git pull
 
-_________________________________________
+---
 
 Was wurde reingemerged?
 

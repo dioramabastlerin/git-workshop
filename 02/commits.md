@@ -1,6 +1,6 @@
 # Commits
 
-_________________________________________
+---
 
 ### Lernziel
 
@@ -12,7 +12,7 @@ Wie *markiere* ich Commits mit *Tags*?
 
 **Oops!** Was tun, wenn mal was schief geht?
 
-_________________________________________
+---
 
 ### Lernziel (Befehle)
 
@@ -34,7 +34,7 @@ _________________________________________
     git revert
 ```
 
-_________________________________________
+---
 
 ### Begriff: `HEAD`
 
@@ -46,7 +46,7 @@ _________________________________________
 git show HEAD
 ```
 
-_________________________________________
+---
 
 
 ### `git status`
@@ -65,7 +65,7 @@ Notes:
  * Verzeichnisse werden zusammengefasst
  * Außerdem Änderungen bezogen auf HEAD oder Index
 
-_________________________________________
+---
 
 ### Tipp
 
@@ -84,7 +84,7 @@ Notes:
  * Hinweise auf stash
  * TODO Hinweis auf Prompts
 
-_________________________________________
+---
 
 ### `git diff`
 
@@ -104,7 +104,7 @@ Notes:
 
  * Was Index/Stage ist, kommt später
  * Diff-Format kurz zeigen und beschreiben
-_________________________________________
+---
 
 ### `git diff`
 
@@ -125,7 +125,7 @@ Notes:
  * `--` kann weggelassen werden, wenn es keine Namenskonflikte zwischen Datein und Commits gibt.
 
 
-_________________________________________
+---
 
 ### Aktiver Branch
 
@@ -134,7 +134,7 @@ _________________________________________
  * Default `master`
  * Neues Commit: Zeiger des aktiven Branches wird aktualisiert.
 
-_________________________________________
+---
 
 ### Commit - geänderte Dateien
 
@@ -150,7 +150,7 @@ Und gleich mit Message:
 
     git commit -am "Edit some files."
 
-_________________________________________
+---
 
 ### Commit - neue Dateien
 
@@ -165,7 +165,7 @@ Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen 
 Dann Commit, wie gehabt.
 
     git commit
-_________________________________________
+---
 
 ### Commit - gelöschte Dateien
 
@@ -180,7 +180,7 @@ Es gibt auch einen Git-Befehl zum Löschen:
     git rm my-file
     git commit -am 'deleted my-file'
 
-_________________________________________
+---
 
 ## Umbenennen und verschieben
 
@@ -192,19 +192,19 @@ _________________________________________
      1. Change
      1. Commit
 
-_________________________________________
+---
 
 Was genau ist in einem Commit enthalten?
 
     git log --pretty=raw
 
-_________________________________________
+---
 
 Commit Trees
 
 ![Commit Trees](02/commit-tree.jpg)
 
-_________________________________________
+---
 
 
 ## Verzeichnisse
@@ -215,13 +215,13 @@ Ein Verzeichnis muss mindestens eine Datei enthalten.
 
 Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
-_________________________________________
+---
 
 ## Tags
 
     git tag v0.1.7
 
-_________________________________________
+---
 
 ### Oops - Unterbrechung!
 
@@ -234,14 +234,14 @@ Angefangene Änderungen kann man jeder zeit mit `stash` wegsichern.
     git stash pop
 
 
-_________________________________________
+---
 
 ### Oops - fehlerhaftes Commit
 
 
     revert  HEAD~3
 
-_________________________________________
+---
 
 ### Oops - versehentlich geändert
 
@@ -259,7 +259,7 @@ Ganzen Workspace zurücksetzen
 
     git stash -u
 
-_________________________________________
+---
 
 ## Übung
 
@@ -271,7 +271,7 @@ _________________________________________
  1. Die "alte" Datei umbenennen und Commit.
  1. Änderungen aus vorvorletzten Commit reverten (Stash-Rückholung).
 
-_________________________________________
+---
 
 ## Nach der Übung
 
