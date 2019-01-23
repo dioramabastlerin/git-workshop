@@ -1,11 +1,11 @@
 
-**Branches** ermöglichen es,
+**Branches** ermöglichen es, in **einem Repo**,
 
-in nur *einem* Git-Repo,
+**parallele Entwicklungsstränge** zu pflegen,
 
-mehrere *parallele* Entwicklungsstränge zu haben
+zwischen denen man frei
 
-und frei zwischen diesen hin und her zu wechseln.
+**hin und her zu wechseln** kann.
 
 Notes:
 
@@ -22,14 +22,46 @@ auflisten, vergleichen und administrieren.
 
 ---
 
+### Branch anlegen
 
-    git branch
+```bash
+    # Ein Branch ist ein Zeiger auf ein Commit
+    git branch new-branch2 38a8efc72
 
+    # Gibt man nichts an, wird HEAD genommen
     git branch new-branch
+```
 
+### Branches zeigen
+
+```bash
+    git branch -vv
+```
+
+
+Notes:
+
+`-v`, `-vv` sorgen dafür, dass mehr Details ausgegeben werden.
+
+
+---
+
+## Branch wechseln
+
+Jedes Repo hat einen **aktiven Branch**.
+
+```
     git checkout new-branch
+```
 
+```
     git checkout -b new-branch
+```
+
+
+Notes:
+
+Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
 
 ---
 
