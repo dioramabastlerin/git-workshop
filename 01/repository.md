@@ -1,142 +1,163 @@
-
-
-
 # Repository
 
 ---
 
 ## Lernziel
 
-```
-    log / show / diff / checkout
-```
+Was findet man in einem Git-Repository? Wie untersucht man es?
 
  * Dezentralität, Klon
  * Repository
- * Revision Hashes
+    * Commit-Graph: Commit, Tree, File (Blob)
+    * Branches und Tags (Refs)
  * Workspace
 
 ---
 
-## Begriffe
+### Lernziel (Befehle)
 
- * **Repository:** Eine Datenbank
-   - mit allen Dateien des Projekts
-   - und der Historie über alle Versionen
-   - inklusive Metadaten (Wer? Wann?)
+```bash
+    # Commit-Graph
+    git log
+    git show
+    git diff
 
- * **Workspace** (auch **Worktree**): Ein Verzeichnis
-   - Dateien der aktuellen Version
-   - ggf. mit lokal bearbeiteten und neuen Dateien
-   - plus von Git ignorierte Dateien
+    # Refs
+    git branch -v
+    git tag
 
----
-
-# Zentral vs. Dezentral
-
----
-
-
- * ![Zentral vs. dezentral](zentral-dezentral.jpg)
-
+    # Workspace
+    git checkout
+```
 
 ---
 
-## Zentrale Versionsverwaltungen
 
- * Entwickler-Workspaces enthalten nur die aktuelle Version.
- * Zentrales Repository enthält historische Informationen und verwaltet
-Branches und Tags.
- * Alle Commits und Updates erfordern den Zugriff auf einen zentralen Server.
+## Übung
+Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um es zu untersuchen.
+```bash
+    git clone <server-url>/git-workshop.git
+    cd git-workshop
+    ls -lah
+```
 
 ---
-
-## Dezentrale Versionsverwaltungen
-
- * Jeder Entwickler hat einen Workspace und ein vollständiges Repository
- * Commits werden nur lokal durchgeführt.
- * Zwischen Repositories können Commits mit Pull und Push ausgetauscht
-werden.
- * Einzelne Repositories können als „besonders“ definiert werden und
-halten den offiziellen Stand („Blessed Repository“).
 
 
 ---
 
-## Vorteile
+Zwei Dinge sind aufgetaucht:
+ 1. Das **Repository**
 
- * Hohe Performance
-  Die meisten Operationen finden lokal auf dem Rechner des Entwicklers statt.
- * Offline Fähigkeit
-   Commits, Branches, Tags können auch ohneSerververbindung durchgeführt werden.
- * Effiziente Arbeitsweisen
-   Lokale Branches und Tags erleichtern den Entwickler-Alltag.
- * Automatische Backups
-   Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
+    (in `git-workshop/.git`)
 
----
+ 1. Der **Workspace**
 
-### Was ist drin, im Repository?
+    (alle anderen Dateien unter `git-workshop`)
 
- * `log` 15: Zeigt die Historie, die zum aktuellen Commit geführt hat.
- * `--oneline`
-     - `log -3` Ausgabe limitieren
-     - `log <file>`
-   - Aktuelle Version und Vorgänger: `HEAD`, `HEAD~1`, `HEAD~2`
- * `--all`, `--graph`
+## Repository
 
+Damit Git **dezentral** (unabhängig vom Server) arbeiten kann enthälte es eine Datenbank
+ * alle **Versionen** aller Dateien über die **volle Historie**
+Außerdem:
 
+ * **Metadaten**: Wer? Wann?
+ * Projektdaten
+   - **Branches** (falls parallel an verschiedenen Versionen gearbeitet wird)
+   - **Releases** (genannt *Tags*)
 
----
+  ---
 
-## Commit
+## Befehle zum Untersuchen von Commits
 
-(Synonym: Revision)
+```bash
+    # show zeigt detaillierte Informationen zu Commits
+    git show HEAD
+    git show HEAD:README         # Inhalt der Datei
+    git show --pretty=raw HEAD   # Was Git in der DB hat
 
+    # mit ls-tree kann man den Verzeichnisbaum untersuchen
+    git ls-tree -r HEAD
+    git ls-tree --abbrev HEAD src/main/java
+```
+
+Tipp: `HEAD` ist bei vielen Befehlen der Default-Wert und kann oft weggelassen werden.
+
+_________________________________________
+
+Ein *Commit* enthält
+
+ * **Tree**
+
+   Exakter Stand aller versionierten Dateien in ihren Verzeichnissen
 
  * **Tree** - exakter Stand aller versionierten Dateien und Verzeichnisse
  * **Metadaten**
+
      - Autor und Zeitpunkt der Änderung
      - Message: Beschreibung der Änderung
      - Parent(s): Vorgängerversion(en)
- * **Revision Hash** - Prüfsumme von Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision gebildet.
+
+ * **Revision Hash**
+
+   Prüfsumme über Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
 
 ---
 
 
-### Historie
+### Das Log / die Historie
 
-Die Historie die die Menge aller Vorfahren eines Commits.
+Bis auf das Erste haben alle Commits einen Parent.
+Die Historie ist die Menge aller Vorfahren eines Commits.
+Sie kann Verzweigungen enthalten,
+z. B. wenn mehrere Entwickler parallel gearbeitet haben.
+Mit `~` kann man Vorfahren adressieren.
 
 `git log master` zeigt alle Commits, die zur Entstehung des aktuellen Master-Standas beigetragen haben.
 
-Die Historie kann verzweigungen enthalten,
-z. B. wenn mehrere Entwickler beteiligt waren.
+```bash
+    # log zeigt die Historie
+    git log HEAD
+    git log HEAD -- README    # Historie einer Datei
+    git log --oneline HEAD
+    git log --graph HEAD
 
-`git log --graph` stellt diese Verzweigungen dar.
+    git show HEAD~2          # vorvorletztet Commit
+```
 
----
+
+_________________________________________
 
 ##  Diff
 
 Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
-    git diff 7ac0f3 2f43cd
+```bash
+    # diff vergleicht zwei Commits
+    git diff HEAD~4 HEAD
+    git diff 1a8a2 9f5c3 -- inhalt.md  # einzelne Datei
+    git diff 1a8a2 9f5c3 --stat        # Überblick
+    git diff HEAD~3                    # Vergleich mit HEAD
 
-  - `diff 1a8a2 9f5c3  -- inhalt.md`, nur eine Datei
-  - `diff 1a8a2 9f5c3  --stat`, Anzahl geänderter Zeilen je Datei
-  - `difftool`
+
+    # externes tool nutzen
+    git difftool HEAD~4 HEAD
+```
 
 Optionen: `-b/--ignore-space-change`, `--word-diff`
 
----
 
-##  Weitere Befehle zum untersuchen der Historie
+_________________________________________
 
-   - `show` zeigt Details zu einem Commit
-      - `show 9f5c3`
-      - `show 1a8a24a:protokoll.md`
-   - `ls-tree` zeigt Verzeichnisinhalte im Commit-Tree
+## Workspace
+
+Hier kann man Folgendes finden:
+
+ * Dateien des gerade aktuellen Projektstandes (`HEAD`)
+   - die können lokal bearbeitet werden
+ * noch unversionierte Dateien
+ * von Git ignorierte Dateien
+
 
 ---
 
@@ -184,6 +205,9 @@ z. B.
  * `master` (Branch)
  * weitere Branches
  * Tags
+
+
+    git log --all --graph
 
 ---
 
@@ -244,3 +268,5 @@ Starten mit:
 ## Nach der Übung
 
     git checkout master
+
+
