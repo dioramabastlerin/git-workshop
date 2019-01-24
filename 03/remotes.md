@@ -32,18 +32,18 @@
 ```
 
 
-_________________________________________
+---
 
 ## Zentral vs. Dezentral
 
 
-_________________________________________
+---
 
 
  * ![Zentral vs. dezentral](01/zentral-dezentral.jpg)
 
 
-_________________________________________
+---
 
 ## Zentrale Versionsverwaltungen
 
@@ -53,7 +53,7 @@ Branches und Tags.
  * Alle Commits und Updates erfordern den Zugriff auf einen zentralen Server.
 
 
-_________________________________________
+---
 
 ## Dezentrale Versionsverwaltungen
 
@@ -65,7 +65,7 @@ werden.
 halten den offiziellen Stand („Blessed Repository“).
 
 
-_________________________________________
+---
 
 ## Vorteile
 
@@ -78,7 +78,7 @@ _________________________________________
  * Automatische Backups
    Jedes Repository ist gleichzeitig auch ein Backup des gesamten Projektes, inklusive Historie.
 
-_________________________________________
+---
 
 ### Klonen
 
@@ -91,7 +91,7 @@ $ git clone https://<server>/<pfad>/git-training-protocol.git
 ```
 
 
-_________________________________________
+---
 
 ## Repository URLs
 
@@ -258,7 +258,7 @@ Oder genauer:
 
 Berührt weder Workspace, noch den aktiven Branch.
 
-_________________________________________
+---
 
 ### Pull
 

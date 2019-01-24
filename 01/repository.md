@@ -83,7 +83,7 @@ Außerdem:
 
 Tipp: `HEAD` ist bei vielen Befehlen der Default-Wert und kann oft weggelassen werden.
 
-_________________________________________
+---
 
 Ein *Commit* enthält
 
@@ -126,7 +126,7 @@ Mit `~` kann man Vorfahren adressieren.
 ```
 
 
-_________________________________________
+---
 
 ##  Diff
 
@@ -147,7 +147,7 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 Optionen: `-b/--ignore-space-change`, `--word-diff`
 
 
-_________________________________________
+---
 
 ## Workspace
 
