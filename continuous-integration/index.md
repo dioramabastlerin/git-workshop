@@ -47,3 +47,98 @@ Was verursacht Schwierigkeiten beim Merge?
  * Überlappende Aufgaben/Verantwortlichkeiten
  * Inkonsistenz in Änderungen
 
+Je länger, je schlimmer.
+
+
+---
+
+## Früher so
+
+https://nvie.com/posts/a-successful-git-branching-model/
+
+---
+
+## doch dann
+
+> ... usually each person integrates at least daily ...
+>
+>  Martin Fowler, 2006
+
+
+https://martinfowler.com/articles/continuousIntegration.html
+
+
+---
+
+## Häufiges Integrieren
+
+ * Jeder Integriert jeden Tag
+ * Der `master` wird immer lauffähig gehalten
+ * Der `master` ist Maß aller Dinge
+
+ * macht die Probleme klein und überschaubar.
+ * Die Beteiligten sind noch anwesend/erreichbar.
+ * Refactorings müssen nur den `master` berücksichtigen.
+ * Notfalls, kann man verwerfen und neu machen.
+
+Klingt gut, aber ...
+
+---
+
+## ... kann da nicht auch was schiefgehen?
+
+---
+
+## Herausforderungen in CI
+
+ * Broken Build
+ * Fehler eingeschleust
+ * Broken API/Contract
+ * Halbfertiges
+ * Alte Versionen geraten in Umlauf
+
+---
+
+## Broken Build
+
+ * Automate the build
+   * Every Commit Should Build the Mainline on an Integration Machine
+ * Fix Broken Builds Immediately
+ * Keep the Build Fast
+
+---
+
+## Fehler eingeschleust
+
+ * make your build self-testing
+ * Test in a Clone of the Production Environment
+
+Benefit: Man hat immer eine nutzbare Version (Release-Fähigkeit)
+
+---
+
+## Broken API/Contract
+
+ * Branch by Abstraction
+
+---
+
+## Halbfertiges
+
+ * MVP
+ * Feature-Toggling
+
+---
+
+## Alte Versionen geraten in Umlauf
+
+ * Abwärtskompatibilität
+ * Forward-Fixing
+ * Make it Easy for Anyone to Get the Latest Executable
+ * update-merges
+
+---
+
+## Trunk Based Development
+
+https://trunkbaseddevelopment.com/

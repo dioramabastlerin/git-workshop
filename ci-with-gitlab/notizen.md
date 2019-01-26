@@ -72,3 +72,4 @@ lead time, deployment frequency, mean time to restore (MTTR), and change fail pe
  * Release-Doku
  * Infrastructure as Code
  * Kubernetes
+ * monorepo
