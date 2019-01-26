@@ -2,6 +2,23 @@
 
 # Continuous Integration mit GitLab
 
+# Agenda
+
+## Block1 Grundlagen CI/CD
+
+ * CI
+   * Git-Flow
+   * Merge Hell
+ * Workflow: Gemeinsam auf dem master entwickeln
+
+ * CI/CD
+
+## Block2 Using Gitlab for CI/CD
+
+
+## Block3 Building Workflows for CI/CD
+
+# Material
 
 Ich demonstriere anhand einiger Beispiele, wie CI/CD mit GitLab implementiert werden kann. Ich berichte von CI/CD-Lösungen, die ich aus der Praxis kenne. Dann diskutieren Strategien, wie das bei Rohde und Schwarz umgesetzt werden kann. Im praktischen Teil werden die Beispiele angepasst und erweitert.
 
@@ -46,6 +63,7 @@ lead time, deployment frequency, mean time to restore (MTTR), and change fail pe
  * Auto Devops
  * Tests Unit/Modul/Integrationstests
    - Geschwindigkeit/Parallelisierung
+ * Abhängigkeiten/Modularisierung
 
 
 
