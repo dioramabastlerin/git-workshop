@@ -103,8 +103,10 @@ Klingt gut, aber ...
 
  * Automate the build
    * Every Commit Should Build the Mainline on an Integration Machine
+   * Normierung der Build-Umgebung (against: Works on my machine). Entweder zentral oder in autom. Setup.
  * Fix Broken Builds Immediately
  * Keep the Build Fast
+
 
 ---
 
@@ -136,9 +138,44 @@ Benefit: Man hat immer eine nutzbare Version (Release-Fähigkeit)
  * Forward-Fixing
  * Make it Easy for Anyone to Get the Latest Executable
  * update-merges
+ * Wer zuletzt merged verliert
 
 ---
 
-## Trunk Based Development
+## Exkurs: Trunk Based Development
 
 https://trunkbaseddevelopment.com/
+
+---
+
+## Also, was brauchen wir?
+
+ * [ ] Workflow
+   - [ ] Integration auf dem `master` (Workflow)
+   - [ ] Vereinbarte Regeln
+     - [ ] Fix Broken Builds Immediately
+     - [ ] Wer zuletzt merged verliert
+     - [ ] Abwärtskompatibilität
+
+---
+
+## Also, was brauchen wir?
+
+ * [ ] Automatisierter Build
+   - [ ] Normierter Build
+   - [ ] Jedes Commit auf `master`
+   - [ ] Autom. Test
+   - [ ] Integr. Tests in Prod.-naher Umgebung
+   - [ ] Push -> Artefakt-Repository
+   - [ ] Deplyment automatisieren
+
+---
+
+## Also, was brauchen wir?
+
+ * [ ] Techniken/Skill
+   - [ ] Branch by Abstraction
+   - [ ] Feature Toggling
+   - [ ] Growing from MVP
+   - [ ] update Merging/Rebasing
+   - [ ] Forward Fixing
