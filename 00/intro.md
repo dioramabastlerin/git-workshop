@@ -3,7 +3,7 @@
 # Git
 
 
-von René Preißel und Bjørn Stachman
+von René Preißel und Bjørn Stachmann
 
 ---
 
