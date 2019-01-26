@@ -164,7 +164,7 @@ https://trunkbaseddevelopment.com/
  * [ ] Automatisierter Build
    - [ ] Normierter Build
    - [ ] Jedes Commit auf `master`
-   - [ ] Autom. Test
+   - [ ] Autom. Test, (Tagging von Erfolgen, speculative Merge oder Build-Blessed Repo)
    - [ ] Integr. Tests in Prod.-naher Umgebung
    - [ ] Push -> Artefakt-Repository
    - [ ] Deplyment automatisieren
