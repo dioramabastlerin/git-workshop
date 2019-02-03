@@ -147,9 +147,9 @@ Klingt gut, aber ...
    * Gegen: Works on my machine.
    * Durch Zentralisierung, durch automatisiertes Setup und/oder Container.
  * Repariere den `master` sofort!
-   * Zweithöchste Pri nach **Production Outages**
+   * Zweithöchste Prio nach **Production Outages**
  * Halte den Build-Prozess schnell! (<< 15 Minuten)
- * Schütze den `master`
+ * Schütze den `master`!
  * Wer zuletzt merged verliert!
 
 ---
@@ -223,27 +223,31 @@ https://trunkbaseddevelopment.com/
 
 ### Also, was brauchen wir? (Teil 1)
 
-## Workflow
+## Workflow/Regeln
 
- - Häufige Integration auf dem `master` (Workflow)
- - Fix Broken Builds Immediately
- - Wer zuletzt merged verliert
- - Abwärtskompatibilität
+ * Häufige Integration auf dem `master` (Workflow)
+ * Repariere den `master` sofort!
+ * Halte den Build-Prozess schnell!
+ * Wer zuletzt merged verliert!
+ * Bleibe Abwärtskompatibel!
+ * Mache es leicht die aktuellste Version zu nutzen und zu integrieren!
 
 
 ---
 
 ### Also, was brauchen wir? (Teil 2)
 
-## Build
+## Build & Deployment
 
- - Automatisierter Build
- - Normierter Build
- - Jedes Commit auf `master`
- - Autom. Test, (Tagging von Erfolgen, speculative Merge oder Build-Blessed Repo)
- - Integr. Tests in Prod.-naher Umgebung
- - Push -> Artefakt-Repository
- - Deplyment automatisieren
+ * Automatisiere den Build!
+ * Normiere die Build-Umgebung!
+ * Halte den Build-Prozess schnell!
+ *  Schütze den `master`
+ * Test mit jedem Build!
+ * Test in einem Klon der Produktionsumgebung!
+ * Nutze Blue/Green- oder Incremental-Rollouts!
+
+
 
 ---
 
@@ -251,8 +255,8 @@ https://trunkbaseddevelopment.com/
 
 ## Techniken/Skills/Patterns
 
- - Branch by Abstraction
- - Feature Toggling
- - Growing from MVP
- - update Merging/Rebasing
- - Forward Fixing
+ * Branch by Abstraction
+ * Strebe erst ein MVP an!
+ * Nutze Feature-Toggling!
+ * Nutze Forward-Fixing!
+
