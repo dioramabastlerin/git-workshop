@@ -4,8 +4,12 @@
 
 ## Lernziel
 
- * Was macht Sourcecode Integration so schwierig?
- * Konzept: Continuous Integration
+ * **Das Problem** mit den **Merges**
+ * **Klassische** Branch- und Release- Modelle
+ * Konzept: **Continuous Integration**
+ * Die **Herausforderungen** von **CI**
+ * Was braucht man für **erfolgreiches CI**?
+
 
 ---
 
@@ -36,29 +40,56 @@ git merge interesting-merge^2
 git mergetool  # oder verwende deine IDE
 ```
 
+
 ---
 
-Was verursacht Schwierigkeiten beim Merge?
+### Woher kommen die Probleme?
 
- * Dieselben Dateien bearbeitet
- * Verschiebungen im Code
+ * Dieselben Dateien bearbeitet\
+   (überlappende Aufgaben/Verantwortlichkeiten)
+ * Änderungen können zusammegeführt werden,\
+   passen aber nicht zusammen.
+ * Verschiebungen/Umbenennungen
+   * von Dateien
+   * innerhalb der Dateien
  * Whitespaceänderungen
- * Textersetzungen (z. B. zur Umbenennung)
- * Überlappende Aufgaben/Verantwortlichkeiten
- * Inkonsistenz in Änderungen
 
-Je länger, je schlimmer.
+
+### Je länger man wartet, desto schlimmer!
+
+---
+
+### Klassische Branching- und Release-Modelle
+
+kann man gut mit Git umsetzen, und bekommt
+
+ * unabhängige Featureenwicklung
+ * parallele Weiterentwicklung während der Releasephase
+ * mehrere Releases plegen
+ * Patches über mehrere Release verteilen
+
+(siehe z. B. [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/)
+
+### aber es gibt nichts geschenkt
 
 
 ---
 
-## Früher so
+man erkauft sich diese Vorteile mit
 
-https://nvie.com/posts/a-successful-git-branching-model/
+ * langlebigen Branches
+ * Merges zwischen weit entfernt liegenden Änderungen
+
+und erhält oft
+
+ * Schwierigkeiten bei der Integration
+ * stressige Release-Phsen
+ * Zähigkeit durch Angst vor Änderungen
+
 
 ---
 
-## doch dann
+## Doch dann ...
 
 > ... usually each person integrates at least daily ...
 >
@@ -72,7 +103,7 @@ https://martinfowler.com/articles/continuousIntegration.html
 
 ## Häufiges Integrieren
 
- * Jeder Integriert jeden Tag
+ * Jeder integriert jeden Tag
  * Der `master` wird immer lauffähig gehalten
  * Der `master` ist Maß aller Dinge
 
