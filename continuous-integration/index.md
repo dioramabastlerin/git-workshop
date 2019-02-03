@@ -74,15 +74,11 @@ kann man gut mit Git umsetzen, und bekommt
 
 ---
 
-man erkauft sich diese Vorteile mit
-
- * langlebigen Branches
- * Merges zwischen weit entfernt liegenden Änderungen
-
-und erhält oft
+Man erkauft sich dies mit **langlebigen Branches**,\
+was zu Merges zwischen weit entfernt liegenden Änderungen führt, und erhält oft
 
  * Schwierigkeiten bei der Integration
- * stressige Release-Phsen
+ * stressige Release-Phasen
  * Zähigkeit durch Angst vor Änderungen
 
 
@@ -94,24 +90,32 @@ und erhält oft
 >
 >  Martin Fowler, 2006
 
-
 https://martinfowler.com/articles/continuousIntegration.html
 
 
 ---
 
-## Häufiges Integrieren
+## häufig Integrieren
 
- * Jeder integriert jeden Tag
+ * Jeder integriert *jeden Tag*
+   1. auf dem aktuellen `master` beginnen
+   1. entwickeln
+   1. auf den `master` bringen (direktes `commit` oder `merge`oder `rebase`)
  * Der `master` wird immer lauffähig gehalten
  * Der `master` ist Maß aller Dinge
+
+---
+
+## Vorteile von CI
 
  * macht die Probleme klein und überschaubar.
  * Die Beteiligten sind noch anwesend/erreichbar.
  * Refactorings müssen nur den `master` berücksichtigen.
- * Notfalls, kann man verwerfen und neu machen.
+ * Notfalls, kann man alles verwerfen und neu machen.
 
 Klingt gut, aber ...
+
+### es gibt, wie gesagt, nichts geschenkt ...
 
 ---
 
@@ -122,20 +126,30 @@ Klingt gut, aber ...
 ## Herausforderungen in CI
 
  * Broken Build
- * Fehler eingeschleust
- * Broken API/Contract
+ * Broken Contract
+ * Bug
  * Halbfertiges
- * Alte Versionen geraten in Umlauf
+ * Wenn man alte Versionen braucht
+
 
 ---
 
 ## Broken Build
+
 
  * Automate the build
    * Every Commit Should Build the Mainline on an Integration Machine
    * Normierung der Build-Umgebung (against: Works on my machine). Entweder zentral oder in autom. Setup.
  * Fix Broken Builds Immediately
  * Keep the Build Fast
+
+
+---
+
+## Broken API/Contract
+
+ * Branch by Abstraction
+
 
 
 ---
@@ -147,11 +161,6 @@ Klingt gut, aber ...
 
 Benefit: Man hat immer eine nutzbare Version (Release-Fähigkeit)
 
----
-
-## Broken API/Contract
-
- * Branch by Abstraction
 
 ---
 
@@ -162,13 +171,14 @@ Benefit: Man hat immer eine nutzbare Version (Release-Fähigkeit)
 
 ---
 
-## Alte Versionen geraten in Umlauf
+## Wenn man alte Versionen braucht
 
  * Abwärtskompatibilität
  * Forward-Fixing
  * Make it Easy for Anyone to Get the Latest Executable
  * update-merges
  * Wer zuletzt merged verliert
+ * master protection
 
 ---
 
@@ -178,34 +188,38 @@ https://trunkbaseddevelopment.com/
 
 ---
 
-## Also, was brauchen wir?
+### Also, was brauchen wir? (Teil 1)
 
- * [ ] Workflow
-   - [ ] Integration auf dem `master` (Workflow)
-   - [ ] Vereinbarte Regeln
-     - [ ] Fix Broken Builds Immediately
-     - [ ] Wer zuletzt merged verliert
-     - [ ] Abwärtskompatibilität
+## Workflow
 
----
+ - [ ] Integration auf dem `master` (Workflow)
+ - [ ] Fix Broken Builds Immediately
+ - [ ] Wer zuletzt merged verliert
+ - [ ] Abwärtskompatibilität
 
-## Also, was brauchen wir?
-
- * [ ] Automatisierter Build
-   - [ ] Normierter Build
-   - [ ] Jedes Commit auf `master`
-   - [ ] Autom. Test, (Tagging von Erfolgen, speculative Merge oder Build-Blessed Repo)
-   - [ ] Integr. Tests in Prod.-naher Umgebung
-   - [ ] Push -> Artefakt-Repository
-   - [ ] Deplyment automatisieren
 
 ---
 
-## Also, was brauchen wir?
+### Also, was brauchen wir? (Teil 2)
 
- * [ ] Techniken/Skill
-   - [ ] Branch by Abstraction
-   - [ ] Feature Toggling
-   - [ ] Growing from MVP
-   - [ ] update Merging/Rebasing
-   - [ ] Forward Fixing
+## Build
+
+ - [ ] Automatisierter Build
+ - [ ] Normierter Build
+ - [ ] Jedes Commit auf `master`
+ - [ ] Autom. Test, (Tagging von Erfolgen, speculative Merge oder Build-Blessed Repo)
+ - [ ] Integr. Tests in Prod.-naher Umgebung
+ - [ ] Push -> Artefakt-Repository
+ - [ ] Deplyment automatisieren
+
+---
+
+### Also, was brauchen wir? (Teil 3)
+
+## Techniken/Skills/Patterns
+
+ - [ ] Branch by Abstraction
+ - [ ] Feature Toggling
+ - [ ] Growing from MVP
+ - [ ] update Merging/Rebasing
+ - [ ] Forward Fixing
