@@ -12,11 +12,11 @@
 
 ### ` .gitlab-ci.yml`
 
- * beschreibt die Pipeline.\
+ * beschreibt die Pipeline.
  * besteht aus Jobs,\
    die das Projekt bauen, testen, deployen etc.
  * Sobald ein Commit ankommt*\
-   führt GitLab die Pipeline aus
+   führt GitLab die Pipeline aus.
  * [Einsteigertipps zur YAML-Syntax](https://github.com/Animosity/CraftIRC/wiki/Complete-idiot's-introduction-to-yaml)
 
 Notes:
