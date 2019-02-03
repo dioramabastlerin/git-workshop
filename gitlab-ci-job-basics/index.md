@@ -6,6 +6,7 @@
 
  * `.gitlab-ci.yml`
  * Was ist ein GitLab-Job?
+ * Wie konfiguriert man einen Job?
 
 ---
 
