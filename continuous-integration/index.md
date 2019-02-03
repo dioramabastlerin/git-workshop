@@ -108,10 +108,11 @@ https://martinfowler.com/articles/continuousIntegration.html
 
 ## Vorteile von CI
 
- * macht die Probleme klein und überschaubar.
- * Die Beteiligten sind noch anwesend/erreichbar.
- * Refactorings müssen nur den `master` berücksichtigen.
- * Notfalls, kann man alles verwerfen und neu machen.
+ * macht die **Probleme klein** und überschaubar.
+ * Die Beteiligten sind noch **erreichbar**.
+ * **Refactorings** müssen **nur `master`** berücksichtigen.
+ * Notfalls, kann man alles **verwerfen und neu machen**.
+ * Man kann **jederzeit liefern**.
 
 Klingt gut, aber ...
 
@@ -126,8 +127,8 @@ Klingt gut, aber ...
 ## Herausforderungen in CI
 
  * Broken Build
- * Broken Contract
  * Bug
+ * Broken Contract
  * Halbfertiges
  * Wenn man alte Versionen braucht
 
@@ -136,49 +137,81 @@ Klingt gut, aber ...
 
 ## Broken Build
 
+> Jeder soll jederzeit, ausgehend vom `master`,\
+> einen Feature/ein Bugfix beginnen können.
 
- * Automate the build
-   * Every Commit Should Build the Mainline on an Integration Machine
-   * Normierung der Build-Umgebung (against: Works on my machine). Entweder zentral oder in autom. Setup.
- * Fix Broken Builds Immediately
- * Keep the Build Fast
-
-
----
-
-## Broken API/Contract
-
- * Branch by Abstraction
-
-
+ * Automatisiere den Build!
+   * Jedes `master`-Commit löst einen Build-aus
+ * Normiere die Build-Umgebung!
+   * Reduziere Abhängigkeiten von lokaler Installation
+   * Gegen: Works on my machine.
+   * Durch Zentralisierung, durch automatisiertes Setup und/oder Container.
+ * Repariere den `master` sofort!
+   * Zweithöchste Pri nach **Production Outages**
+ * Halte den Build-Prozess schnell! (<< 15 Minuten)
+ * Schütze den `master`
+ * Wer zuletzt merged verliert!
 
 ---
 
 ## Fehler eingeschleust
 
- * make your build self-testing
- * Test in a Clone of the Production Environment
+> Der `master` soll jederzeit lauffähig sein.
+
+ * Test mit jedem Build!
+   - Unit-Tests, Integrations-Tests. Ggf. auch Last- und Performance-Tests.
+ * Test in einem Klon der Produktionsumgebung!
+   - Jeder Unterschied zwischen PROD und TEST ist ein zusätzliches Risiko.
+
+### Wieviel Test ist genug?
+
+> Traust Du Dich den `master`/
+> blind nach Production zu releasen?
+
+
+Notes:
 
 Benefit: Man hat immer eine nutzbare Version (Release-Fähigkeit)
 
 
 ---
 
+## Broken API/Contract
+
+> Zwinge Deine Kollegen nicht zu (sofortigen) Änderungen!
+
+ * Branch by Abstraction
+   - Sorge dafür, dass bestehender Conde lauffähig bleibt
+   - Nutze hierzu Vererbung, Konfiguration, Feature-Toggles
+   - Nutze Deprecation-Markierungen
+   - Tipp: Teste die alte und die neue Implementierung parallel und vergleiche die Ergebnisse.
+     - evtl. kannst Du die neue Implementierung in PROD parallel mitlaufen lassen, bevor du deren Ergebnisse nutzt.
+
+Notes:
+
+Beispiel: Umstellung von Double auf Fraction
+
+---
+
 ## Halbfertiges
 
- * MVP
- * Feature-Toggling
+> Der `master` ist jederzeit Releasefähig!
+> Unfertige Features dürfen dies nicht einschränken!
+
+ * Strebe erst ein MVP an!
+   - Minimum Viable Product:\
+     Eine möglichst einfache Implementierug für einen wertwollen Teil des angestrebten Nutzens.
+ * Nutze Feature-Toggling!
 
 ---
 
 ## Wenn man alte Versionen braucht
 
- * Abwärtskompatibilität
- * Forward-Fixing
- * Make it Easy for Anyone to Get the Latest Executable
- * update-merges
- * Wer zuletzt merged verliert
- * master protection
+ * Bleibe Abwärtskompatibel!
+ * Nutze Forward-Fixing!
+   - Vermeide es, Produktionsprobleme durch Rollout alter Versionen zu beheben.
+ * Nutze Blue/Green- oder Incremental-Rollouts!
+ * Mache es leicht die aktuellste Version zu nutzen und zu integrieren!
 
 ---
 
@@ -192,10 +225,10 @@ https://trunkbaseddevelopment.com/
 
 ## Workflow
 
- - [ ] Integration auf dem `master` (Workflow)
- - [ ] Fix Broken Builds Immediately
- - [ ] Wer zuletzt merged verliert
- - [ ] Abwärtskompatibilität
+ - Häufige Integration auf dem `master` (Workflow)
+ - Fix Broken Builds Immediately
+ - Wer zuletzt merged verliert
+ - Abwärtskompatibilität
 
 
 ---
@@ -204,13 +237,13 @@ https://trunkbaseddevelopment.com/
 
 ## Build
 
- - [ ] Automatisierter Build
- - [ ] Normierter Build
- - [ ] Jedes Commit auf `master`
- - [ ] Autom. Test, (Tagging von Erfolgen, speculative Merge oder Build-Blessed Repo)
- - [ ] Integr. Tests in Prod.-naher Umgebung
- - [ ] Push -> Artefakt-Repository
- - [ ] Deplyment automatisieren
+ - Automatisierter Build
+ - Normierter Build
+ - Jedes Commit auf `master`
+ - Autom. Test, (Tagging von Erfolgen, speculative Merge oder Build-Blessed Repo)
+ - Integr. Tests in Prod.-naher Umgebung
+ - Push -> Artefakt-Repository
+ - Deplyment automatisieren
 
 ---
 
@@ -218,8 +251,8 @@ https://trunkbaseddevelopment.com/
 
 ## Techniken/Skills/Patterns
 
- - [ ] Branch by Abstraction
- - [ ] Feature Toggling
- - [ ] Growing from MVP
- - [ ] update Merging/Rebasing
- - [ ] Forward Fixing
+ - Branch by Abstraction
+ - Feature Toggling
+ - Growing from MVP
+ - update Merging/Rebasing
+ - Forward Fixing
