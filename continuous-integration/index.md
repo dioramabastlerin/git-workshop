@@ -59,8 +59,7 @@ git mergetool  # oder verwende deine IDE
 
 ---
 
-### Klassische Branching- und Release-Modelle
-
+**Klassische Branching- und Release-Modelle**\
 kann man gut mit Git umsetzen, und bekommt
 
  * unabhängige Featureenwicklung
@@ -68,7 +67,7 @@ kann man gut mit Git umsetzen, und bekommt
  * mehrere Releases plegen
  * Patches über mehrere Release verteilen
 
-(siehe z. B. [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/)
+(siehe z. B. [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/))
 
 ### aber es gibt nichts geschenkt
 
