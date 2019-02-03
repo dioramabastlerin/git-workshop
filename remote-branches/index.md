@@ -2,7 +2,7 @@
 ## Branch
 
  * Branches sind lokal, werden nicht direkt übertragen
- * Remote Tracking Branches sind stellvertreter
+ * Remote Tracking Branches sind Stellvertreter
     git branch -r
  * Pull holt Änderungen von einem Remote Branch in den aktiven Branch
  * Push überschreibt einen Branch in einem andern Repository
