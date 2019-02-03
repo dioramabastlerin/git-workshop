@@ -12,13 +12,12 @@
 
 ### ` .gitlab-ci.yml`
 
-Die Datei `.gitlab-ci.yml` beschreibt die Pipeline.\
-Diese besteht aus Jobs,
-die das Projekt bauen, testen, deployen etc.
-
-Sobald ein Commit ankommt* führ GitLab die Pipeline aus
-
-[Einsteigertipps zur YAML-Syntax](https://github.com/Animosity/CraftIRC/wiki/Complete-idiot's-introduction-to-yaml)
+ * beschreibt die Pipeline.\
+ * besteht aus Jobs,\
+   die das Projekt bauen, testen, deployen etc.
+ * Sobald ein Commit ankommt*\
+   führt GitLab die Pipeline aus
+ * [Einsteigertipps zur YAML-Syntax](https://github.com/Animosity/CraftIRC/wiki/Complete-idiot's-introduction-to-yaml)
 
 Notes:
 
@@ -37,6 +36,7 @@ Ein Job führt seine Arbeit in Form von Kommandozeilenbefehlen aus:
 
 https://gitlab.com/gitlab-ci-samples/basic-job
 
+
 ---
 
 ## Job - Optionen und Umgebung
@@ -50,6 +50,5 @@ Es gibt zahlreiche Möglichkeiten zu steuern, ob, wann, wo und wie die Kommandos
 Zahlreiche vordefinierte Variablen geben Zugriff auf den Kontext:
 
 https://docs.gitlab.com/ee/ci/variables/
-
 
 
