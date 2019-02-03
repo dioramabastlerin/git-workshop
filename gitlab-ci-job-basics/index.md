@@ -1,4 +1,4 @@
-# GitLab - Jobs
+# **Jobs**
 
 ---
 
