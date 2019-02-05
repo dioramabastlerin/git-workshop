@@ -129,6 +129,11 @@ Versionsverwaltung für die Linux Kernel Entwicklung
     config --global user.email <Ihre-Email>
     config --global user.name <Ihr-Name>
  ```
+
+### Credential Helper
+
+[Git Credential Helper](https://kapitel26.github.io/git/2012/12/03/Passwoerter-verwalten.html)
+
 ---
 
 
