@@ -99,6 +99,14 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
 
 ---
 
+## Branches verwalten
+
+[Aufräumen von Branches](https://kapitel26.github.io/git/2014/03/31/alte-branches-archivieren.rb.html)
+[Mirroring](https://kapitel26.github.io/git/2014/04/04/branches-aufrauemen.rb.html)
+
+
+---
+
 ## Eigenschaften von Branches
 
  * beweglicher Zeiger auf Commit.
