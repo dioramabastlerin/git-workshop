@@ -20,7 +20,7 @@ von René Preißel und Bjørn Stachmann
 ---
 
 
-<img src="/00/git-buch.png" width="20%"/>
+<img src="00/git-buch.png" width="20%"/>
 
 Weitere Informationen finden Sie in unserem Blog [Kapitel 26](http://kapitel26.github.io).
 
