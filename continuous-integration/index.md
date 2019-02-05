@@ -219,6 +219,14 @@ Beispiel: Umstellung von Double auf Fraction
 
 https://trunkbaseddevelopment.com/
 
+
+---
+
+## Exkurs: Git und Gradle
+
+[Git und Gradle](https://kapitel26.github.io/git/2014/05/20/git-und-gradle.html)
+
+
 ---
 
 ### Also, was brauchen wir? (Teil 1)
