@@ -202,7 +202,7 @@ Was genau ist in einem Commit enthalten?
 
 Commit Trees
 
-![Commit Trees](02/commit-tree.jpg)
+![Commit Trees](commit-tree.jpg)
 
 ---
 
