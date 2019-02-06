@@ -41,8 +41,6 @@ Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um e
     ls -lah
 ```
 
----
-
 
 ---
 
@@ -53,7 +51,10 @@ Zwei Dinge sind aufgetaucht:
 
  1. Der **Workspace**
 
-    (alle anderen Dateien unter `git-workshop`)
+   (alle anderen Dateien unter `git-workshop`)
+
+
+---
 
 ## Repository
 
@@ -66,7 +67,8 @@ Außerdem:
    - **Branches** (falls parallel an verschiedenen Versionen gearbeitet wird)
    - **Releases** (genannt *Tags*)
 
-  ---
+
+---
 
 ## Befehle zum Untersuchen von Commits
 
@@ -82,6 +84,7 @@ Außerdem:
 ```
 
 Tipp: `HEAD` ist bei vielen Befehlen der Default-Wert und kann oft weggelassen werden.
+
 
 ---
 
@@ -101,6 +104,7 @@ Ein *Commit* enthält
  * **Revision Hash**
 
    Prüfsumme über Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
+
 
 ---
 
@@ -218,6 +222,7 @@ git branch
 
 git tag
 ```
+
 ---
 
 ## Elementare Begriffe

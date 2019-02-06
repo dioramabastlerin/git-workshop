@@ -156,6 +156,6 @@ Versionsverwaltung für die Linux Kernel Entwicklung
 
 # Git Starter
 
-[Git Starter Kit](/git-starter-kit.html)
+[Git Starter Kit](../git-starter-kit.html)
 
 
