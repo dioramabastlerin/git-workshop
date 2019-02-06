@@ -165,6 +165,7 @@ Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen 
 Dann Commit, wie gehabt.
 
     git commit
+
 ---
 
 ### Commit - gelöschte Dateien
