@@ -139,6 +139,8 @@ Sie kann Verzweigungen enthalten,
 z. B. wenn mehrere Entwickler parallel gearbeitet haben.
 Mit `~` kann man Vorfahren adressieren.
 
+---
+
 `git log master` zeigt alle Commits, die zur Entstehung des aktuellen Master-Standas beigetragen haben.
 
 ```bash
