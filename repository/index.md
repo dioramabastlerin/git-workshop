@@ -83,7 +83,29 @@ Außerdem:
     git ls-tree --abbrev HEAD src/main/java
 ```
 
-Tipp: `HEAD` ist bei vielen Befehlen der Default-Wert und kann oft weggelassen werden.
+`HEAD` bezeichnte das aktuelle Commit und
+ist bei vielen Befehlen der Default-Wert
+und kann oft weggelassen werden.
+
+
+---
+
+
+## Revision-Hashes, die Versionsnummern von Git
+
+Versionen können in Git über ihre Revision-Hashes
+oder über symbolische Namen (Refs) angesprochen werden.
+
+```bash
+    # Revision Hashes
+    git show f6be3b8913aa0ff3daa2be27bd55032316545545
+    git show f6be3b      # es darf abgekürzt werden
+
+    # Refs
+    git show HEAD
+    git show master
+    git show v1.0.0
+```
 
 
 ---
