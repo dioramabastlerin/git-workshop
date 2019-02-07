@@ -42,17 +42,11 @@
 
 ---
 
-absolut
-
-![Verzweigungen bim Push](http:/push-pull-diverging.png)
- 1. A versucht zu pushen, aber ...
-
----
-
-relativ
 
 ![Verzweigungen bim Push](push-pull-diverging.png)
----
+
+
+--------------------------------------------------
 
 ### Push rejected
 

@@ -40,7 +40,7 @@
 ---
 
 
- * ![Zentral vs. dezentral](01/zentral-dezentral.jpg)
+ * ![Zentral vs. dezentral](zentral-dezentral.jpg)
 
 
 ---

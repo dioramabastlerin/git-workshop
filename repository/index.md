@@ -41,8 +41,6 @@ Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um e
     ls -lah
 ```
 
----
-
 
 ---
 
@@ -53,7 +51,10 @@ Zwei Dinge sind aufgetaucht:
 
  1. Der **Workspace**
 
-    (alle anderen Dateien unter `git-workshop`)
+   (alle anderen Dateien unter `git-workshop`)
+
+
+---
 
 ## Repository
 
@@ -66,7 +67,8 @@ Außerdem:
    - **Branches** (falls parallel an verschiedenen Versionen gearbeitet wird)
    - **Releases** (genannt *Tags*)
 
-  ---
+
+---
 
 ## Befehle zum Untersuchen von Commits
 
@@ -82,6 +84,7 @@ Außerdem:
 ```
 
 Tipp: `HEAD` ist bei vielen Befehlen der Default-Wert und kann oft weggelassen werden.
+
 
 ---
 
@@ -101,6 +104,7 @@ Ein *Commit* enthält
  * **Revision Hash**
 
    Prüfsumme über Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
+
 
 ---
 
@@ -218,6 +222,7 @@ git branch
 
 git tag
 ```
+
 ---
 
 ## Elementare Begriffe
@@ -244,7 +249,7 @@ Starten mit:
 
  * Was ist im aktuellen Commit passiert?
  * Wie oft wurde `content.md` geändert?
- * Wann wurde etwas zusammengefühqqrt?
+ * Wann wurde etwas zusammengeführt?
  * Welches Datei wurde im "Ur-Commit" hinzugefügt?
  * Welcher "seltsame Autor" hat beigetragen?
 
@@ -256,7 +261,7 @@ Starten mit:
    "Workflow:"-Prefix aus Überschrift entfernt
  * Wie oft wurde `content.md` geändert?
    In 5 Commits (ein davon Erstellung)
- * Wann wurde etwas zusammengefühqqrt?
+ * Wann wurde etwas zusammengeführt?
    `2bd9289`, 25.9.2018 18:42 Uhr
  * Welches Datei wurde im "Ur-Commit" hinzugefügt?
    `.gitmodules` (in `b4db3f6`)

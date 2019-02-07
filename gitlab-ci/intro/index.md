@@ -8,7 +8,7 @@ von René Preißel und Bjørn Stachmann
 
 
 <font size="4">
-  <a href="/?print-pdf">Print</a> / <a href="/?print-pdf&showNotes=true">Print with speaker notes
+  <a href="?print-pdf">Print</a> / <a href="?print-pdf&showNotes=true">Print with speaker notes
   </a>
 </font>
 <p/>

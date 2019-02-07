@@ -165,6 +165,7 @@ Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen 
 Dann Commit, wie gehabt.
 
     git commit
+
 ---
 
 ### Commit - gelöschte Dateien
@@ -202,7 +203,7 @@ Was genau ist in einem Commit enthalten?
 
 Commit Trees
 
-![Commit Trees](02/commit-tree.jpg)
+![Commit Trees](commit-tree.jpg)
 
 ---
 
