@@ -227,16 +227,21 @@ git log --decorate --oneline
 bb00978 (origin/master) Add content to repository chapter.
 ```
 
+---
 
-z. B.
+### Beispiele für Refs
 
  * `HEAD`
  * `master` (Branch)
- * weitere Branches
- * Tags
+ * `feature-a` (Branch)
+ * `v1.0.0` (Branch)
 
+Mit der Option `--all` zeig `log` nicht nur die Historie des `HEAD`,
+sonder aller Tags und Branches.
 
+```bash
     git log --all --graph
+```
 
 ---
 
