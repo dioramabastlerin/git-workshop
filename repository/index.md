@@ -34,6 +34,7 @@ Was findet man in einem Git-Repository? Wie untersucht man es?
 
 
 ## Übung
+
 Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um es zu untersuchen.
 ```bash
     git clone <server-url>/git-workshop.git
