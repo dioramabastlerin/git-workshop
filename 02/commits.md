@@ -90,7 +90,7 @@ Notes:
 
 vergleicht Commits, den Workspace, den Index, Verzeichnisse und Dateien.
 
- * **ohne Paramater:** HEAD -> Workspace
+ * **ohne Parameter:** HEAD -> Workspace
    ```bash
    git diff
    ```
