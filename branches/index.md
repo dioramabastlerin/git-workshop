@@ -50,6 +50,21 @@ auflisten, vergleichen und administrieren.
 
 ---
 
+### Branches sind Zeiger auf Commits
+
+![Branch vor dem Commit](abb-branches-beispiel-vorher.png)
+
+#### Ein Branch ist aktiv (hier `release-1.0`)
+
+---
+
+#### Neue Commits gehen auf den aktiven Branch
+
+![Branch nach dem Commit](abb-branches-beispiel-nachher.png)
+
+
+---
+
 ### Branch anlegen
 
 ```bash
