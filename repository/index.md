@@ -90,15 +90,20 @@ mit der **gesamten Historie** eines Projekts.
     git ls-tree --abbrev HEAD src/main/java
 ```
 
-`HEAD` bezeichnte das aktuelle Commit und
+---
+
+# `HEAD`
+
+bezeichnet das aktuelle Commit und
 ist bei vielen Befehlen der Default-Wert
 und kann oft weggelassen werden.
 
 
 ---
 
+### Revision-Hashes
 
-## Revision-Hashes, die Versionsnummern von Git
+Die Versionsnummern von Git
 
 Versionen können in Git über ihre Revision-Hashes
 oder über symbolische Namen (Refs) angesprochen werden.
@@ -117,23 +122,12 @@ oder über symbolische Namen (Refs) angesprochen werden.
 
 ---
 
-Ein *Commit* enthält
-
- * **Tree**
-
-   Exakter Stand aller versionierten Dateien in ihren Verzeichnissen
+### Ein *Commit* enthält
 
  * **Tree** - exakter Stand aller versionierten Dateien und Verzeichnisse
- * **Metadaten**
-
-     - Autor und Zeitpunkt der Änderung
-     - Message: Beschreibung der Änderung
-     - Parent(s): Vorgängerversion(en)
-
- * **Revision Hash**
-
-   Prüfsumme über Dateinhalten und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
-
+ * **Metadaten** - Autor und Zeitpunkt der Änderung, Beschreibung der Änderung
+ * **Parent(s)** - Vorgängerversion(en)
+ * **Revision Hash** - Prüfsumme über Dateinhalte und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
 
 ---
 
@@ -196,7 +190,7 @@ Hier kann man Folgendes finden:
 
 ---
 
-## Checkout: Repository -> Workspace
+### Checkout: Repository -> Workspace
 
 Bestimmte Version ausgewählter Dateien wieder herstellen:
 
@@ -273,7 +267,7 @@ Mitreden, wo es um Git geht
 
 ---
 
-## Übung: Repository untersuchen
+### Übung: Repository untersuchen
 
 Starten mit:
 
@@ -281,7 +275,7 @@ Starten mit:
 
 ---
 
-## Übung: Fragen
+### Übung: Fragen
 
  * Was ist im aktuellen Commit passiert?
  * Wie oft wurde `content.md` geändert?

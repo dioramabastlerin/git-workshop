@@ -100,10 +100,12 @@ vergleicht Commits, den Workspace, den Index, Verzeichnisse und Dateien.
    git diff HEAD~2
    ```
 
+
 Notes:
 
  * Was Index/Stage ist, kommt später
  * Diff-Format kurz zeigen und beschreiben
+
 ---
 
 ### `git diff`
@@ -134,6 +136,7 @@ Notes:
  * Default `master`
  * Neues Commit: Zeiger des aktiven Branches wird aktualisiert.
 
+
 ---
 
 ### Commit - geänderte Dateien
@@ -149,6 +152,7 @@ Alle geänderen Dateien, die bereits versioniert sind.
 Und gleich mit Message:
 
     git commit -am "Edit some files."
+
 
 ---
 
@@ -166,6 +170,7 @@ Dann Commit, wie gehabt.
 
     git commit
 
+
 ---
 
 ### Commit - gelöschte Dateien
@@ -181,6 +186,7 @@ Es gibt auch einen Git-Befehl zum Löschen:
     git rm my-file
     git commit -am 'deleted my-file'
 
+
 ---
 
 ## Umbenennen und verschieben
@@ -193,17 +199,20 @@ Es gibt auch einen Git-Befehl zum Löschen:
      1. Change
      1. Commit
 
+
 ---
 
 Was genau ist in einem Commit enthalten?
 
     git log --pretty=raw
 
+
 ---
 
 Commit Trees
 
 ![Commit Trees](commit-tree.jpg)
+
 
 ---
 
@@ -216,11 +225,13 @@ Ein Verzeichnis muss mindestens eine Datei enthalten.
 
 Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
+
 ---
 
 ## Tags
 
     git tag v0.1.7
+
 
 ---
 
@@ -242,6 +253,7 @@ Angefangene Änderungen kann man jeder zeit mit `stash` wegsichern.
 
     revert  HEAD~3
 
+
 ---
 
 ### Oops - versehentlich geändert
@@ -260,6 +272,7 @@ Ganzen Workspace zurücksetzen
 
     git stash -u
 
+
 ---
 
 ## Übung
@@ -271,6 +284,7 @@ Ganzen Workspace zurücksetzen
  1. Die hinzugefügte Datei ändern. Dann Commit.
  1. Die "alte" Datei umbenennen und Commit.
  1. Änderungen aus vorvorletzten Commit reverten (Stash-Rückholung).
+
 
 ---
 
