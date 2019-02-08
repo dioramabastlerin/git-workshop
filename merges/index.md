@@ -70,7 +70,8 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 
 ### 3-Wege-Merge
 
-![3-Wege-Merge](3-wege-merge.png)
+![3-Wege-Merge](3-wege-merge.jpg)
+
 
 ---
 
