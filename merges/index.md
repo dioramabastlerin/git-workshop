@@ -107,7 +107,18 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
 
 ---
 
-![Fast-Forward](fast-forward.jpg)
+![Fast-Forward 1](abb-branches-beispiel-ff-vorher.png)
+
+
+---
+
+![Fast-Forward 2](abb-branches-beispiel-ff-nachher.png)
+
+
+---
+
+![Fast-Forward 3](fast-forward.jpg)
+
 
 ---
 
