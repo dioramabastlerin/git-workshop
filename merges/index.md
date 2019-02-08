@@ -132,19 +132,11 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
 
 `merge` 29,30,31,43,44
 
+
 ---
 
 ![Merges mildern](merges-mildern.jpg)
 
----
-
-Wenn man einem Merge per `revert` rückgängig macht,
-       muss man dieses später mit einem weiteren `revert` rückgängig machen,
-       um die Änderungen zu reaktivieren
-
----
-
-![Reverting Merges](reverting-merges.jpg)
 
 ---
 
