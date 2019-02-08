@@ -108,20 +108,6 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
 
 ---
 
-    git branch --merged
-
-    git branch -d
-
----
-
-## Branches verwalten
-
-[Aufräumen von Branches](https://kapitel26.github.io/git/2014/03/31/alte-branches-archivieren.rb.html)
-[Mirroring](https://kapitel26.github.io/git/2014/04/04/branches-aufrauemen.rb.html)
-
-
----
-
 ## Eigenschaften von Branches
 
  * beweglicher Zeiger auf Commit.
@@ -129,3 +115,20 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
    - checkout wechselt den aktiven Bracnh
  * Beim Commit wird der aktive Branch weiter gesetzt.
  * Branches sind lokal
+
+---
+
+## Branches verwalten
+
+```bash
+    # Welche branches wurden schon integriert?
+    git checkout master
+    git branch --merged
+
+    # Branch löschen
+    git branch -d some-branch
+```
+
+[Aufräumen von Branches](https://kapitel26.github.io/git/2014/03/31/alte-branches-archivieren.rb.html)
+[Mirroring](https://kapitel26.github.io/git/2014/04/04/branches-aufrauemen.rb.html)
+
