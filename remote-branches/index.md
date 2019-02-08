@@ -13,14 +13,18 @@
 
 ## Branch
 
-   git pull other-repo other-branch
-   git push other-repo other-branch
+```bash
+git pull other-repo other-branch
+git push other-repo other-branch
+```
 
 Wenn ein *upstream* konfiguriert ist, kann man die Parameter weglassen
 
-   git branch -vv
-   git pull
-   git push
+```bash
+git push --set-upstream origin new-branch
 
-   git push --set-upstream origin new-branch
+git pull
+git push
+```
+
 
