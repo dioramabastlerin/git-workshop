@@ -18,6 +18,21 @@
 
 ![Rebasing und Merging](rebasing-and-merging.png)
 
+
+---
+
+### Rebase Beispiel 1
+
+![Rebasing Beispiel vorher](abb-branches-beispiel-rebase-vorher.png)
+
+
+---
+
+### Rebase Beispiel 2
+
+![Rebasing Beispiel nachher](abb-branches-beispiel-rebase-nachher.png)
+
+
 ---
 
 ### Rebase - Anwendung
