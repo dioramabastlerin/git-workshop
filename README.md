@@ -1,4 +1,4 @@
-asjdfoiajdfoiasji# Stichworte und Kommandobeispiele zum Git-Workshop.
+ Stichworte und Kommandobeispiele zum Git-Workshop.
 
 noch was
 
