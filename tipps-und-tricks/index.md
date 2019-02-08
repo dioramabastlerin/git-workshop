@@ -20,6 +20,8 @@
 
 ## Dateien unversioniert lassen
    - `.gitignore` 21
+
+
 ---
 
 ## Staging
@@ -30,14 +32,24 @@
 
 ---
 
-## Oops
-   - Datei zu früh "geaddet"
-     - `reset` 22,23,27
-     - `reset HEAD protokoll.md`
-   - Schon committed und doch falsch
-     - `--amend` 23
-   - Commit nochmal wiederholen
-     - `git reset HEAD~1`
+## Commits nachträglich reparieren
+
+```bash
+# Commit-Kommentar ändern
+git commit --amend
+
+# Vergessene Datei hinzufühgen
+git add vergessen
+git commit --amend
+
+# Das Commit noch mal versuchen
+git reset HEAD~1
+```
+
+---
+
+## Sonstiges
+
    - `reset --hard HEAD`
    - `reflog` 27
      - `log --walk-reflogs`
