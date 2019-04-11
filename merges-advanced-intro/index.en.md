@@ -12,9 +12,9 @@
 ## Learning Goals
 
  * 3-way-merge, `merge-base`
- * Interpreting merge history
- * About workflows with merges
  * Strategies for resolving merges
+ * About workflows with merges
+ * Interpreting merge history
  * reverting merges
  * subtree merges
 
