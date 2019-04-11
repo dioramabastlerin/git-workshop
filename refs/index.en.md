@@ -7,22 +7,27 @@
 
 ## What is a branch really?
 
+
 ```
 $ less .git/refs/heads/advanced-git-en 
 ```
+
 
 ---
 
 
 ## A branch 
 
+
  * just a pointer to a commit hash
  * when a new commit is created
    this pointer will be set to its commit hash
  * the commit itself has no knowledge of the branch
    on which it was created
+
    
 --- 
+
 
 ## Ref
 
@@ -36,7 +41,6 @@ is used a lot in git.
 
 
 ---
-
 
 
 ## Fetching, Pulling and Pushing refs
@@ -75,3 +79,5 @@ $ less .git/logs/refs/heads/master
  * ` git push --delete`
  * `git push --set-upstream`
  * Mirroring
+ 
+ 

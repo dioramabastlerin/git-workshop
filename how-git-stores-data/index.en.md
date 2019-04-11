@@ -11,7 +11,9 @@ How does Git work?
  * How does it handle redundancy?
  * A graph of commits?
 
+
 ---
+
 
 ## Just a minimal commit
 
@@ -21,7 +23,10 @@ $ vim hello
 $ git add hello
 $ git commit -m "A minimal commit"
 ```
+
+
 ---
+
 
 ## Let's have a closer look
 
@@ -33,11 +38,15 @@ $ git commit -m "A minimal commit"
     git ls-tree --abbrev HEAD src/main/java
 ```
 
+
 --- 
+
 
 ### Everything has a hash!
 
+
 ---
+
 
 ### Inspect the Object Store
 
@@ -54,6 +63,7 @@ $ git commit -m "A minimal commit"
     $ git cat-file -s HEAD   # size
     $ git cat-file -p HEAD   # print
     ``` 
+
 
 ---
 
