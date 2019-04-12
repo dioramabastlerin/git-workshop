@@ -1,4 +1,4 @@
-# Object Storage and the commit graph
+# Object Storage and the Commit Graph
 
 ---
 
@@ -39,7 +39,7 @@ $ git commit -m "A minimal commit"
 ```
 
 
---- 
+---
 
 
 ### Everything has a hash!
@@ -126,6 +126,7 @@ $ echo 'test content' | git hash-object -w --stdin
 
 ---
 
+
 ## A problem
 
  1. Take large file
@@ -134,6 +135,7 @@ $ echo 'test content' | git hash-object -w --stdin
  1. Repeat often
  
 -> You get a huge repository  
+
 
 ---
 

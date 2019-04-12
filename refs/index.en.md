@@ -25,8 +25,8 @@ $ less .git/refs/heads/advanced-git-en
  * the commit itself has no knowledge of the branch
    on which it was created
 
-   
---- 
+
+---
 
 
 ## Ref
@@ -43,8 +43,6 @@ is used a lot in git.
 ---
 
 
-## Fetching, Pulling and Pushing refs
-
 When Git transfers data from one repo to another,
 a mapping of refs is required:
 
@@ -56,7 +54,12 @@ a mapping of refs is required:
    - Prefix `+` to *force* the update
  * Refs may sometimes, but not always,
    be abbreviated, e.g. `origin/master` instead of `refs/remotes/origin/master`.
-   Hint: Use the full names, when automating things (e.g. Build-Server-Scripts)
+
+
+---
+
+
+Hint: Use the full names, when automating things (e.g. Build-Server-Scripts)
    
 
 ---
