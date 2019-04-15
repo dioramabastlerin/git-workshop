@@ -1,16 +1,38 @@
 import io.kotlintest.TestContext
+import io.kotlintest.inspectors.forAll
 import io.kotlintest.matchers.beEmpty
+import io.kotlintest.matchers.collections.shouldContain
 import io.kotlintest.matchers.collections.shouldContainExactly
 import io.kotlintest.should
+import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 import java.io.File
-import java.util.stream.Stream
 import kotlin.streams.toList
 
 class GitSampleBuilderTest : StringSpec({
 
+    "creating repositorys"  {
+        Directory(testDir()).run {
+            cleanDirectory()
+
+            val repo0 = createRepository()
+            val repo1 = createRepository("repo1")
+            val repo2 = createRepository("repo2") {
+                execute("touch wurst")
+            }
+
+            listOf(repo0, repo1, repo2).forAll { it.ls() shouldContain ".git" }
+
+            repo0.rootDir.name shouldBe "repo"
+            repo1.rootDir.name shouldBe "repo1"
+            repo2.rootDir.name shouldBe "repo2"
+
+            repo2.ls() shouldContain "wurst"
+        }
+    }
+
     "sandbox"  {
-        GitSamplesBuilder(testDir()).run {
+        Directory(testDir()).run {
             cleanDirectory()
 
             val serverRepo = bareRepo("myproject") {
@@ -43,7 +65,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "execute commands" {
-        GitSamplesBuilder(testDir()).run {
+        Directory(testDir()).run {
             cleanDirectory()
             execute("ls -1").toList() should beEmpty()
             execute("touch hallo welt")
@@ -57,21 +79,21 @@ class GitSampleBuilderTest : StringSpec({
 
 private fun TestContext.testDir() = File("build/tests/${this.description().name}")
 
-class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
+open class Directory(val rootDir: File = File("build/gitsamples")) {
 
 
     init {
-        workingDir.mkdirs()
+        rootDir.mkdirs()
     }
 
 
     fun cleanDirectory() {
-        workingDir.deleteRecursively()
-        workingDir.mkdirs()
+        rootDir.deleteRecursively()
+        rootDir.mkdirs()
     }
 
 
-    fun execute(command: String): Stream<String> = executeRaw(command, false).inputStream.bufferedReader().lines()
+    fun execute(command: String): List<String> = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
 
     fun show(command: String): Process = executeRaw(command, true)
 
@@ -79,7 +101,7 @@ class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
     private fun executeRaw(command: String, inheritStdout: Boolean): Process {
         val processBuilder = ProcessBuilder(command.split("""\s+""".toRegex()))
 
-        processBuilder.directory(workingDir)
+        processBuilder.directory(rootDir)
 
         processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT)
         if (inheritStdout) {
@@ -94,14 +116,20 @@ class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
         return process
     }
 
-    fun dir(relativePath: String): File = File(workingDir, relativePath).absoluteFile
+    fun dir(relativePath: String): File = File(rootDir, relativePath).absoluteFile
 
-    fun inDir(dir: File, function: GitSamplesBuilder.() -> Unit) = GitSamplesBuilder(dir).run(function)
+    fun inDir(dir: File, function: Directory.() -> Unit) = Directory(dir).run(function)
 
-    fun git(gitCommand: String): Stream<String> = execute("git $gitCommand")
+    fun git(gitCommand: String): List<String> = execute("git $gitCommand")
 
 
-    fun bareRepo(newRepBasename: String = "server", function: GitSamplesBuilder.() -> Unit): GitRepo {
+    fun createRepository(newRepoName: String = "repo", commands: GitRepo.() -> Unit = {}): GitRepo {
+        git("init $newRepoName")
+        return GitRepo(File(rootDir, newRepoName).absoluteFile, commands)
+    }
+
+
+    fun bareRepo(newRepBasename: String = "server", function: Directory.() -> Unit): GitRepo {
         val tmpDirName = ".$newRepBasename"
         inDir(dir(tmpDirName)) {
             git("init")
@@ -110,23 +138,29 @@ class GitSamplesBuilder(val workingDir: File = File("build/gitsamples")) {
 
         val serverRepoName = "$newRepBasename.git"
         git("clone --bare $tmpDirName $serverRepoName")
-        return GitRepo(File(workingDir, serverRepoName).absoluteFile)
+        return GitRepo(File(rootDir, serverRepoName).absoluteFile)
     }
 
-    fun inRepo(repo: GitRepo, function: GitSamplesBuilder.() -> Unit) {
+    fun inRepo(repo: GitRepo, function: Directory.() -> Unit) {
         inDir(repo.rootDir, function)
     }
+
+    fun ls(): List<String> = execute("ls -A")
 
 
 
 }
 
-data class GitRepo(val rootDir: File) {
+class GitRepo (rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(rootDir) {
+
+    init {
+        commands();
+    }
 
     val name: String get() = rootDir.name
 
-    fun cloneTo(targetDir: File, function: GitSamplesBuilder.() -> Unit): GitRepo {
-        val builder = GitSamplesBuilder(rootDir)
+    fun cloneTo(targetDir: File, function: Directory.() -> Unit): GitRepo {
+        val builder = Directory(rootDir)
         builder.git("clone . ${targetDir.absolutePath}")
         builder.inDir(targetDir, function)
         return GitRepo(targetDir)
