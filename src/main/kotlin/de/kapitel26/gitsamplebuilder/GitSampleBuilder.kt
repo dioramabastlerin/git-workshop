@@ -74,6 +74,17 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
 
     fun list(): List<String> = execute("ls -A")
 
+    fun createFile(name: String = "file", content: String? = null): SampleFile = SampleFile(File(rootDir, name))
+            .apply { location.writeText(content ?: createSampleFileContent()) }
+
+
+}
+
+class SampleFile(val location: File) {
+
+    fun createSampleFileContent(): String =
+            (0..11).map { "NEW - created as line $it of ${location.name}." }.joinToString("\n")
+
 
 }
 

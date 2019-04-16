@@ -6,6 +6,7 @@ import io.kotlintest.matchers.beEmpty
 import io.kotlintest.matchers.collections.shouldContain
 import io.kotlintest.matchers.collections.shouldContainAll
 import io.kotlintest.matchers.collections.shouldContainExactly
+import io.kotlintest.matchers.startWith
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
@@ -36,6 +37,24 @@ class GitSampleBuilderTest : StringSpec({
                 execute("touch created-in-subdir")
             }
             execute("ls -1 sub") shouldBe listOf("created-in-subdir")
+        }
+    }
+
+    "creating and editing files" {
+        inSamplesDirectory {
+            val file1 = createFile()
+
+            with(file1.location) {
+                name shouldBe "file"
+                exists() shouldBe true
+                readLines()
+                        .apply { size shouldBe 12 }
+                        .forAll { it should startWith("NEW -") }
+            }
+
+            createFile("hans", "wurst")
+            File(rootDir, "hans").readText() shouldBe "wurst"
+
         }
     }
 
