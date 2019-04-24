@@ -30,9 +30,9 @@ Using some of the more advanced techniques in git requires some understanding of
 ### Commit Graph* and *Object Store*
 
 > Inspect the commit 35ac61b in the object store
-> without using porcelaine commands, like `show`, `log`, `checkout`, ...
+> without using porcelaine commands, like \`show\`, \`log\`, \`checkout\`, ...
 >
-> Navigate to the file `branches/index.md` an show its content.
+> Navigate to the file \`branches/index.md\` an show its content.
 
 
 > There is a special kind of entry in the root commit,
@@ -48,17 +48,17 @@ Using some of the more advanced techniques in git requires some understanding of
 
 
 > Prepare this:
-> `$ git clone --bare git@gitlab.com:gitlab-ci-samples/basic-job.git`
-> `$ git clone basic-job.git`
-> Create and checkout a new local branch `my-local-branch` at one commit below `just-a-branch`
-> (This show point at `38295db Add some important line`)
+> \`$ git clone --bare git@gitlab.com:gitlab-ci-samples/basic-job.git\`
+> \`$ git clone basic-job.git\`
+> Create and checkout a new local branch \`my-local-branch\` at one commit below \`just-a-branch\`
+> (This show point at \`38295db Add some important line\`)
 >
-> Now try to push this back to the `origin` (the bare repo)
-> Check the commit graph in `origin`
+> Now try to push this back to the \`origin\` (the bare repo)
+> Check the commit graph in \`origin\`
 
 
-> Now try to use a mirror-Clone to reset both `master` and `just-a-branch` by one commit.
-> Check the result in the commit graph in `origin`
+> Now try to use a mirror-Clone to reset both \`master\` and \`just-a-branch\` by one commit.
+> Check the result in the commit graph in \`origin\`
 
 
  * Synchronization
@@ -66,7 +66,7 @@ Using some of the more advanced techniques in git requires some understanding of
      is helpful when dealing with performance issues.
 
 > Perform a fetch in a repository.
-> Inspect the changes with the `log` command using  `..` and `...`
+> Inspect the changes with the \`log\` command using  \`..\` and \`...\`
 
 Practical exercises:
 

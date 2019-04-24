@@ -30,38 +30,38 @@ Using some of the more advanced techniques in git requires some understanding of
 ### Commit Graph* and *Object Store*
 
 > Inspect the commit 35ac61b in the object store
-> without using porcelaine commands, like `show`, `log`, `checkout`, ...
+> without using porcelaine commands, like \`show\`, \`log\`, \`checkout\`, ...
 >
-> Navigate to the file `branches/index.md` an show its content.
+> Navigate to the file \`branches/index.md\` an show its content.
 
-```
+\`\`\`
     $ git cat-file -p 35ac61b
     $ git cat-file -p 37a149d # tree
     $ git cat-file -p b74bfac # tree of branches
     $ git cat-file -p 26a3cd1a # content of file
-```
+\`\`\`
 
 > There is a special kind of entry in the root commit,
 > Whiche line look unusual?
 
-```
+\`\`\`
  $ git cat-file -p b4db3f6
  $ git cat-file -p 6d01263
 ...
 160000 commit 249f0139598b20d02263b81a76f1ff87f8e74225  revealjs
 ...
    What does commit mean here?
-```
+\`\`\`
 
 > Now inspect the oldest merge in this repo
 
-```
+\`\`\`
  $ git cat-file -p 2bd9289
 
 tree aa642b5e0eebb4df9a6ff4f15c908c00060a9eda
 parent 328dafaa41e4ebf748c84143f1f683bb88b068d9
 parent 14d997ac6f82535efd26d016b5516a7d10f2fb31
-```
+\`\`\`
 
  1. Two parent entries
  1. A normal complete tree
@@ -75,35 +75,35 @@ parent 14d997ac6f82535efd26d016b5516a7d10f2fb31
 
 
 > Prepare this:
-> `$ git clone --bare git@gitlab.com:gitlab-ci-samples/basic-job.git`
-> `$ git clone basic-job.git`
-> Create and checkout a new local branch `my-local-branch` at one commit below `just-a-branch`
-> (This show point at `38295db Add some important line`)
+> \`$ git clone --bare git@gitlab.com:gitlab-ci-samples/basic-job.git\`
+> \`$ git clone basic-job.git\`
+> Create and checkout a new local branch \`my-local-branch\` at one commit below \`just-a-branch\`
+> (This show point at \`38295db Add some important line\`)
 >
-> Now try to push this back to the `origin` (the bare repo)
-> Check the commit graph in `origin`
+> Now try to push this back to the \`origin\` (the bare repo)
+> Check the commit graph in \`origin\`
 
-```
+\`\`\`
  $ git push origin +my-local-branch:just-a-branch
-```
+\`\`\`
 
-> Now try to use a mirror-Clone to reset both `master` and `just-a-branch` by one commit.
-> Check the result in the commit graph in `origin`
+> Now try to use a mirror-Clone to reset both \`master\` and \`just-a-branch\` by one commit.
+> Check the result in the commit graph in \`origin\`
 
-```
+\`\`\`
  $ git clone --mirror basic-job.git basic-job.mirror
  $ cd basic-job.mirror
  $ git branch -f just-a-branch just-a-branch~1
  $ git branch -f master master~1
  $ git push # hope, you know what you're doing
-```
+\`\`\`
 
  * Synchronization
    - Understanding how and what git transfers between clones
      is helpful when dealing with performance issues.
 
 > Perform a fetch in a repository.
-> Inspect the changes with the `log` command using  `..` and `...`
+> Inspect the changes with the \`log\` command using  \`..\` and \`...\`
 
 Practical exercises:
 
