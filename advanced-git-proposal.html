@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Advanced</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div id="content"></div>
+
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="revealjs/plugin/markdown/marked.js"></script>
+<script>
+
+document.getElementById('content').innerHTML = marked(`
+
+# Workshop Advanced Git
+
+
+## Understanding Git
+
+
+Using some of the more advanced techniques in git requires some understanding of how git works internally.
+
+
+ * *Commit Graph* and *Object Store*
+   - Understanding how git stores data helps to understand
+     merging strategies, rebasing and features like submodules, subtrees
+     or LFS.
+
+
+ * *Refs* - Understand how Branches work
+   - *Refs* are the implementation behind branches, remote branches and tag.
+     Understanding them help to manage branches, perform repository maintenance,
+
+
+ * Synchronization
+   - Understanding how and what git transfers between clones
+     is helpful when dealing with performance issues.
+
+
+Practical exercises:
+
+
+ * Inspection of the *commit graph* and the *refs* in a real (open source) project
+ * Accessing of objects in the *object store*
+ * Inspection of the changes in a repo after a *fetch* operation.
+
+
+
+
+## Tips & Tricks
+
+
+This section introduceds some less know but useful features
+and a few best practices for for the day to daw work with git.
+
+
+ * Usage of worktrees for a more efficient local workflow.
+ * The power of stashing
+ * Using git to assist debugging (local tags, bisection, fine-grained commits)
+
+
+Practical exercises:
+
+
+ * Just try out some the features.
+
+
+
+
+## Deep Dive - Merging
+
+
+Merge conflicts: Strategies for avoiding, handling and debugging merge problems.
+
+
+ * What is a merge? (Commit Graph)
+ * Automatic merging: How do the standard merge algorithms work.
+ * Examples for a non standard-merging
+   - Using subtree merges
+ * Reverting merges: Git makes it easy to merge. It can be harder to undo a merge that has already been pushed.
+
+
+Practical exercises:
+
+
+ * Solving some example of merges with increasing difficulty
+
+
+
+
+## Deep Dive - Rebasing
+
+
+ * Rebasing basics: How does it work? How to use it and when to avoid it.
+   - Dangers of rebasing
+ * Workflows using rebasing (trunk based, feature branching)
+ * Related Operations: Commit
+ * Using interactive rebasing to prepare a code review
+ * Advanced rebasing techniques: Usages of  rebase, cherry-pick, squash merges, filter-branch, BFG etc.  How to improve the quality of reviews with interactive rebasing.
+
+
+Practical exercises:
+
+
+ * Perform an interactive rebase on a sequence of multiple commits
+
+
+
+
+## Structuring and Restructuring Projects
+
+
+ * Structuring modules with submodules
+ * Structuring modules with subtreee
+
+
+Practical exercises:
+
+
+ * Using the subtree command
+   - Combine two repos into one
+   - Extract a module
+
+
+`);
+
+</script>
+
+
+</body>
+</html>
