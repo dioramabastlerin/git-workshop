@@ -85,6 +85,22 @@ class SampleFile(val location: File) {
     fun createSampleFileContent(): String =
             (0..11).map { "NEW - created as line $it of ${location.name}." }.joinToString("\n")
 
+    fun edit(line: Int, message: String) = edit(line..line, message)
+
+    fun edit(linesToEdit: IntRange, message: String) {
+        location
+                .readLines()
+                .mapIndexed { index, s ->
+                    if (index in linesToEdit)
+                        "EDITED - as line $index of ${location.name}: $message"
+                    else
+                        s
+                }
+                .joinToString("\n")
+                .also { location.writeText(it) }
+
+    }
+
 
 }
 
@@ -101,6 +117,11 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
         builder.git("clone . ${targetDir.absolutePath}")
         builder.directory(targetDir, function)
         return GitRepo(targetDir)
+    }
+
+    fun commit() {
+        git("add file")
+        git("commit -m \"moin\" file")
     }
 
 }

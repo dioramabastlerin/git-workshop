@@ -40,7 +40,7 @@ class GitSampleBuilderTest : StringSpec({
         }
     }
 
-    "creating and editing files" {
+    "creating files" {
         inSamplesDirectory {
             val file1 = createFile()
 
@@ -54,6 +54,22 @@ class GitSampleBuilderTest : StringSpec({
 
             createFile("hans", "wurst")
             File(rootDir, "hans").readText() shouldBe "wurst"
+
+        }
+    }
+
+    "editing files" {
+        inSamplesDirectory {
+            val file1 = createFile()
+            file1.edit(2..3, "ALPHA")
+            file1.edit(5..5, "BETA")
+
+            File(rootDir, "file").readLines() shouldContainAll listOf(
+                    "EDITED - as line 2 of file: ALPHA",
+                    "EDITED - as line 3 of file: ALPHA",
+                    "EDITED - as line 5 of file: BETA"
+            )
+
 
         }
     }

@@ -6,6 +6,39 @@ import java.io.File
 
 class GitSampleBuilderSample : StringSpec({
 
+    "problems with rebased commits"  {
+        inSamplesDirectory {
+            createRepository {
+                val file = createFile()
+                commit()
+                git("branch feature")
+
+                file.edit(1..2, "on master")
+                commit()
+
+                git("checkout feature")
+
+                file.edit(4, "on feature")
+                commit()
+                file.edit(5, "on feature")
+                commit()
+
+                git("branch feature2")
+                git("rebase master")
+
+                file.edit(4, "on other after rebase")
+                commit()
+
+                git("checkout feature2")
+
+                file.edit(1, "on somewhere else")
+                commit()
+
+                git("merge feature2")
+            }
+        }
+    }
+
     "sandbox"  {
         inSamplesDirectory {
             val serverRepo = bareRepo("myproject") {
