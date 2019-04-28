@@ -18,12 +18,18 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
 
 
     fun execute(command: String): List<String> = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
+    fun executeSplitted(vararg command: String): List<String> = exeuteSplittedRaw(false, *command).inputStream.bufferedReader().lines().toList()
 
     fun show(command: String): Process = executeRaw(command, true)
 
 
-    private fun executeRaw(command: String, inheritStdout: Boolean): Process {
-        val processBuilder = ProcessBuilder(command.split("""\s+""".toRegex()))
+    fun executeRaw(command: String, inheritStdout: Boolean): Process {
+        val splittedCommandLineArguments = command.split("""\s+""".toRegex()).toTypedArray()
+        return exeuteSplittedRaw(inheritStdout, *splittedCommandLineArguments)
+    }
+
+    fun exeuteSplittedRaw(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
+        val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
 
         processBuilder.directory(rootDir)
 
@@ -36,7 +42,7 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
 
         val exitCode = process.waitFor()
         if (exitCode != 0)
-            throw Exception("Failed with exit code $exitCode: $command")
+            throw Exception("Failed with exit code $exitCode: ${splittedCommandLineArguments.joinToString(" ")}")
         return process
     }
 
@@ -49,6 +55,7 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
 
     fun git(gitCommand: String): List<String> = execute("git $gitCommand")
 
+    fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
     fun createRepository(newRepoName: String = "repo", commands: GitRepo.() -> Unit = {}): GitRepo {
         git("init $newRepoName")
@@ -119,9 +126,12 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
         return GitRepo(targetDir)
     }
 
-    fun commit() {
-        git("add file")
-        git("commit -m \"moin\" file")
+    fun commit(file: SampleFile, message: String = "Dummy commit message") {
+        // TODO escape string bc of double quote problem
+        git("add", file.location.toString())
+        // TODO escape string bc of double quote problem
+        git("commit", "-m", message, file.location.toString())
+
     }
 
 }

@@ -10,29 +10,29 @@ class GitSampleBuilderSample : StringSpec({
         inSamplesDirectory {
             createRepository {
                 val file = createFile()
-                commit()
+                commit(file)
                 git("branch feature")
 
                 file.edit(1..2, "on master")
-                commit()
+                commit(file)
 
                 git("checkout feature")
 
                 file.edit(4, "on feature")
-                commit()
+                commit(file)
                 file.edit(5, "on feature")
-                commit()
+                commit(file)
 
                 git("branch feature2")
                 git("rebase master")
 
                 file.edit(4, "on other after rebase")
-                commit()
+                commit(file)
 
                 git("checkout feature2")
 
                 file.edit(1, "on somewhere else")
-                commit()
+                commit(file)
 
                 git("merge feature2")
             }
