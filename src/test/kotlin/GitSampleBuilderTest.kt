@@ -103,15 +103,15 @@ class GitSampleBuilderTest : StringSpec({
     "committing a file"  {
         inSamplesDirectory {
             createRepository {
-                git("status")[0] shouldBe "On branch master"
                 val file = createFile("myfile")
-                file.location.name shouldBe "myfile"
+
                 commit(file)
-                git("ls-tree HEAD -- myfile") shouldBe listOf("egal")
+
+                val filesInHead = git("ls-tree HEAD --name-only -- myfile")
+                filesInHead shouldBe listOf("myfile")
             }
         }
     }
-
 
 })
 

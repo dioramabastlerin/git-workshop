@@ -127,9 +127,8 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
     }
 
     fun commit(file: SampleFile, message: String = "Dummy commit message") {
-        // TODO escape string bc of double quote problem
+        // TODO check if quoting of locations is necessary
         git("add", file.location.toString())
-        // TODO escape string bc of double quote problem
         git("commit", "-m", message, file.location.toString())
 
     }
