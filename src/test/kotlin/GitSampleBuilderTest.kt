@@ -61,13 +61,13 @@ class GitSampleBuilderTest : StringSpec({
     "editing files" {
         inSamplesDirectory {
             val file1 = createFile()
-            file1.edit(2..3, "ALPHA")
+            file1.edit(2..3)
             file1.edit(5..5, "BETA")
 
             File(rootDir, "file").readLines() shouldContainAll listOf(
-                    "EDITED - as line 2 of file: ALPHA",
-                    "EDITED - as line 3 of file: ALPHA",
-                    "EDITED - as line 5 of file: BETA"
+                    "EDITED at 2 / NEW - created as line 2 of file.",
+                    "EDITED at 3 / NEW - created as line 3 of file.",
+                    "BETA at 5 / NEW - created as line 5 of file."
             )
 
 

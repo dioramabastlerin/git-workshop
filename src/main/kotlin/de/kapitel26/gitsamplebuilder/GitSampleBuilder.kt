@@ -94,12 +94,12 @@ class SampleFile(val location: File) {
 
     fun edit(line: Int, message: String) = edit(line..line, message)
 
-    fun edit(linesToEdit: IntRange, message: String) {
+    fun edit(linesToEdit: IntRange, message: String = "EDITED") {
         location
                 .readLines()
                 .mapIndexed { index, s ->
                     if (index in linesToEdit)
-                        "EDITED - as line $index of ${location.name}: $message"
+                        "$message at $index / $s"
                     else
                         s
                 }
@@ -133,4 +133,14 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
 
     }
 
+    fun editAndCommit(file: SampleFile, line: Int, message: String = defaultMessage()) = editAndCommit(file, line..line, message)
+
+    fun editAndCommit(file: SampleFile, lines: IntRange, message: String = defaultMessage()) {
+        file.edit(lines, message)
+        commit(file)
+    }
+
+    private fun defaultMessage(): String = "on branch ${currentBranch()}"
+
+    private fun currentBranch(): String = git("rev-parse", "--abbrev-ref", "HEAD").single()
 }

@@ -11,35 +11,26 @@ class GitSampleBuilderSample : StringSpec({
             createRepository {
                 val file = createFile()
                 commit(file)
-                git("branch feature")
 
-                file.edit(1..2, "on master")
-                commit(file)
+                git("checkout -b feature")
+                editAndCommit(file, 5)
+
+                git("checkout master")
+                editAndCommit(file, 1)
 
                 git("checkout feature")
+                git("branch feature-before-rebase")
+                // git("rebase master")
+                git("merge master")
 
-                file.edit(4, "on feature")
-                commit(file)
-                file.edit(5, "on feature")
-                commit(file)
+                editAndCommit(file, 5)
 
-                git("branch feature2")
-                git("rebase master")
-
-                file.edit(4, "on other after rebase")
-                commit(file)
-
-                git("checkout feature2")
-
-                file.edit(1, "on somewhere else")
-                commit(file)
-
-                git("merge feature2")
+                git("merge feature-before-rebase")
             }
         }
     }
 
-    "sandbox"  {
+    "sandbox".config(enabled = false) {
         inSamplesDirectory {
             val serverRepo = bareRepo("myproject") {
                 execute("touch myfile")
