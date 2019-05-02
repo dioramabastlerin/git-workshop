@@ -42,7 +42,7 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
 
         val exitCode = process.waitFor()
         if (exitCode != 0)
-            throw Exception("Failed with exit code $exitCode: ${splittedCommandLineArguments.joinToString(" ")}")
+            throw CommandlineException(process, "Failed with exit code $exitCode: ${splittedCommandLineArguments.joinToString(" ")}")
         return process
     }
 
@@ -86,6 +86,9 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
 
 
 }
+
+class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
+
 
 class SampleFile(val location: File) {
 
