@@ -95,7 +95,7 @@ class SampleFile(val location: File) {
     fun createSampleFileContent(): String =
             (0..11).map { "NEW - created as line $it of ${location.name}." }.joinToString("\n")
 
-    fun edit(line: Int, message: String) = edit(line..line, message)
+    fun edit(line: Int, message: String = "EDITED") = edit(line..line, message)
 
     fun edit(linesToEdit: IntRange, message: String = "EDITED") {
         location
@@ -108,10 +108,7 @@ class SampleFile(val location: File) {
                 }
                 .joinToString("\n")
                 .also { location.writeText(it) }
-
     }
-
-
 }
 
 class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(rootDir) {
@@ -165,5 +162,16 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
         git("checkout", previousBranch)
     }
 
-    private fun currentBranch(): String = git("rev-parse", "--abbrev-ref", "HEAD").single()
+    private fun ensureThatBranchExists(branchName: String) {
+        try {
+            git("branch", branchName)
+        } catch (e: CommandlineException) {
+            val branchExistsAlready = e.failedProcess.exitValue() == 128
+            if (!branchExistsAlready)
+                throw e
+        }
+    }
 }
+
+
+

@@ -113,6 +113,23 @@ class GitSampleBuilderTest : StringSpec({
         }
     }
 
+    "switching branches"  {
+        inSamplesDirectory {
+            createRepository {
+                val file = createFile("myfile")
+                editAndCommit(file, 0)
+                onBranch("salami") { editAndCommit(file, 5) }
+                onBranch("stracke") { editAndCommit(file, 11) }
+                onBranch("salami") { editAndCommit(file, 6) }
+                editAndCommit(file, 1)
+
+                git("merge", "salami")
+                git("merge", "stracke")
+            }
+        }
+    }
+
+
 })
 
 private fun TestContext.inSamplesDirectory(block: Directory.() -> Unit) {
