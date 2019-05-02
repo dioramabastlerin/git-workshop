@@ -8,6 +8,7 @@ import io.kotlintest.matchers.collections.shouldContainAll
 import io.kotlintest.matchers.collections.shouldContainExactly
 import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.endWith
+import io.kotlintest.matchers.string.include
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
@@ -114,18 +115,28 @@ class GitSampleBuilderTest : StringSpec({
         }
     }
 
-    "switching branches"  {
+    "creating and switching branches"  {
         inSamplesDirectory {
             createRepository {
                 val file = createFile("myfile")
                 editAndCommit(file, 0)
-                onBranch("salami") { editAndCommit(file, 5) }
-                onBranch("stracke") { editAndCommit(file, 11) }
+
+                startBranch("salami") { editAndCommit(file, 5) }
+                startBranch("stracke") { editAndCommit(file, 11) }
                 onBranch("salami") { editAndCommit(file, 6) }
-                editAndCommit(file, 1)
+                editAndCommit(file, 1) // will be back on master
+                onBranch("master") { editAndCommit(file, 2) }
 
                 git("merge", "salami")
                 git("merge", "stracke")
+                val resultLines = file.lines()
+                resultLines[0] should include("`master`")
+                resultLines[1] should include("`master`")
+                resultLines[2] should include("`master`")
+                resultLines[5] should include("`salami`")
+                resultLines[6] should include("`salami`")
+                resultLines[11] should include("`stracke`")
+
             }
         }
     }

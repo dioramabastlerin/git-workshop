@@ -109,6 +109,8 @@ class SampleFile(val location: File) {
                 .joinToString("\n")
                 .also { location.writeText(it) }
     }
+
+    fun lines() = location.readLines()
 }
 
 class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(rootDir) {
@@ -153,24 +155,23 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
     }
 
 
+    fun startBranch(branchName: String, startingAt: String = "HEAD", function: () -> Unit) {
+        git("branch", branchName, startingAt)
+        onBranch(branchName, function)
+    }
+
     fun onBranch(branchName: String, function: () -> Unit) {
         val previousBranch = currentBranch()
+        if (previousBranch == branchName) {
+            function()
+        } else {
+            git("checkout", branchName)
+            function()
+            git("checkout", previousBranch)
 
-        ensureThatBranchExists(branchName)
-        git("checkout", branchName)
-        function()
-        git("checkout", previousBranch)
-    }
-
-    private fun ensureThatBranchExists(branchName: String) {
-        try {
-            git("branch", branchName)
-        } catch (e: CommandlineException) {
-            val branchExistsAlready = e.failedProcess.exitValue() == 128
-            if (!branchExistsAlready)
-                throw e
         }
     }
+
 }
 
 

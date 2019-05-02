@@ -6,6 +6,7 @@ import java.io.File
 
 class GitSampleBuilderSample : StringSpec({
 
+
     "problems with rebased commits"  {
         inSamplesDirectory {
             createRepository {
@@ -13,8 +14,7 @@ class GitSampleBuilderSample : StringSpec({
                 val file = createFile()
                 commit(file)
 
-
-                onBranch("feature") {
+                startBranch("feature") {
                     editAndCommit(file, 5)
                 }
 
@@ -22,13 +22,13 @@ class GitSampleBuilderSample : StringSpec({
                     editAndCommit(file, 1)
                 }
 
-                onBranch("feature") {
-                    onBranch("rebased-feature") {
-                        git("rebase", "master")
-                    }
+                startBranch("rebased-feature", "feature") {
+                    git("merge", "master")
+                }
 
+                onBranch("feature") {
                     editAndCommit(file, 5)
-                    //git("merge", "rebased-feature")
+                    git("merge", "rebased-feature")
                 }
             }
         }
