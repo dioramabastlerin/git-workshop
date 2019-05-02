@@ -6,7 +6,8 @@ import io.kotlintest.matchers.beEmpty
 import io.kotlintest.matchers.collections.shouldContain
 import io.kotlintest.matchers.collections.shouldContainAll
 import io.kotlintest.matchers.collections.shouldContainExactly
-import io.kotlintest.matchers.startWith
+import io.kotlintest.matchers.containAll
+import io.kotlintest.matchers.endWith
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
@@ -49,7 +50,7 @@ class GitSampleBuilderTest : StringSpec({
                 exists() shouldBe true
                 readLines()
                         .apply { size shouldBe 12 }
-                        .forAll { it should startWith("NEW -") }
+                        .forAll { it should endWith(" created") }
             }
 
             createFile("hans", "wurst")
@@ -64,10 +65,10 @@ class GitSampleBuilderTest : StringSpec({
             file1.edit(2..3)
             file1.edit(5..5, "BETA")
 
-            File(rootDir, "file").readLines() shouldContainAll listOf(
-                    "line 2 edited / NEW - created as line 2 of file.",
-                    "line 3 edited / NEW - created as line 3 of file.",
-                    "line 5 BETA / NEW - created as line 5 of file."
+            File(rootDir, "file").readLines() should containAll(
+                    "line 2 edited / line 2 created",
+                    "line 3 edited / line 3 created",
+                    "line 5 BETA / line 5 created"
             )
 
 

@@ -93,7 +93,7 @@ class CommandlineException(val failedProcess: Process, message: String) : Runtim
 class SampleFile(val location: File) {
 
     fun createSampleFileContent(): String =
-            (0..11).map { "NEW - created as line $it of ${location.name}." }.joinToString("\n")
+            (0..11).map { "line $it created" }.joinToString("\n")
 
     fun edit(line: Int, message: String = "edited") = edit(line..line, message)
 
