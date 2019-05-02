@@ -9,23 +9,27 @@ class GitSampleBuilderSample : StringSpec({
     "problems with rebased commits"  {
         inSamplesDirectory {
             createRepository {
+
                 val file = createFile()
                 commit(file)
 
-                git("checkout -b feature")
-                editAndCommit(file, 5)
 
-                git("checkout master")
-                editAndCommit(file, 1)
+                onBranch("feature") {
+                    editAndCommit(file, 5)
+                }
 
-                git("checkout feature")
-                git("branch feature-before-rebase")
-                // git("rebase master")
-                git("merge master")
+                onBranch("master") {
+                    editAndCommit(file, 1)
+                }
 
-                editAndCommit(file, 5)
+                onBranch("feature") {
+                    onBranch("rebased-feature") {
+                        git("rebase", "master")
+                    }
 
-                git("merge feature-before-rebase")
+                    editAndCommit(file, 5)
+                    //git("merge", "rebased-feature")
+                }
             }
         }
     }
