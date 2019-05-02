@@ -95,14 +95,14 @@ class SampleFile(val location: File) {
     fun createSampleFileContent(): String =
             (0..11).map { "NEW - created as line $it of ${location.name}." }.joinToString("\n")
 
-    fun edit(line: Int, message: String = "EDITED") = edit(line..line, message)
+    fun edit(line: Int, message: String = "edited") = edit(line..line, message)
 
-    fun edit(linesToEdit: IntRange, message: String = "EDITED") {
+    fun edit(linesToEdit: IntRange, message: String = "edited") {
         location
                 .readLines()
                 .mapIndexed { index, s ->
                     if (index in linesToEdit)
-                        "$message at $index / $s"
+                        "line $index $message / $s"
                     else
                         s
                 }
@@ -140,7 +140,7 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
         commit(file)
     }
 
-    private fun defaultMessage(): String = "EDITED on branch ${currentBranch()}"
+    private fun defaultMessage(): String = "edited on `${currentBranch()}`"
 
     // TODO does not work in new repo
     private fun currentBranch(): String {

@@ -65,9 +65,9 @@ class GitSampleBuilderTest : StringSpec({
             file1.edit(5..5, "BETA")
 
             File(rootDir, "file").readLines() shouldContainAll listOf(
-                    "EDITED at 2 / NEW - created as line 2 of file.",
-                    "EDITED at 3 / NEW - created as line 3 of file.",
-                    "BETA at 5 / NEW - created as line 5 of file."
+                    "line 2 edited / NEW - created as line 2 of file.",
+                    "line 3 edited / NEW - created as line 3 of file.",
+                    "line 5 BETA / NEW - created as line 5 of file."
             )
 
 
