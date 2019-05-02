@@ -3,6 +3,7 @@ package de.kapitel26.gitsamplebuilder
 import io.kotlintest.TestContext
 import io.kotlintest.inspectors.forAll
 import io.kotlintest.matchers.beEmpty
+import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.collections.shouldContain
 import io.kotlintest.matchers.collections.shouldContainAll
 import io.kotlintest.matchers.collections.shouldContainExactly
@@ -75,6 +76,34 @@ class GitSampleBuilderTest : StringSpec({
 
         }
     }
+
+    "duplication" {
+        inSamplesDirectory {
+            directory("base") {
+                val baseDir = this
+                createFile("base-file")
+
+                duplicatedSample("duplicatedSample") {
+                    baseName shouldBe "base"
+                    rootDir.name shouldBe "base.duplicatedSample"
+                    rootDir.parent shouldBe baseDir.rootDir.parent
+
+                    list() should containExactly("base-file")
+
+
+                    duplicatedSample("nestedcall") {
+                        baseName shouldBe "base"
+                        rootDir.name shouldBe "base.nestedcall"
+                        rootDir.parent shouldBe baseDir.rootDir.parent
+
+
+                    }
+
+                }
+            }
+        }
+    }
+
 
     "creating repositorys"  {
         inSamplesDirectory {

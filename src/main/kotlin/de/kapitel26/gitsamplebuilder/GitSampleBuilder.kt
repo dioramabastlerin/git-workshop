@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder
 import java.io.File
 import kotlin.streams.toList
 
-open class Directory(val rootDir: File = File("build/gitsamples")) {
+open class Directory(val rootDir: File = File("build/gitsamples"), val baseName: String = rootDir.name) {
 
 
     init {
@@ -84,6 +84,11 @@ open class Directory(val rootDir: File = File("build/gitsamples")) {
     fun createFile(name: String = "file", content: String? = null): SampleFile = SampleFile(File(rootDir, name))
             .apply { location.writeText(content ?: createSampleFileContent()) }
 
+    fun duplicatedSample(suffix: String, function: Directory.() -> Unit) = Directory(File(rootDir.parent, "$baseName.$suffix"), baseName)
+            .also { duplicate ->
+                exeuteSplittedRaw(false, "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath)
+            }
+            .apply(function)
 
 }
 
