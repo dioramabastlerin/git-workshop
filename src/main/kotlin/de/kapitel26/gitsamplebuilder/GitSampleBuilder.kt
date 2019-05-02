@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder
 import java.io.File
 import kotlin.streams.toList
 
-open class Directory(val rootDir: File = File("build/gitsamples"), val baseName: String = rootDir.name) {
+abstract class Directory<T>(val rootDir: File = File("build/gitsamples"), val baseName: String = rootDir.name) {
 
 
     init {
@@ -48,9 +48,9 @@ open class Directory(val rootDir: File = File("build/gitsamples"), val baseName:
 
     fun dir(relativePath: String): File = File(rootDir, relativePath).absoluteFile
 
-    fun directory(dirName: String, commands: Directory.() -> Unit = {}): Directory = directory(File(rootDir, dirName), commands)
+    fun directory(dirName: String, commands: PlainDirectory.() -> Unit = {}): PlainDirectory = directory(File(rootDir, dirName), commands)
 
-    fun directory(dir: File, commands: Directory.() -> Unit): Directory = Directory(dir)
+    fun directory(dir: File, commands: PlainDirectory.() -> Unit): PlainDirectory = PlainDirectory(dir)
             .also(commands)
 
     fun git(gitCommand: String): List<String> = execute("git $gitCommand")
@@ -63,7 +63,7 @@ open class Directory(val rootDir: File = File("build/gitsamples"), val baseName:
     }
 
 
-    fun bareRepo(newRepBasename: String = "server", function: Directory.() -> Unit): GitRepo {
+    fun bareRepo(newRepBasename: String = "server", function: Directory<T>.() -> Unit): GitRepo {
         val tmpDirName = ".$newRepBasename"
         directory(dir(tmpDirName)) {
             git("init")
@@ -75,20 +75,19 @@ open class Directory(val rootDir: File = File("build/gitsamples"), val baseName:
         return GitRepo(File(rootDir, serverRepoName).absoluteFile)
     }
 
-    fun inRepo(repo: GitRepo, function: Directory.() -> Unit) {
-        directory(repo.rootDir, function)
+    fun inRepo(repo: GitRepo, function: GitRepo.() -> Unit) {
+        GitRepo(repo.rootDir, function)
     }
 
     fun list(): List<String> = execute("ls -A")
 
-    fun createFile(name: String = "file", content: String? = null): SampleFile = SampleFile(File(rootDir, name))
-            .apply { location.writeText(content ?: createSampleFileContent()) }
+    fun createFile(name: String = "file", content: String? = null): SampleFile =
+            file(name).apply { location.writeText(content ?: createSampleFileContent()) }
 
-    fun duplicatedSample(suffix: String, function: Directory.() -> Unit) = Directory(File(rootDir.parent, "$baseName.$suffix"), baseName)
-            .also { duplicate ->
-                exeuteSplittedRaw(false, "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath)
-            }
-            .apply(function)
+    fun file(name: String = "file"): SampleFile = SampleFile(File(rootDir, name))
+
+    abstract fun duplicatedSample(suffix: String, function: T.() -> Unit): T
+
 
 }
 
@@ -118,7 +117,18 @@ class SampleFile(val location: File) {
     fun lines() = location.readLines()
 }
 
-class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(rootDir) {
+class PlainDirectory(rootDir: File, baseName: String = rootDir.name) : Directory<PlainDirectory>(rootDir, baseName) {
+
+    override fun duplicatedSample(suffix: String, function: PlainDirectory.() -> Unit) =
+            PlainDirectory(File(rootDir.parent, "$baseName.$suffix"), baseName)
+                    .also { duplicate ->
+                        exeuteSplittedRaw(false, "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath)
+                    }
+                    .apply(function)
+
+}
+
+class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory<GitRepo>(rootDir) {
 
     init {
         commands()
@@ -126,11 +136,23 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
 
     val name: String get() = rootDir.name
 
-    fun cloneTo(targetDir: File, function: Directory.() -> Unit): GitRepo {
-        val builder = Directory(rootDir)
+
+    override fun duplicatedSample(suffix: String, function: GitRepo.() -> Unit): GitRepo =
+            GitRepo(
+                    PlainDirectory(rootDir).duplicatedSample(suffix, {}).rootDir,
+                    function)
+
+
+    //    override fun duplicatedSample(suffix: String, function: Directory<GitRepo>.() -> Unit): Directory<GitRepo> {
+//        return GitRepo(super.duplicatedSample(suffix, {}).rootDir)
+//                .apply(function)
+//    }
+//
+    fun cloneTo(targetDir: File, function: Directory<GitRepo>.() -> Unit): GitRepo {
+        val builder = PlainDirectory(rootDir)
         builder.git("clone . ${targetDir.absolutePath}")
-        builder.directory(targetDir, function)
         return GitRepo(targetDir)
+                .apply(function)
     }
 
     fun commit(file: SampleFile, message: String = "Dummy commit message") {
@@ -144,7 +166,7 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
 
     fun editAndCommit(file: SampleFile, lines: IntRange, message: String = defaultMessage()) {
         file.edit(lines, message)
-        commit(file)
+        commit(file, "`${file.location.name}`: $message")
     }
 
     private fun defaultMessage(): String = "edited on `${currentBranch()}`"

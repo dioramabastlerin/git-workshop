@@ -173,8 +173,8 @@ class GitSampleBuilderTest : StringSpec({
 
 })
 
-private fun TestContext.inSamplesDirectory(block: Directory.() -> Unit) {
-    Directory(File("build/tests/${description().name}"))
+private fun TestContext.inSamplesDirectory(block: PlainDirectory.() -> Unit) {
+    PlainDirectory(File("build/tests/${description().name}"))
             .apply { cleanDirectory() }
             .run(block)
 }

@@ -1,6 +1,7 @@
 package de.kapitel26.gitsamplebuilder
 
 import io.kotlintest.TestContext
+import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 import java.io.File
 
@@ -11,65 +12,65 @@ class GitSampleBuilderSample : StringSpec({
         inSamplesDirectory {
             createRepository {
 
-                val file = createFile()
-                commit(file)
+                createFile()
+
+                commit(file())
 
                 startBranch("feature") {
-                    editAndCommit(file, 5)
+                    editAndCommit(file(), 5)
                 }
 
                 onBranch("master") {
-                    editAndCommit(file, 1)
+                    editAndCommit(file(), 1)
                 }
 
-                startBranch("rebased-feature", "feature") {
-                    git("merge", "master")
+                duplicatedSample("rebased-commit-will-not-merge") {
+                    exeuteSplittedRaw(true, "pwd")
+
+                    startBranch("rebased-feature", "feature") {
+                        git("rebase", "master")
+                    }
+
+                    git("checkout", "feature")
+                    editAndCommit(file(), 5)
+                    try {
+                        git("merge", "rebased-feature")
+                    } catch (e: CommandlineException) {
+                        e.failedProcess.exitValue() shouldBe 1
+                    }
                 }
 
-                onBranch("feature") {
-                    editAndCommit(file, 5)
+                exeuteSplittedRaw(true, "pwd")
+
+                duplicatedSample("rebased-commit-will-merge-sometimes") {
+                    exeuteSplittedRaw(true, "pwd")
+                    startBranch("rebased-feature", "feature") {
+                        git("merge", "master")
+                    }
+
+                    git("checkout", "feature")
                     git("merge", "rebased-feature")
                 }
+
+                duplicatedSample("merge-will-work") {
+                    exeuteSplittedRaw(true, "pwd")
+
+                    startBranch("rebased-feature", "feature") {
+                        git("merge", "master")
+                    }
+
+                    git("checkout", "feature")
+                    editAndCommit(file(), 5)
+                    git("merge", "rebased-feature")
+
+                }
             }
         }
     }
-
-    "sandbox".config(enabled = false) {
-        inSamplesDirectory {
-            val serverRepo = bareRepo("myproject") {
-                execute("touch myfile")
-                git("add myfile")
-                git("commit -m add-my-file")
-            }
-
-
-            val alice = serverRepo.cloneTo(dir("alice")) {
-                execute("touch fileofalice")
-                git("add fileofalice")
-                git("commit -m fileofalice")
-                git("push")
-            }
-
-            serverRepo.cloneTo(dir("bob")) {
-                git("pull")
-                execute("touch bobsfile")
-                git("add bobsfile")
-                git("commit -m bobsfile")
-                git("push")
-            }
-
-            inRepo(alice) {
-                show("git pull")
-                show("ls -lah")
-            }
-        }
-    }
-
-
 })
 
-private fun TestContext.inSamplesDirectory(block: Directory.() -> Unit) {
-    Directory(File("build/samples/${description().name}"))
+private fun TestContext.inSamplesDirectory(block: PlainDirectory.() -> Unit) {
+    PlainDirectory(File("build/samples/${description().name}"))
             .apply { cleanDirectory() }
             .run(block)
 }
