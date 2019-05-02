@@ -143,7 +143,27 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory(root
         commit(file)
     }
 
-    private fun defaultMessage(): String = "on branch ${currentBranch()}"
+    private fun defaultMessage(): String = "EDITED on branch ${currentBranch()}"
+
+    // TODO does not work in new repo
+    private fun currentBranch(): String {
+        val lines = git("symbolic-ref", "--short", "HEAD")
+        println("rev-parse ${lines}")
+        if (lines.size == 1)
+            return lines.first()
+        else
+            return "master"
+    }
+
+
+    fun onBranch(branchName: String, function: () -> Unit) {
+        val previousBranch = currentBranch()
+
+        ensureThatBranchExists(branchName)
+        git("checkout", branchName)
+        function()
+        git("checkout", previousBranch)
+    }
 
     private fun currentBranch(): String = git("rev-parse", "--abbrev-ref", "HEAD").single()
 }
