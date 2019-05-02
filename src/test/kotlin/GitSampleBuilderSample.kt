@@ -25,8 +25,6 @@ class GitSampleBuilderSample : StringSpec({
                 }
 
                 duplicatedSample("rebased-commit-will-not-merge") {
-                    exeuteSplittedRaw(true, "pwd")
-
                     startBranch("rebased-feature", "feature") {
                         git("rebase", "master")
                     }
@@ -40,10 +38,8 @@ class GitSampleBuilderSample : StringSpec({
                     }
                 }
 
-                exeuteSplittedRaw(true, "pwd")
 
                 duplicatedSample("rebased-commit-will-merge-sometimes") {
-                    exeuteSplittedRaw(true, "pwd")
                     startBranch("rebased-feature", "feature") {
                         git("merge", "master")
                     }
@@ -53,8 +49,6 @@ class GitSampleBuilderSample : StringSpec({
                 }
 
                 duplicatedSample("merge-will-work") {
-                    exeuteSplittedRaw(true, "pwd")
-
                     startBranch("rebased-feature", "feature") {
                         git("merge", "master")
                     }
