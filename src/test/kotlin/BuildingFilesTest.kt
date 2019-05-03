@@ -4,15 +4,18 @@ import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.endWith
 import io.kotlintest.should
 import io.kotlintest.shouldBe
+import io.kotlintest.shouldThrow
 import io.kotlintest.specs.StringSpec
 import java.io.File
 
 class BuildingFilesTest : StringSpec({
+
     "creating files" {
         buildGitSamples(description().name) {
-            val file1 = createFile()
 
-            with(file1.location) {
+            createFile()
+
+            with(File(rootDir, "file")) {
                 name shouldBe "file"
                 exists() shouldBe true
                 readLines()
@@ -20,9 +23,13 @@ class BuildingFilesTest : StringSpec({
                         .forAll { it should endWith(" created") }
             }
 
-            createFile("hans", "wurst")
-            File(rootDir, "hans").readText() shouldBe "wurst"
+            createFile("custom-name", "custom-content")
+            File(rootDir, "custom-name").readText() shouldBe "custom-content"
 
+            createFile("already-existing")
+            shouldThrow<IllegalStateException> {
+                createFile("already-existing")
+            }
         }
     }
 

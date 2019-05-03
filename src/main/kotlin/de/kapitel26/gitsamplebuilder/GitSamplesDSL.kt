@@ -25,6 +25,11 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
         rootDir.mkdirs()
     }
 
+    fun createFile(name: String = "file", content: String? = null): de.kapitel26.gitsamplebuilder.impl.File =
+            file(name)
+                    .apply { if (location.exists()) throw IllegalStateException("Dir $this not expected to exist!") }
+                    .apply { location.writeText(content ?: createSampleFileContent()) }
+
 
     fun execute(command: String): List<String> = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
     fun executeSplitted(vararg command: String): List<String> = exeuteSplittedRaw(false, *command).inputStream.bufferedReader().lines().toList()
@@ -83,9 +88,6 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
     }
 
     fun list(): List<String> = execute("ls -A")
-
-    fun createFile(name: String = "file", content: String? = null): de.kapitel26.gitsamplebuilder.impl.File =
-            file(name).apply { location.writeText(content ?: createSampleFileContent()) }
 
     fun file(name: String = "file"): de.kapitel26.gitsamplebuilder.impl.File = de.kapitel26.gitsamplebuilder.impl.File(File(rootDir, name))
 
