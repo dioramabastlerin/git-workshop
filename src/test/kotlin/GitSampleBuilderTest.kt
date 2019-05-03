@@ -1,7 +1,6 @@
 package de.kapitel26.gitsamplebuilder
 
 import de.kapitel26.gitsamplebuilder.impl.PlainDirectory
-import de.kapitel26.gitsamplebuilder.impl.build
 import io.kotlintest.TestContext
 import io.kotlintest.inspectors.forAll
 import io.kotlintest.matchers.beEmpty

@@ -1,5 +1,6 @@
 package de.kapitel26.gitsamplebuilder.impl
 
+import de.kapitel26.gitsamplebuilder.Directory
 import java.io.File
 
 class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory<GitRepo>(rootDir) {

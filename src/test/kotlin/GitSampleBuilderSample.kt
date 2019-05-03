@@ -1,6 +1,5 @@
 package de.kapitel26.gitsamplebuilder
 
-import de.kapitel26.gitsamplebuilder.impl.CommandlineException
 import de.kapitel26.gitsamplebuilder.impl.PlainDirectory
 import io.kotlintest.TestContext
 import io.kotlintest.shouldBe
