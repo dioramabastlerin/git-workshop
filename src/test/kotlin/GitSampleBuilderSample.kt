@@ -17,7 +17,7 @@ class GitSampleBuilderSample : StringSpec({
                 commit(file())
 
                 startBranch("feature") {
-                    editAndCommit(file(), 5)
+                    editAndCommit(file(), 5, "to be REBASED")
                 }
 
                 onBranch("master") {
@@ -30,7 +30,7 @@ class GitSampleBuilderSample : StringSpec({
                     }
 
                     git("checkout", "feature")
-                    editAndCommit(file(), 5)
+                    editAndCommit(file(), 5, "edit again")
                     try {
                         git("merge", "rebased-feature")
                     } catch (e: CommandlineException) {
@@ -38,26 +38,26 @@ class GitSampleBuilderSample : StringSpec({
                     }
                 }
 
+                duplicatedSample("merge-will-work") {
+                    startBranch("merged-feature", "feature") {
+                        git("merge", "master")
+                    }
+
+                    git("checkout", "feature")
+                    editAndCommit(file(), 5, "edit again")
+                    git("merge", "merged-feature")
+
+                }
 
                 duplicatedSample("rebased-commit-will-merge-sometimes") {
                     startBranch("rebased-feature", "feature") {
-                        git("merge", "master")
+                        git("rebase", "master")
                     }
 
                     git("checkout", "feature")
                     git("merge", "rebased-feature")
                 }
 
-                duplicatedSample("merge-will-work") {
-                    startBranch("rebased-feature", "feature") {
-                        git("merge", "master")
-                    }
-
-                    git("checkout", "feature")
-                    editAndCommit(file(), 5)
-                    git("merge", "rebased-feature")
-
-                }
             }
         }
     }
