@@ -72,11 +72,15 @@ abstract class AbstractDir<T>(val rootDir: IOFile = IOFile("buildGitSamples/gits
 
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
-    fun createRepository(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo {
+    fun createRepo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo {
         git("init $newRepoName")
         return Repo(IOFile(rootDir, newRepoName).absoluteFile, commands)
     }
 
+    fun repo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo =
+            IOFile(rootDir, newRepoName).absoluteFile
+                    .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
+                    .run { Repo(this, commands) }
 
     fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstractDir<T>.() -> Unit): Repo {
         val tmpDirName = ".$newRepBasename"

@@ -8,7 +8,7 @@ class GitSampleBuilderSample : StringSpec({
 
     "problems with rebased commits"  {
         buildGitSamples(description().name) {
-            createRepository {
+            createRepo {
 
                 createFile("file")
 

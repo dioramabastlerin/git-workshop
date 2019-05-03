@@ -1,10 +1,11 @@
 package de.kapitel26.gitsamplebuilder
 
-import io.kotlintest.inspectors.forAll
-import io.kotlintest.matchers.collections.shouldContain
+import io.kotlintest.matchers.collections.containExactly
+import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.string.include
 import io.kotlintest.should
 import io.kotlintest.shouldBe
+import io.kotlintest.shouldThrow
 import io.kotlintest.specs.StringSpec
 import java.io.File
 
@@ -15,32 +16,34 @@ class WorkingWithGitReposTest : StringSpec({
     "creating repositorys"  {
         buildGitSamples(description().name) {
 
-            listOf(
-                    createRepository(), // default name "repo
-                    createRepository("custom-name1"),
-                    createRepository("custom-name2") {}
-            )
-                    .also { it.forAll { repo -> repo.list() shouldContain ".git" } }
-                    .map { it.rootDir.name } shouldBe listOf("repo", "custom-name1", "custom-name2")
+            createRepo { list() should containExactly(".git") }
+            createRepo("custom-name") { list() should containExactly(".git") }
+
+            list() should containExactly("custom-name", "repo")
         }
+
+
     }
 
     "executing commands in repositorys"  {
         buildGitSamples(description().name) {
-            val repo0 = createRepository()
-            repo0.run {
+            createRepo("repo1") {
                 git("status")[0] shouldBe "On branch master"
             }
 
-            createRepository("repo1") {
-                git("status")[0] shouldBe "On branch master"
+            repo("repo1") {
+                git("status") should containAll("On branch master")
+            }
+
+            shouldThrow<IllegalStateException> {
+                repo("not-existing") { }
             }
         }
     }
 
     "committing a file"  {
         buildGitSamples(description().name) {
-            createRepository {
+            createRepo {
                 createFile("myfile")
 
                 commit("myfile")
@@ -53,7 +56,7 @@ class WorkingWithGitReposTest : StringSpec({
 
     "creating and switching branches"  {
         buildGitSamples(description().name) {
-            createRepository {
+            createRepo {
                 createFile("myfile")
                 editAndCommit("myfile", 0)
 
