@@ -32,10 +32,15 @@ class WritingDocsTest : StringSpec({
 
             clearLog()
 
-            createFile("my-new-file") {}
+            createFile("my-new-file") {
+                edit(1)
+                edit(2..3, "MOIN")
+            }
 
             logAsMarkdown() should containExactly(
-                    "    $ # create file 'my-new-file'"
+                    "    $ # created file 'my-new-file'",
+                    "    $ # edited file 'my-new-file' at 1..1",
+                    "    $ # MOIN file 'my-new-file' at 2..3"
             )
 
         }

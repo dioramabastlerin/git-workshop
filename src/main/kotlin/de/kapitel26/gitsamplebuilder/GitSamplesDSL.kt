@@ -39,14 +39,14 @@ abstract class AbstractDir<T>(
     }
 
     fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}): Unit =
-            File(IOFile(rootDir, name))
+            File(IOFile(rootDir, name), log)
                     .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
                     .apply { log.createFile(name, content) }
                     .apply { location.writeText(content ?: createSampleFileContent()) }
                     .run(commands)
 
     fun file(name: String = "file", commands: File.() -> Unit = {}) =
-            File(IOFile(rootDir, name))
+            File(IOFile(rootDir, name), log)
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
                     .run(commands)
 
@@ -131,17 +131,21 @@ class LogBuilder {
 
     val markdownLines: MutableList<String> = mutableListOf()
 
-    fun toMarkdown(): List<String> = markdownLines.toList()
-
-    fun createDir(dirName: String) = markdownLines.add("    $ mkdir $dirName")
-
-    fun cd(dirName: String) = markdownLines.add("    $ cd $dirName")
-
     fun clear() = markdownLines.clear()
 
-    fun createFile(name: String, content: String?) = markdownLines.add("    $ # create file '$name'")
+    fun toMarkdown(): List<String> = markdownLines.toList()
+
+    fun createDir(dirName: String) = shell("mkdir $dirName")
+
+    fun cd(dirName: String) = shell("cd $dirName")
+
+    fun createFile(name: String, content: String?) = shell("# created file '$name'")
+
+    fun editFile(name: String?, linesToEdit: IntRange, message: String) =
+            shell("# $message file '$name' at $linesToEdit")
 
     private fun shell(cmd: String) = markdownLines.add("    $ $cmd")
+
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
