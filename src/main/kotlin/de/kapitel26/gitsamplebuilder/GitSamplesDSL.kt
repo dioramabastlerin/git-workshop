@@ -6,14 +6,26 @@ import de.kapitel26.gitsamplebuilder.impl.Repo
 import kotlin.streams.toList
 import java.io.File as IOFile
 
-abstract class AbstractDir<T>(val rootDir: IOFile, val baseName: String = rootDir.name) {
+abstract class AbstractDir<T>(
+        val rootDir: IOFile,
+        val baseName: String = rootDir.name,
+        val log: LogBuilder = LogBuilder()
+) {
 
-    fun createDir(dirName: String, commands: Dir.() -> Unit = {}): Unit =
+
+    fun createDir(dirName: String, commands: (Dir.() -> Unit)? = null): Unit =
             IOFile(rootDir, dirName)
                     .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
                     .apply { mkdirs() }
-                    .run { Dir(this) }
-                    .run(commands)
+                    .apply { log.createDir(dirName) }
+                    .run { Dir(this, log = log) }
+                    .run {
+                        if (commands != null) {
+                            log.cd(dirName)
+                            commands()
+                            log.cd("..")
+                        }
+                    }
 
     fun dir(dirName: String, commands: Dir.() -> Unit): Unit =
             IOFile(rootDir, dirName)
@@ -29,6 +41,7 @@ abstract class AbstractDir<T>(val rootDir: IOFile, val baseName: String = rootDi
     fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}): Unit =
             File(IOFile(rootDir, name))
                     .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
+                    .apply { log.createFile(name, content) }
                     .apply { location.writeText(content ?: createSampleFileContent()) }
                     .run(commands)
 
@@ -105,6 +118,30 @@ abstract class AbstractDir<T>(val rootDir: IOFile, val baseName: String = rootDi
 
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
             file(filename) { edit(lineNumber..lineNumber, message) }
+
+    fun logAsMarkdown(): List<String> = log.toMarkdown()
+
+    fun clearLog() {
+        log.clear()
+    }
+
+}
+
+class LogBuilder {
+
+    val markdownLines: MutableList<String> = mutableListOf()
+
+    fun toMarkdown(): List<String> = markdownLines.toList()
+
+    fun createDir(dirName: String) = markdownLines.add("    $ mkdir $dirName")
+
+    fun cd(dirName: String) = markdownLines.add("    $ cd $dirName")
+
+    fun clear() = markdownLines.clear()
+
+    fun createFile(name: String, content: String?) = markdownLines.add("    $ # create file '$name'")
+
+    private fun shell(cmd: String) = markdownLines.add("    $ $cmd")
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
