@@ -6,7 +6,7 @@ import de.kapitel26.gitsamplebuilder.impl.Repo
 import kotlin.streams.toList
 import java.io.File as IOFile
 
-abstract class AbstractDir<T>(val rootDir: IOFile = IOFile("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
+abstract class AbstractDir<T>(val rootDir: IOFile, val baseName: String = rootDir.name) {
 
     fun createDir(dirName: String, commands: Dir.() -> Unit = {}): Unit =
             IOFile(rootDir, dirName)
