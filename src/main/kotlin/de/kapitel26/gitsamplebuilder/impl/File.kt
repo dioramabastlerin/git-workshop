@@ -1,8 +1,8 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import java.io.File
+import java.io.File as IOFile
 
-class SampleFile(val location: File) {
+class File(val location: IOFile) {
 
     fun createSampleFileContent(): String =
             (0..11).map { "line $it created" }.joinToString("\n")

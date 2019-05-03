@@ -1,9 +1,9 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.Directory
+import de.kapitel26.gitsamplebuilder.AbstractDir
 import java.io.File
 
-class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory<GitRepo>(rootDir) {
+class Repo(rootDir: File, commands: Repo.() -> Unit = {}) : AbstractDir<Repo>(rootDir) {
 
     init {
         commands()
@@ -12,34 +12,34 @@ class GitRepo(rootDir: File, commands: GitRepo.() -> Unit = {}) : Directory<GitR
     val name: String get() = rootDir.name
 
 
-    override fun duplicatedSample(suffix: String, function: GitRepo.() -> Unit): GitRepo =
-            GitRepo(
-                    PlainDirectory(rootDir).duplicatedSample(suffix, {}).rootDir,
+    override fun duplicatedSample(suffix: String, function: Repo.() -> Unit): Repo =
+            Repo(
+                    de.kapitel26.gitsamplebuilder.impl.Dir(rootDir).duplicatedSample(suffix, {}).rootDir,
                     function)
 
 
-    //    override fun duplicatedSample(suffix: String, function: Directory<GitRepo>.() -> Unit): Directory<GitRepo> {
-//        return GitRepo(super.duplicatedSample(suffix, {}).rootDir)
+    //    override fun duplicatedSample(suffix: String, function: AbstractDir<Repo>.() -> Unit): AbstractDir<Repo> {
+//        return Repo(super.duplicatedSample(suffix, {}).rootDir)
 //                .apply(function)
 //    }
 //
-    fun cloneTo(targetDir: File, function: Directory<GitRepo>.() -> Unit): GitRepo {
-        val builder = PlainDirectory(rootDir)
+    fun cloneTo(targetDir: File, function: AbstractDir<Repo>.() -> Unit): Repo {
+        val builder = de.kapitel26.gitsamplebuilder.impl.Dir(rootDir)
         builder.git("clone . ${targetDir.absolutePath}")
-        return GitRepo(targetDir)
+        return Repo(targetDir)
                 .apply(function)
     }
 
-    fun commit(file: SampleFile, message: String = "Dummy commit message") {
+    fun commit(file: de.kapitel26.gitsamplebuilder.impl.File, message: String = "Dummy commit message") {
         // TODO check if quoting of locations is necessary
         git("add", file.location.toString())
         git("commit", "-m", message, file.location.toString())
 
     }
 
-    fun editAndCommit(file: SampleFile, line: Int, message: String = defaultMessage()) = editAndCommit(file, line..line, message)
+    fun editAndCommit(file: de.kapitel26.gitsamplebuilder.impl.File, line: Int, message: String = defaultMessage()) = editAndCommit(file, line..line, message)
 
-    fun editAndCommit(file: SampleFile, lines: IntRange, message: String = defaultMessage()) {
+    fun editAndCommit(file: de.kapitel26.gitsamplebuilder.impl.File, lines: IntRange, message: String = defaultMessage()) {
         file.edit(lines, message)
         commit(file, "`${file.location.name}`: $message")
     }

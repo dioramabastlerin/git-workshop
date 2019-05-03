@@ -3,7 +3,7 @@ import io.kotlintest.matchers.collections.shouldContainAll
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
-class BuildingDirectoriesTest : StringSpec({
+class BuildingDirsTest : StringSpec({
 
     "creating directories and listing content"  {
         buildGitSamples(description().name) {

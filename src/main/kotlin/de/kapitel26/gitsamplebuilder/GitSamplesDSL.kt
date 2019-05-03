@@ -1,12 +1,11 @@
 package de.kapitel26.gitsamplebuilder
 
-import de.kapitel26.gitsamplebuilder.impl.GitRepo
-import de.kapitel26.gitsamplebuilder.impl.PlainDirectory
-import de.kapitel26.gitsamplebuilder.impl.SampleFile
+import de.kapitel26.gitsamplebuilder.impl.Dir
+import de.kapitel26.gitsamplebuilder.impl.Repo
 import java.io.File
 import kotlin.streams.toList
 
-abstract class Directory<T>(val rootDir: File = File("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
+abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
 
 
     init {
@@ -51,22 +50,22 @@ abstract class Directory<T>(val rootDir: File = File("buildGitSamples/gitsamples
 
     fun dir(relativePath: String): File = File(rootDir, relativePath).absoluteFile
 
-    fun directory(dirName: String, commands: PlainDirectory.() -> Unit = {}): PlainDirectory = directory(File(rootDir, dirName), commands)
+    fun directory(dirName: String, commands: Dir.() -> Unit = {}): Dir = directory(File(rootDir, dirName), commands)
 
-    fun directory(dir: File, commands: PlainDirectory.() -> Unit): PlainDirectory = PlainDirectory(dir)
+    fun directory(dir: File, commands: Dir.() -> Unit): Dir = Dir(dir)
             .also(commands)
 
     fun git(gitCommand: String): List<String> = execute("git $gitCommand")
 
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
-    fun createRepository(newRepoName: String = "repo", commands: GitRepo.() -> Unit = {}): GitRepo {
+    fun createRepository(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo {
         git("init $newRepoName")
-        return GitRepo(File(rootDir, newRepoName).absoluteFile, commands)
+        return Repo(File(rootDir, newRepoName).absoluteFile, commands)
     }
 
 
-    fun bareRepo(newRepBasename: String = "server", function: Directory<T>.() -> Unit): GitRepo {
+    fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstractDir<T>.() -> Unit): Repo {
         val tmpDirName = ".$newRepBasename"
         directory(dir(tmpDirName)) {
             git("init")
@@ -75,19 +74,19 @@ abstract class Directory<T>(val rootDir: File = File("buildGitSamples/gitsamples
 
         val serverRepoName = "$newRepBasename.git"
         git("clone --bare $tmpDirName $serverRepoName")
-        return GitRepo(File(rootDir, serverRepoName).absoluteFile)
+        return Repo(File(rootDir, serverRepoName).absoluteFile)
     }
 
-    fun inRepo(repo: GitRepo, function: GitRepo.() -> Unit) {
-        GitRepo(repo.rootDir, function)
+    fun inRepo(repo: Repo, function: Repo.() -> Unit) {
+        Repo(repo.rootDir, function)
     }
 
     fun list(): List<String> = execute("ls -A")
 
-    fun createFile(name: String = "file", content: String? = null): SampleFile =
+    fun createFile(name: String = "file", content: String? = null): de.kapitel26.gitsamplebuilder.impl.File =
             file(name).apply { location.writeText(content ?: createSampleFileContent()) }
 
-    fun file(name: String = "file"): SampleFile = SampleFile(File(rootDir, name))
+    fun file(name: String = "file"): de.kapitel26.gitsamplebuilder.impl.File = de.kapitel26.gitsamplebuilder.impl.File(File(rootDir, name))
 
     abstract fun duplicatedSample(suffix: String, function: T.() -> Unit): T
 
@@ -97,12 +96,12 @@ abstract class Directory<T>(val rootDir: File = File("buildGitSamples/gitsamples
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
 
 
-fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", commands: PlainDirectory.() -> Unit) =
+fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", commands: Dir.() -> Unit) =
         buildGitSamples(File(sampleDir, sampleName), commands)
 
 
-fun buildGitSamples(rootDir: File, commands: PlainDirectory.() -> Unit) {
-    PlainDirectory(rootDir)
+fun buildGitSamples(rootDir: File, commands: Dir.() -> Unit) {
+    Dir(rootDir)
             .apply { cleanDirectory() }
             .run(commands)
 }
