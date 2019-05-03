@@ -8,7 +8,7 @@ class BuildingSampleVariantsTest : StringSpec({
 
     "duplication" {
         buildGitSamples(description().name) {
-            dir("base") {
+            ensureDir("base") {
                 val baseDir = this
                 createFile("base-file")
 
