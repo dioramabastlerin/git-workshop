@@ -48,7 +48,7 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
         return process
     }
 
-    fun dir(relativePath: String): File = File(rootDir, relativePath).absoluteFile
+//    fun dir(relativePath: String): File = File(rootDir, relativePath).absoluteFile
 
     fun dir(dirName: String, commands: Dir.() -> Unit = {}): Dir = dir(File(rootDir, dirName), commands)
 
@@ -67,7 +67,7 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
 
     fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstractDir<T>.() -> Unit): Repo {
         val tmpDirName = ".$newRepBasename"
-        dir(dir(tmpDirName)) {
+        dir(tmpDirName) {
             git("init")
             function()
         }
