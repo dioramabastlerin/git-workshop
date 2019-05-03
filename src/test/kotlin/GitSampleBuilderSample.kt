@@ -65,7 +65,7 @@ class GitSampleBuilderSample : StringSpec({
 })
 
 private fun TestContext.buildGitSamples(block: PlainDirectory.() -> Unit) {
-    PlainDirectory(File("build/samples/${description().name}"))
+    PlainDirectory(File("buildGitSamples/samples/${description().name}"))
             .apply { cleanDirectory() }
             .run(block)
 }
