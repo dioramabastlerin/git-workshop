@@ -1,6 +1,7 @@
 package de.kapitel26.gitsamplebuilder
 
 import de.kapitel26.gitsamplebuilder.impl.PlainDirectory
+import de.kapitel26.gitsamplebuilder.impl.build
 import io.kotlintest.TestContext
 import io.kotlintest.inspectors.forAll
 import io.kotlintest.matchers.beEmpty
@@ -19,7 +20,7 @@ import java.io.File
 class GitSampleBuilderTest : StringSpec({
 
     "creating directories and listing content"  {
-        inSamplesDirectory {
+        buildGitSamples {
 
             directory("sub1")
             directory("sub1") // ok, if it exists already
@@ -31,7 +32,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "executing commands in directories" {
-        inSamplesDirectory {
+        buildGitSamples {
             execute("ls -1") should beEmpty()
             execute("touch hallo welt")
             execute("ls -1 .") shouldContainExactly listOf("hallo", "welt")
@@ -45,7 +46,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "creating files" {
-        inSamplesDirectory {
+        buildGitSamples {
             val file1 = createFile()
 
             with(file1.location) {
@@ -63,7 +64,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "editing files" {
-        inSamplesDirectory {
+        buildGitSamples {
             val file1 = createFile()
             file1.edit(2..3)
             file1.edit(5..5, "BETA")
@@ -79,7 +80,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "duplication" {
-        inSamplesDirectory {
+        buildGitSamples {
             directory("base") {
                 val baseDir = this
                 createFile("base-file")
@@ -107,7 +108,7 @@ class GitSampleBuilderTest : StringSpec({
 
 
     "creating repositorys"  {
-        inSamplesDirectory {
+        buildGitSamples {
 
             listOf(
                     createRepository(), // default name "repo
@@ -120,7 +121,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "executing commands in repositorys"  {
-        inSamplesDirectory {
+        buildGitSamples {
             val repo0 = createRepository()
             repo0.run {
                 git("status")[0] shouldBe "On branch master"
@@ -133,7 +134,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "committing a file"  {
-        inSamplesDirectory {
+        buildGitSamples {
             createRepository {
                 val file = createFile("myfile")
 
@@ -146,7 +147,7 @@ class GitSampleBuilderTest : StringSpec({
     }
 
     "creating and switching branches"  {
-        inSamplesDirectory {
+        buildGitSamples {
             createRepository {
                 val file = createFile("myfile")
                 editAndCommit(file, 0)
@@ -174,10 +175,8 @@ class GitSampleBuilderTest : StringSpec({
 
 })
 
-private fun TestContext.inSamplesDirectory(block: PlainDirectory.() -> Unit) {
-    PlainDirectory(File("build/tests/${description().name}"))
-            .apply { cleanDirectory() }
-            .run(block)
-}
+private fun TestContext.buildGitSamples(commands: PlainDirectory.() -> Unit) =
+        build(File("build/tests/${description().name}"), commands)
+
 
 

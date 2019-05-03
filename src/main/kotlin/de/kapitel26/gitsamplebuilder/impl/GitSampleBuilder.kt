@@ -94,4 +94,8 @@ abstract class Directory<T>(val rootDir: File = File("build/gitsamples"), val ba
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
 
 
-
+fun build(rootDir: File, commands: PlainDirectory.() -> Unit) {
+    PlainDirectory(rootDir)
+            .apply { cleanDirectory() }
+            .run(commands)
+}

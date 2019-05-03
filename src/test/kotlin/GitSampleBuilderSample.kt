@@ -11,7 +11,7 @@ class GitSampleBuilderSample : StringSpec({
 
 
     "problems with rebased commits"  {
-        inSamplesDirectory {
+        buildGitSamples {
             createRepository {
 
                 createFile()
@@ -65,7 +65,7 @@ class GitSampleBuilderSample : StringSpec({
     }
 })
 
-private fun TestContext.inSamplesDirectory(block: PlainDirectory.() -> Unit) {
+private fun TestContext.buildGitSamples(block: PlainDirectory.() -> Unit) {
     PlainDirectory(File("build/samples/${description().name}"))
             .apply { cleanDirectory() }
             .run(block)
