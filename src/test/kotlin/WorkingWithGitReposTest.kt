@@ -6,6 +6,7 @@ import io.kotlintest.matchers.string.include
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
+import java.io.File
 
 
 class WorkingWithGitReposTest : StringSpec({
@@ -40,9 +41,9 @@ class WorkingWithGitReposTest : StringSpec({
     "committing a file"  {
         buildGitSamples(description().name) {
             createRepository {
-                val file = createFile("myfile")
+                createFile("myfile")
 
-                commit(file)
+                commit("myfile")
 
                 val filesInHead = git("ls-tree HEAD --name-only -- myfile")
                 filesInHead shouldBe listOf("myfile")
@@ -53,18 +54,18 @@ class WorkingWithGitReposTest : StringSpec({
     "creating and switching branches"  {
         buildGitSamples(description().name) {
             createRepository {
-                val file = createFile("myfile")
-                editAndCommit(file, 0)
+                createFile("myfile")
+                editAndCommit("myfile", 0)
 
-                startBranch("salami") { editAndCommit(file, 5) }
-                startBranch("stracke") { editAndCommit(file, 11) }
-                onBranch("salami") { editAndCommit(file, 6) }
-                editAndCommit(file, 1) // will be back on master
-                onBranch("master") { editAndCommit(file, 2) }
+                startBranch("salami") { editAndCommit("myfile", 5) }
+                startBranch("stracke") { editAndCommit("myfile", 11) }
+                onBranch("salami") { editAndCommit("myfile", 6) }
+                editAndCommit("myfile", 1) // will be back on master
+                onBranch("master") { editAndCommit("myfile", 2) }
 
                 git("merge", "salami")
                 git("merge", "stracke")
-                val resultLines = file.lines()
+                val resultLines = File(rootDir, "myfile").readLines()
                 resultLines[0] should include("`master`")
                 resultLines[1] should include("`master`")
                 resultLines[2] should include("`master`")

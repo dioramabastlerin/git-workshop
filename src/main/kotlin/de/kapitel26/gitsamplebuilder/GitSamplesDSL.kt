@@ -1,21 +1,22 @@
 package de.kapitel26.gitsamplebuilder
 
 import de.kapitel26.gitsamplebuilder.impl.Dir
+import de.kapitel26.gitsamplebuilder.impl.File
 import de.kapitel26.gitsamplebuilder.impl.Repo
-import java.io.File
 import kotlin.streams.toList
+import java.io.File as IOFile
 
-abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
+abstract class AbstractDir<T>(val rootDir: IOFile = IOFile("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
 
     fun createDir(dirName: String, commands: Dir.() -> Unit = {}): Unit =
-            File(rootDir, dirName)
+            IOFile(rootDir, dirName)
                     .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
                     .apply { mkdirs() }
                     .run { Dir(this) }
                     .run(commands)
 
     fun dir(dirName: String, commands: Dir.() -> Unit): Unit =
-            File(rootDir, dirName)
+            IOFile(rootDir, dirName)
                     .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
                     .run { Dir(this) }
                     .run(commands)
@@ -25,10 +26,16 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
         rootDir.mkdirs()
     }
 
-    fun createFile(name: String = "file", content: String? = null): de.kapitel26.gitsamplebuilder.impl.File =
-            file(name)
-                    .apply { if (location.exists()) throw IllegalStateException("Dir $this not expected to exist!") }
+    fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}): Unit =
+            File(IOFile(rootDir, name))
+                    .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
                     .apply { location.writeText(content ?: createSampleFileContent()) }
+                    .run(commands)
+
+    fun file(name: String = "file", commands: File.() -> Unit = {}) =
+            File(IOFile(rootDir, name))
+                    .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
+                    .run(commands)
 
 
     fun execute(command: String): List<String> = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
@@ -67,7 +74,7 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
 
     fun createRepository(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo {
         git("init $newRepoName")
-        return Repo(File(rootDir, newRepoName).absoluteFile, commands)
+        return Repo(IOFile(rootDir, newRepoName).absoluteFile, commands)
     }
 
 
@@ -80,7 +87,7 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
 
         val serverRepoName = "$newRepBasename.git"
         git("clone --bare $tmpDirName $serverRepoName")
-        return Repo(File(rootDir, serverRepoName).absoluteFile)
+        return Repo(IOFile(rootDir, serverRepoName).absoluteFile)
     }
 
     fun inRepo(repo: Repo, function: Repo.() -> Unit) {
@@ -89,21 +96,21 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
 
     fun list(): List<String> = execute("ls -A")
 
-    fun file(name: String = "file"): de.kapitel26.gitsamplebuilder.impl.File = de.kapitel26.gitsamplebuilder.impl.File(File(rootDir, name))
 
     abstract fun duplicatedSample(suffix: String, function: T.() -> Unit): T
 
-
+    fun edit(filename: String, lineNumber: Int, message: String = "edited") =
+            file(filename) { edit(lineNumber..lineNumber, message) }
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
 
 
 fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", commands: Dir.() -> Unit) =
-        buildGitSamples(File(sampleDir, sampleName), commands)
+        buildGitSamples(IOFile(sampleDir, sampleName), commands)
 
 
-fun buildGitSamples(rootDir: File, commands: Dir.() -> Unit) {
+fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
     Dir(rootDir)
             .apply { clear() }
             .run(commands)

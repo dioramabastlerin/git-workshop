@@ -30,18 +30,18 @@ class Repo(rootDir: File, commands: Repo.() -> Unit = {}) : AbstractDir<Repo>(ro
                 .apply(function)
     }
 
-    fun commit(file: de.kapitel26.gitsamplebuilder.impl.File, message: String = "Dummy commit message") {
+    fun commit(fileName: String, message: String = "Dummy commit message") {
         // TODO check if quoting of locations is necessary
-        git("add", file.location.toString())
-        git("commit", "-m", message, file.location.toString())
+        git("add", fileName)
+        git("commit", "-m", message, fileName)
 
     }
 
-    fun editAndCommit(file: de.kapitel26.gitsamplebuilder.impl.File, line: Int, message: String = defaultMessage()) = editAndCommit(file, line..line, message)
+    fun editAndCommit(fileName: String, line: Int, message: String = defaultMessage()) = editAndCommit(fileName, line..line, message)
 
-    fun editAndCommit(file: de.kapitel26.gitsamplebuilder.impl.File, lines: IntRange, message: String = defaultMessage()) {
-        file.edit(lines, message)
-        commit(file, "`${file.location.name}`: $message")
+    fun editAndCommit(fileName: String, lines: IntRange, message: String = defaultMessage()) {
+        file(fileName) { edit(lines, message) }
+        commit(fileName, "`$fileName`: $message")
     }
 
     private fun defaultMessage(): String = "edited on `${currentBranch()}`"

@@ -13,13 +13,14 @@ class BuildingFilesTest : StringSpec({
     "creating files" {
         buildGitSamples(description().name) {
 
-            createFile()
+            createFile("file")
 
             with(File(rootDir, "file")) {
                 name shouldBe "file"
                 exists() shouldBe true
                 readLines()
                         .apply { size shouldBe 12 }
+                        .apply { this[2] shouldBe "line 2 created" }
                         .forAll { it should endWith(" created") }
             }
 
@@ -33,19 +34,39 @@ class BuildingFilesTest : StringSpec({
         }
     }
 
+    "applying commands to files" {
+        buildGitSamples(description().name) {
+
+            createFile("file", "hallo") { lines() shouldBe listOf("hallo") }
+
+            file("file") { lines().size shouldBe 1 }
+
+            shouldThrow<java.lang.IllegalStateException> {
+                file("does-not-exist") {}
+            }
+        }
+    }
+
+
     "editing files" {
         buildGitSamples(description().name) {
-            val file1 = createFile()
-            file1.edit(2..3)
-            file1.edit(5..5, "BETA")
+            createFile("afile") {
+                edit(0)
+                edit(2..3)
+                edit(5..5, "BETA")
+            }
 
-            File(rootDir, "file").readLines() should containAll(
+            edit("afile", 7)
+            edit("afile", 8, "GAMMA")
+
+            File(rootDir, "afile").readLines() should containAll(
+                    "line 0 edited / line 0 created",
                     "line 2 edited / line 2 created",
                     "line 3 edited / line 3 created",
-                    "line 5 BETA / line 5 created"
+                    "line 5 BETA / line 5 created",
+                    "line 7 edited / line 7 created",
+                    "line 8 GAMMA / line 8 created"
             )
-
-
         }
     }
 })

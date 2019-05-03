@@ -10,16 +10,16 @@ class GitSampleBuilderSample : StringSpec({
         buildGitSamples(description().name) {
             createRepository {
 
-                createFile()
+                createFile("file")
 
-                commit(file())
+                commit("file")
 
                 startBranch("feature") {
-                    editAndCommit(file(), 5, "to be REBASED")
+                    editAndCommit("file", 5, "to be REBASED")
                 }
 
                 onBranch("master") {
-                    editAndCommit(file(), 1)
+                    editAndCommit("file", 1)
                 }
 
                 duplicatedSample("rebased-commit-will-not-merge") {
@@ -28,7 +28,7 @@ class GitSampleBuilderSample : StringSpec({
                     }
 
                     git("checkout", "feature")
-                    editAndCommit(file(), 5, "edit again")
+                    editAndCommit("file", 5, "edit again")
                     try {
                         git("merge", "rebased-feature")
                     } catch (e: CommandlineException) {
@@ -42,7 +42,7 @@ class GitSampleBuilderSample : StringSpec({
                     }
 
                     git("checkout", "feature")
-                    editAndCommit(file(), 5, "edit again")
+                    editAndCommit("file", 5, "edit again")
                     git("merge", "merged-feature")
 
                 }
