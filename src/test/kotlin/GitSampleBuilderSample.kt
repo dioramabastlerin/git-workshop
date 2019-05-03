@@ -1,16 +1,13 @@
 package de.kapitel26.gitsamplebuilder
 
-import de.kapitel26.gitsamplebuilder.impl.PlainDirectory
-import io.kotlintest.TestContext
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
-import java.io.File
 
 class GitSampleBuilderSample : StringSpec({
 
 
     "problems with rebased commits"  {
-        buildGitSamples {
+        buildGitSamples(description().name) {
             createRepository {
 
                 createFile()
@@ -63,11 +60,5 @@ class GitSampleBuilderSample : StringSpec({
         }
     }
 })
-
-private fun TestContext.buildGitSamples(block: PlainDirectory.() -> Unit) {
-    PlainDirectory(File("buildGitSamples/samples/${description().name}"))
-            .apply { cleanDirectory() }
-            .run(block)
-}
 
 

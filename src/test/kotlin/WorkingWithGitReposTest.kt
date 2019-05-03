@@ -1,11 +1,7 @@
 package de.kapitel26.gitsamplebuilder
 
 import io.kotlintest.inspectors.forAll
-import io.kotlintest.matchers.beEmpty
-import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.collections.shouldContain
-import io.kotlintest.matchers.collections.shouldContainAll
-import io.kotlintest.matchers.collections.shouldContainExactly
 import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.endWith
 import io.kotlintest.matchers.string.include
@@ -14,34 +10,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 import java.io.File
 
-class GitSampleBuilderTest : StringSpec({
 
-    "creating directories and listing content"  {
-        buildGitSamples(description().name) {
-
-            directory("sub1")
-            directory("sub1") // ok, if it exists already
-            directory("sub2/subsub")
-
-            list() shouldContainAll listOf("sub1", "sub2")
-            directory("sub2").list() shouldBe listOf("subsub")
-        }
-    }
-
-    "executing commands in directories" {
-        buildGitSamples(description().name) {
-            execute("ls -1") should beEmpty()
-            execute("touch hallo welt")
-            execute("ls -1 .") shouldContainExactly listOf("hallo", "welt")
-
-            directory("sub") {
-                execute("pwd")[0] shouldBe rootDir.absolutePath
-                execute("touch created-in-subdir")
-            }
-            execute("ls -1 sub") shouldBe listOf("created-in-subdir")
-        }
-    }
-
+class BuildingFilesTest : StringSpec({
     "creating files" {
         buildGitSamples(description().name) {
             val file1 = createFile()
@@ -75,33 +45,9 @@ class GitSampleBuilderTest : StringSpec({
 
         }
     }
+})
 
-    "duplication" {
-        buildGitSamples(description().name) {
-            directory("base") {
-                val baseDir = this
-                createFile("base-file")
-
-                duplicatedSample("duplicatedSample") {
-                    baseName shouldBe "base"
-                    rootDir.name shouldBe "base.duplicatedSample"
-                    rootDir.parent shouldBe baseDir.rootDir.parent
-
-                    list() should containExactly("base-file")
-
-
-                    duplicatedSample("nestedcall") {
-                        baseName shouldBe "base"
-                        rootDir.name shouldBe "base.nestedcall"
-                        rootDir.parent shouldBe baseDir.rootDir.parent
-
-
-                    }
-
-                }
-            }
-        }
-    }
+class WorkingWithGitReposTest : StringSpec({
 
 
     "creating repositorys"  {
