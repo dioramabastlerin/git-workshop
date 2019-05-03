@@ -7,20 +7,20 @@ import kotlin.streams.toList
 
 abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
 
-    fun createDir(dirName: String, commands: Dir.() -> Unit = {}): Dir =
+    fun createDir(dirName: String, commands: Dir.() -> Unit = {}) =
             File(rootDir, dirName)
                     .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
                     .apply { mkdirs() }
                     .run { Dir(this) }
-                    .also(commands)
+                    .apply(commands)
 
     fun dir(dirName: String, commands: Dir.() -> Unit) =
             File(rootDir, dirName)
                     .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
                     .run { Dir(this) }
-                    .also(commands)
+                    .apply(commands)
 
-    fun cleanDirectory() {
+    fun clear() {
         rootDir.deleteRecursively()
         rootDir.mkdirs()
     }
@@ -103,6 +103,6 @@ fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples",
 
 fun buildGitSamples(rootDir: File, commands: Dir.() -> Unit) {
     Dir(rootDir)
-            .apply { cleanDirectory() }
+            .apply { clear() }
             .run(commands)
 }

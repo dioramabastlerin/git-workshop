@@ -1,4 +1,5 @@
 import de.kapitel26.gitsamplebuilder.buildGitSamples
+import io.kotlintest.matchers.beEmpty
 import io.kotlintest.matchers.collections.contain
 import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.should
@@ -56,4 +57,17 @@ class BuildingDirsTest : StringSpec({
 
         }
     }
+
+    "clearing dirs"  {
+        buildGitSamples(description().name) {
+
+            executeSplitted("touch", "file1")
+            createDir("sub") { executeSplitted("touch", "file2") }
+
+            clear()
+
+            list() should beEmpty()
+        }
+    }
+
 })
