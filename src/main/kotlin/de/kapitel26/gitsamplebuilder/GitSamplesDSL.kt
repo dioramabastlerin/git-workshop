@@ -7,11 +7,18 @@ import kotlin.streams.toList
 
 abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsamples"), val baseName: String = rootDir.name) {
 
+    fun createDir(dirName: String, commands: Dir.() -> Unit = {}): Dir =
+            File(rootDir, dirName)
+                    .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
+                    .apply { mkdirs() }
+                    .run { Dir(this) }
+                    .also(commands)
 
-    init {
-        rootDir.mkdirs()
-    }
-
+    fun dir(dirName: String, commands: Dir.() -> Unit) =
+            File(rootDir, dirName)
+                    .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
+                    .run { Dir(this) }
+                    .also(commands)
 
     fun cleanDirectory() {
         rootDir.deleteRecursively()
@@ -48,21 +55,6 @@ abstract class AbstractDir<T>(val rootDir: File = File("buildGitSamples/gitsampl
         return process
     }
 
-    fun createDir(dirName: String, commands: Dir.() -> Unit = {}): Dir =
-            File(rootDir, dirName)
-                    .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
-                    .let {
-                        Dir(it)
-                                .also(commands)
-                    }
-
-    fun dir(dirName: String, commands: Dir.() -> Unit) =
-            File(rootDir, dirName)
-                    .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
-                    .let {
-                        Dir(it)
-                                .also(commands)
-                    }
 
     fun git(gitCommand: String): List<String> = execute("git $gitCommand")
 
