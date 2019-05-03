@@ -72,12 +72,12 @@ abstract class AbstractDir<T>(val rootDir: IOFile, val baseName: String = rootDi
 
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
-    fun createRepo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo {
+    fun createRepo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Unit {
         git("init $newRepoName")
-        return Repo(IOFile(rootDir, newRepoName).absoluteFile, commands)
+        Repo(IOFile(rootDir, newRepoName).absoluteFile, commands)
     }
 
-    fun repo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Repo =
+    fun repo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Unit =
             IOFile(rootDir, newRepoName).absoluteFile
                     .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
                     .run { Repo(this, commands) }
