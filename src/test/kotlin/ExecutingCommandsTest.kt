@@ -13,7 +13,7 @@ class ExecutingCommandsTest : StringSpec({
             execute("touch hallo welt")
             execute("ls -1 .") shouldContainExactly listOf("hallo", "welt")
 
-            ensureDir("sub") {
+            createDir("sub") {
                 execute("pwd")[0] shouldBe rootDir.absolutePath
                 execute("touch created-in-subdir")
             }
