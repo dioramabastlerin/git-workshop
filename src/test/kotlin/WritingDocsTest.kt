@@ -43,6 +43,19 @@ class WritingDocsTest : StringSpec({
                     "    $ # MOIN file 'my-new-file' at 2..3"
             )
 
+            clearLog()
+
+            createRepo {
+                git("status")
+            }
+
+            logAsMarkdown() should containExactly(
+                    "    $ git init repo",
+                    "    $ cd repo",
+                    "    $ git status",
+                    "    $ cd .."
+            )
+
         }
     }
 })

@@ -52,6 +52,7 @@ abstract class AbstractDir<T>(
 
 
     fun execute(command: String): List<String> = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
+
     fun executeSplitted(vararg command: String): List<String> = exeuteSplittedRaw(false, *command).inputStream.bufferedReader().lines().toList()
 
     fun show(command: String): Process = executeRaw(command, true)
@@ -63,6 +64,7 @@ abstract class AbstractDir<T>(
     }
 
     fun exeuteSplittedRaw(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
+        log.shell(splittedCommandLineArguments.joinToString(" "))
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
 
         processBuilder.directory(rootDir)
@@ -85,15 +87,21 @@ abstract class AbstractDir<T>(
 
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
-    fun createRepo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Unit {
-        git("init $newRepoName")
-        Repo(IOFile(rootDir, newRepoName).absoluteFile, commands)
+    fun createRepo(newRepoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit {
+        git("init", newRepoName)
+        Repo(IOFile(rootDir, newRepoName).absoluteFile, log, commands)
     }
 
-    fun repo(newRepoName: String = "repo", commands: Repo.() -> Unit = {}): Unit =
+    fun repo(newRepoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
             IOFile(rootDir, newRepoName).absoluteFile
                     .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
-                    .run { Repo(this, commands) }
+                    .run {
+                        if (commands != null) {
+                            log.cd(newRepoName)
+                            Repo(this, log, commands)
+                            log.cd("..")
+                        }
+                    }
 
     fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstractDir<T>.() -> Unit): Repo {
         val tmpDirName = ".$newRepBasename"
@@ -104,11 +112,11 @@ abstract class AbstractDir<T>(
 
         val serverRepoName = "$newRepBasename.git"
         git("clone --bare $tmpDirName $serverRepoName")
-        return Repo(IOFile(rootDir, serverRepoName).absoluteFile)
+        return Repo(IOFile(rootDir, serverRepoName).absoluteFile, log)
     }
 
     fun inRepo(repo: Repo, function: Repo.() -> Unit) {
-        Repo(repo.rootDir, function)
+        Repo(repo.rootDir, log, function)
     }
 
     fun list(): List<String> = execute("ls -A")
@@ -119,7 +127,7 @@ abstract class AbstractDir<T>(
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
             file(filename) { edit(lineNumber..lineNumber, message) }
 
-    fun logAsMarkdown(): List<String> = log.toMarkdown()
+    fun logAsMarkdown() = log.toMarkdown()
 
     fun clearLog() {
         log.clear()
@@ -144,7 +152,7 @@ class LogBuilder {
     fun editFile(name: String?, linesToEdit: IntRange, message: String) =
             shell("# $message file '$name' at $linesToEdit")
 
-    private fun shell(cmd: String) = markdownLines.add("    $ $cmd")
+    fun shell(cmd: String) = markdownLines.add("    $ $cmd")
 
 }
 
