@@ -30,8 +30,12 @@ abstract class AbstractDir<T>(
     fun dir(dirName: String, commands: Dir.() -> Unit): Unit =
             IOFile(rootDir, dirName)
                     .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
-                    .run { Dir(this) }
-                    .run(commands)
+                    .run { Dir(this, log = log) }
+                    .run {
+                        log.cd(dirName)
+                        commands()
+                        log.cd("..")
+                    }
 
     fun clear() {
         rootDir.deleteRecursively()
@@ -92,15 +96,12 @@ abstract class AbstractDir<T>(
         Repo(IOFile(rootDir, newRepoName).absoluteFile, log, commands)
     }
 
-    fun repo(newRepoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
-            IOFile(rootDir, newRepoName).absoluteFile
+    fun repo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
+            IOFile(rootDir, repoName).absoluteFile
                     .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
                     .run {
-                        if (commands != null) {
-                            log.cd(newRepoName)
+                        if (commands != null)
                             Repo(this, log, commands)
-                            log.cd("..")
-                        }
                     }
 
     fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstractDir<T>.() -> Unit): Repo {
@@ -160,8 +161,12 @@ class CommandlineException(val failedProcess: Process, message: String) : Runtim
 
 
 fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", commands: Dir.() -> Unit) =
-        buildGitSamples(IOFile(sampleDir, sampleName), commands)
-
+        buildGitSamples(IOFile(sampleDir, sampleName)) {
+            createDir("aufgaben") {
+                clearLog()
+                commands()
+            }
+        }
 
 fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
     Dir(rootDir)
