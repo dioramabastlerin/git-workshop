@@ -50,6 +50,11 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
         commit(fileName, "`$fileName`: $message")
     }
 
+    fun createFileAndCommit(fileName: String, message: String = defaultMessage()) {
+        createFile(fileName)
+        commit(fileName, "`$fileName`: $message")
+    }
+
     private fun defaultMessage(): String = "edited on `${currentBranch()}`"
 
     // TODO does not work in new repo

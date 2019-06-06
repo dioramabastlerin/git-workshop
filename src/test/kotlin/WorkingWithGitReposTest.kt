@@ -1,5 +1,6 @@
 package de.kapitel26.gitsamplebuilder
 
+import de.kapitel26.gitsamplebuilder.impl.Repo
 import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.string.include
@@ -48,8 +49,17 @@ class WorkingWithGitReposTest : StringSpec({
 
                 commit("myfile")
 
-                val filesInHead = git("ls-tree HEAD --name-only -- myfile")
-                filesInHead shouldBe listOf("myfile")
+                filesInHead() shouldBe listOf("myfile")
+            }
+        }
+    }
+
+    "creating and committing a file"  {
+        buildGitSamples(description().name) {
+            createRepo {
+                createFileAndCommit("myfile")
+
+                filesInHead() shouldBe listOf("myfile")
             }
         }
     }
@@ -80,6 +90,8 @@ class WorkingWithGitReposTest : StringSpec({
         }
     }
 })
+
+private fun Repo.filesInHead() = git("ls-tree HEAD --name-only -- myfile")
 
 
 
