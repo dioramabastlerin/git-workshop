@@ -13,17 +13,14 @@ class WritingDocsTest : StringSpec({
             logAsMarkdown() shouldBe emptyList()
 
             createDir("dir1")
-
             logAsMarkdown() should containExactly(
                     "    $ mkdir dir1"
             )
 
             clearLog()
-
             createDir("sub") {
                 createDir("subsub")
             }
-
             logAsMarkdown() should containExactly(
                     "    $ mkdir sub",
                     "    $ cd sub",
@@ -32,7 +29,6 @@ class WritingDocsTest : StringSpec({
             )
 
             clearLog()
-
             dir("sub") {
                 dir("subsub") {
                     execute("echo moin")
@@ -48,12 +44,10 @@ class WritingDocsTest : StringSpec({
             )
 
             clearLog()
-
             createFile("my-new-file") {
                 edit(1)
                 edit(2..3, "MOIN")
             }
-
             logAsMarkdown() should containExactly(
                     "    $ # created file 'my-new-file'",
                     "    $ # edited file 'my-new-file' at 1..1",
@@ -61,11 +55,9 @@ class WritingDocsTest : StringSpec({
             )
 
             clearLog()
-
             createRepo {
                 git("status")
             }
-
             logAsMarkdown() should containExactly(
                     "    $ git init repo",
                     "    $ cd repo",
@@ -74,11 +66,9 @@ class WritingDocsTest : StringSpec({
             )
 
             clearLog()
-
             repo {
                 git("status")
             }
-
             logAsMarkdown() should containExactly(
                     "    $ cd repo",
                     "    $ git status",
