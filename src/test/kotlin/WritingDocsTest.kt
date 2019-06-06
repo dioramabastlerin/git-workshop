@@ -95,7 +95,7 @@ class WritingDocsTest : StringSpec({
 
             log.shell("echo foo")
 
-            flushLogToMarkdown("wurst.md")
+            flushLogToMarkdownFile("wurst.md")
 
             File(rootDir, "wurst.md").readLines() should containExactly(
                     "    $ echo foo"
@@ -103,7 +103,7 @@ class WritingDocsTest : StringSpec({
 
             log.shell("echo bar")
 
-            flushLogToMarkdown("kaese.md")
+            flushLogToMarkdownFile("kaese.md")
 
             File(rootDir, "kaese.md").readLines() should containExactly(
                     "    $ echo bar"
