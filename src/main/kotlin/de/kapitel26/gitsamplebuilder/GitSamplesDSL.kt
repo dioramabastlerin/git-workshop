@@ -145,6 +145,10 @@ abstract class AbstractDir<T>(
         clearLog()
     }
 
+    fun doc(message: String) {
+        log.doc(message)
+    }
+
 }
 
 class LogBuilder {
@@ -166,6 +170,7 @@ class LogBuilder {
 
     fun shell(cmd: String) = markdownLines.add("    $ $cmd")
 
+    fun doc(message: String) = markdownLines.addAll(message.trimIndent().lines())
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
