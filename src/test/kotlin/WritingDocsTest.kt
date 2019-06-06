@@ -3,6 +3,7 @@ import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
+import java.io.File
 
 class WritingDocsTest : StringSpec({
 
@@ -84,6 +85,27 @@ class WritingDocsTest : StringSpec({
                     "    $ cd .."
             )
 
+        }
+    }
+
+    "logging to files"  {
+        buildGitSamples(description().name) {
+
+            log.shell("echo foo")
+
+            flushLogToMarkdown("wurst.md")
+
+            File(rootDir, "wurst.md").readLines() should containExactly(
+                    "    $ echo foo"
+            )
+
+            log.shell("echo bar")
+
+            flushLogToMarkdown("kaese.md")
+
+            File(rootDir, "kaese.md").readLines() should containExactly(
+                    "    $ echo bar"
+            )
         }
     }
 })
