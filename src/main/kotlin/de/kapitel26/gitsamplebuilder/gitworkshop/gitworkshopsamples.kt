@@ -4,14 +4,15 @@ import de.kapitel26.gitsamplebuilder.buildGitSamples
 
 fun main() {
     buildGitSamples("cloning", "build/gitworkshop") {
-        createFile("uebungen")
 
         createRepo("myfirstrepo") {
             createFileAndCommit("foo")
             createFileAndCommit("bar")
         }
 
-        createFile("aufgabe-1.md", """
+        flushLogToFile()
+
+        doc("""
             # Aufgabe 1 - Repository klonen
 
             ## Klon durchführen
@@ -26,13 +27,14 @@ fun main() {
 
             Erstelle ein Commit und zeige den Status.
 
-        """.trimIndent())
+        """)
 
-        flushLogToFile()
+        flushLogToFile("aufgabe-1.md")
 
         duplicatedSample("loesung") {
-            //createFile("loesung")
+            doc("## Lösung\n\n")
             git("clone myfirstrepo myfirstclone")
+
             dir("myfirstclone") {
                 git("remote -v")
                 git("status")
