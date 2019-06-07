@@ -51,6 +51,7 @@ class WritingDocsTest : StringSpec({
                     "    $ cd sub",
                     "    $ cd subsub",
                     "    $ echo moin",
+                    "    moin",
                     "    $ cd ..",
                     "    $ cd .."
             )
@@ -74,16 +75,21 @@ class WritingDocsTest : StringSpec({
                     "    $ git init repo",
                     "    $ cd repo",
                     "    $ git status",
+                    "    On branch master",
+                    "    ",
+                    "    No commits yet",
+                    "    ",
+                    "    nothing to commit (create/copy files and use \"git add\" to track)",
                     "    $ cd .."
             )
 
             clearLog()
             repo {
-                git("status")
+                git("branch")
             }
             logAsMarkdown() should containExactly(
                     "    $ cd repo",
-                    "    $ git status",
+                    "    $ git branch",
                     "    $ cd .."
             )
 

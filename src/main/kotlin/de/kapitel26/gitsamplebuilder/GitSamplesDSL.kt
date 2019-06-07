@@ -55,7 +55,11 @@ abstract class AbstractDir<T>(
                     .run(commands)
 
 
-    fun execute(command: String): List<String> = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
+    fun execute(command: String): List<String> {
+        val outputLines = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
+        outputLines.forEach { log.rawLine("    $it") }
+        return outputLines
+    }
 
     fun executeSplitted(vararg command: String): List<String> = exeuteSplittedRaw(false, *command).inputStream.bufferedReader().lines().toList()
 
@@ -171,6 +175,8 @@ class LogBuilder {
     fun shell(cmd: String) = markdownLines.add("    $ $cmd")
 
     fun doc(message: String) = markdownLines.addAll(message.trimIndent().lines())
+
+    fun rawLine(s: String) = markdownLines.add(s)
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
