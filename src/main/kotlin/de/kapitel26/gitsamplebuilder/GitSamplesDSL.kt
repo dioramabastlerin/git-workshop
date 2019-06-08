@@ -183,11 +183,9 @@ class CommandlineException(val failedProcess: Process, message: String) : Runtim
 
 
 fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", commands: Dir.() -> Unit) =
-        buildGitSamples(IOFile(sampleDir, sampleName)) {
-            createDir("aufgaben") {
-                clearLog()
-                commands()
-            }
+        buildGitSamples(IOFile(sampleDir, "$sampleName.aufgabe")) {
+            clearLog()
+            commands()
         }
 
 fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
