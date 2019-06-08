@@ -33,10 +33,18 @@ fun main() {
 
         duplicatedSample("loesung") {
             doc("## Lösung\n\n")
+
+            doc("## Klon durchführen\n\n")
             git("clone myfirstrepo myfirstclone")
 
-            dir("myfirstclone") {
+            repo("myfirstclone") {
+
+                doc("## Klon untersuchen\n\n")
                 git("remote -v")
+
+
+                doc("## Im Klon arbeiten.\n\n")
+                editAndCommit("foo", 3)
                 git("status")
             }
             flushLogToFile("loesung-1.md")
