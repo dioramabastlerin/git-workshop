@@ -95,10 +95,17 @@ abstract class AbstractDir<T>(
 
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
-    fun createRepo(newRepoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit {
-        git("init", newRepoName)
+    fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null): Unit {
+        git("init", newRepoName, *args)
         Repo(IOFile(rootDir, newRepoName).absoluteFile, log, commands)
     }
+
+    fun cloneRepo(originalRepo: String, clonedRepo: String, commands: (Repo.() -> Unit)? = {}) {
+        git("clone $originalRepo $clonedRepo")
+        repo(clonedRepo, commands)
+    }
+
+
 
     fun repo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
             IOFile(rootDir, repoName).absoluteFile
@@ -182,8 +189,8 @@ class LogBuilder {
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
 
 
-fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", commands: Dir.() -> Unit) =
-        buildGitSamples(IOFile(sampleDir, "$sampleName.aufgabe")) {
+fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", suffix: String = "aufgabe", commands: Dir.() -> Unit) =
+        buildGitSamples(IOFile(sampleDir, "$sampleName.$suffix")) {
             clearLog()
             commands()
         }

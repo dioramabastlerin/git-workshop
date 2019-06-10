@@ -3,6 +3,69 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import de.kapitel26.gitsamplebuilder.buildGitSamples
 
 fun main() {
+
+    buildGitSamples("push-fetch-pull", "build/gitworkshop", "aufgabe-1") {
+
+        createRepo("blessed.git", "--bare") {
+        }
+
+        cloneRepo("blessed.git", "otherclone") {
+            createFileAndCommit("foo", "Initial edit before cloning")
+            git("push")
+        }
+
+        cloneRepo("blessed.git", "myclone")
+
+        repo("otherclone") {
+            editAndCommit("foo", 3, "First edit after cloning")
+            editAndCommit("foo", 7, "Second edit after cloning")
+            git("push")
+        }
+
+
+        flushLogToFile()
+
+        doc("""
+            # Aufgabe 1
+
+            ## 1a Änderungen vom Server holen
+
+            ## 1b Untersuchen der Änderungen
+
+            ## 1c Übernehmen von Änderungen
+        """)
+
+        duplicatedSample("loesung-1") {
+            repo("myclone") {
+
+                doc("## 1a Änderungen holen")
+                git("fetch")
+                doc("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
+
+                doc("## 1b Änderungen untersuchen")
+                git("status")
+                doc("""Der Status zeigt, dass es im Origin-Repo
+                    (auf dem Branch `master`) zwei Commits gibt,
+                    die wir noch nicht integriert haben.
+                """)
+
+                git("log master..origin/master")
+
+                doc("""Die `..`-Notation zeigt genau jene Commits,
+                    die in `origing/master` aber noch nicht in `master` enthalten sind.
+                    Etwas kürzer hätte man hier auch auch `git log ..origin/master` schreiben
+                    könne, da wir `master` ja gerade `HEAD` ist.""")
+
+                doc("## 1c Änderungen integrieren")
+                git("pull")
+                git("log --oneline -3")
+            }
+            flushLogToFile("loesung-1.md")
+        }
+
+    }
+
+
     buildGitSamples("cloning", "build/gitworkshop") {
 
         createRepo("myfirstrepo") {
