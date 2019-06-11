@@ -1,13 +1,16 @@
 package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import de.kapitel26.gitsamplebuilder.buildGitSamples
+import de.kapitel26.gitsamplebuilder.impl.Dir
+import java.io.File
 
 fun main() {
 
+    Dir(File("build/gitworkshop")).clear()
+
     buildGitSamples("push-fetch-pull", "build/gitworkshop", "aufgabe-1") {
 
-        createRepo("blessed.git", "--bare") {
-        }
+        createRepo("blessed.git", "--bare")
 
         cloneRepo("blessed.git", "otherclone") {
             createFileAndCommit("foo", "Initial edit before cloning")
