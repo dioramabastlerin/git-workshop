@@ -12,34 +12,51 @@ fun main() {
 
         createRepo("blessed.git", "--bare")
 
-        cloneRepo("blessed.git", "otherclone") {
+        cloneRepo("blessed.git", "anderer-klon") {
             createFileAndCommit("foo", "Initial edit before cloning")
             git("push")
         }
 
-        cloneRepo("blessed.git", "myclone")
+        cloneRepo("blessed.git", "mein-klon")
 
-        repo("otherclone") {
+        repo("anderer-klon") {
             editAndCommit("foo", 3, "First edit after cloning")
             editAndCommit("foo", 7, "Second edit after cloning")
             git("push")
         }
-
 
         flushLogToFile()
 
         doc("""
             # Aufgabe 1
 
-            ## 1a Änderungen vom Server holen
+            ## 1a Änderungen holen
 
-            ## 1b Untersuchen der Änderungen
+            Hole die beiden neuen Commits vom `origin`-Repository,
+            ohne den lokalen `master` zu verändern.
 
-            ## 1c Übernehmen von Änderungen
+            ## 1b Änderungen untersuchen
+
+            Lasse dir den Status zeigen,
+            und untersuche dann,
+            welche Commits im `master` des `origin`-Repository vorhanden sind,
+            welche im lokalen `master` noch nicht integriert wurden.
+
+            ## 1c Änderungen integrieren
+
+            Integriere die neuesten Commits vom `origin`-Repository
+            in den lokalen `master`.
+
         """)
 
+        flushLogToFile("aufgabe-1.md")
+
         duplicatedSample("loesung-1") {
-            repo("myclone") {
+            repo("mein-klon") {
+
+                git("log --oneline --decorate -3")
+
+                doc("Zunächst finden wir nur ein Commit auf dem lokalen `master`.")
 
                 doc("## 1a Änderungen holen")
                 git("fetch")
@@ -60,8 +77,9 @@ fun main() {
                     könne, da wir `master` ja gerade `HEAD` ist.""")
 
                 doc("## 1c Änderungen integrieren")
+
                 git("pull")
-                git("log --oneline -3")
+                git("log --oneline --decorate -3")
             }
             flushLogToFile("loesung-1.md")
         }
