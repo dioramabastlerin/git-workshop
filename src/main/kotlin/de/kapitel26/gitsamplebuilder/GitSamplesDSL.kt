@@ -106,7 +106,6 @@ abstract class AbstractDir<T>(
     }
 
 
-
     fun repo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
             IOFile(rootDir, repoName).absoluteFile
                     .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
@@ -181,7 +180,9 @@ class LogBuilder {
 
     fun shell(cmd: String) = markdownLines.add("    $ $cmd")
 
-    fun doc(message: String) = markdownLines.addAll(message.trimIndent().lines())
+    fun doc(message: String) = markdownLines
+            .apply { addAll(message.trimIndent().lines()) }
+            .add("\n")
 
     fun rawLine(s: String) = markdownLines.add(s)
 }
