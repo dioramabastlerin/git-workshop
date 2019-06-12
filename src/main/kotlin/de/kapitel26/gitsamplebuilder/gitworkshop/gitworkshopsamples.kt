@@ -8,7 +8,7 @@ fun main() {
 
     Dir(File("build/gitworkshop")).clear()
 
-    buildGitSamples("push-fetch-pull", "build/gitworkshop", "aufgabe-1") {
+    buildGitSamples("push-fetch-pull", "build/gitworkshop", "aufgabe") {
 
         createRepo("blessed.git", "--bare")
 
@@ -51,7 +51,7 @@ fun main() {
 
         flushLogToFile("aufgabe-1.md")
 
-        duplicatedSample("loesung-1") {
+        duplicatedSample("loesung") {
             repo("mein-klon") {
 
                 git("log --oneline --decorate -3")
