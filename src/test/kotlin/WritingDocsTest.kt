@@ -13,7 +13,7 @@ class WritingDocsTest : StringSpec({
             logAsMarkdown() shouldBe emptyList()
 
             doc("helloWorld")
-            logAsMarkdown() should containExactly("helloWorld")
+            logAsMarkdown() should containExactly("helloWorld", "")
 
             clearLog()
             val text = """
@@ -21,7 +21,7 @@ class WritingDocsTest : StringSpec({
                 line2
             """
             doc(text)
-            logAsMarkdown() should containExactly(text.trimIndent().lines())
+            logAsMarkdown() should containExactly(text.trimIndent().lines() + "")
 
             clearLog()
             createDir("dir1")

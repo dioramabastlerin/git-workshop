@@ -5,59 +5,70 @@ import io.kotlintest.specs.StringSpec
 
 class GitSampleBuilderSample : StringSpec({
 
-
     "problems with rebased commits"  {
         buildGitSamples(description().name) {
-            createRepo {
+            createDir("sample.base") {
 
-                createFile("file")
+                createRepo {
 
-                commit("file")
+                    createFile("file")
 
-                startBranch("feature") {
-                    editAndCommit("file", 5, "to be REBASED")
-                }
+                    commit("file")
 
-                onBranch("master") {
-                    editAndCommit("file", 1)
+                    startBranch("feature") {
+                        editAndCommit("file", 5, "to be REBASED")
+                    }
+
+                    onBranch("master") {
+                        editAndCommit("file", 1)
+                    }
+
                 }
 
                 duplicatedSample("rebased-commit-will-not-merge") {
-                    startBranch("rebased-feature", "feature") {
-                        git("rebase", "master")
-                    }
+                    repo {
+                        startBranch("rebased-feature", "feature") {
+                            git("rebase", "master")
+                        }
 
-                    git("checkout", "feature")
-                    editAndCommit("file", 5, "edit again")
-                    try {
-                        git("merge", "rebased-feature")
-                    } catch (e: CommandlineException) {
-                        e.failedProcess.exitValue() shouldBe 1
+                        git("checkout", "feature")
+                        editAndCommit("file", 5, "edit again")
+                        try {
+                            git("merge", "rebased-feature")
+                        } catch (e: CommandlineException) {
+                            e.failedProcess.exitValue() shouldBe 1
+                        }
                     }
                 }
 
                 duplicatedSample("merge-will-work") {
-                    startBranch("merged-feature", "feature") {
-                        git("merge", "master")
+                    repo {
+                        startBranch("merged-feature", "feature") {
+                            git("merge", "master")
+                        }
+
+                        git("checkout", "feature")
+                        editAndCommit("file", 5, "edit again")
+                        git("merge", "merged-feature")
                     }
-
-                    git("checkout", "feature")
-                    editAndCommit("file", 5, "edit again")
-                    git("merge", "merged-feature")
-
                 }
 
                 duplicatedSample("rebased-commit-will-merge-sometimes") {
-                    startBranch("rebased-feature", "feature") {
-                        git("rebase", "master")
-                    }
+                    repo {
 
-                    git("checkout", "feature")
-                    git("merge", "rebased-feature")
+                        startBranch("rebased-feature", "feature") {
+                            git("rebase", "master")
+                        }
+
+                        git("checkout", "feature")
+                        git("merge", "rebased-feature")
+                    }
                 }
 
             }
+
         }
+
     }
 })
 

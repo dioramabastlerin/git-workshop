@@ -49,6 +49,19 @@ abstract class AbstractDir<T>(
                     .apply { location.writeText(content ?: createSampleFileContent()) }
                     .run(commands)
 
+    fun createOrAppendToFile(name: String, content: String? = null, commands: File.() -> Unit = {}): Unit =
+            File(IOFile(rootDir, name), log)
+                    .apply {
+                        if (!location.exists()) {
+                            log.createFile(name, content)
+                            location.writeText(content ?: createSampleFileContent())
+                        } else {
+                            log.appendToFile(name, content)
+                            location.appendText(content ?: createSampleFileContent())
+                        }
+                    }
+                    .run(commands)
+
     fun file(name: String = "file", commands: File.() -> Unit = {}) =
             File(IOFile(rootDir, name), log)
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
@@ -56,8 +69,11 @@ abstract class AbstractDir<T>(
 
 
     fun execute(command: String): List<String> {
-        val outputLines = executeRaw(command, false).inputStream.bufferedReader().lines().toList()
+        val process = executeRaw(command, false)
+        val outputLines = process.inputStream.bufferedReader().lines().toList()
         outputLines.forEach { log.rawLine("    $it") }
+        val errorLines = process.errorStream.bufferedReader().lines().toList()
+        errorLines.forEach { log.rawLine("ERR    $it") }
         return outputLines
     }
 
@@ -77,7 +93,7 @@ abstract class AbstractDir<T>(
 
         processBuilder.directory(rootDir)
 
-        processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT)
+        processBuilder.redirectError(ProcessBuilder.Redirect.PIPE)
         if (inheritStdout) {
             processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT)
         }
@@ -151,7 +167,7 @@ abstract class AbstractDir<T>(
     }
 
     fun flushLogToMarkdownFile(fileName: String = "setup-log.md") {
-        createFile(fileName, logAsMarkdown().joinToString("\n"))
+        createOrAppendToFile(fileName, logAsMarkdown().joinToString("\n"))
         clearLog()
     }
 
@@ -175,6 +191,8 @@ class LogBuilder {
 
     fun createFile(name: String, content: String?) = shell("# created file '$name'")
 
+    fun appendToFile(name: String, content: String?) = shell("# append to file '$name'")
+
     fun editFile(name: String?, linesToEdit: IntRange, message: String) =
             shell("# $message file '$name' at $linesToEdit")
 
@@ -182,7 +200,7 @@ class LogBuilder {
 
     fun doc(message: String) = markdownLines
             .apply { addAll(message.trimIndent().lines()) }
-            .add("\n")
+            .add("")
 
     fun rawLine(s: String) = markdownLines.add(s)
 }
