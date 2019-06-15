@@ -7,7 +7,7 @@ fun main() {
 
     createCollectionOfSamples("gitworkshop") {
 
-        buildGitSamples("push-fetch-pull", this.rootDir.toString(), "aufgabe") {
+        createSample("push-fetch-pull.aufgabe") {
 
             createRepo("blessed.git", "--bare")
 

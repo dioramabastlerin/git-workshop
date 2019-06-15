@@ -14,7 +14,7 @@ class Dir(rootDir: File, log: LogBuilder = LogBuilder())
                     }
                     .apply(commands)
 
-    private fun baseNameWithoutSuffix() = """(.*)(\..*)?""".toRegex().matchEntire(baseName)?.groups?.get(1)?.value
+    private fun baseNameWithoutSuffix() = """([^.]*)(\..*)?""".toRegex().matchEntire(baseName)?.groups?.get(1)?.value
             ?: throw IllegalArgumentException("Not valid $baseName")
 
 }

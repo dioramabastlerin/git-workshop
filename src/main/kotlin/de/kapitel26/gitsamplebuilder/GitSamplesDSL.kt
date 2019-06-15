@@ -1,5 +1,6 @@
 package de.kapitel26.gitsamplebuilder
 
+import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
 import de.kapitel26.gitsamplebuilder.impl.Dir
 import de.kapitel26.gitsamplebuilder.impl.File
 import de.kapitel26.gitsamplebuilder.impl.Repo
@@ -45,14 +46,7 @@ abstract class AbstracDir<T>(
         log.doc(message)
     }
 
-}
-
-abstract class AbstracWorkingDir<T>(
-        rootDir: java.io.File,
-        log: LogBuilder
-) : AbstracDir<T>(rootDir, log = log) {
-
-    fun createDir(dirName: String, commands: (Dir.() -> Unit)? = null): Unit =
+    fun createDir(dirName: String, commands: (Dir.() -> Unit)? = null) =
             IOFile(rootDir, dirName)
                     .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
                     .apply { mkdirs() }
@@ -65,6 +59,13 @@ abstract class AbstracWorkingDir<T>(
                             log.cd("..")
                         }
                     }
+
+}
+
+abstract class AbstracWorkingDir<T>(
+        rootDir: java.io.File,
+        log: LogBuilder
+) : AbstracDir<T>(rootDir, log = log) {
 
     fun inDir(dirName: String, commands: Dir.() -> Unit) =
             IOFile(rootDir, dirName)
@@ -211,8 +212,8 @@ fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
             .run(commands)
 }
 
-fun createCollectionOfSamples(dirName: String, commands: Dir.() -> Unit) {
-    Dir(IOFile("build", dirName))
+fun createCollectionOfSamples(dirName: String, commands: CollectionOfSamples.() -> Unit) {
+    CollectionOfSamples(IOFile("build", dirName))
             .apply { clear() }
             .run(commands)
 }
