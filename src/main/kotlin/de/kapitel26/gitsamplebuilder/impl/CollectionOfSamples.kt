@@ -14,4 +14,16 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
 
     fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) = createDir(sampleName, commands)
 
+    fun copySample(original: String, copy: String, commands: Dir.() -> Unit) =
+            Dir(File(rootDir, copy), log)
+                    .also { duplicate ->
+                        Dir(rootDir, log)
+                                .exeuteSplittedRaw(false, "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath)
+                    }
+                    .apply(commands)
+
+    private fun baseNameWithoutSuffix() =
+            """([^.]*)(\..*)?""".toRegex().matchEntire(baseName)?.groups?.get(1)?.value
+                    ?: throw IllegalArgumentException("Not valid $baseName")
+
 }

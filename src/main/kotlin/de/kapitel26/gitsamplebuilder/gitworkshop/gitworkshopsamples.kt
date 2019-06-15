@@ -1,6 +1,5 @@
 package de.kapitel26.gitsamplebuilder.gitworkshop
 
-import de.kapitel26.gitsamplebuilder.buildGitSamples
 import de.kapitel26.gitsamplebuilder.createCollectionOfSamples
 
 fun main() {
@@ -55,47 +54,49 @@ fun main() {
         """)
             flushLogToFile("aufgabe-3.md")
 
-            createSampleVariant("loesung") {
-                inRepo("mein-klon") {
+        }
 
-                    git("log --oneline --decorate -3")
-                    doc("Zunächst sehen wir nur ein Commit auf dem lokalen `master`.")
+        copySample("push-fetch-pull.aufgabe", "push-fetch-pull.loesung") {
+            inRepo("mein-klon") {
 
-                    doc("### Lösung")
-                    git("fetch")
-                    doc("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
-                    git("status")
-                }
+                git("log --oneline --decorate -3")
+                doc("Zunächst sehen wir nur ein Commit auf dem lokalen `master`.")
 
-                flushLogToFile("aufgabe-1.md")
+                doc("### Lösung")
+                git("fetch")
+                doc("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
+                git("status")
+            }
 
-                inRepo("mein-klon") {
-                    doc("### Lösung")
-                    //git("status")
-                    doc("""Der Status zeigt, dass es im Origin-Repo
+            flushLogToFile("aufgabe-1.md")
+
+            inRepo("mein-klon") {
+                doc("### Lösung")
+                //git("status")
+                doc("""Der Status zeigt, dass es im Origin-Repo
                     (auf dem Branch `master`) zwei Commits gibt,
                     die wir noch nicht integriert haben.
                 """)
-                    git("log master..origin/master")
-                    doc("""Die `..`-Notation zeigt genau jene Commits,
+                git("log master..origin/master")
+                doc("""Die `..`-Notation zeigt genau jene Commits,
                     die in `origing/master` aber noch nicht in `master` enthalten sind.
                     Etwas kürzer hätte man hier auch auch `git log ..origin/master` schreiben
                     könne, da wir `master` ja gerade `HEAD` ist.
                 """)
-                }
-                flushLogToFile("aufgabe-2.md")
-
-                inRepo("mein-klon") {
-                    doc("### Lösung")
-                    git("pull")
-                    git("log --oneline --decorate -3")
-                }
-                flushLogToFile("aufgabe-3.md")
             }
+            flushLogToFile("aufgabe-2.md")
+
+            inRepo("mein-klon") {
+                doc("### Lösung")
+                git("pull")
+                git("log --oneline --decorate -3")
+            }
+            flushLogToFile("aufgabe-3.md")
         }
 
 
-        buildGitSamples("cloning", "build/gitworkshop") {
+
+        createSample("cloningeling") {
 
             createRepo("myfirstrepo") {
                 createFileAndCommit("foo")
@@ -122,27 +123,27 @@ fun main() {
         """)
 
             flushLogToFile("aufgabe-1.md")
-
-            createSampleVariant("loesung") {
-                doc("## Lösung\n\n")
-
-                doc("## Klon durchführen\n\n")
-                git("clone myfirstrepo myfirstclone")
-
-                inRepo("myfirstclone") {
-
-                    doc("## Klon untersuchen\n\n")
-                    git("remote -v")
-
-
-                    doc("## Im Klon arbeiten.\n\n")
-                    editAndCommit("foo", 3)
-                    git("status")
-                }
-                flushLogToFile("loesung-1.md")
-            }
-
         }
+
+        copySample("cloningeling", "cloningeling.loesung") {
+            doc("## Lösung\n\n")
+
+            doc("## Klon durchführen\n\n")
+            git("clone myfirstrepo myfirstclone")
+
+            inRepo("myfirstclone") {
+
+                doc("## Klon untersuchen\n\n")
+                git("remote -v")
+
+
+                doc("## Im Klon arbeiten.\n\n")
+                editAndCommit("foo", 3)
+                git("status")
+            }
+            flushLogToFile("loesung-1.md")
+        }
+
     }
 }
 
