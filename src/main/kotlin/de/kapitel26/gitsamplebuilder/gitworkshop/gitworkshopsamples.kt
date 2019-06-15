@@ -6,7 +6,7 @@ fun main() {
 
     createCollectionOfSamples("gitworkshop") {
 
-        createSample("push-fetch-pull.aufgabe") {
+        createAufgabe("push-fetch-pull") {
 
             createRepo("blessed.git", "--bare")
 
@@ -56,7 +56,7 @@ fun main() {
 
         }
 
-        copySample("push-fetch-pull.aufgabe", "push-fetch-pull.loesung") {
+        createLoesung("push-fetch-pull") {
             inRepo("mein-klon") {
 
                 git("log --oneline --decorate -3")
@@ -94,9 +94,7 @@ fun main() {
             flushLogToFile("aufgabe-3.md")
         }
 
-
-
-        createSample("cloningeling") {
+        createAufgabe("cloning") {
 
             createRepo("myfirstrepo") {
                 createFileAndCommit("foo")
@@ -125,7 +123,7 @@ fun main() {
             flushLogToFile("aufgabe-1.md")
         }
 
-        copySample("cloningeling", "cloningeling.loesung") {
+        createLoesung("cloning") {
             doc("## Lösung\n\n")
 
             doc("## Klon durchführen\n\n")
