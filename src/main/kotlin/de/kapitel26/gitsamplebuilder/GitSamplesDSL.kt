@@ -31,7 +31,7 @@ abstract class AbstracWorkingDir<T>(
                         }
                     }
 
-    fun dir(dirName: String, commands: Dir.() -> Unit): Unit =
+    fun inDir(dirName: String, commands: Dir.() -> Unit) =
             IOFile(rootDir, dirName)
                     .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
                     .run { Dir(this, log = log) }

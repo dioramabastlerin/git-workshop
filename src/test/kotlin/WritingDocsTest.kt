@@ -41,8 +41,8 @@ class WritingDocsTest : StringSpec({
             )
 
             clearLog()
-            dir("sub") {
-                dir("subsub") {
+            inDir("sub") {
+                inDir("subsub") {
                     execute("echo moin")
                 }
             }

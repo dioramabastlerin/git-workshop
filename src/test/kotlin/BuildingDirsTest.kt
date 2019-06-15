@@ -16,11 +16,11 @@ class BuildingDirsTest : StringSpec({
             list() should containExactly("sub1", "sub2")
 
             createDir("sub2/subsub2")
-            dir("sub2") { list() should containExactly("subsub2") }
+            inDir("sub2") { list() should containExactly("subsub2") }
 
             createDir("sub3/subsub3")
             list() should contain("sub3")
-            dir("sub3") { list() should containExactly("subsub3") }
+            inDir("sub3") { list() should containExactly("subsub3") }
 
             createDir("sub4")
             shouldThrow<IllegalStateException> {
@@ -45,12 +45,12 @@ class BuildingDirsTest : StringSpec({
         buildGitSamples(description().name) {
 
             shouldThrow<IllegalStateException> {
-                dir("sub") {}
+                inDir("sub") {}
             }
 
             createDir("sub")
 
-            dir("sub") {
+            inDir("sub") {
                 executeSplitted("touch", "mandelbrot")
                 list() should containExactly("mandelbrot")
             }

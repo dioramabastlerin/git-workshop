@@ -4,7 +4,8 @@ import de.kapitel26.gitsamplebuilder.AbstracWorkingDir
 import de.kapitel26.gitsamplebuilder.LogBuilder
 import java.io.File
 
-class Dir(rootDir: File, log: LogBuilder = LogBuilder()) : AbstracWorkingDir<Dir>(rootDir, log) {
+class Dir(rootDir: File, log: LogBuilder = LogBuilder())
+    : AbstracWorkingDir<Dir>(rootDir, log) {
 
     fun createSampleVariant(suffix: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"))
