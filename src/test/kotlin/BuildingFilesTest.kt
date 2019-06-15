@@ -39,10 +39,10 @@ class BuildingFilesTest : StringSpec({
 
             createFile("file", "hallo") { lines() shouldBe listOf("hallo") }
 
-            file("file") { lines().size shouldBe 1 }
+            inFile("file") { lines().size shouldBe 1 }
 
             shouldThrow<java.lang.IllegalStateException> {
-                file("does-not-exist") {}
+                inFile("does-not-exist") {}
             }
         }
     }

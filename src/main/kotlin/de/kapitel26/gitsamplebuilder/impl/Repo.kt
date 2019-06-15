@@ -33,7 +33,7 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
     fun editAndCommit(fileName: String, line: Int, message: String = defaultMessage()) = editAndCommit(fileName, line..line, message)
 
     fun editAndCommit(fileName: String, lines: IntRange, message: String = defaultMessage()) {
-        file(fileName) { edit(lines, message) }
+        inFile(fileName) { edit(lines, message) }
         commit(fileName, "`$fileName`: $message")
     }
 

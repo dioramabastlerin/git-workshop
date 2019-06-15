@@ -13,14 +13,14 @@ class BuildingDirsTest : StringSpec({
 
             createDir("sub1")
             createDir("sub2")
-            list() should containExactly("sub1", "sub2")
+            listFilenames() should containExactly("sub1", "sub2")
 
             createDir("sub2/subsub2")
-            inDir("sub2") { list() should containExactly("subsub2") }
+            inDir("sub2") { listFilenames() should containExactly("subsub2") }
 
             createDir("sub3/subsub3")
-            list() should contain("sub3")
-            inDir("sub3") { list() should containExactly("subsub3") }
+            listFilenames() should contain("sub3")
+            inDir("sub3") { listFilenames() should containExactly("subsub3") }
 
             createDir("sub4")
             shouldThrow<IllegalStateException> {
@@ -36,7 +36,7 @@ class BuildingDirsTest : StringSpec({
                 executeSplitted("touch", "wurst")
                 executeSplitted("touch", "kaese")
 
-                list() should containExactly("kaese", "wurst")
+                listFilenames() should containExactly("kaese", "wurst")
             }
         }
     }
@@ -52,7 +52,7 @@ class BuildingDirsTest : StringSpec({
 
             inDir("sub") {
                 executeSplitted("touch", "mandelbrot")
-                list() should containExactly("mandelbrot")
+                listFilenames() should containExactly("mandelbrot")
             }
 
         }
@@ -66,7 +66,7 @@ class BuildingDirsTest : StringSpec({
 
             clear()
 
-            list() should beEmpty()
+            listFilenames() should beEmpty()
         }
     }
 

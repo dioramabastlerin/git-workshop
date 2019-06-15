@@ -17,7 +17,7 @@ class BuildingSampleVariantsTest : StringSpec({
                     rootDir.name shouldBe "base.loesung"
                     rootDir.parent shouldBe baseDir.rootDir.parent
 
-                    list() should containExactly("base-file")
+                    listFilenames() should containExactly("base-file")
                 }
             }
         }

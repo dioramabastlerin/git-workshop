@@ -17,10 +17,10 @@ class WorkingWithGitReposTest : StringSpec({
     "creating repositorys"  {
         buildGitSamples(description().name) {
 
-            createRepo { list() should containExactly(".git") }
-            createRepo("custom-name") { list() should containExactly(".git") }
+            createRepo { listFilenames() should containExactly(".git") }
+            createRepo("custom-name") { listFilenames() should containExactly(".git") }
 
-            list() should containExactly("custom-name", "repo")
+            listFilenames() should containExactly("custom-name", "repo")
         }
 
 

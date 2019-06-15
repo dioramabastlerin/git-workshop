@@ -10,7 +10,42 @@ abstract class AbstracDir<T>(
         val rootDir: IOFile,
         val baseName: String = rootDir.name,
         val log: LogBuilder = LogBuilder()
-)
+) {
+    fun logAsMarkdown() = log.toMarkdown()
+
+    fun clearLog() = log.clear()
+
+
+    fun flushLogToFile(fileName: String = "setup-log.md") {
+        if (fileName.endsWith(".md"))
+            flushLogToMarkdownFile(fileName)
+        else
+            throw IllegalArgumentException("File type not supported for $fileName")
+    }
+
+    fun flushLogToMarkdownFile(fileName: String = "setup-log.md") {
+        createOrAppendToFile(fileName, logAsMarkdown().joinToString("\n"))
+        clearLog()
+    }
+
+    private fun createOrAppendToFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
+            File(IOFile(rootDir, name), log)
+                    .apply {
+                        if (!location.exists()) {
+                            log.createFile(name, content)
+                            location.writeText(content ?: createSampleFileContent())
+                        } else {
+                            log.appendToFile(name, content)
+                            location.appendText(content ?: createSampleFileContent())
+                        }
+                    }
+                    .run(commands)
+
+    fun doc(message: String) {
+        log.doc(message)
+    }
+
+}
 
 abstract class AbstracWorkingDir<T>(
         rootDir: java.io.File,
@@ -53,20 +88,8 @@ abstract class AbstracWorkingDir<T>(
                     .apply { location.writeText(content ?: createSampleFileContent()) }
                     .run(commands)
 
-    fun createOrAppendToFile(name: String, content: String? = null, commands: File.() -> Unit = {}): Unit =
-            File(IOFile(rootDir, name), log)
-                    .apply {
-                        if (!location.exists()) {
-                            log.createFile(name, content)
-                            location.writeText(content ?: createSampleFileContent())
-                        } else {
-                            log.appendToFile(name, content)
-                            location.appendText(content ?: createSampleFileContent())
-                        }
-                    }
-                    .run(commands)
 
-    fun file(name: String = "file", commands: File.() -> Unit = {}) =
+    fun inFile(name: String = "file", commands: File.() -> Unit = {}) =
             File(IOFile(rootDir, name), log)
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
                     .run(commands)
@@ -134,48 +157,15 @@ abstract class AbstracWorkingDir<T>(
                             Repo(this, log, commands)
                     }
 
-    fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstracWorkingDir<T>.() -> Unit): Repo {
-        val tmpDirName = ".$newRepBasename"
-        createDir(tmpDirName) {
-            git("init")
-            function()
-        }
-
-        val serverRepoName = "$newRepBasename.git"
-        git("clone --bare $tmpDirName $serverRepoName")
-        return Repo(IOFile(rootDir, serverRepoName).absoluteFile, log)
-    }
 
     fun inRepo(repo: Repo, function: Repo.() -> Unit) {
         Repo(repo.rootDir, log, function)
     }
 
-    fun list(): List<String> = execute("ls -A")
+    fun listFilenames(): List<String> = execute("ls -A")
 
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
-            file(filename) { edit(lineNumber..lineNumber, message) }
-
-    fun logAsMarkdown() = log.toMarkdown()
-
-    fun clearLog() = log.clear()
-
-
-    fun flushLogToFile(fileName: String = "setup-log.md") {
-        if (fileName.endsWith(".md"))
-            flushLogToMarkdownFile(fileName)
-        else
-            throw IllegalArgumentException("File type not supported for $fileName")
-    }
-
-    fun flushLogToMarkdownFile(fileName: String = "setup-log.md") {
-        createOrAppendToFile(fileName, logAsMarkdown().joinToString("\n"))
-        clearLog()
-    }
-
-    fun doc(message: String) {
-        log.doc(message)
-    }
-
+            inFile(filename) { edit(lineNumber..lineNumber, message) }
 }
 
 class LogBuilder {
