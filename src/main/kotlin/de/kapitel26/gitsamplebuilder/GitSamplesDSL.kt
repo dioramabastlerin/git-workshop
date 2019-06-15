@@ -99,9 +99,9 @@ abstract class AbstracWorkingDir<T>(
     fun execute(command: String): List<String> {
         val process = executeRaw(command, false)
         val outputLines = process.inputStream.bufferedReader().lines().toList()
-        outputLines.forEach { log.rawLine("    $it") }
+        outputLines.forEach { log.addRawLine("    $it") }
         val errorLines = process.errorStream.bufferedReader().lines().toList()
-        errorLines.forEach { log.rawLine("    $it") }
+        errorLines.forEach { log.addRawLine("    $it") }
         return outputLines
     }
 
@@ -188,13 +188,14 @@ class LogBuilder {
     fun editFile(name: String?, linesToEdit: IntRange, message: String) =
             shell("# $message file '$name' at $linesToEdit")
 
-    fun shell(cmd: String) = markdownLines.add("    $ $cmd")
+    fun shell(cmd: String) = addRawLine("    $ $cmd")
 
-    fun doc(message: String) = markdownLines
-            .apply { addAll(message.trimIndent().lines()) }
-            .add("")
+    fun doc(message: String) {
+        message.trimIndent().lines().forEach { addRawLine(it) }
+        addRawLine("")
+    }
 
-    fun rawLine(s: String) = markdownLines.add(s)
+    fun addRawLine(s: String) = markdownLines.add(s)
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
