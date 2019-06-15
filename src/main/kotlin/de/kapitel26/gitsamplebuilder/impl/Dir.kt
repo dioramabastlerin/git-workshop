@@ -6,10 +6,6 @@ import java.io.File
 
 class Dir(rootDir: File, log: LogBuilder = LogBuilder()) : AbstracWorkingDir<Dir>(rootDir, log) {
 
-    fun createSample(name: String, commands: Dir.() -> Unit) =
-            Dir(File(rootDir.parent))
-                    .run(commands)
-
     fun createSampleVariant(suffix: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"))
                     .also { duplicate ->
