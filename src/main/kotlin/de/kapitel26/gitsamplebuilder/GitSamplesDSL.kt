@@ -172,6 +172,7 @@ abstract class AbstracWorkingDir<T>(
 class LogBuilder {
 
     val markdownLines: MutableList<String> = mutableListOf()
+    var id2appender = mutableMapOf<String, (String) -> Unit>("collector" to { s -> markdownLines.add(s) })
 
     fun clear() = markdownLines.clear()
 
@@ -195,7 +196,7 @@ class LogBuilder {
         addRawLine("")
     }
 
-    fun addRawLine(s: String) = markdownLines.add(s)
+    fun addRawLine(s: String) = id2appender.values.forEach { it(s) }
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
