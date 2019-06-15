@@ -1,102 +1,110 @@
 package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import de.kapitel26.gitsamplebuilder.buildGitSamples
-import de.kapitel26.gitsamplebuilder.impl.Dir
-import java.io.File
+import de.kapitel26.gitsamplebuilder.createCollectionOfSamples
 
 fun main() {
 
-    Dir(File("build/gitworkshop")).clear()
+    createCollectionOfSamples("gitworkshop") {
 
-    buildGitSamples("push-fetch-pull", "build/gitworkshop", "aufgabe") {
+        buildGitSamples("push-fetch-pull", this.rootDir.toString(), "aufgabe") {
 
-        createRepo("blessed.git", "--bare")
+            createRepo("blessed.git", "--bare")
 
-        cloneRepo("blessed.git", "anderer-klon") {
-            createFileAndCommit("foo", "Initial edit before cloning")
-            git("push")
-        }
+            cloneRepo("blessed.git", "anderer-klon") {
+                createFileAndCommit("foo", "Initial edit before cloning")
+                git("push")
+            }
 
-        cloneRepo("blessed.git", "mein-klon")
+            cloneRepo("blessed.git", "mein-klon")
 
-        repo("anderer-klon") {
-            editAndCommit("foo", 3, "First edit after cloning")
-            editAndCommit("foo", 7, "Second edit after cloning")
-            git("push")
-        }
+            repo("anderer-klon") {
+                editAndCommit("foo", 3, "First edit after cloning")
+                editAndCommit("foo", 7, "Second edit after cloning")
+                git("push")
+            }
 
-        flushLogToFile()
+            flushLogToFile()
 
-        doc("""
-            # Aufgabe 1
-
-            ## 1a Änderungen holen
+            doc("""
+            ## 1. Änderungen holen
 
             Hole die beiden neuen Commits vom `origin`-Repository,
             ohne den lokalen `master` zu verändern.
 
-            ## 1b Änderungen untersuchen
+        """)
+            flushLogToFile("aufgabe-1.md")
+
+            doc("""
+            ## 2. Änderungen untersuchen
 
             Lasse dir den Status zeigen,
             und untersuche dann,
             welche Commits im `master` des `origin`-Repository vorhanden sind,
             welche im lokalen `master` noch nicht integriert wurden.
 
-            ## 1c Änderungen integrieren
+        """)
+            flushLogToFile("aufgabe-2.md")
+
+            doc("""
+            ## 3. Änderungen integrieren
 
             Integriere die neuesten Commits vom `origin`-Repository
             in den lokalen `master`.
 
         """)
+            flushLogToFile("aufgabe-3.md")
 
-        flushLogToFile("aufgabe-1.md")
+            duplicatedSample("loesung") {
+                repo("mein-klon") {
 
-        duplicatedSample("loesung") {
-            repo("mein-klon") {
+                    git("log --oneline --decorate -3")
+                    doc("Zunächst sehen wir nur ein Commit auf dem lokalen `master`.")
 
-                git("log --oneline --decorate -3")
+                    doc("### Lösung")
+                    git("fetch")
+                    doc("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
+                    git("status")
+                }
 
-                doc("Zunächst finden wir nur ein Commit auf dem lokalen `master`.")
+                flushLogToFile("aufgabe-1.md")
 
-                doc("## 1a Änderungen holen")
-                git("fetch")
-                doc("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
-
-                doc("## 1b Änderungen untersuchen")
-                git("status")
-                doc("""Der Status zeigt, dass es im Origin-Repo
+                repo("mein-klon") {
+                    doc("### Lösung")
+                    //git("status")
+                    doc("""Der Status zeigt, dass es im Origin-Repo
                     (auf dem Branch `master`) zwei Commits gibt,
                     die wir noch nicht integriert haben.
                 """)
-
-                git("log master..origin/master")
-
-                doc("""Die `..`-Notation zeigt genau jene Commits,
+                    git("log master..origin/master")
+                    doc("""Die `..`-Notation zeigt genau jene Commits,
                     die in `origing/master` aber noch nicht in `master` enthalten sind.
                     Etwas kürzer hätte man hier auch auch `git log ..origin/master` schreiben
-                    könne, da wir `master` ja gerade `HEAD` ist.""")
+                    könne, da wir `master` ja gerade `HEAD` ist.
+                """)
+                }
+                flushLogToFile("aufgabe-2.md")
 
-                doc("## 1c Änderungen integrieren")
-
-                git("pull")
-                git("log --oneline --decorate -3")
+                repo("mein-klon") {
+                    doc("### Lösung")
+                    git("pull")
+                    git("log --oneline --decorate -3")
+                }
+                flushLogToFile("aufgabe-3.md")
             }
-            flushLogToFile("loesung-1.md")
         }
 
-    }
 
+        buildGitSamples("cloning", "build/gitworkshop") {
 
-    buildGitSamples("cloning", "build/gitworkshop") {
+            createRepo("myfirstrepo") {
+                createFileAndCommit("foo")
+                createFileAndCommit("bar")
+            }
 
-        createRepo("myfirstrepo") {
-            createFileAndCommit("foo")
-            createFileAndCommit("bar")
-        }
+            flushLogToFile()
 
-        flushLogToFile()
-
-        doc("""
+            doc("""
             # Aufgabe 1 - Repository klonen
 
             ## Klon durchführen
@@ -113,26 +121,28 @@ fun main() {
 
         """)
 
-        flushLogToFile("aufgabe-1.md")
+            flushLogToFile("aufgabe-1.md")
 
-        duplicatedSample("loesung") {
-            doc("## Lösung\n\n")
+            duplicatedSample("loesung") {
+                doc("## Lösung\n\n")
 
-            doc("## Klon durchführen\n\n")
-            git("clone myfirstrepo myfirstclone")
+                doc("## Klon durchführen\n\n")
+                git("clone myfirstrepo myfirstclone")
 
-            repo("myfirstclone") {
+                repo("myfirstclone") {
 
-                doc("## Klon untersuchen\n\n")
-                git("remote -v")
+                    doc("## Klon untersuchen\n\n")
+                    git("remote -v")
 
 
-                doc("## Im Klon arbeiten.\n\n")
-                editAndCommit("foo", 3)
-                git("status")
+                    doc("## Im Klon arbeiten.\n\n")
+                    editAndCommit("foo", 3)
+                    git("status")
+                }
+                flushLogToFile("loesung-1.md")
             }
-            flushLogToFile("loesung-1.md")
-        }
 
+        }
     }
 }
+

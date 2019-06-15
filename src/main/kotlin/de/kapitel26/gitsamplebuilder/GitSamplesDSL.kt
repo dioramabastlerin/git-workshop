@@ -73,7 +73,7 @@ abstract class AbstractDir<T>(
         val outputLines = process.inputStream.bufferedReader().lines().toList()
         outputLines.forEach { log.rawLine("    $it") }
         val errorLines = process.errorStream.bufferedReader().lines().toList()
-        errorLines.forEach { log.rawLine("ERR    $it") }
+        errorLines.forEach { log.rawLine("    $it") }
         return outputLines
     }
 
@@ -216,6 +216,12 @@ fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples",
 
 fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
     Dir(rootDir)
+            .apply { clear() }
+            .run(commands)
+}
+
+fun createCollectionOfSamples(dirName: String, commands: Dir.() -> Unit) {
+    Dir(IOFile("build", dirName))
             .apply { clear() }
             .run(commands)
 }
