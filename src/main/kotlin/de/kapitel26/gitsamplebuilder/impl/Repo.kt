@@ -16,19 +16,6 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
 
     val name: String get() = rootDir.name
 
-
-    override fun duplicatedSample(suffix: String, function: Repo.() -> Unit): Repo =
-            Repo(
-                    de.kapitel26.gitsamplebuilder.impl.Dir(rootDir).duplicatedSample(suffix, {}).rootDir,
-                    log,
-                    function)
-
-
-    //    override fun duplicatedSample(suffix: String, function: AbstractDir<Repo>.() -> Unit): AbstractDir<Repo> {
-//        return Repo(super.duplicatedSample(suffix, {}).rootDir)
-//                .apply(function)
-//    }
-//
     fun cloneTo(targetDir: File, function: AbstractDir<Repo>.() -> Unit): Repo {
         val builder = de.kapitel26.gitsamplebuilder.impl.Dir(rootDir)
         builder.git("clone . ${targetDir.absolutePath}")

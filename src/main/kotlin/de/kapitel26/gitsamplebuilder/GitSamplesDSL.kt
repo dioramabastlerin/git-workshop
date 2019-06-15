@@ -148,9 +148,6 @@ abstract class AbstractDir<T>(
 
     fun list(): List<String> = execute("ls -A")
 
-
-    abstract fun duplicatedSample(suffix: String, function: T.() -> Unit): T
-
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
             file(filename) { edit(lineNumber..lineNumber, message) }
 

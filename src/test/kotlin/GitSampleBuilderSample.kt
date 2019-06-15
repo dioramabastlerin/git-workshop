@@ -25,7 +25,7 @@ class GitSampleBuilderSample : StringSpec({
 
                 }
 
-                duplicatedSample("rebased-commit-will-not-merge") {
+                createSampleVariant("rebased-commit-will-not-merge") {
                     repo {
                         startBranch("rebased-feature", "feature") {
                             git("rebase", "master")
@@ -41,7 +41,7 @@ class GitSampleBuilderSample : StringSpec({
                     }
                 }
 
-                duplicatedSample("merge-will-work") {
+                createSampleVariant("merge-will-work") {
                     repo {
                         startBranch("merged-feature", "feature") {
                             git("merge", "master")
@@ -53,7 +53,7 @@ class GitSampleBuilderSample : StringSpec({
                     }
                 }
 
-                duplicatedSample("rebased-commit-will-merge-sometimes") {
+                createSampleVariant("rebased-commit-will-merge-sometimes") {
                     repo {
 
                         startBranch("rebased-feature", "feature") {

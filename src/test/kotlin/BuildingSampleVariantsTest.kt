@@ -12,7 +12,7 @@ class BuildingSampleVariantsTest : StringSpec({
                 val baseDir = this
                 createFile("base-file")
 
-                duplicatedSample("loesung") {
+                createSampleVariant("loesung") {
                     baseName shouldBe "base"
                     rootDir.name shouldBe "base.loesung"
                     rootDir.parent shouldBe baseDir.rootDir.parent

@@ -55,7 +55,7 @@ fun main() {
         """)
             flushLogToFile("aufgabe-3.md")
 
-            duplicatedSample("loesung") {
+            createSampleVariant("loesung") {
                 repo("mein-klon") {
 
                     git("log --oneline --decorate -3")
@@ -123,7 +123,7 @@ fun main() {
 
             flushLogToFile("aufgabe-1.md")
 
-            duplicatedSample("loesung") {
+            createSampleVariant("loesung") {
                 doc("## Lösung\n\n")
 
                 doc("## Klon durchführen\n\n")
