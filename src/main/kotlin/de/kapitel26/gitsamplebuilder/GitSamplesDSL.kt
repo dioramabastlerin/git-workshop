@@ -116,13 +116,13 @@ abstract class AbstractDir<T>(
         Repo(IOFile(rootDir, newRepoName).absoluteFile, log, commands)
     }
 
-    fun cloneRepo(originalRepo: String, clonedRepo: String, commands: (Repo.() -> Unit)? = {}) {
+    fun createClonedRepo(originalRepo: String, clonedRepo: String, commands: (Repo.() -> Unit)? = {}) {
         git("clone $originalRepo $clonedRepo")
-        repo(clonedRepo, commands)
+        inRepo(clonedRepo, commands)
     }
 
 
-    fun repo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
+    fun inRepo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
             IOFile(rootDir, repoName).absoluteFile
                     .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
                     .run {

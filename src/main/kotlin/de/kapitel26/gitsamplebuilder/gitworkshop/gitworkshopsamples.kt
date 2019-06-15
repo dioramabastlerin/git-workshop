@@ -11,14 +11,14 @@ fun main() {
 
             createRepo("blessed.git", "--bare")
 
-            cloneRepo("blessed.git", "anderer-klon") {
+            createClonedRepo("blessed.git", "anderer-klon") {
                 createFileAndCommit("foo", "Initial edit before cloning")
                 git("push")
             }
 
-            cloneRepo("blessed.git", "mein-klon")
+            createClonedRepo("blessed.git", "mein-klon")
 
-            repo("anderer-klon") {
+            inRepo("anderer-klon") {
                 editAndCommit("foo", 3, "First edit after cloning")
                 editAndCommit("foo", 7, "Second edit after cloning")
                 git("push")
@@ -56,7 +56,7 @@ fun main() {
             flushLogToFile("aufgabe-3.md")
 
             createSampleVariant("loesung") {
-                repo("mein-klon") {
+                inRepo("mein-klon") {
 
                     git("log --oneline --decorate -3")
                     doc("Zunächst sehen wir nur ein Commit auf dem lokalen `master`.")
@@ -69,7 +69,7 @@ fun main() {
 
                 flushLogToFile("aufgabe-1.md")
 
-                repo("mein-klon") {
+                inRepo("mein-klon") {
                     doc("### Lösung")
                     //git("status")
                     doc("""Der Status zeigt, dass es im Origin-Repo
@@ -85,7 +85,7 @@ fun main() {
                 }
                 flushLogToFile("aufgabe-2.md")
 
-                repo("mein-klon") {
+                inRepo("mein-klon") {
                     doc("### Lösung")
                     git("pull")
                     git("log --oneline --decorate -3")
@@ -129,7 +129,7 @@ fun main() {
                 doc("## Klon durchführen\n\n")
                 git("clone myfirstrepo myfirstclone")
 
-                repo("myfirstclone") {
+                inRepo("myfirstclone") {
 
                     doc("## Klon untersuchen\n\n")
                     git("remote -v")

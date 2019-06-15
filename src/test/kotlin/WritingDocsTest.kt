@@ -84,7 +84,7 @@ class WritingDocsTest : StringSpec({
             )
 
             clearLog()
-            repo {
+            inRepo {
                 git("branch")
             }
             logAsMarkdown() should containExactly(

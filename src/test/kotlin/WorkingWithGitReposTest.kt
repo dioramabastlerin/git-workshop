@@ -32,12 +32,12 @@ class WorkingWithGitReposTest : StringSpec({
                 git("status")[0] shouldBe "On branch master"
             }
 
-            repo("repo1") {
+            inRepo("repo1") {
                 git("status") should containAll("On branch master")
             }
 
             shouldThrow<IllegalStateException> {
-                repo("not-existing") { }
+                inRepo("not-existing") { }
             }
         }
     }
