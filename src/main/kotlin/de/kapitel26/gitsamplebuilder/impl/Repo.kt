@@ -1,10 +1,10 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.AbstractDir
+import de.kapitel26.gitsamplebuilder.AbstracWorkingDir
 import de.kapitel26.gitsamplebuilder.LogBuilder
 import java.io.File
 
-class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) : AbstractDir<Repo>(rootDir, log = log) {
+class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) : AbstracWorkingDir<Repo>(rootDir, log = log) {
 
     init {
         if (commands != null) {
@@ -16,7 +16,7 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
 
     val name: String get() = rootDir.name
 
-    fun cloneTo(targetDir: File, function: AbstractDir<Repo>.() -> Unit): Repo {
+    fun cloneTo(targetDir: File, function: AbstracWorkingDir<Repo>.() -> Unit): Repo {
         val builder = de.kapitel26.gitsamplebuilder.impl.Dir(rootDir)
         builder.git("clone . ${targetDir.absolutePath}")
         return Repo(targetDir, log)

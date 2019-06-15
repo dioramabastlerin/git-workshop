@@ -13,7 +13,7 @@ class BuildingSampleVariantsTest : StringSpec({
                 createFile("base-file")
 
                 createSampleVariant("loesung") {
-                    baseName shouldBe "base"
+                    baseName shouldBe "base.loesung"
                     rootDir.name shouldBe "base.loesung"
                     rootDir.parent shouldBe baseDir.rootDir.parent
 

@@ -6,12 +6,16 @@ import de.kapitel26.gitsamplebuilder.impl.Repo
 import kotlin.streams.toList
 import java.io.File as IOFile
 
-abstract class AbstractDir<T>(
+abstract class AbstracDir<T>(
         val rootDir: IOFile,
         val baseName: String = rootDir.name,
         val log: LogBuilder = LogBuilder()
-) {
+)
 
+abstract class AbstracWorkingDir<T>(
+        rootDir: java.io.File,
+        log: LogBuilder
+) : AbstracDir<T>(rootDir, log = log) {
 
     fun createDir(dirName: String, commands: (Dir.() -> Unit)? = null): Unit =
             IOFile(rootDir, dirName)
@@ -130,7 +134,7 @@ abstract class AbstractDir<T>(
                             Repo(this, log, commands)
                     }
 
-    fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstractDir<T>.() -> Unit): Repo {
+    fun bareRepo(newRepBasename: String = "server", function: de.kapitel26.gitsamplebuilder.AbstracWorkingDir<T>.() -> Unit): Repo {
         val tmpDirName = ".$newRepBasename"
         createDir(tmpDirName) {
             git("init")
