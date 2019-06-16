@@ -4,6 +4,9 @@ import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
 import de.kapitel26.gitsamplebuilder.impl.Dir
 import de.kapitel26.gitsamplebuilder.impl.File
 import de.kapitel26.gitsamplebuilder.impl.Repo
+import java.io.BufferedWriter
+import java.io.FileWriter
+import java.io.Writer
 import kotlin.streams.toList
 import java.io.File as IOFile
 
@@ -87,8 +90,7 @@ abstract class AbstracWorkingDir<T>(
                     .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
                     .apply { log.createFile(name, content) }
                     .apply { location.writeText(content ?: createSampleFileContent()) }
-                    .run(commands)
-
+                    .apply(commands)
 
     fun inFile(name: String = "file", commands: File.() -> Unit = {}) =
             File(IOFile(rootDir, name), log)
@@ -173,6 +175,15 @@ class LogBuilder {
 
     val markdownLines: MutableList<String> = mutableListOf()
     var id2appender = mutableMapOf<String, (String) -> Unit>("collector" to { s -> markdownLines.add(s) })
+    var id2Writer = mutableMapOf<String, Writer>()
+
+    fun startWritingTo(file: File) {
+        id2Writer[file.location.absolutePath] = BufferedWriter(FileWriter(file.location, true))
+    }
+
+    fun stopWritingTo(file: File) {
+        id2Writer.remove(file.location.absolutePath)?.close() ?: throw RuntimeException("File $file unknown!")
+    }
 
     fun clear() = markdownLines.clear()
 
@@ -196,7 +207,13 @@ class LogBuilder {
         addRawLine("")
     }
 
-    fun addRawLine(s: String) = id2appender.values.forEach { it(s) }
+    fun addRawLine(s: String) {
+        id2appender.values.forEach { it(s) }
+        id2Writer.values.forEach {
+            it.write(s)
+            it.write("\n")
+        }
+    }
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
