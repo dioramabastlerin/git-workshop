@@ -82,8 +82,8 @@ abstract class AbstracWorkingDir<T>(
         rootDir.mkdirs()
     }
 
-    fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}): Unit =
-            File(IOFile(rootDir, name), log)
+    fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
+            File(IOFile(rootDir, name).absoluteFile, log)
                     .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
                     .apply { log.createFile(name, content) }
                     .apply { location.writeText(content ?: createSampleFileContent()) }

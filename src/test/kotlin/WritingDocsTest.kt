@@ -7,7 +7,7 @@ import java.io.File
 
 class WritingDocsTest : StringSpec({
 
-    "logging"  {
+    "collecting markdown docs"  {
         buildGitSamples(description().name) {
 
             logAsMarkdown() shouldBe emptyList()
@@ -92,6 +92,16 @@ class WritingDocsTest : StringSpec({
                     "    $ git branch",
                     "    $ cd .."
             )
+
+        }
+    }
+
+    "redirect docs to files"  {
+        buildGitSamples(description().name) {
+
+            log.shell("echo foo")
+            createFile("sample.md")
+
 
         }
     }
