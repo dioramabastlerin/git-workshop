@@ -169,9 +169,23 @@ abstract class AbstracWorkingDir<T>(
 
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
             inFile(filename) { edit(lineNumber..lineNumber, message) }
+
+    fun doc(name: String, commands: T.() -> Unit) {
+        log.enableDoc(name)
+        (this as T).commands()
+        log.disableDoc(name)
+    }
+
+    fun writeDocs() {
+        log.writeFiles(rootDir)
+    }
+
 }
 
 class LogBuilder {
+
+    var activeCollectors = mutableSetOf<String>("_setup")
+    var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
     val markdownLines: MutableList<String> = mutableListOf()
     var id2appender = mutableMapOf<String, (String) -> Unit>("collector" to { s -> markdownLines.add(s) })
@@ -207,13 +221,34 @@ class LogBuilder {
         addRawLine("")
     }
 
+    fun enableDoc(name: String) = activeCollectors.add(name)
+
+    fun disableDoc(name: String) = activeCollectors.remove(name)
+
     fun addRawLine(s: String) {
         id2appender.values.forEach { it(s) }
         id2Writer.values.forEach {
             it.write(s)
             it.write("\n")
         }
+        collectedLogs.add(s to activeCollectors.toSet())
     }
+
+    fun writeFiles(rootDir: IOFile) {
+        val name2writer = mutableMapOf<String, BufferedWriter>()
+        collectedLogs.forEach { (line, names) ->
+            names.forEach { name ->
+                name2writer.computeIfAbsent(name) { name ->
+                    BufferedWriter(FileWriter(IOFile(rootDir, name)))
+                }.apply {
+                    write(line)
+                    write("\n")
+                }
+            }
+        }
+        name2writer.values.forEach { it.close() }
+    }
+
 }
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)

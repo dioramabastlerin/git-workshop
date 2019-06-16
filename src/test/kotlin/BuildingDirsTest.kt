@@ -70,4 +70,8 @@ class BuildingDirsTest : StringSpec({
         }
     }
 
+    "parent dirs" {
+
+    }
+
 })
