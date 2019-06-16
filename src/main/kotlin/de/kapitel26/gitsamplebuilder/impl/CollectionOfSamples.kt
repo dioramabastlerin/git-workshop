@@ -12,7 +12,10 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
         rootDir.mkdirs()
     }
 
-    fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) = createDir(sampleName, commands)
+    fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {
+        log.collectedLogs.clear()
+        createDir(sampleName, commands)
+    }
 
     fun copySample(original: String, copy: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir, copy), log)
