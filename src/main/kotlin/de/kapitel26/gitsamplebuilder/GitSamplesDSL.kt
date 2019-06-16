@@ -45,7 +45,7 @@ abstract class AbstracDir<T>(
                     }
                     .run(commands)
 
-    fun doc(message: String) {
+    fun markdown(message: String) {
         log.doc(message)
     }
 

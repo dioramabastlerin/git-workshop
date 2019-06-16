@@ -12,7 +12,7 @@ class WritingDocsTest : StringSpec({
 
             logAsMarkdown() shouldBe emptyList()
 
-            doc("helloWorld")
+            markdown("helloWorld")
             logAsMarkdown() should containExactly("helloWorld", "")
 
             clearLog()
@@ -20,7 +20,7 @@ class WritingDocsTest : StringSpec({
                 line1
                 line2
             """
-            doc(text)
+            markdown(text)
             logAsMarkdown() should containExactly(text.trimIndent().lines() + "")
 
             clearLog()

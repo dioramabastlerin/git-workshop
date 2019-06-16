@@ -25,7 +25,7 @@ fun main() {
 
             flushLogToFile()
 
-            doc("""
+            markdown("""
             ## 1. Änderungen holen
 
             Hole die beiden neuen Commits vom `origin`-Repository,
@@ -34,7 +34,7 @@ fun main() {
         """)
             flushLogToFile("aufgabe-1.md")
 
-            doc("""
+            markdown("""
             ## 2. Änderungen untersuchen
 
             Lasse dir den Status zeigen,
@@ -45,7 +45,7 @@ fun main() {
         """)
             flushLogToFile("aufgabe-2.md")
 
-            doc("""
+            markdown("""
             ## 3. Änderungen integrieren
 
             Integriere die neuesten Commits vom `origin`-Repository
@@ -60,25 +60,25 @@ fun main() {
             inRepo("mein-klon") {
 
                 git("log --oneline --decorate -3")
-                doc("Zunächst sehen wir nur ein Commit auf dem lokalen `master`.")
+                markdown("Zunächst sehen wir nur ein Commit auf dem lokalen `master`.")
 
-                doc("### Lösung")
+                markdown("### Lösung")
                 git("fetch")
-                doc("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
+                markdown("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
                 git("status")
             }
 
             flushLogToFile("aufgabe-1.md")
 
             inRepo("mein-klon") {
-                doc("### Lösung")
+                markdown("### Lösung")
                 //git("status")
-                doc("""Der Status zeigt, dass es im Origin-Repo
+                markdown("""Der Status zeigt, dass es im Origin-Repo
                     (auf dem Branch `master`) zwei Commits gibt,
                     die wir noch nicht integriert haben.
                 """)
                 git("log master..origin/master")
-                doc("""Die `..`-Notation zeigt genau jene Commits,
+                markdown("""Die `..`-Notation zeigt genau jene Commits,
                     die in `origing/master` aber noch nicht in `master` enthalten sind.
                     Etwas kürzer hätte man hier auch auch `git log ..origin/master` schreiben
                     könne, da wir `master` ja gerade `HEAD` ist.
@@ -87,7 +87,7 @@ fun main() {
             flushLogToFile("aufgabe-2.md")
 
             inRepo("mein-klon") {
-                doc("### Lösung")
+                markdown("### Lösung")
                 git("pull")
                 git("log --oneline --decorate -3")
             }
@@ -103,7 +103,7 @@ fun main() {
 
             flushLogToFile()
 
-            doc("""
+            markdown("""
             # Aufgabe 1 - Repository klonen
 
             ## Klon durchführen
@@ -124,18 +124,18 @@ fun main() {
         }
 
         createLoesung("cloning") {
-            doc("## Lösung\n\n")
+            markdown("## Lösung\n\n")
 
-            doc("## Klon durchführen\n\n")
+            markdown("## Klon durchführen\n\n")
             git("clone myfirstrepo myfirstclone")
 
             inRepo("myfirstclone") {
 
-                doc("## Klon untersuchen\n\n")
+                markdown("## Klon untersuchen\n\n")
                 git("remote -v")
 
 
-                doc("## Im Klon arbeiten.\n\n")
+                markdown("## Im Klon arbeiten.\n\n")
                 editAndCommit("foo", 3)
                 git("status")
             }
