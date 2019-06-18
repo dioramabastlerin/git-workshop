@@ -12,7 +12,7 @@ class File(val location: java.io.File, val log: LogBuilder) {
 
     fun edit(linesToEdit: IntRange, message: String = "edited") {
         location
-                .apply { log.editFile(location.name, linesToEdit, message) }
+                .apply { log.editFile(location.name, linesToEdit, message, dirName()) }
                 .readLines()
                 .mapIndexed { index, s ->
                     if (index in linesToEdit)
@@ -23,6 +23,8 @@ class File(val location: java.io.File, val log: LogBuilder) {
                 .joinToString("\n")
                 .also { location.writeText(it) }
     }
+
+    private fun dirName() = location.parentFile.name
 
     fun lines() = location.readLines()
 }

@@ -8,9 +8,9 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
 
     init {
         if (commands != null) {
-            log.cd(rootDir.name)
+            log.cd(rootDir.name, "DUNNO")
             commands()
-            log.cd("..")
+            log.cd("..", rootDir.name)
         }
     }
 

@@ -35,10 +35,10 @@ abstract class AbstracDir<T>(
             File(IOFile(rootDir, name), log)
                     .apply {
                         if (!location.exists()) {
-                            log.createFile(name, content)
+                            log.createFile(name, content, currentDirname())
                             location.writeText(content ?: createSampleFileContent())
                         } else {
-                            log.appendToFile(name, content)
+                            log.appendToFile(name, content, currentDirname())
                             location.appendText(content ?: createSampleFileContent())
                         }
                     }
@@ -52,15 +52,17 @@ abstract class AbstracDir<T>(
             IOFile(rootDir, dirName)
                     .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
                     .apply { mkdirs() }
-                    .apply { log.createDir(dirName) }
+                    .apply { log.createDir(dirName, currentDirname()) }
                     .run { Dir(this, log = log) }
                     .run {
                         if (commands != null) {
-                            log.cd(dirName)
+                            log.cd(dirName, /* TODO */ currentDirname())
                             commands()
-                            log.cd("..")
+                            log.cd("..", currentDirname())
                         }
                     }
+
+    protected fun currentDirname() = rootDir.name
 
 }
 
@@ -72,11 +74,11 @@ abstract class AbstracWorkingDir<T>(
     fun inDir(dirName: String, commands: Dir.() -> Unit) =
             IOFile(rootDir, dirName)
                     .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
+                    .also { log.cd(dirName, currentDirname()) }
                     .run { Dir(this, log = log) }
                     .run {
-                        log.cd(dirName)
                         commands()
-                        log.cd("..")
+                        log.cd("..", currentDirname())
                     }
 
     fun clear() {
@@ -87,7 +89,7 @@ abstract class AbstracWorkingDir<T>(
     fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
             File(IOFile(rootDir, name).absoluteFile, log)
                     .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
-                    .apply { log.createFile(name, content) }
+                    .apply { log.createFile(name, content, currentDirname()) }
                     .apply { location.writeText(content ?: createSampleFileContent()) }
                     .apply(commands)
 
@@ -117,7 +119,7 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun exeuteSplittedRaw(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
-        log.shell(splittedCommandLineArguments.joinToString(" "))
+        log.shell(splittedCommandLineArguments.joinToString(" "), rootDir.name)
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
 
         processBuilder.directory(rootDir)
@@ -193,18 +195,18 @@ class LogBuilder {
 
     fun toMarkdown(): List<String> = markdownLines.toList()
 
-    fun createDir(dirName: String) = shell("mkdir $dirName")
+    fun createDir(dirName: String, where: String) = shell("mkdir $dirName", where)
 
-    fun cd(dirName: String) = shell("cd $dirName")
+    fun cd(dirName: String, where: String) = shell("cd $dirName", where)
 
-    fun createFile(name: String, content: String?) = shell("# created file '$name'")
+    fun createFile(name: String, content: String?, where: String) = shell("# created file '$name'", where)
 
-    fun appendToFile(name: String, content: String?) = shell("# append to file '$name'")
+    fun appendToFile(name: String, content: String?, where: String) = shell("# append to file '$name'", where)
 
-    fun editFile(name: String?, linesToEdit: IntRange, message: String) =
-            shell("# $message file '$name' at $linesToEdit")
+    fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
+            shell("# $message file '$name' at $linesToEdit", where)
 
-    fun shell(cmd: String) = addRawLine("    $ $cmd")
+    fun shell(cmd: String, where: String?) = addRawLine("    ${where?.plus(" ") ?: ""}$ $cmd")
 
     fun doc(message: String) {
         message.trimIndent().lines().forEach { addRawLine(it) }
