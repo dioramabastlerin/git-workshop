@@ -134,20 +134,6 @@ class WritingDocsTest : StringSpec({
     }
 
 
-    "redirect docs to files"  {
-        buildGitSamples(description().name) {
-
-            log.shell("echo foo")
-            val mydoc = createFile("sample.md", "")
-
-            log.startWritingTo(mydoc)
-            log.addRawLine("hallo")
-            log.addRawLine("welt")
-            log.stopWritingTo(mydoc)
-
-            mydoc.location.readLines() shouldBe listOf("hallo", "welt")
-        }
-    }
 
     "logging to files"  {
         buildGitSamples(description().name) {
