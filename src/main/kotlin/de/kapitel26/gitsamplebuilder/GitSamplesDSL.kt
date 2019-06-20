@@ -181,6 +181,8 @@ abstract class AbstracWorkingDir<T>(
         log.writeFiles(rootDir)
     }
 
+
+    fun aufgabe(nr =)
 }
 
 class LogBuilder {

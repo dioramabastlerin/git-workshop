@@ -29,8 +29,8 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
             """([^.]*)(\..*)?""".toRegex().matchEntire(baseName)?.groups?.get(1)?.value
                     ?: throw IllegalArgumentException("Not valid $baseName")
 
-    fun createAufgabe(name: String, commands: Dir.() -> Unit) = createSample("$name.aufgabe", commands)
+    fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) = createSample("$name.aufgabe", commands)
 
-    fun createLoesung(name: String, commands: Dir.() -> Unit) = copySample("$name.aufgabe", "$name.loesung", commands)
+    fun createLoesungsFolge(name: String, commands: Dir.() -> Unit) = copySample("$name.aufgabe", "$name.loesung", commands)
 
 }

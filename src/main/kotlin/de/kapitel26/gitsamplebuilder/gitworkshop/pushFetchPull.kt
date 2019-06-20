@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
 
 fun CollectionOfSamples.pushFetchPull() {
-    createAufgabe("push-fetch-pull") {
+    createAufgabenFolge("push-fetch-pull") {
 
         createRepo("blessed.git", "--bare")
 
@@ -53,7 +53,7 @@ fun CollectionOfSamples.pushFetchPull() {
         writeDocs()
     }
 
-    createLoesung("push-fetch-pull") {
+    createLoesungsFolge("push-fetch-pull") {
         inRepo("mein-klon") {
 
             git("log --oneline --decorate -3")

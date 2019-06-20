@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
 
 fun CollectionOfSamples.cloning() {
-    createAufgabe("cloning") {
+    createAufgabenFolge("cloning") {
 
         createRepo("myfirstrepo") {
             createFileAndCommit("foo")
@@ -52,7 +52,7 @@ fun CollectionOfSamples.cloning() {
         writeDocs()
     }
 
-    createLoesung("cloning") {
+    createLoesungsFolge("cloning") {
 
         doc("01-aufgabe.md") {
             git("clone myfirstrepo myfirstclone")
