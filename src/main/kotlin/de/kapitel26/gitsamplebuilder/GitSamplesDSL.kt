@@ -155,7 +155,7 @@ abstract class AbstracWorkingDir<T>(
 
     fun inRepo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
             IOFile(rootDir, repoName).absoluteFile
-                    .apply { if (!exists()) throw IllegalStateException("Repo $this not expected to exist!") }
+                    .apply { if (!exists()) throw IllegalStateException("Repo $this does not exist!") }
                     .run {
                         if (commands != null)
                             Repo(this, log, commands)
@@ -185,7 +185,7 @@ abstract class AbstracWorkingDir<T>(
 
 class LogBuilder {
 
-    var activeCollectors = mutableSetOf<String>("_setup")
+    var activeCollectors = mutableSetOf<String>(".full-log.md")
     var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
     val markdownLines: MutableList<String> = mutableListOf()

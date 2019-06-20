@@ -10,29 +10,42 @@ fun CollectionOfSamples.cloning() {
             createFileAndCommit("bar")
         }
 
-        doc("aufgabe-1.md") {
+        doc("00-intro.md") {
             markdown("""
-                    # Aufgabe 1 - Repository klonen
+            # Klonen von Repositorys
 
+            Ein Git-Repository namens `myfirstrepo` wurde bereits erstellt.
+            Es enthält zwei Commits:
+            """)
+
+            inRepo("myfirstrepo") {
+                git("log --oneline")
+            }
+        }
+
+        doc("01-aufgabe.md") {
+            markdown("""
                     ## Klon durchführen
 
-                     * Erstelle einen Klon von `myfirstrepo`, bennant als  `myfirstclone`.
+                    Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`.
                 """)
         }
 
-        doc("aufgabe-2.md") {
+        doc("02-aufgabe.md") {
             markdown("""
                     ## Klon untersuchen
 
-                    Zeige den Origin des Klons.
+                    Zeige den Origin des Klons `myfirstclone`.
+                    `origin` steht in der Regel für jenes Repository,
+                    von dem geklont wurde.
                 """)
         }
 
-        doc("aufgabe-3.md") {
+        doc("03-aufgabe.md") {
             markdown("""
                     ## Im Klon arbeiten.
 
-                    Erstelle ein Commit und zeige den Status.
+                    Erstelle ein Commit und zeige dann den Status.
                 """)
         }
 
@@ -41,17 +54,17 @@ fun CollectionOfSamples.cloning() {
 
     createLoesung("cloning") {
 
-        doc("aufgabe-1.md") {
+        doc("01-aufgabe.md") {
             git("clone myfirstrepo myfirstclone")
         }
 
         inRepo("myfirstclone") {
 
-            doc("aufgabe-2.md") {
+            doc("02-aufgabe.md") {
                 git("remote -v")
             }
 
-            doc("aufgabe-3.md") {
+            doc("03-aufgabe.md") {
                 editAndCommit("foo", 3)
                 git("status")
             }
