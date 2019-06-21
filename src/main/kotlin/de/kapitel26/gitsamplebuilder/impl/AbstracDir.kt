@@ -9,14 +9,6 @@ abstract class AbstracDir<T>(
 
     fun clearLog() = log.clear()
 
-
-    fun flushLogToFile(fileName: String = "setup-log.md") {
-        if (fileName.endsWith(".md"))
-            flushLogToMarkdownFile(fileName)
-        else
-            throw IllegalArgumentException("File type not supported for $fileName")
-    }
-
     fun flushLogToMarkdownFile(fileName: String = "setup-log.md") {
         createOrAppendToFile(fileName, logAsMarkdown().joinToString("\n"))
         clearLog()

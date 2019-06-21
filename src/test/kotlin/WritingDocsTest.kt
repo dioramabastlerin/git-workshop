@@ -133,26 +133,4 @@ class WritingDocsTest : StringSpec({
         }
     }
 
-
-
-    "logging to files"  {
-        buildGitSamples(description().name) {
-
-            log.shell("echo foo")
-
-            flushLogToMarkdownFile("wurst.md")
-
-            File(rootDir, "wurst.md").readLines() should containExactly(
-                    "    $ echo foo"
-            )
-
-            log.shell("echo bar")
-
-            flushLogToMarkdownFile("kaese.md")
-
-            File(rootDir, "kaese.md").readLines() should containExactly(
-                    "    $ echo bar"
-            )
-        }
-    }
 })
