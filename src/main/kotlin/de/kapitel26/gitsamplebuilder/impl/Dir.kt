@@ -1,7 +1,5 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.AbstracWorkingDir
-import de.kapitel26.gitsamplebuilder.LogBuilder
 import java.io.File
 
 class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Dir.() -> Unit> = mutableListOf())

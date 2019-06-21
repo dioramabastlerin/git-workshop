@@ -1,7 +1,5 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.AbstracDir
-import de.kapitel26.gitsamplebuilder.LogBuilder
 import java.io.File
 
 class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())

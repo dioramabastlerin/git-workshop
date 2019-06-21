@@ -1,7 +1,5 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.AbstracWorkingDir
-import de.kapitel26.gitsamplebuilder.LogBuilder
 import java.io.File
 
 class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) : AbstracWorkingDir<Repo>(rootDir, log = log) {

@@ -1,8 +1,5 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.LogBuilder
-import java.io.File as IOFile
-
 class File(val location: java.io.File, val log: LogBuilder) {
 
     fun createSampleFileContent(): String =
