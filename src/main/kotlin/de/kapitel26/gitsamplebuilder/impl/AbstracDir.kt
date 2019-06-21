@@ -5,22 +5,6 @@ abstract class AbstracDir<T>(
         val baseName: String = rootDir.name,
         val log: LogBuilder = LogBuilder()
 ) {
-    fun logAsMarkdown() = log.toMarkdown()
-
-    fun clearLog() = log.clear()
-
-    private fun createOrAppendToFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
-            File(java.io.File(rootDir, name), log)
-                    .apply {
-                        if (!location.exists()) {
-                            log.createFile(name, content, currentDirname())
-                            location.writeText(content ?: createSampleFileContent())
-                        } else {
-                            log.appendToFile(name, content, currentDirname())
-                            location.appendText(content ?: createSampleFileContent())
-                        }
-                    }
-                    .run(commands)
 
     fun markdown(message: String) {
         log.doc(message)

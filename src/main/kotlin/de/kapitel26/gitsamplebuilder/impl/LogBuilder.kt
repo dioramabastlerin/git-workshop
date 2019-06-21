@@ -9,20 +9,13 @@ class LogBuilder {
     var activeCollectors = mutableSetOf<String>(".full-log.md")
     var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
-    val markdownLines: MutableList<String> = mutableListOf()
-    var id2appender = mutableMapOf<String, (String) -> Unit>("collector" to { s -> markdownLines.add(s) })
-
-    fun clear() = markdownLines.clear()
-
-    fun toMarkdown(): List<String> = markdownLines.toList()
-
     fun createDir(dirName: String, where: String) = shell("mkdir $dirName", where)
 
     fun cd(dirName: String, where: String) = shell("cd $dirName", where)
 
-    fun createFile(name: String, content: String?, where: String) = shell("# created file '$name'", where)
+    fun createFile(name: String, where: String) = shell("# created file '$name'", where)
 
-    fun appendToFile(name: String, content: String?, where: String) = shell("# append to file '$name'", where)
+    fun appendToFile(name: String, where: String) = shell("# append to file '$name'", where)
 
     fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
             shell("# $message file '$name' at $linesToEdit", where)
@@ -38,10 +31,8 @@ class LogBuilder {
 
     fun disableDoc(name: String) = activeCollectors.remove(name)
 
-    fun addRawLine(s: String) {
-        id2appender.values.forEach { it(s) }
+    fun addRawLine(s: String) =
         collectedLogs.add(s to activeCollectors.toSet())
-    }
 
     fun writeFiles(rootDir: File) {
         val name2writer = mutableMapOf<String, BufferedWriter>()
