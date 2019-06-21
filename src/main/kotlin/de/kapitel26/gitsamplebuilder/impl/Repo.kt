@@ -1,6 +1,7 @@
 package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
+import kotlin.streams.toList
 
 class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) : AbstracWorkingDir<Repo>(rootDir, log = log) {
 
@@ -44,7 +45,7 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
 
     // TODO does not work in new repo
     private fun currentBranch(): String {
-        val lines = git("symbolic-ref", "--short", "HEAD")
+        val lines = executeNoLog(arrayOf("git", "symbolic-ref", "--short", "HEAD"), false).inputStream.bufferedReader().lines().toList()
         println("rev-parse ${lines}")
         if (lines.size == 1)
             return lines.first()

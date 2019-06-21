@@ -27,7 +27,7 @@ abstract class AbstracWorkingDir<T>(
     fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
             File(java.io.File(rootDir, name).absoluteFile, log)
                     .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
-                    .apply { log.createFile(name, content, currentDirname()) }
+                    .apply { log.createFile(name, currentDirname()) }
                     .apply { location.writeText(content ?: createSampleFileContent()) }
                     .apply(commands)
 
@@ -58,6 +58,10 @@ abstract class AbstracWorkingDir<T>(
 
     fun exeuteSplittedRaw(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
         log.shell(splittedCommandLineArguments.joinToString(" "), rootDir.name)
+        return executeNoLog(splittedCommandLineArguments, inheritStdout)
+    }
+
+    fun executeNoLog(splittedCommandLineArguments: Array<out String>, inheritStdout: Boolean): Process {
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
 
         processBuilder.directory(rootDir)
@@ -122,7 +126,7 @@ abstract class AbstracWorkingDir<T>(
     fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
         loesungsCommands.add(commands)
         doc(markdownFilename(loesungsCommands.size)) {
-            markdown("# Aufgabe ${loesungsCommands.size}\n\n$description")
+            markdown("# Aufgabe ${loesungsCommands.size} - $title\n\n$description")
         }
     }
 
