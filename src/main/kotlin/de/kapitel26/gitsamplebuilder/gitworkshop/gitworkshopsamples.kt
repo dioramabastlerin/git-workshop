@@ -6,8 +6,9 @@ fun main() {
 
     createCollectionOfSamples("gitworkshop") {
 
+        repositoryUntersuchen()
         cloning()
-        pushFetchPull()
+        // pushFetchPull()
 
     }
 }
