@@ -9,11 +9,6 @@ abstract class AbstracDir<T>(
 
     fun clearLog() = log.clear()
 
-    fun flushLogToMarkdownFile(fileName: String = "setup-log.md") {
-        createOrAppendToFile(fileName, logAsMarkdown().joinToString("\n"))
-        clearLog()
-    }
-
     private fun createOrAppendToFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
             File(java.io.File(rootDir, name), log)
                     .apply {
