@@ -18,7 +18,7 @@ class LogBuilder {
     fun appendToFile(name: String, where: String) = shell("# append to file '$name'", where)
 
     fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
-            shell("# $message file '$name' at $linesToEdit", where)
+            shell("# Change file '$name' at lines $linesToEdit", where)
 
     fun shell(cmd: String, where: String?) = addRawLine("    ${where?.plus(" ") ?: ""}$ $cmd")
 
