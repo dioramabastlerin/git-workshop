@@ -23,54 +23,34 @@ fun CollectionOfSamples.cloning() {
             }
         }
 
-        doc("01-aufgabe.md") {
-            markdown("""
-                    ## Klon durchführen
-
-                    Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`.
-                """)
-        }
-
-        doc("02-aufgabe.md") {
-            markdown("""
-                    ## Klon untersuchen
-
-                    Zeige den Origin des Klons `myfirstclone`.
-                    `origin` steht in der Regel für jenes Repository,
-                    von dem geklont wurde.
-                """)
-        }
-
-        doc("03-aufgabe.md") {
-            markdown("""
-                    ## Im Klon arbeiten.
-
-                    Erstelle ein Commit und zeige dann den Status.
-                """)
-        }
-
-        writeDocs()
-    }
-
-    createLoesungsFolge("cloning") {
-
-        doc("01-aufgabe.md") {
+        createAufgabe(
+                "Klon durchführen",
+                """Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`."""
+        ) {
             git("clone myfirstrepo myfirstclone")
         }
 
-        inRepo("myfirstclone") {
-
-            doc("02-aufgabe.md") {
+        createAufgabe(
+                "Klon untersuchen",
+                """Zeige den Origin des Klons `myfirstclone`.
+                    `origin` steht in der Regel für jenes Repository,
+                    von dem geklont wurde.
+                """
+        ) {
+            inRepo("myfirstclone") {
                 git("remote -v")
             }
+        }
 
-            doc("03-aufgabe.md") {
+        createAufgabe(
+                "Im Klon arbeiten",
+                """ Erstelle ein Commit und zeige dann den Status."""
+        ) {
+            inRepo("myfirstclone") {
                 editAndCommit("foo", 3)
                 git("status")
             }
-
         }
 
-        writeDocs()
     }
 }

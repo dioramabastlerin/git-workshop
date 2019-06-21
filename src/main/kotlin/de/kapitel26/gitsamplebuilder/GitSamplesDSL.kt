@@ -68,7 +68,8 @@ abstract class AbstracDir<T>(
 
 abstract class AbstracWorkingDir<T>(
         rootDir: java.io.File,
-        log: LogBuilder
+        log: LogBuilder,
+        val loesungsCommands: MutableList<T.() -> Unit> = mutableListOf()
 ) : AbstracDir<T>(rootDir, log = log) {
 
     fun inDir(dirName: String, commands: Dir.() -> Unit) =
@@ -181,8 +182,24 @@ abstract class AbstracWorkingDir<T>(
         log.writeFiles(rootDir)
     }
 
+    fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
+        loesungsCommands.add(commands)
+        doc(markdownFilename(loesungsCommands.size)) {
+            markdown("# Aufgabe ${loesungsCommands.size}\n\n$description")
+        }
+    }
 
-    fun aufgabe(nr =)
+    private fun markdownFilename(nr: Int) = "${formatNr(nr)}-aufgabe.md"
+
+    private fun formatNr(nr: Int): String = "%02d".format(nr)
+
+    fun applyLoesungen() =
+            loesungsCommands.forEachIndexed { index, commands ->
+                doc(markdownFilename(index + 1)) {
+                    markdown("## Lösung")
+                    commands()
+                }
+            }
 }
 
 class LogBuilder {

@@ -29,7 +29,27 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
             """([^.]*)(\..*)?""".toRegex().matchEntire(baseName)?.groups?.get(1)?.value
                     ?: throw IllegalArgumentException("Not valid $baseName")
 
-    fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) = createSample("$name.aufgabe", commands)
+    fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) =
+            createSample("$name.aufgabe") {
+                commands()
+
+                writeDocs()
+
+                val aufgabenDir = rootDir
+                val loesungDir = File(rootDir.parent, "$name.loesung")
+                exeuteSplittedRaw(
+                        false,
+                        "cp", "-a",
+                        aufgabenDir.absolutePath + "/", loesungDir.absolutePath
+                )
+                Dir(loesungDir, log, loesungsCommands)
+                        .apply {
+                            applyLoesungen()
+                            writeDocs()
+                        }
+
+
+            }
 
     fun createLoesungsFolge(name: String, commands: Dir.() -> Unit) = copySample("$name.aufgabe", "$name.loesung", commands)
 
