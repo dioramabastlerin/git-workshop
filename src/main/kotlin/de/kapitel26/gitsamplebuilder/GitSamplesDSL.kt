@@ -6,10 +6,8 @@ import java.io.File as IOFile
 
 class CommandlineException(val failedProcess: Process, message: String) : RuntimeException(message)
 
-
 fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", suffix: String = "aufgabe", commands: Dir.() -> Unit) =
         buildGitSamples(IOFile(sampleDir, "$sampleName.$suffix")) {
-            clearLog()
             commands()
         }
 
