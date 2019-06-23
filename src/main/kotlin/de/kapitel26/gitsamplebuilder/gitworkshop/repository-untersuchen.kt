@@ -3,6 +3,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
 
 fun CollectionOfSamples.repositoryUntersuchen() {
+
     createAufgabenFolge("repository-untersuchen") {
 
         createRepo {
@@ -10,6 +11,14 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             createDir("foo") {
                 createFileAndCommit("bar")
             }
+            git("tag release1.0")
+            editAndCommit("hallo-welt", 3)
+            inDir("foo") {
+                editAndCommit("bar", 1)
+                editAndCommit("bar", 5)
+            }
+            git("tag release1.1")
+            createFileAndCommit("und-tschuess")
         }
 
         doc("00-intro.md") {
@@ -31,15 +40,30 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             """.trimIndent())
         }
 
+
         createAufgabe(
-                "Commits ansehen",
-                """Schaue Dir Commits in diesem Repo an."""
-        ) {
+                "Commits ansehen", """
+                    Sieh Dir die Commits an und lasse dabei Informationen 
+                    zu Branches und Tags mit anzeigen.
+        """) {
             inRepo {
-                git("log --oneline")
                 git("log --oneline --decorate")
             }
         }
+
+        createAufgabe(
+                "Einzelne Commits untersuchen", """
+                    Zeige Details zur aktuellen Version,
+                    und zur Vorgängerversion des Releases 1.0
+                """) {
+            inRepo {
+                markdown("\n\nHier die aktuelle Version `HEAD`:")
+                git("show")
+                markdown("\n\nUnd hier kommt die 1.0:")
+                git("show release1.0~1")
+            }
+        }
+
 
     }
 }

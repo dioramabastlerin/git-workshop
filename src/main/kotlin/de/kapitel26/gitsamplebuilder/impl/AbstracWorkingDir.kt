@@ -126,7 +126,8 @@ abstract class AbstracWorkingDir<T>(
     fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
         loesungsCommands.add(commands)
         doc(markdownFilename(loesungsCommands.size)) {
-            markdown("# Aufgabe ${loesungsCommands.size} - $title\n\n$description")
+            markdown("# Aufgabe ${loesungsCommands.size} - $title")
+            markdown(description)
         }
     }
 

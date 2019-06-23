@@ -8,7 +8,7 @@ fun main() {
 
         repositoryUntersuchen()
         cloning()
-        // pushFetchPull()
+        pushFetchPull()
 
     }
 }
