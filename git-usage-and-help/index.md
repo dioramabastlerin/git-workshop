@@ -54,7 +54,7 @@ Versionsverwaltung für die Linux Kernel Entwicklung
 ## Setup
 
 
- 1. Git icd nstallieren
+ 1. Git installieren
  2. Git-Hoster aufrufen, z. B. Gitlab
  3. User anlegen bzw. einloggen, falls User schon vorhanden ist.
  4. `git-workshop`-Projekt klonen.
