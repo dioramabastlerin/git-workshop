@@ -68,7 +68,7 @@ mit der **gesamten Historie** eines Projekts.
 
 ## Inhalte des Repositorys
 
- * alle **Versionen** aller Dateien über die **volle Historie*
+ * alle **Versionen** aller Dateien über die **volle Historie**
  * **Metadaten**: Wer? Wann?
  * Projektdaten
    - **Branches** (falls parallel an verschiedenen Versionen gearbeitet wird)
