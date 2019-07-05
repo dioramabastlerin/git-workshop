@@ -58,10 +58,10 @@ abstract class AbstracWorkingDir<T>(
 
     fun executeWithLog(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
         log.shell(splittedCommandLineArguments.joinToString(" "), rootDir.name)
-        return justExecute(splittedCommandLineArguments, inheritStdout)
+        return justExecute(inheritStdout, *splittedCommandLineArguments)
     }
 
-    fun justExecute(splittedCommandLineArguments: Array<out String>, inheritStdout: Boolean): Process {
+    fun justExecute(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
 
         processBuilder.directory(rootDir)
@@ -158,7 +158,7 @@ abstract class AbstracWorkingDir<T>(
 
     // TODO does not work in new repo
     protected fun currentBranch(): String {
-        val lines = justExecute(arrayOf("git", "symbolic-ref", "--short", "HEAD"), false).inputStream.bufferedReader().lines().toList()
+        val lines = justExecute(false, "git", "symbolic-ref", "--short", "HEAD").inputStream.bufferedReader().lines().toList()
         println("rev-parse ${lines}")
         if (lines.size == 1)
             return lines.first()
