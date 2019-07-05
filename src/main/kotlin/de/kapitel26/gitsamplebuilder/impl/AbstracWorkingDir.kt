@@ -62,21 +62,26 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun justExecute(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
+
+        val checkExitCode = { p: Process -> assertExitCode(p, setOf(0), splittedCommandLineArguments) }
+
+        val errorRedirect = ProcessBuilder.Redirect.PIPE
+        val stdoutRedirect = if (inheritStdout) ProcessBuilder.Redirect.INHERIT else ProcessBuilder.Redirect.PIPE
+
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
-
         processBuilder.directory(rootDir)
-
-        processBuilder.redirectError(ProcessBuilder.Redirect.PIPE)
-        if (inheritStdout) {
-            processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT)
-        }
+        processBuilder.redirectOutput(stdoutRedirect)
+        processBuilder.redirectError(errorRedirect)
 
         val process = processBuilder.start()
-
-        val exitCode = process.waitFor()
-        if (exitCode != 0)
-            throw CommandlineException(process, "Failed with exit code $exitCode: ${splittedCommandLineArguments.joinToString(" ")}")
+        process.waitFor()
+        checkExitCode(process)
         return process
+    }
+
+    private fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
+        if (!(p.exitValue() in expectedExits))
+            throw CommandlineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
     }
 
 
