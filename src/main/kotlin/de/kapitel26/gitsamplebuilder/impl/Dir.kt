@@ -8,7 +8,7 @@ class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Di
     fun createSampleVariant(suffix: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"))
                     .also { duplicate ->
-                        exeuteSplittedRaw(false, "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath)
+                        justExecute(false, "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath)
                     }
                     .apply(commands)
 

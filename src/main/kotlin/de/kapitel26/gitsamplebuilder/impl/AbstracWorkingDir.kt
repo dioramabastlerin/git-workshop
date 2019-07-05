@@ -46,22 +46,22 @@ abstract class AbstracWorkingDir<T>(
         return outputLines
     }
 
-    fun executeSplitted(vararg command: String): List<String> = exeuteSplittedRaw(false, *command).inputStream.bufferedReader().lines().toList()
+    fun executeSplitted(vararg command: String): List<String> = executeWithLog(false, *command).inputStream.bufferedReader().lines().toList()
 
     fun show(command: String): Process = executeRaw(command, true)
 
 
     fun executeRaw(command: String, inheritStdout: Boolean): Process {
         val splittedCommandLineArguments = command.split("""\s+""".toRegex()).toTypedArray()
-        return exeuteSplittedRaw(inheritStdout, *splittedCommandLineArguments)
+        return executeWithLog(inheritStdout, *splittedCommandLineArguments)
     }
 
-    fun exeuteSplittedRaw(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
+    fun executeWithLog(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
         log.shell(splittedCommandLineArguments.joinToString(" "), rootDir.name)
-        return executeNoLog(splittedCommandLineArguments, inheritStdout)
+        return justExecute(splittedCommandLineArguments, inheritStdout)
     }
 
-    fun executeNoLog(splittedCommandLineArguments: Array<out String>, inheritStdout: Boolean): Process {
+    fun justExecute(splittedCommandLineArguments: Array<out String>, inheritStdout: Boolean): Process {
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
 
         processBuilder.directory(rootDir)
@@ -158,7 +158,7 @@ abstract class AbstracWorkingDir<T>(
 
     // TODO does not work in new repo
     protected fun currentBranch(): String {
-        val lines = executeNoLog(arrayOf("git", "symbolic-ref", "--short", "HEAD"), false).inputStream.bufferedReader().lines().toList()
+        val lines = justExecute(arrayOf("git", "symbolic-ref", "--short", "HEAD"), false).inputStream.bufferedReader().lines().toList()
         println("rev-parse ${lines}")
         if (lines.size == 1)
             return lines.first()

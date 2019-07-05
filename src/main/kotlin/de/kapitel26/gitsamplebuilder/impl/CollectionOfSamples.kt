@@ -19,7 +19,7 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
             Dir(File(rootDir, copy), log)
                     .also { duplicate ->
                         Dir(rootDir, log)
-                                .exeuteSplittedRaw(false, "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath)
+                                .justExecute(false, "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath)
                     }
                     .apply(commands)
 
@@ -35,7 +35,7 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
 
                 val aufgabenDir = rootDir
                 val loesungDir = File(rootDir.parent, "$name.loesung")
-                exeuteSplittedRaw(
+                justExecute(
                         false,
                         "cp", "-a",
                         aufgabenDir.absolutePath + "/", loesungDir.absolutePath
