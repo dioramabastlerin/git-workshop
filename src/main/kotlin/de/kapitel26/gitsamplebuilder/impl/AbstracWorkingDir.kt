@@ -89,7 +89,7 @@ abstract class AbstracWorkingDir<T>(
         Repo(java.io.File(rootDir, newRepoName).absoluteFile, log, commands)
     }
 
-    fun createClonedRepo(originalRepo: String, clonedRepo: String, commands: (Repo.() -> Unit)? = {}) {
+    fun createClonedRepo(originalRepo: String, clonedRepo: String = "repo", commands: (Repo.() -> Unit)? = {}) {
         git("clone $originalRepo $clonedRepo")
         inRepo(clonedRepo, commands)
     }

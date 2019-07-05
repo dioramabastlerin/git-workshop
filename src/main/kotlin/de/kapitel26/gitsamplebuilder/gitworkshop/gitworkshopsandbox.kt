@@ -6,7 +6,7 @@ fun main() {
 
     createCollectionOfSamples("gitworkshop") {
 
-        repositoryUntersuchen()
+        pushRejected()
 
     }
 }
