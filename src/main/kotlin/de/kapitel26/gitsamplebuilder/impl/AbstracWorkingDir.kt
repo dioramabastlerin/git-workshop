@@ -1,6 +1,7 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-import de.kapitel26.gitsamplebuilder.CommandlineException
+import de.kapitel26.gitsamplebuilder.CommandLineException
+import java.io.InputStream
 import java.lang.ProcessBuilder.Redirect
 import java.lang.ProcessBuilder.Redirect.INHERIT
 import java.lang.ProcessBuilder.Redirect.PIPE
@@ -71,25 +72,25 @@ abstract class AbstracWorkingDir<T>(
             )
 
     fun executeProcess(
-            vararg splittedCommandLineArguments: String,
+            vararg arguments: String,
             stdoutRedirect: Redirect = PIPE,
             errorRedirect: Redirect = PIPE,
-            validateExitCode: (Process) -> Unit = { p: Process -> assertExitCode(p, setOf(0), splittedCommandLineArguments) }
+            validateOutcome: (Process) -> Unit = { p: Process -> assertExitCode(p, setOf(0), arguments) }
     ): Process {
-        val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
+        val processBuilder = ProcessBuilder(*arguments)
         processBuilder.directory(rootDir)
         processBuilder.redirectOutput(stdoutRedirect)
         processBuilder.redirectError(errorRedirect)
 
         val process = processBuilder.start()
         process.waitFor()
-        validateExitCode(process)
+        validateOutcome(process)
         return process
     }
 
     fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
         if (!(p.exitValue() in expectedExits))
-            throw CommandlineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
+            throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
     }
 
 
@@ -187,3 +188,5 @@ abstract class AbstracWorkingDir<T>(
                 }
             }
 }
+
+fun InputStream.readLines(): List<String> = bufferedReader().readLines()

@@ -35,7 +35,7 @@ class GitSampleBuilderSample : StringSpec({
                         editAndCommit("file", 5, "edit again")
                         try {
                             git("merge", "rebased-feature")
-                        } catch (e: CommandlineException) {
+                        } catch (e: CommandLineException) {
                             e.failedProcess.exitValue() shouldBe 1
                         }
                     }
