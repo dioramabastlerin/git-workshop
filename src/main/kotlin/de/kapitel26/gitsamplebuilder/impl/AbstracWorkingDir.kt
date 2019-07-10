@@ -1,6 +1,8 @@
 package de.kapitel26.gitsamplebuilder.impl
 
 import de.kapitel26.gitsamplebuilder.CommandlineException
+import java.lang.ProcessBuilder.Redirect
+import java.lang.ProcessBuilder.Redirect.PIPE
 import kotlin.streams.toList
 
 abstract class AbstracWorkingDir<T>(
@@ -62,11 +64,23 @@ abstract class AbstracWorkingDir<T>(
 
     fun justExecute(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
 
-        val checkExitCode = { p: Process -> assertExitCode(p, setOf(0), splittedCommandLineArguments) }
+        val inheritStderr = false
 
-        val errorRedirect = ProcessBuilder.Redirect.PIPE
-        val stdoutRedirect = if (inheritStdout) ProcessBuilder.Redirect.INHERIT else ProcessBuilder.Redirect.PIPE
+        val errorRedirect = if (inheritStderr) Redirect.INHERIT else PIPE
+        val stdoutRedirect = if (inheritStdout) Redirect.INHERIT else PIPE
 
+        return executeProcess(
+                *splittedCommandLineArguments,
+                stdoutRedirect = stdoutRedirect,
+                errorRedirect = errorRedirect)
+    }
+
+    fun executeProcess(
+            vararg splittedCommandLineArguments: String,
+            stdoutRedirect: Redirect = PIPE,
+            errorRedirect: Redirect = PIPE,
+            validateExitCode: (Process) -> Unit = { p: Process -> assertExitCode(p, setOf(0), splittedCommandLineArguments) }
+    ): Process {
         val processBuilder = ProcessBuilder(*splittedCommandLineArguments)
         processBuilder.directory(rootDir)
         processBuilder.redirectOutput(stdoutRedirect)
@@ -74,11 +88,11 @@ abstract class AbstracWorkingDir<T>(
 
         val process = processBuilder.start()
         process.waitFor()
-        checkExitCode(process)
+        validateExitCode(process)
         return process
     }
 
-    private fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
+    fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
         if (!(p.exitValue() in expectedExits))
             throw CommandlineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
     }

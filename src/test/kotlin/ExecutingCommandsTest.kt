@@ -21,4 +21,10 @@ class ExecutingCommandsTest : StringSpec({
         }
     }
 
+    "execution of splitted commands" {
+        buildGitSamples(description().name) {
+            justExecute(true, "/bin/bash", "-c", "git status")
+        }
+    }
+
 })
