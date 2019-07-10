@@ -2,6 +2,7 @@ package de.kapitel26.gitsamplebuilder.impl
 
 import de.kapitel26.gitsamplebuilder.CommandlineException
 import java.lang.ProcessBuilder.Redirect
+import java.lang.ProcessBuilder.Redirect.INHERIT
 import java.lang.ProcessBuilder.Redirect.PIPE
 import kotlin.streams.toList
 
@@ -62,18 +63,12 @@ abstract class AbstracWorkingDir<T>(
         return justExecute(inheritStdout, *splittedCommandLineArguments)
     }
 
-    fun justExecute(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
-
-        val inheritStderr = false
-
-        val errorRedirect = if (inheritStderr) Redirect.INHERIT else PIPE
-        val stdoutRedirect = if (inheritStdout) Redirect.INHERIT else PIPE
-
-        return executeProcess(
-                *splittedCommandLineArguments,
-                stdoutRedirect = stdoutRedirect,
-                errorRedirect = errorRedirect)
-    }
+    fun justExecute(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process =
+            executeProcess(
+                    *splittedCommandLineArguments,
+                    stdoutRedirect = if (inheritStdout) INHERIT else PIPE,
+                    errorRedirect = PIPE
+            )
 
     fun executeProcess(
             vararg splittedCommandLineArguments: String,
