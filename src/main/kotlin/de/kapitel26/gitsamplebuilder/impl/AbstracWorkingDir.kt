@@ -46,18 +46,17 @@ abstract class AbstracWorkingDir<T>(
         return outputLines
     }
 
-    fun executeSplitted(vararg command: String): List<String> = executeWithLog(false, *command).inputStream.bufferedReader().lines().toList()
+    fun executeSplitted(vararg command: String): List<String> {
+        log.shell(command.joinToString(" "), rootDir.name)
+        return justExecute(false, *command).inputStream.bufferedReader().lines().toList()
+    }
 
     fun show(command: String): Process = executeRaw(command, true)
 
 
     fun executeRaw(command: String, inheritStdout: Boolean): Process {
+        log.shell(command, rootDir.name)
         val splittedCommandLineArguments = command.split("""\s+""".toRegex()).toTypedArray()
-        return executeWithLog(inheritStdout, *splittedCommandLineArguments)
-    }
-
-    fun executeWithLog(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process {
-        log.shell(splittedCommandLineArguments.joinToString(" "), rootDir.name)
         return justExecute(inheritStdout, *splittedCommandLineArguments)
     }
 
