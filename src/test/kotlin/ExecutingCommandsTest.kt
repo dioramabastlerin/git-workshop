@@ -2,7 +2,9 @@ import de.kapitel26.gitsamplebuilder.CommandLineException
 import de.kapitel26.gitsamplebuilder.buildGitSamples
 import de.kapitel26.gitsamplebuilder.impl.readLines
 import io.kotlintest.matchers.beEmpty
+import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.collections.shouldContainExactly
+import io.kotlintest.matchers.match
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.shouldThrow
@@ -46,6 +48,19 @@ class ExecutingCommandsTest : StringSpec({
 
             executeProcess("ls", "gipsnich", validateOutcome = {}, errorRedirect = INHERIT)
                     .errorStream.readLines() should beEmpty()
+        }
+    }
+
+    "executing commans with bash shell" {
+        buildGitSamples(description().name) {
+            bash("ls")
+                    .also { println(it) }
+
+            bash("""echo $(date -I)""").single() should
+                    match("""\d\d\d\d-\d\d-\d\d""")
+
+            bash("""echo -e "a\nb\\"""") should
+                    containExactly("""a""", """b\""")
         }
     }
 

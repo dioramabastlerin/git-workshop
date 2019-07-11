@@ -71,6 +71,24 @@ abstract class AbstracWorkingDir<T>(
                     errorRedirect = PIPE
             )
 
+    fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0)): List<String> {
+        val process = executeProcess(
+                "/bin/bash",
+                "-c",
+                command,
+                stdoutRedirect = PIPE,
+                errorRedirect = PIPE,
+                validateOutcome = { p: Process -> assertExitCode(p, acceptableExitCodes, command) }
+        )
+
+        val outputLines = process.inputStream.bufferedReader().lines().toList()
+        outputLines.forEach { log.addRawLine("    $it") }
+        val errorLines = process.errorStream.bufferedReader().lines().toList()
+        errorLines.forEach { log.addRawLine("    $it") }
+
+        return outputLines
+    }
+
     fun executeProcess(
             vararg arguments: String,
             stdoutRedirect: Redirect = PIPE,
@@ -88,6 +106,11 @@ abstract class AbstracWorkingDir<T>(
         return process
     }
 
+    fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
+        if (!(p.exitValue() in expectedExits))
+            throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: $command")
+    }
+
     fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
         if (!(p.exitValue() in expectedExits))
             throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
@@ -98,7 +121,7 @@ abstract class AbstracWorkingDir<T>(
 
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
-    fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null): Unit {
+    fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null) {
         git("init", newRepoName, *args)
         Repo(java.io.File(rootDir, newRepoName).absoluteFile, log, commands)
     }
@@ -127,6 +150,7 @@ abstract class AbstracWorkingDir<T>(
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
             inFile(filename) { edit(lineNumber..lineNumber, message) }
 
+    @Suppress("UNCHECKED_CAST")
     fun doc(name: String, commands: T.() -> Unit) {
         log.enableDoc(name)
         (this as T).commands()
