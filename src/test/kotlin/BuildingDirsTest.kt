@@ -33,8 +33,8 @@ class BuildingDirsTest : StringSpec({
         buildGitSamples(description().name) {
 
             createDir("sub") {
-                executeSplitted("touch", "wurst")
-                executeSplitted("touch", "kaese")
+                bash("touch wurst")
+                bash("touch kaese")
 
                 listFilenames() should containExactly("kaese", "wurst")
             }
@@ -51,7 +51,7 @@ class BuildingDirsTest : StringSpec({
             createDir("sub")
 
             inDir("sub") {
-                executeSplitted("touch", "mandelbrot")
+                bash("touch mandelbrot")
                 listFilenames() should containExactly("mandelbrot")
             }
 
@@ -61,8 +61,8 @@ class BuildingDirsTest : StringSpec({
     "clearing dirs"  {
         buildGitSamples(description().name) {
 
-            executeSplitted("touch", "file1")
-            createDir("sub") { executeSplitted("touch", "file2") }
+            bash("touch file1")
+            createDir("sub") { bash("touch file2") }
 
             clear()
 
