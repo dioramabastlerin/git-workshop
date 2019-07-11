@@ -148,7 +148,7 @@ abstract class AbstracWorkingDir<T>(
         Repo(repo.rootDir, log, function)
     }
 
-    fun listFilenames(): List<String> = execute("ls -A")
+    fun listFilenames(): List<String> = bash("ls -A")
 
     fun edit(filename: String, lineNumber: Int, message: String = "edited") =
             inFile(filename) { edit(lineNumber..lineNumber, message) }

@@ -89,15 +89,15 @@ class ExecutingCommandsTest : StringSpec({
 
     "executing commands in directories" {
         buildGitSamples(description().name) {
-            execute("ls -1") should beEmpty()
-            execute("touch hallo welt")
-            execute("ls -1 .") shouldContainExactly listOf("hallo", "welt")
+            bash("ls -1") should beEmpty()
+            bash("touch hallo welt")
+            bash("ls -1 .") shouldContainExactly listOf("hallo", "welt")
 
             createDir("sub") {
-                execute("pwd")[0] shouldBe rootDir.absolutePath
-                execute("touch created-in-subdir")
+                bash("pwd")[0] shouldBe rootDir.absolutePath
+                bash("touch created-in-subdir")
             }
-            execute("ls -1 sub") shouldBe listOf("created-in-subdir")
+            bash("ls -1 sub") shouldBe listOf("created-in-subdir")
         }
     }
 

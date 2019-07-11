@@ -30,7 +30,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             """)
 
             inRepo {
-                execute("ls -hal")
+                bash("ls -hal")
             }
 
             markdown("""
