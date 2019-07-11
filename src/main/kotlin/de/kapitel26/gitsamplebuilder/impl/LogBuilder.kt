@@ -18,7 +18,7 @@ class LogBuilder {
     fun appendToFile(name: String, where: String) = shell("# append to file '$name'", where)
 
     fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
-            shell("# Change file '$name' at lines $linesToEdit", where)
+            shell("# Change file '$name' at lines $linesToEdit: $message", where)
 
     fun shell(cmd: String, where: String?) = addRawLine("    $where$ $cmd")
 
@@ -38,8 +38,8 @@ class LogBuilder {
         val name2writer = mutableMapOf<String, BufferedWriter>()
         collectedLogs.forEach { (line, names) ->
             names.forEach { name ->
-                name2writer.computeIfAbsent(name) { name ->
-                    BufferedWriter(FileWriter(File(rootDir, name)))
+                name2writer.computeIfAbsent(name) { logName ->
+                    BufferedWriter(FileWriter(File(rootDir, logName)))
                 }.apply {
                     write(line)
                     write("\n")
@@ -48,5 +48,10 @@ class LogBuilder {
         }
         name2writer.values.forEach { it.close() }
     }
+
+    fun of(name: String) =
+            collectedLogs
+                    .filter { (_, ns) -> ns.contains(name) }
+                    .map { (s, _) -> s }
 
 }

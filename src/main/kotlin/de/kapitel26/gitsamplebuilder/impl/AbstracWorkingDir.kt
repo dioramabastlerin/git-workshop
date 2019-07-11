@@ -81,6 +81,8 @@ abstract class AbstracWorkingDir<T>(
                 validateOutcome = { p: Process -> assertExitCode(p, acceptableExitCodes, command) }
         )
 
+        log.shell(command, rootDir.name)
+
         val outputLines = process.inputStream.bufferedReader().lines().toList()
         outputLines.forEach { log.addRawLine("    $it") }
         val errorLines = process.errorStream.bufferedReader().lines().toList()

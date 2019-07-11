@@ -65,6 +65,19 @@ class ExecutingCommandsTest : StringSpec({
         }
     }
 
+    "logging bash shell commands with output" {
+        buildGitSamples(description().name) {
+            createDir("test") {
+                doc("shell-log") {
+                    bash("echo moin")
+                }
+            }
+
+            log.of("shell-log") should
+                    containExactly("    test$ echo moin", "    moin")
+        }
+    }
+
     "executing commands in directories" {
         buildGitSamples(description().name) {
             execute("ls -1") should beEmpty()
