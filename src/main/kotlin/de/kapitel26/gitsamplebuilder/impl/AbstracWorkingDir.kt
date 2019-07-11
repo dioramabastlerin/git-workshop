@@ -3,7 +3,6 @@ package de.kapitel26.gitsamplebuilder.impl
 import de.kapitel26.gitsamplebuilder.CommandLineException
 import java.io.InputStream
 import java.lang.ProcessBuilder.Redirect
-import java.lang.ProcessBuilder.Redirect.INHERIT
 import java.lang.ProcessBuilder.Redirect.PIPE
 import kotlin.streams.toList
 
@@ -167,9 +166,7 @@ abstract class AbstracWorkingDir<T>(
     // TODO does not work in new repo
     protected fun currentBranch(): String {
         val lines = executeProcess(
-                "git", "symbolic-ref", "--short", "HEAD",
-                stdoutRedirect = if (false) INHERIT else PIPE,
-                errorRedirect = PIPE
+                "git", "symbolic-ref", "--short", "HEAD"
         ).inputStream.bufferedReader().lines().toList()
         println("rev-parse ${lines}")
         if (lines.size == 1)

@@ -1,8 +1,6 @@
 package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
-import java.lang.ProcessBuilder.Redirect.INHERIT
-import java.lang.ProcessBuilder.Redirect.PIPE
 
 class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Dir.() -> Unit> = mutableListOf())
     : AbstracWorkingDir<Dir>(rootDir, log, map) {
@@ -11,9 +9,7 @@ class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Di
             Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"))
                     .also { duplicate ->
                         executeProcess(
-                                "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath,
-                                stdoutRedirect = if (false) INHERIT else PIPE,
-                                errorRedirect = PIPE
+                                "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath
                         )
                     }
                     .apply(commands)
