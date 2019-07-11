@@ -29,11 +29,11 @@ class WorkingWithGitReposTest : StringSpec({
     "executing commands in repositorys"  {
         buildGitSamples(description().name) {
             createRepo("repo1") {
-                git("status")[0] shouldBe "On branch master"
+                newGit("status")[0] shouldBe "On branch master"
             }
 
             inRepo("repo1") {
-                git("status") should containAll("On branch master")
+                newGit("status") should containAll("On branch master")
             }
 
             shouldThrow<IllegalStateException> {
@@ -91,7 +91,7 @@ class WorkingWithGitReposTest : StringSpec({
     }
 })
 
-private fun Repo.filesInHead() = git("ls-tree HEAD --name-only -- myfile")
+private fun Repo.filesInHead() = newGit("ls-tree HEAD --name-only -- myfile")
 
 
 

@@ -9,7 +9,7 @@ fun CollectionOfSamples.pushFetchPull() {
 
         createClonedRepo("blessed.git", "anderer-klon") {
             createFileAndCommit("foo", "Initial edit before cloning")
-            git("push")
+            newGit("push")
         }
 
         createClonedRepo("blessed.git", "mein-klon")
@@ -17,7 +17,7 @@ fun CollectionOfSamples.pushFetchPull() {
         inRepo("anderer-klon") {
             editAndCommit("foo", 3, "First edit after cloning")
             editAndCommit("foo", 7, "Second edit after cloning")
-            git("push")
+            newGit("push")
         }
 
         createAufgabe(
@@ -26,9 +26,9 @@ fun CollectionOfSamples.pushFetchPull() {
                     ohne den lokalen `master` zu verändern.
         """) {
             inRepo("mein-klon") {
-                git("fetch")
+                newGit("fetch")
                 markdown("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
-                git("status")
+                newGit("status")
             }
         }
 
@@ -40,13 +40,13 @@ fun CollectionOfSamples.pushFetchPull() {
                     welche im lokalen `master` noch nicht integriert wurden..
         """) {
             inRepo("mein-klon") {
-                git("status")
+                newGit("status")
                 markdown("""
                         Der Status zeigt, dass es im Origin-Repo
                         (auf dem Branch `master`) zwei Commits gibt,
                         die wir noch nicht integriert haben.
                     """)
-                git("log master..origin/master")
+                newGit("log master..origin/master")
                 markdown("""
                         Die `..`-Notation zeigt genau jene Commits,
                         die in `origing/master` aber noch nicht in `master` enthalten sind.
@@ -63,8 +63,8 @@ fun CollectionOfSamples.pushFetchPull() {
                     in den lokalen `master`.
         """) {
             inRepo("mein-klon") {
-                git("pull")
-                git("log --graph --oneline")
+                newGit("pull")
+                newGit("log --graph --oneline")
             }
         }
 

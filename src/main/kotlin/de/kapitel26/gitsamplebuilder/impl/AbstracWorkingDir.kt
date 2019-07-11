@@ -122,8 +122,6 @@ abstract class AbstracWorkingDir<T>(
     }
 
 
-    fun git(gitCommand: String): List<String> = execute("git $gitCommand")
-
     fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
 
     fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null) {
@@ -132,7 +130,7 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun createClonedRepo(originalRepo: String, clonedRepo: String = "repo", commands: (Repo.() -> Unit)? = {}) {
-        git("clone $originalRepo $clonedRepo")
+        newGit("clone $originalRepo $clonedRepo")
         inRepo(clonedRepo, commands)
     }
 

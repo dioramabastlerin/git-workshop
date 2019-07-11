@@ -10,7 +10,7 @@ fun CollectionOfSamples.pushRejected() {
         createClonedRepo("blessed.git", "anderer-klon") {
             createFileAndCommit("foo")
             createFileAndCommit("bar")
-            git("push")
+            newGit("push")
         }
 
         createClonedRepo("blessed.git")
@@ -18,7 +18,7 @@ fun CollectionOfSamples.pushRejected() {
         inRepo("anderer-klon") {
             editAndCommit("foo", 1)
             editAndCommit("foo", 5)
-            git("push")
+            newGit("push")
         }
 
         inRepo {
@@ -31,7 +31,7 @@ fun CollectionOfSamples.pushRejected() {
                     ohne den lokalen `master` zu verändern.
         """) {
             inRepo {
-                git("push")
+                newGit("push")
             }
         }
 
