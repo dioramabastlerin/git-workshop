@@ -52,7 +52,7 @@ class ExecutingCommandsTest : StringSpec({
         }
     }
 
-    "executing commans with bash shell" {
+    "executing commands with bash shell" {
         buildGitSamples(description().name) {
             bash("ls -a") should
                     containAll(".", "..")
