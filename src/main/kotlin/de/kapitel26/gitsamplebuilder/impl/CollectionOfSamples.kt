@@ -1,6 +1,8 @@
 package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
+import java.lang.ProcessBuilder.Redirect.INHERIT
+import java.lang.ProcessBuilder.Redirect.PIPE
 
 class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
     : AbstracDir<CollectionOfSamples>(rootDir, log = log) {
@@ -19,7 +21,11 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
             Dir(File(rootDir, copy), log)
                     .also { duplicate ->
                         Dir(rootDir, log)
-                                .justExecute(false, "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath)
+                                .executeProcess(
+                                        "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath,
+                                        stdoutRedirect = if (false) INHERIT else PIPE,
+                                        errorRedirect = PIPE
+                                )
                     }
                     .apply(commands)
 
@@ -35,10 +41,11 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
 
                 val aufgabenDir = rootDir
                 val loesungDir = File(rootDir.parent, "$name.loesung")
-                justExecute(
-                        false,
+                executeProcess(
                         "cp", "-a",
-                        aufgabenDir.absolutePath + "/", loesungDir.absolutePath
+                        aufgabenDir.absolutePath + "/", loesungDir.absolutePath,
+                        stdoutRedirect = if (false) INHERIT else PIPE,
+                        errorRedirect = PIPE
                 )
                 Dir(loesungDir, log, loesungsCommands)
                         .apply {

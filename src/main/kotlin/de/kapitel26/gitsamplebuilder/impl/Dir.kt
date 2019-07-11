@@ -1,6 +1,8 @@
 package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
+import java.lang.ProcessBuilder.Redirect.INHERIT
+import java.lang.ProcessBuilder.Redirect.PIPE
 
 class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Dir.() -> Unit> = mutableListOf())
     : AbstracWorkingDir<Dir>(rootDir, log, map) {
@@ -8,7 +10,11 @@ class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Di
     fun createSampleVariant(suffix: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"))
                     .also { duplicate ->
-                        justExecute(false, "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath)
+                        executeProcess(
+                                "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath,
+                                stdoutRedirect = if (false) INHERIT else PIPE,
+                                errorRedirect = PIPE
+                        )
                     }
                     .apply(commands)
 

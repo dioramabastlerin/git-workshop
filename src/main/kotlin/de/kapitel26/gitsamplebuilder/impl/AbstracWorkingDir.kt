@@ -40,21 +40,6 @@ abstract class AbstracWorkingDir<T>(
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
                     .run(commands)
 
-    fun show(command: String): Process = executeRaw(command, true)
-
-    fun executeRaw(command: String, inheritStdout: Boolean): Process {
-        log.shell(command, rootDir.name)
-        val splittedCommandLineArguments = command.split("""\s+""".toRegex()).toTypedArray()
-        return justExecute(inheritStdout, *splittedCommandLineArguments)
-    }
-
-    fun justExecute(inheritStdout: Boolean, vararg splittedCommandLineArguments: String): Process =
-            executeProcess(
-                    *splittedCommandLineArguments,
-                    stdoutRedirect = if (inheritStdout) INHERIT else PIPE,
-                    errorRedirect = PIPE
-            )
-
     fun newGit(gitCommand: String, acceptableExitCodes: Set<Int> = setOf(0)) =
             bash("git $gitCommand")
 
@@ -181,7 +166,11 @@ abstract class AbstracWorkingDir<T>(
 
     // TODO does not work in new repo
     protected fun currentBranch(): String {
-        val lines = justExecute(false, "git", "symbolic-ref", "--short", "HEAD").inputStream.bufferedReader().lines().toList()
+        val lines = executeProcess(
+                "git", "symbolic-ref", "--short", "HEAD",
+                stdoutRedirect = if (false) INHERIT else PIPE,
+                errorRedirect = PIPE
+        ).inputStream.bufferedReader().lines().toList()
         println("rev-parse ${lines}")
         if (lines.size == 1)
             return lines.first()
