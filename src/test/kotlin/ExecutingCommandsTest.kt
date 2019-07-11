@@ -4,6 +4,7 @@ import de.kapitel26.gitsamplebuilder.impl.readLines
 import io.kotlintest.matchers.beEmpty
 import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.collections.shouldContainExactly
+import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.match
 import io.kotlintest.should
 import io.kotlintest.shouldBe
@@ -53,8 +54,8 @@ class ExecutingCommandsTest : StringSpec({
 
     "executing commans with bash shell" {
         buildGitSamples(description().name) {
-            bash("ls")
-                    .also { println(it) }
+            bash("ls -a") should
+                    containAll(".", "..")
 
             bash("""echo $(date -I)""").single() should
                     match("""\d\d\d\d-\d\d-\d\d""")
