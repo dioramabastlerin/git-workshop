@@ -40,7 +40,7 @@ abstract class AbstracWorkingDir<T>(
                     .run(commands)
 
     fun git(gitCommand: String, acceptableExitCodes: Set<Int> = setOf(0)) =
-            bash("git $gitCommand")
+            bash("git $gitCommand", acceptableExitCodes)
 
     fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0)): List<String> {
         val process = executeProcess(

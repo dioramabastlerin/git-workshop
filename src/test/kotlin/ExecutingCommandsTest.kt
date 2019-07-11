@@ -81,9 +81,13 @@ class ExecutingCommandsTest : StringSpec({
 
     "executing git commands" {
         buildGitSamples(description().name) {
-            git("init").single() should
+            git("init wurstbrot").single() should
                     startWith("Initialized empty Git repository")
+
+            git("add gipsnich", setOf(128))
+
         }
+
     }
 
 
