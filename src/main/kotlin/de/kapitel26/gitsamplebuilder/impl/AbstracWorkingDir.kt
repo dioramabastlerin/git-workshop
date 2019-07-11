@@ -40,13 +40,7 @@ abstract class AbstracWorkingDir<T>(
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
                     .run(commands)
 
-    fun executeSplitted(vararg command: String): List<String> {
-        log.shell(command.joinToString(" "), rootDir.name)
-        return justExecute(false, *command).inputStream.bufferedReader().lines().toList()
-    }
-
     fun show(command: String): Process = executeRaw(command, true)
-
 
     fun executeRaw(command: String, inheritStdout: Boolean): Process {
         log.shell(command, rootDir.name)
