@@ -12,19 +12,10 @@ import java.lang.ProcessBuilder.Redirect.INHERIT
 
 class ExecutingCommandsTest : StringSpec({
 
-    "execute process" {
+    "exit codes and error handling" {
         buildGitSamples(description().name) {
             executeProcess("echo", "welt")
                     .exitValue() shouldBe 0
-
-            executeProcess("echo", "welt")
-                    .inputStream.readLines() shouldBe listOf("welt")
-
-            executeProcess("echo", "hallo", stdoutRedirect = INHERIT)
-                    .inputStream.readLines() should beEmpty()
-
-            executeProcess("ls", "gipsnich", validateOutcome = {}, errorRedirect = INHERIT)
-                    .errorStream.readLines() should beEmpty()
 
             executeProcess("ls", "gipsnich", validateOutcome = { p -> p.exitValue() shouldBe 2 })
                     .exitValue() shouldBe 2
@@ -38,6 +29,23 @@ class ExecutingCommandsTest : StringSpec({
                     }
 
             shouldThrow<IOException> { executeProcess("gipsnich", "welt") }
+        }
+    }
+
+    "capturing or inheriting output" {
+        buildGitSamples(description().name) {
+
+            executeProcess("echo", "welt")
+                    .inputStream.readLines() shouldBe listOf("welt")
+
+            executeProcess("/bin/bash", "-c", "echo written-stdout >&2")
+                    .errorStream.readLines() shouldBe listOf("written-stdout")
+
+            executeProcess("echo", "hallo", stdoutRedirect = INHERIT)
+                    .inputStream.readLines() should beEmpty()
+
+            executeProcess("ls", "gipsnich", validateOutcome = {}, errorRedirect = INHERIT)
+                    .errorStream.readLines() should beEmpty()
         }
     }
 
