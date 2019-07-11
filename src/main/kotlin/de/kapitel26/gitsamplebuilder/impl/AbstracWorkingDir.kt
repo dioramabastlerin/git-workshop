@@ -112,7 +112,7 @@ abstract class AbstracWorkingDir<T>(
     }
 
 
-    fun git(vararg commandLineArguments: String): List<String> = executeSplitted(*(listOf("git") + commandLineArguments).toTypedArray())
+    fun git(vararg commandLineArguments: String): List<String> = newGit(commandLineArguments.joinToString(" "))
 
     fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null) {
         git("init", newRepoName, *args)
@@ -163,10 +163,8 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun commit(fileName: String, message: String = "Dummy commit message") {
-        // TODO check if quoting of locations is necessary
-        git("add", fileName)
-        git("commit", "-m", message, fileName)
-
+        newGit("add $fileName")
+        newGit("""commit $fileName -m "$message"""")
     }
 
     fun editAndCommit(fileName: String, line: Int, message: String = defaultMessage()) = editAndCommit(fileName, line..line, message)
