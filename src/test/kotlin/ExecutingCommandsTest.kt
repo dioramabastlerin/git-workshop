@@ -23,11 +23,11 @@ class ExecutingCommandsTest : StringSpec({
             executeProcess("echo", "hallo", stdoutRedirect = INHERIT)
                     .inputStream.readLines() should beEmpty()
 
-            executeProcess("ls", "gipsnich", validateOutcome = { p -> p.exitValue() shouldBe 2 })
-                    .exitValue() shouldBe 2
-
             executeProcess("ls", "gipsnich", validateOutcome = {}, errorRedirect = INHERIT)
                     .errorStream.readLines() should beEmpty()
+
+            executeProcess("ls", "gipsnich", validateOutcome = { p -> p.exitValue() shouldBe 2 })
+                    .exitValue() shouldBe 2
 
             shouldThrow<CommandLineException> { executeProcess("ls", "gipsnich") }
                     .failedProcess
