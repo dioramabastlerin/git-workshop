@@ -40,7 +40,7 @@ abstract class AbstracWorkingDir<T>(
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
                     .run(commands)
 
-    fun newGit(gitCommand: String, acceptableExitCodes: Set<Int> = setOf(0)) =
+    fun git(gitCommand: String, acceptableExitCodes: Set<Int> = setOf(0)) =
             bash("git $gitCommand")
 
     fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0)): List<String> {
@@ -91,7 +91,7 @@ abstract class AbstracWorkingDir<T>(
     }
 
 
-    fun git(vararg commandLineArguments: String): List<String> = newGit(commandLineArguments.joinToString(" "))
+    fun git(vararg commandLineArguments: String): List<String> = git(commandLineArguments.joinToString(" "))
 
     fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null) {
         git("init", newRepoName, *args)
@@ -99,7 +99,7 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun createClonedRepo(originalRepo: String, clonedRepo: String = "repo", commands: (Repo.() -> Unit)? = {}) {
-        newGit("clone $originalRepo $clonedRepo")
+        git("clone $originalRepo $clonedRepo")
         inRepo(clonedRepo, commands)
     }
 
@@ -142,8 +142,8 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun commit(fileName: String, message: String = "Dummy commit message") {
-        newGit("add $fileName")
-        newGit("""commit $fileName -m "$message"""")
+        git("add $fileName")
+        git("""commit $fileName -m "$message"""")
     }
 
     fun editAndCommit(fileName: String, line: Int, message: String = defaultMessage()) = editAndCommit(fileName, line..line, message)

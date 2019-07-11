@@ -16,7 +16,7 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
 
     fun cloneTo(targetDir: File, function: AbstracWorkingDir<Repo>.() -> Unit): Repo {
         val builder = Dir(rootDir)
-        builder.newGit("clone . ${targetDir.absolutePath}")
+        builder.git("clone . ${targetDir.absolutePath}")
         return Repo(targetDir, log)
                 .apply(function)
     }

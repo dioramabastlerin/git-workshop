@@ -19,7 +19,7 @@ fun CollectionOfSamples.cloning() {
             """)
 
             inRepo("myfirstrepo") {
-                newGit("log --oneline")
+                git("log --oneline")
             }
         }
 
@@ -27,7 +27,7 @@ fun CollectionOfSamples.cloning() {
                 "Klon durchführen",
                 """Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`."""
         ) {
-            newGit("clone myfirstrepo myfirstclone")
+            git("clone myfirstrepo myfirstclone")
         }
 
         createAufgabe(
@@ -38,7 +38,7 @@ fun CollectionOfSamples.cloning() {
                 """
         ) {
             inRepo("myfirstclone") {
-                newGit("remote -v")
+                git("remote -v")
             }
         }
 
@@ -48,7 +48,7 @@ fun CollectionOfSamples.cloning() {
         ) {
             inRepo("myfirstclone") {
                 editAndCommit("foo", 3)
-                newGit("status")
+                git("status")
             }
         }
 

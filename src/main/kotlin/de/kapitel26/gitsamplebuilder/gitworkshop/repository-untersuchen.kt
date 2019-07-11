@@ -11,13 +11,13 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             createDir("foo") {
                 createFileAndCommit("bar")
             }
-            newGit("tag release1.0")
+            git("tag release1.0")
             editAndCommit("hallo-welt", 3)
             inDir("foo") {
                 editAndCommit("bar", 1)
                 editAndCommit("bar", 5)
             }
-            newGit("tag release1.1")
+            git("tag release1.1")
             createFileAndCommit("und-tschuess")
         }
 
@@ -47,7 +47,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                     zu Branches und Tags mit anzeigen.
         """) {
             inRepo {
-                newGit("log --oneline --decorate")
+                git("log --oneline --decorate")
             }
         }
 
@@ -58,9 +58,9 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 """) {
             inRepo {
                 markdown("\n\nHier die aktuelle Version `HEAD`:")
-                newGit("show")
+                git("show")
                 markdown("\n\nUnd hier kommt die 1.0:")
-                newGit("show release1.0~1")
+                git("show release1.0~1")
             }
         }
 
