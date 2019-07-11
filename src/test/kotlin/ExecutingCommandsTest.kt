@@ -6,6 +6,7 @@ import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.collections.shouldContainExactly
 import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.match
+import io.kotlintest.matchers.startWith
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.shouldThrow
@@ -77,6 +78,14 @@ class ExecutingCommandsTest : StringSpec({
                     containExactly("    test$ echo moin", "    moin")
         }
     }
+
+    "executing git commands" {
+        buildGitSamples(description().name) {
+            newGit("init").single() should
+                    startWith("Initialized empty Git repository")
+        }
+    }
+
 
     "executing commands in directories" {
         buildGitSamples(description().name) {

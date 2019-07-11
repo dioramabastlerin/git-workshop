@@ -71,6 +71,9 @@ abstract class AbstracWorkingDir<T>(
                     errorRedirect = PIPE
             )
 
+    fun newGit(gitCommand: String, acceptableExitCodes: Set<Int> = setOf(0)) =
+            bash("git $gitCommand")
+
     fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0)): List<String> {
         val process = executeProcess(
                 "/bin/bash",
