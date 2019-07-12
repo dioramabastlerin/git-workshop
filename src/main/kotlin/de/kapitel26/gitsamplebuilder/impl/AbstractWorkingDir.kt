@@ -6,11 +6,11 @@ import java.lang.ProcessBuilder.Redirect
 import java.lang.ProcessBuilder.Redirect.PIPE
 import kotlin.streams.toList
 
-abstract class AbstracWorkingDir<T>(
+abstract class AbstractWorkingDir<T>(
         rootDir: java.io.File,
         log: LogBuilder,
         solutionCollector: SolutionCollector
-) : AbstracDir<T>(rootDir, log = log, solutionCollector = solutionCollector) {
+) : AbstractDir<T>(rootDir, log = log, solutionCollector = solutionCollector) {
 
     fun inDir(dirName: String, commands: Dir.() -> Unit) =
             java.io.File(rootDir, dirName)

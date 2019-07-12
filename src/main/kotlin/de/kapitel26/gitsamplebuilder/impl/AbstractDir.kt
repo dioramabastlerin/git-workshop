@@ -1,6 +1,6 @@
 package de.kapitel26.gitsamplebuilder.impl
 
-abstract class AbstracDir<T>(
+abstract class AbstractDir<T>(
         val rootDir: java.io.File,
         val baseName: String = rootDir.name,
         val log: LogBuilder = LogBuilder(),

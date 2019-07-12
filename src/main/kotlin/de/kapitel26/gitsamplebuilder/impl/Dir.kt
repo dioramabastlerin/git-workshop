@@ -6,7 +6,7 @@ class Dir(
         rootDir: File,
         log: LogBuilder = LogBuilder(),
         solutionCollector: SolutionCollector)
-    : AbstracWorkingDir<Dir>(rootDir, log, solutionCollector) {
+    : AbstractWorkingDir<Dir>(rootDir, log, solutionCollector) {
 
     fun createSampleVariant(suffix: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"), log, solutionCollector)

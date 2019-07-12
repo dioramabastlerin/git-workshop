@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.impl
 import java.io.File
 
 class CollectionOfSamples(rootDir: File)
-    : AbstracDir<CollectionOfSamples>(rootDir, log = LogBuilder(), solutionCollector = SolutionCollector()) {
+    : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(), solutionCollector = SolutionCollector()) {
 
     fun clear() {
         rootDir.deleteRecursively()
