@@ -2,7 +2,7 @@ package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
 
-class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) : AbstracWorkingDir<Repo>(rootDir, log = log) {
+class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector, commands: (Repo.() -> Unit)? = null) : AbstracWorkingDir<Repo>(rootDir, log = log, solutionCollector = solutionCollector) {
 
     init {
         if (commands != null) {
@@ -15,9 +15,9 @@ class Repo(rootDir: File, log: LogBuilder, commands: (Repo.() -> Unit)? = null) 
     val name: String get() = rootDir.name
 
     fun cloneTo(targetDir: File, function: AbstracWorkingDir<Repo>.() -> Unit): Repo {
-        val builder = Dir(rootDir)
+        val builder = Dir(rootDir, log, solutionCollector)
         builder.git("clone . ${targetDir.absolutePath}")
-        return Repo(targetDir, log)
+        return Repo(targetDir, log, solutionCollector)
                 .apply(function)
     }
 

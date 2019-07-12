@@ -2,8 +2,8 @@ package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
 
-class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
-    : AbstracDir<CollectionOfSamples>(rootDir, log = log) {
+class CollectionOfSamples(rootDir: File)
+    : AbstracDir<CollectionOfSamples>(rootDir, log = LogBuilder(), solutionCollector = SolutionCollector()) {
 
     fun clear() {
         rootDir.deleteRecursively()
@@ -16,9 +16,9 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
     }
 
     fun copySample(original: String, copy: String, commands: Dir.() -> Unit) =
-            Dir(File(rootDir, copy), log)
+            Dir(File(rootDir, copy), log, solutionCollector)
                     .also { duplicate ->
-                        Dir(rootDir, log)
+                        Dir(rootDir, log, solutionCollector)
                                 .executeProcess(
                                         "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath
                                 )
@@ -41,7 +41,7 @@ class CollectionOfSamples(rootDir: File, log: LogBuilder = LogBuilder())
                         "cp", "-a",
                         aufgabenDir.absolutePath + "/", loesungDir.absolutePath
                 )
-                Dir(loesungDir, log, loesungsCommands)
+                Dir(loesungDir, log, solutionCollector)
                         .apply {
                             applyLoesungen()
                             writeDocs()

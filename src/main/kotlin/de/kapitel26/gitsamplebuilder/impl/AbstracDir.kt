@@ -3,7 +3,8 @@ package de.kapitel26.gitsamplebuilder.impl
 abstract class AbstracDir<T>(
         val rootDir: java.io.File,
         val baseName: String = rootDir.name,
-        val log: LogBuilder = LogBuilder()
+        val log: LogBuilder = LogBuilder(),
+        val solutionCollector: SolutionCollector
 ) {
 
     fun markdown(message: String) {
@@ -15,7 +16,7 @@ abstract class AbstracDir<T>(
                     .apply { if (exists()) throw IllegalStateException("Dir $this not expected to exist!") }
                     .apply { mkdirs() }
                     .apply { log.createDir(dirName, currentDirname()) }
-                    .run { Dir(this, log = log) }
+                    .run { Dir(this, log = log, solutionCollector = solutionCollector) }
                     .run {
                         if (commands != null) {
                             log.cd(dirName, /* TODO */ currentDirname())

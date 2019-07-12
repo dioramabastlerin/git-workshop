@@ -9,14 +9,14 @@ import kotlin.streams.toList
 abstract class AbstracWorkingDir<T>(
         rootDir: java.io.File,
         log: LogBuilder,
-        val loesungsCommands: MutableList<T.() -> Unit> = mutableListOf()
-) : AbstracDir<T>(rootDir, log = log) {
+        solutionCollector: SolutionCollector
+) : AbstracDir<T>(rootDir, log = log, solutionCollector = solutionCollector) {
 
     fun inDir(dirName: String, commands: Dir.() -> Unit) =
             java.io.File(rootDir, dirName)
                     .apply { if (!exists()) throw IllegalStateException("Dir $this is expected to exist!") }
                     .also { log.cd(dirName, currentDirname()) }
-                    .run { Dir(this, log = log) }
+                    .run { Dir(this, log = log, solutionCollector = solutionCollector) }
                     .run {
                         commands()
                         log.cd("..", currentDirname())
@@ -94,7 +94,7 @@ abstract class AbstracWorkingDir<T>(
 
     fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null) {
         git("init", newRepoName, *args)
-        Repo(java.io.File(rootDir, newRepoName).absoluteFile, log, commands)
+        Repo(java.io.File(rootDir, newRepoName).absoluteFile, log, solutionCollector, commands)
     }
 
     fun createClonedRepo(originalRepo: String, clonedRepo: String = "repo", commands: (Repo.() -> Unit)? = {}) {
@@ -108,12 +108,12 @@ abstract class AbstracWorkingDir<T>(
                     .apply { if (!exists()) throw IllegalStateException("Repo $this does not exist!") }
                     .run {
                         if (commands != null)
-                            Repo(this, log, commands)
+                            Repo(this, log, solutionCollector, commands)
                     }
 
 
     fun inRepo(repo: Repo, function: Repo.() -> Unit) {
-        Repo(repo.rootDir, log, function)
+        Repo(repo.rootDir, log, solutionCollector, function)
     }
 
     fun listFilenames(): List<String> = bash("ls -A")
@@ -133,9 +133,9 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
-        loesungsCommands.add(commands)
-        doc(markdownFilename(loesungsCommands.size)) {
-            markdown("# Aufgabe ${loesungsCommands.size} - $title")
+        solutionCollector.collectedCommands.add({ (this as T).commands() })
+        doc(markdownFilename(solutionCollector.collectedCommands.size)) {
+            markdown("# Aufgabe ${solutionCollector.collectedCommands.size} - $title")
             markdown(description)
         }
     }
@@ -176,10 +176,10 @@ abstract class AbstracWorkingDir<T>(
     }
 
     fun applyLoesungen() =
-            loesungsCommands.forEachIndexed { index, commands ->
+            solutionCollector.collectedCommands.forEachIndexed { index, command ->
                 doc(markdownFilename(index + 1)) {
                     markdown("## Lösung")
-                    commands()
+                    command()
                 }
             }
 }

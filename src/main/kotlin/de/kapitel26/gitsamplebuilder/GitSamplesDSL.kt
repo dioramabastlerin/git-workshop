@@ -2,6 +2,8 @@ package de.kapitel26.gitsamplebuilder
 
 import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
 import de.kapitel26.gitsamplebuilder.impl.Dir
+import de.kapitel26.gitsamplebuilder.impl.LogBuilder
+import de.kapitel26.gitsamplebuilder.impl.SolutionCollector
 import java.io.File as IOFile
 
 class CommandLineException(val failedProcess: Process, message: String) : RuntimeException(message)
@@ -12,7 +14,7 @@ fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples",
         }
 
 fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
-    Dir(rootDir)
+    Dir(rootDir, LogBuilder(), SolutionCollector())
             .apply { clear() }
             .run(commands)
 }

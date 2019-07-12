@@ -2,11 +2,14 @@ package de.kapitel26.gitsamplebuilder.impl
 
 import java.io.File
 
-class Dir(rootDir: File, log: LogBuilder = LogBuilder(), val map: MutableList<Dir.() -> Unit> = mutableListOf())
-    : AbstracWorkingDir<Dir>(rootDir, log, map) {
+class Dir(
+        rootDir: File,
+        log: LogBuilder = LogBuilder(),
+        solutionCollector: SolutionCollector)
+    : AbstracWorkingDir<Dir>(rootDir, log, solutionCollector) {
 
     fun createSampleVariant(suffix: String, commands: Dir.() -> Unit) =
-            Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"))
+            Dir(File(rootDir.parent, "${baseNameWithoutSuffix()}.$suffix"), log, solutionCollector)
                     .also { duplicate ->
                         executeProcess(
                                 "cp", "-a", rootDir.absolutePath + "/.", duplicate.rootDir.absolutePath
