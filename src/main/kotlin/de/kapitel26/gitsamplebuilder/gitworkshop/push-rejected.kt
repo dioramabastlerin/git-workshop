@@ -23,19 +23,26 @@ fun CollectionOfSamples.pushRejected() {
 
         doc("00-aufgabe.md") {
             markdown("""
-                |# Übung - Umgang mit "Push Reject"
-                |
-                |Wenn mehrere Entwickler per `push` Commits
-                |in das selbe Repository hochladen kommt es
-                |häufig zu sogenannten "Push Rejects"
-                |
-                |In diesem Beispiel arbeitest Du in einem Klon `repo`
-                |des Projekts `blessed.git`.
-                |
-                |Auch eine andere Entwicklerin, *Anja*,
-                |arbeitet mit einem Klon von `blessed.git`.
-                |Wenn *Anja* ihre Änderungen vor Dir hochlädt,
-                |wirst Du einen "Push Reject" erfahren.
+                # Übung - Umgang mit "Push Reject"
+                
+                Wenn mehrere Entwickler am selben Projekt arbeiten,
+                kommt es beim `git push` häufig zu der Meldung
+                `error: failed to push some refs ...`,
+                dem sogenannten *Push Reject*.
+                
+                Das ist nicht schlimm. 
+                Es bedeutet lediglich, dass im `origin`-Repository
+                Commits gefunden wurden, 
+                die lokal noch nicht integriert sind.
+
+                ## Setup
+
+                Wenn *Anja* ihre Änderungen vor Dir hochlädt,
+                wirst Du einen "Push Reject" erfahren.
+                
+                 * `blessed.git`: Hier liegt das projekt.
+                 * `repo`: In diesem Klon arbeitest Du.
+                 * `anderer-klon`: Hier arbeitet Anja.
             """)
         }
 
