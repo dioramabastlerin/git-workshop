@@ -79,12 +79,12 @@ class WorkingWithGitReposTest : StringSpec({
                 git("merge", "salami")
                 git("merge", "stracke")
                 val resultLines = File(rootDir, "myfile").readLines()
-                resultLines[0] should include("`master`")
-                resultLines[1] should include("`master`")
-                resultLines[2] should include("`master`")
-                resultLines[5] should include("`salami`")
-                resultLines[6] should include("`salami`")
-                resultLines[11] should include("`stracke`")
+                resultLines[0] should include("master")
+                resultLines[1] should include("master")
+                resultLines[2] should include("master")
+                resultLines[5] should include("salami")
+                resultLines[6] should include("salami")
+                resultLines[11] should include("stracke")
 
             }
         }

@@ -1,6 +1,7 @@
 package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
+import de.kapitel26.gitsamplebuilder.impl.Repo
 
 fun CollectionOfSamples.pushRejected() {
     createAufgabenFolge("push-rejected") {
@@ -8,6 +9,7 @@ fun CollectionOfSamples.pushRejected() {
         createRepo("blessed.git", "--bare")
 
         createClonedRepo("blessed.git", "anderer-klon") {
+            user("bea")
             createFileAndCommit("foo")
             createFileAndCommit("bar")
             git("push")
@@ -16,6 +18,7 @@ fun CollectionOfSamples.pushRejected() {
         createClonedRepo("blessed.git")
 
         inRepo("anderer-klon") {
+            user("anja")
             editAndCommit("foo", 1)
             editAndCommit("foo", 5)
             git("push")
@@ -76,6 +79,7 @@ fun CollectionOfSamples.pushRejected() {
                     | und lasse Dir die Änderungen von *Anja* zeigen.
         """) {
                 git("fetch")
+                git("log --oneline HEAD..origin/master")
                 git("diff --stat HEAD origin/master")
                 git("diff --stat HEAD...origin/master")
             }
@@ -106,4 +110,9 @@ fun CollectionOfSamples.pushRejected() {
         }
 
     }
+}
+
+private fun Repo.user(user: String) {
+    git("config user.name $user")
+    git("config user.email $user@nfakeemai.l")
 }
