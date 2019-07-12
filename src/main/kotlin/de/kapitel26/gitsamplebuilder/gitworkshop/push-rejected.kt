@@ -47,47 +47,43 @@ fun CollectionOfSamples.pushRejected() {
         }
 
 
-        createAufgabe(
-                "Lokal Commit(s) erstellen", """
+        inRepo {
+            createAufgabe(
+                    "Lokal Commit(s) erstellen",
+                    """
                     |Bearbeite die Datei `bar` und erstelle (mindestens) ein Commit mit den Änderungen.
                     |Überprüfe danach mit `git status`, ob der Workspace sauber ist.
-        """) {
-            inRepo {
+                    """
+            ) {
                 editAndCommit("bar", 1)
                 git("status")
             }
-        }
 
-        createAufgabe(
-                "Push versuchen", """
+            createAufgabe(
+                    "Push versuchen", """
                     |Versuche jetzt die Änderung zu pushen.
         """) {
-            inRepo {
                 git("push", setOf(1))
                 markdown("""
                     |Wie Du siehst, der Push wurde verweigert. 
                     |Anscheinend war *Anja* schneller,
                     |und hat ihre Änderungen zuerst nach `blessed.git` gebracht.""")
             }
-        }
 
-        createAufgabe(
-                "(optional) Problem analysieren", """
+            createAufgabe(
+                    "(optional) Problem analysieren", """
                     | Hole zunächt die Änderungen, ohne zu integrieren (`fetch`),
                     | und lasse Dir die Änderungen von *Anja* zeigen.
         """) {
-            inRepo {
                 git("fetch")
                 git("diff --stat HEAD origin/master")
                 git("diff --stat HEAD...origin/master")
             }
-        }
 
-        createAufgabe(
-                "Fremde Änderungen integrieren", """
+            createAufgabe(
+                    "Fremde Änderungen integrieren", """
                     |
         """) {
-            inRepo {
                 git("pull")
                 markdown("""
                     |Da *Anja* eine andere Datei (`foo`) bearbeitet hat,
@@ -97,13 +93,11 @@ fun CollectionOfSamples.pushRejected() {
                 """)
                 git("log --graph --oneline")
             }
-        }
 
-        createAufgabe(
-                "Erneut pushen", """
+            createAufgabe(
+                    "Erneut pushen", """
                     |
         """) {
-            inRepo {
                 git("push")
                 markdown("""
                     |Und siehe da: Jetzt klappt's.
