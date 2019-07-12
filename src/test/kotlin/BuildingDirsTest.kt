@@ -29,7 +29,7 @@ class BuildingDirsTest : StringSpec({
         }
     }
 
-    "appying commands to new created dir"  {
+    "applying commands to new created dir"  {
         buildGitSamples(description().name) {
 
             createDir("sub") {
