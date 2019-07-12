@@ -132,6 +132,7 @@ abstract class AbstracWorkingDir<T>(
         log.writeFiles(rootDir)
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
         solutionCollector.collectedCommands.add({ (this as T).commands() })
         doc(markdownFilename(solutionCollector.collectedCommands.size)) {
