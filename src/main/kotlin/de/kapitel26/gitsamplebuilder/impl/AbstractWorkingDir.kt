@@ -80,12 +80,12 @@ abstract class AbstractWorkingDir<T>(
     }
 
     fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
-        if (!(p.exitValue() in expectedExits))
+        if (p.exitValue() !in expectedExits)
             throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: $command")
     }
 
     fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
-        if (!(p.exitValue() in expectedExits))
+        if (p.exitValue() !in expectedExits)
             throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
     }
 
@@ -170,7 +170,7 @@ abstract class AbstractWorkingDir<T>(
         return lines.singleOrNull() ?: "MASTER"
     }
 
-    protected fun currentUser() =
+    protected fun currentUser(): String =
             executeProcess("git", "config", "user.name")
                     .inputStream
                     .bufferedReader()

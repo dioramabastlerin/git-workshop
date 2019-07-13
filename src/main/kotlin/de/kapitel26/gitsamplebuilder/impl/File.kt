@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.impl
 class File(val location: java.io.File, val log: LogBuilder) {
 
     fun createSampleFileContent(): String =
-            (0..11).map { "line $it created" }.joinToString("\n")
+            (0..11).joinToString("\n") { "line $it created" }
 
     fun edit(line: Int, message: String = "edited") = edit(line..line, message)
 

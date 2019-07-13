@@ -14,13 +14,6 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
 
     val name: String get() = rootDir.name
 
-    fun cloneTo(targetDir: File, function: AbstractWorkingDir<Repo>.() -> Unit): Repo {
-        val builder = Dir(rootDir, log, solutionCollector)
-        builder.git("clone . ${targetDir.absolutePath}")
-        return Repo(targetDir, log, solutionCollector)
-                .apply(function)
-    }
-
     fun startBranch(branchName: String, startingAt: String = "HEAD", function: () -> Unit) {
         git("branch", branchName, startingAt)
         onBranch(branchName, function)

@@ -6,7 +6,7 @@ import java.io.FileWriter
 
 class LogBuilder {
 
-    var activeCollectors = mutableSetOf<String>(".full-log.md")
+    private var activeCollectors = mutableSetOf(".full-log.md")
     var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
     fun createDir(dirName: String, where: String) = shell("mkdir $dirName", where)
@@ -14,8 +14,6 @@ class LogBuilder {
     fun cd(dirName: String, where: String) = shell("cd $dirName", where)
 
     fun createFile(name: String, where: String) = shell("# created file '$name'", where)
-
-    fun appendToFile(name: String, where: String) = shell("# append to file '$name'", where)
 
     fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
             shell("# Change file '$name' at lines $linesToEdit: $message", where)

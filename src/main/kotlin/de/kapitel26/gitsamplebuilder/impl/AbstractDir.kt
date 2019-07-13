@@ -25,6 +25,6 @@ abstract class AbstractDir<T>(
                         }
                     }
 
-    protected fun currentDirname() = rootDir.name
+    protected fun currentDirname(): String = rootDir.name
 
 }

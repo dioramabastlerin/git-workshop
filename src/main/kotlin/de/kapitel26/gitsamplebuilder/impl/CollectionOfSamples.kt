@@ -25,10 +25,6 @@ class CollectionOfSamples(rootDir: File)
                     }
                     .apply(commands)
 
-    private fun baseNameWithoutSuffix() =
-            """([^.]*)(\..*)?""".toRegex().matchEntire(baseName)?.groups?.get(1)?.value
-                    ?: throw IllegalArgumentException("Not valid $baseName")
-
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) =
             createSample("$name.aufgabe") {
                 commands()
@@ -49,7 +45,5 @@ class CollectionOfSamples(rootDir: File)
 
 
             }
-
-    fun createLoesungsFolge(name: String, commands: Dir.() -> Unit) = copySample("$name.aufgabe", "$name.loesung", commands)
 
 }
