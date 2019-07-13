@@ -6,21 +6,27 @@ import de.kapitel26.gitsamplebuilder.impl.Repo
 fun CollectionOfSamples.pushRejected() {
     createAufgabenFolge("push-rejected") {
 
-        createRepo("blessed.git", "--bare")
+        val projectName = "apollo"
+        val blessedRepo = "blessed-$projectName.git"
+        val anjasClone = "anjas-$projectName"
+        val myClone = "my-$projectName"
+        val anjasFile = "backend.java"
+        val myFile = "frontend.java"
 
-        createClonedRepo("blessed.git", "anderer-klon") {
-            user("bea")
-            createFileAndCommit("foo")
-            createFileAndCommit("bar")
+        createRepo(blessedRepo, "--bare")
+
+        createClonedRepo(blessedRepo, anjasClone) {
+            user("anja")
+            createFileAndCommit(anjasFile)
+            createFileAndCommit(myFile)
             git("push")
         }
 
-        createClonedRepo("blessed.git")
+        createClonedRepo(blessedRepo, myClone)
 
-        inRepo("anderer-klon") {
-            user("anja")
-            editAndCommit("foo", 1)
-            editAndCommit("foo", 5)
+        inRepo(anjasClone) {
+            editAndCommit(anjasFile, 1)
+            editAndCommit(anjasFile, 5)
             git("push")
         }
 
@@ -33,24 +39,38 @@ fun CollectionOfSamples.pushRejected() {
                 `error: failed to push some refs ...`,
                 dem sogenannten *Push Reject*.
                 
-                Das ist nicht schlimm. 
+                **Das ist nicht schlimm.** 
                 Es bedeutet lediglich, dass im `origin`-Repository
                 Commits gefunden wurden, 
                 die lokal noch nicht integriert sind.
 
-                ## Setup
-
-                Wenn *Anja* ihre Änderungen vor Dir hochlädt,
-                wirst Du einen "Push Reject" erfahren.
+                Man mit `git pull` kann man die Änderungen holen und integrieren.
                 
-                 * `blessed.git`: Hier liegt das projekt.
-                 * `repo`: In diesem Klon arbeitest Du.
-                 * `anderer-klon`: Hier arbeitet Anja.
+                Oder man kann mit `git fetch` die Änderungen zunächst nur abholen,
+                um sie zu untersuchen, und später zu entscheiden,
+                was man damit machen möchte.
+
+                ## Setup
+    
+                 * Du arbeitest an einem Projekt `$projectName`,
+                   das von Deiner Kollegin Anja erstellt wurde.
+                 * Du sollst die Datei `$myFile` verbessern,
+                   während Anja an der Datei `$anjasFile` weiterarbeitet.
+
+                Wenn Anja ihre Änderungen vor Dir hochlädt,
+                wirst Du einen *Push Reject* erfahren.
+                
+                ### Verzeichnisse
+
+                 * Das Übungsverzeichnis ist `${rootDir.name}`
+                   - Das gemeinsame Projekt liegt in `$blessedRepo`
+                   - Anja arbeitet in  `$anjasClone`
+                   - **Du arbeitest in `$myClone`**
             """)
         }
 
 
-        inRepo {
+        inRepo(myClone) {
             createAufgabe(
                     "Lokal Commit(s) erstellen",
                     """
@@ -58,7 +78,7 @@ fun CollectionOfSamples.pushRejected() {
                     Überprüfe danach mit `git status`, ob der Workspace sauber ist.
                     """
             ) {
-                editAndCommit("bar", 1)
+                editAndCommit(myFile, 1)
                 git("status")
             }
 
@@ -95,7 +115,7 @@ fun CollectionOfSamples.pushRejected() {
             ) {
                 git("pull")
                 markdown("""
-                    Da *Anja* eine andere Datei (`foo`) bearbeitet hat,
+                    Da *Anja* eine andere Datei (`$anjasFile`) bearbeitet hat,
                     konnten ihre Änderungen problemlos integriert werden.
                     Man sieht, dass ein neues Commit entstanden ist,
                     welches die Stränge zusammenführt.
