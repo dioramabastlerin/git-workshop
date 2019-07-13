@@ -129,6 +129,7 @@ abstract class AbstractWorkingDir<T>(
     }
 
     fun writeDocs() {
+        log.writeIndexFile(rootDir)
         log.writeMarkdownFiles(rootDir)
     }
 

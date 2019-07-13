@@ -6,7 +6,8 @@ import java.io.FileWriter
 
 class LogBuilder {
 
-    private var activeCollectors = mutableSetOf(".full-log.md")
+    private val fullLogFileName = ".full-log.md"
+    private var activeCollectors = mutableSetOf(fullLogFileName)
     var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
     fun createDir(dirName: String, where: String) = shell("mkdir $dirName", where)
@@ -32,6 +33,16 @@ class LogBuilder {
     fun addRawLine(s: String) =
         collectedLogs.add(s to activeCollectors.toSet())
 
+    fun writeIndexFile(rootDir: File) {
+        collectedLogs
+                .flatMap { (line, names) -> names.map { it to line } }
+                .filter { (name, line) -> name != fullLogFileName }
+                .sortedBy { (name, line) -> name }
+                .map { (name, line) -> line }
+                .joinToString("\n")
+                .also { File(rootDir, "index.md").writeText(it) }
+    }
+
     fun writeMarkdownFiles(rootDir: File) {
         val name2writer = mutableMapOf<String, BufferedWriter>()
         collectedLogs.forEach { (line, names) ->
@@ -51,5 +62,6 @@ class LogBuilder {
             collectedLogs
                     .filter { (_, ns) -> ns.contains(name) }
                     .map { (s, _) -> s }
+
 
 }
