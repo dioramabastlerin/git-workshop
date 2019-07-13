@@ -1,7 +1,6 @@
 package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
-import de.kapitel26.gitsamplebuilder.impl.Repo
 
 fun CollectionOfSamples.pushRejected() {
     createAufgabenFolge("push-rejected") {
@@ -139,7 +138,3 @@ fun CollectionOfSamples.pushRejected() {
     }
 }
 
-private fun Repo.user(user: String) {
-    git("config user.name $user")
-    git("config user.email $user@nfakeemai.l")
-}

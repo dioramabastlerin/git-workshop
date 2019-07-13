@@ -31,4 +31,8 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
         }
     }
 
+    fun user(user: String) {
+        git("config user.name $user")
+        git("config user.email $user@nfakeemai.l")
+    }
 }
