@@ -12,7 +12,7 @@ class GitSampleBuilderSample : StringSpec({
                 createRepo {
 
                     createFile("file")
-
+                    git("add file")
                     commit("file")
 
                     startBranch("feature") {

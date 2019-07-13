@@ -46,7 +46,10 @@ class WorkingWithGitReposTest : StringSpec({
         buildGitSamples(description().name) {
             createRepo {
                 createFile("myfile")
+                git("add myfile") // bc file is new
+                commit("myfile")
 
+                edit("myfile", 1)
                 commit("myfile")
 
                 filesInHead() shouldBe listOf("myfile")
@@ -68,6 +71,7 @@ class WorkingWithGitReposTest : StringSpec({
         buildGitSamples(description().name) {
             createRepo {
                 createFile("myfile")
+                git("add myfile")
                 editAndCommit("myfile", 0)
 
                 startBranch("salami") { editAndCommit("myfile", 5) }
