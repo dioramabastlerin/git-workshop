@@ -145,16 +145,16 @@ abstract class AbstractWorkingDir<T>(
         git("""commit $fileName -m "$message"""")
     }
 
-    fun editAndCommit(fileName: String, line: Int, message: String = "Edited file $fileName at line $line on branch ${currentBranch()} by ${currentUser()}.") = editAndCommit(fileName, line..line, message)
+    fun editAndCommit(fileName: String, line: Int, message: String = "Edit file $fileName at line $line on branch ${currentBranch()} by ${currentUser()}.") = editAndCommit(fileName, line..line, message)
 
-    fun editAndCommit(fileName: String, lines: IntRange, message: String = "Edited file $fileName at lines $lines on branch ${currentBranch()} by ${currentUser()}.") {
+    fun editAndCommit(fileName: String, lines: IntRange, message: String = "Edit file $fileName at lines $lines on branch ${currentBranch()} by ${currentUser()}.") {
         inFile(fileName) { edit(lines, message) }
         commit(fileName, "`$fileName`: $message")
     }
 
-    fun createFileAndCommit(fileName: String, message: String = "Created file $fileName on branch ${currentBranch()} by ${currentUser()}.") {
+    fun createFileAndCommit(fileName: String, message: String = "Create file $fileName on branch ${currentBranch()} by ${currentUser()}.") {
         createFile(fileName)
-        commit(fileName, "`$fileName`: $message")
+        commit(fileName, message)
     }
 
     private fun markdownFilename(nr: Int) = "${formatNr(nr)}-aufgabe.md"
