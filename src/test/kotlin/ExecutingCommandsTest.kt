@@ -90,7 +90,6 @@ class ExecutingCommandsTest : StringSpec({
 
     }
 
-
     "executing commands in directories" {
         buildGitSamples(description().name) {
             bash("ls -1") should beEmpty()
