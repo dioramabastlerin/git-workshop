@@ -79,7 +79,7 @@ abstract class AbstractWorkingDir<T>(
 
     fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
         if (p.exitValue() !in expectedExits)
-            throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: $command")
+            throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: $command and message: \n${p.errorStream.readLines().joinToString("\n")}")
     }
 
     fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
