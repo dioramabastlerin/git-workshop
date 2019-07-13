@@ -137,7 +137,7 @@ abstract class AbstractWorkingDir<T>(
     fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
         solutionCollector.collectedCommands.add({ (this as T).commands() })
         doc(markdownFilename(solutionCollector.collectedCommands.size)) {
-            markdown("# Aufgabe ${solutionCollector.collectedCommands.size} - $title")
+            markdown("## Schritt ${solutionCollector.collectedCommands.size} - $title")
             markdown(description)
         }
     }
@@ -182,7 +182,7 @@ abstract class AbstractWorkingDir<T>(
     fun applyLoesungen() =
             solutionCollector.collectedCommands.forEachIndexed { index, command ->
                 doc(markdownFilename(index + 1)) {
-                    markdown("## Lösung")
+                    markdown("### Lösung")
                     command()
                 }
             }

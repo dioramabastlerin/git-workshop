@@ -54,8 +54,8 @@ fun CollectionOfSamples.pushRejected() {
             createAufgabe(
                     "Lokal Commit(s) erstellen",
                     """
-                    |Bearbeite die Datei `bar` und erstelle (mindestens) ein Commit mit den Änderungen.
-                    |Überprüfe danach mit `git status`, ob der Workspace sauber ist.
+                    Bearbeite die Datei `bar` und erstelle (mindestens) ein Commit mit den Änderungen.
+                    Überprüfe danach mit `git status`, ob der Workspace sauber ist.
                     """
             ) {
                 editAndCommit("bar", 1)
@@ -63,21 +63,24 @@ fun CollectionOfSamples.pushRejected() {
             }
 
             createAufgabe(
-                    "Push versuchen", """
-                    |Versuche jetzt die Änderung zu pushen.
-        """) {
+                    "Push versuchen",
+                    """Versuche jetzt die Änderung zu pushen."""
+            ) {
                 git("push", setOf(1))
                 markdown("""
-                    |Wie Du siehst, der Push wurde verweigert. 
-                    |Anscheinend war *Anja* schneller,
-                    |und hat ihre Änderungen zuerst nach `blessed.git` gebracht.""")
+                    Wie Du siehst, der Push wurde verweigert. 
+                    Anscheinend war Anja schneller,
+                    und hat ihre Änderungen zuerst nach `blessed.git` gebracht.
+                """)
             }
 
             createAufgabe(
-                    "(optional) Problem analysieren", """
-                    | Hole zunächt die Änderungen, ohne zu integrieren (`fetch`),
-                    | und lasse Dir die Änderungen von *Anja* zeigen.
-        """) {
+                    "(optional) Problem analysieren"
+                    , """
+                    Hole zunächt die Änderungen, ohne zu integrieren (`fetch`),
+                    und lasse Dir die Änderungen von *Anja* zeigen.
+                    """
+            ) {
                 git("fetch")
                 git("log --oneline HEAD..origin/master")
                 git("diff --stat HEAD origin/master")
@@ -85,26 +88,30 @@ fun CollectionOfSamples.pushRejected() {
             }
 
             createAufgabe(
-                    "Fremde Änderungen integrieren", """
-                    |
-        """) {
+                    "Fremde Änderungen integrieren",
+                    """
+                    
+                    """
+            ) {
                 git("pull")
                 markdown("""
-                    |Da *Anja* eine andere Datei (`foo`) bearbeitet hat,
-                    |konnten ihre Änderungen problemlos integriert werden.
-                    |Man sieht, dass ein neues Commit entstanden ist,
-                    |welches die Stränge zusammenführt.
+                    Da *Anja* eine andere Datei (`foo`) bearbeitet hat,
+                    konnten ihre Änderungen problemlos integriert werden.
+                    Man sieht, dass ein neues Commit entstanden ist,
+                    welches die Stränge zusammenführt.
                 """)
                 git("log --graph --oneline")
             }
 
             createAufgabe(
-                    "Erneut pushen", """
-                    |
-        """) {
+                    "Erneut pushen",
+                    """
+                    
+                    """
+            ) {
                 git("push")
                 markdown("""
-                    |Und siehe da: Jetzt klappt's.
+                    Und siehe da: Jetzt klappt's.
                 """)
             }
         }
