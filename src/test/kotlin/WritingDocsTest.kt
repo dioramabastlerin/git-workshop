@@ -18,7 +18,7 @@ class WritingDocsTest : StringSpec({
             log.disableDoc("B")
             log.addRawLine("5")
 
-            log.writeFiles(rootDir)
+            log.writeMarkdownFiles(rootDir)
 
             File(rootDir, ".full-log.md").readLines() shouldBe listOf("1", "2", "3", "4", "5")
             File(rootDir, "A").readLines() shouldBe listOf("2", "3")

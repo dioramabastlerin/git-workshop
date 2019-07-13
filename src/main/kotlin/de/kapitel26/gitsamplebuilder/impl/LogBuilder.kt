@@ -32,7 +32,7 @@ class LogBuilder {
     fun addRawLine(s: String) =
         collectedLogs.add(s to activeCollectors.toSet())
 
-    fun writeFiles(rootDir: File) {
+    fun writeMarkdownFiles(rootDir: File) {
         val name2writer = mutableMapOf<String, BufferedWriter>()
         collectedLogs.forEach { (line, names) ->
             names.forEach { name ->

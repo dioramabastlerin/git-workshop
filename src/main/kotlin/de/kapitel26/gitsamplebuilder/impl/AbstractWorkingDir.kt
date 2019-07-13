@@ -129,7 +129,7 @@ abstract class AbstractWorkingDir<T>(
     }
 
     fun writeDocs() {
-        log.writeFiles(rootDir)
+        log.writeMarkdownFiles(rootDir)
     }
 
     @Suppress("UNCHECKED_CAST")
