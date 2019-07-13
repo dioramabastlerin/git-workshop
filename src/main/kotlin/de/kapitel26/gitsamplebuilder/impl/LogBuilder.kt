@@ -19,7 +19,16 @@ class LogBuilder {
     fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
             shell("# $message", where)
 
-    fun shell(cmd: String, where: String?) = addRawLine("    $where$ $cmd")
+    fun shell(
+            cmd: String, where: String?,
+            outputLines: List<String> = emptyList(),
+            errorLines: List<String> = emptyList()
+    ) {
+        addRawLine("    $where$ $cmd")
+        outputLines.forEach { addRawLine("    $it") }
+        errorLines.forEach { addRawLine("    $it") }
+        addRawLine("    ")
+    }
 
     fun doc(message: String) {
         message.trimIndent().lines().forEach { addRawLine(it) }
