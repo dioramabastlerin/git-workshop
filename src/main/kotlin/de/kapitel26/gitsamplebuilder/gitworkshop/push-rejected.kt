@@ -51,12 +51,18 @@ fun CollectionOfSamples.pushRejected() {
 
                 ## Tipps
                 
-                 * `git push` überträgt Commits zum `origin`.
-                 * `git fetch` holt Commit, ändert aber Workspace und lokalen Branch nicht
-                 * `git pull` hold und integriert Commits
-                 * Die `A..B`-Notation bei `git log` zeigt Commits aus `B`, die noch nicht in `A` enthalten sind.
-                 * 
-    
+                 * `git push`: Überträgt Commits zum `origin`.
+                 * `git fetch`: Holt Commit, ändert aber Workspace und lokalen Branch nicht
+                 * `git pull`: Hold und **integriert** Commits.
+                 * `git log A..B` zeigt "was B gemacht hat".\
+                    Oder etwas genauer: Jenes Commits aus der Historie von `B`, 
+                    die noch nicht in `A` enthalten sind.
+                 * `git diff A B` zeigt die Unterschiede zwischen A und B\
+                   (symmetrisches Diff)
+                 * `git diff A...B` zeigt die Änderungen der Seite B.\
+                    Oder etwas genauer: Das Diff zwischen dem letzen gemeinsamen Vorgänger zu B.\
+                    (asymmetrisches Diff)
+
                 ## Setup
     
                  * Du arbeitest an einem Projekt `$projectName`,
