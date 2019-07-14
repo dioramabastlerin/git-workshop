@@ -9,7 +9,7 @@ class File(val location: java.io.File, val log: LogBuilder) {
 
     fun edit(linesToEdit: IntRange, message: String = "edited") {
         location
-                .apply { log.editFile(location.name, linesToEdit, message, dirName()) }
+                .apply { log.editFile(dirName(), message) }
                 .readLines()
                 .mapIndexed { index, s ->
                     if (index in linesToEdit)

@@ -16,7 +16,7 @@ class LogBuilder {
 
     fun createFile(name: String, where: String) = shell("# created file '$name'", where)
 
-    fun editFile(name: String?, linesToEdit: IntRange, message: String, where: String) =
+    fun editFile(where: String, message: String) =
             shell("# $message", where)
 
     fun shell(
@@ -45,9 +45,9 @@ class LogBuilder {
     fun writeIndexFile(rootDir: File) {
         collectedLogs
                 .flatMap { (line, names) -> names.map { it to line } }
-                .filter { (name, line) -> name != fullLogFileName }
-                .sortedBy { (name, line) -> name }
-                .map { (name, line) -> line }
+                .filter { (name, _) -> name != fullLogFileName }
+                .sortedBy { (name, _) -> name }
+                .map { (_, line) -> line }
                 .joinToString("\n")
                 .also { File(rootDir, "index.md").writeText(it) }
     }
