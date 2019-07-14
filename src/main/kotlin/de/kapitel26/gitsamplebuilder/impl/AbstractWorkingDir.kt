@@ -77,12 +77,12 @@ abstract class AbstractWorkingDir<T>(
         return process
     }
 
-    fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
+    private fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
         if (p.exitValue() !in expectedExits)
             throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: $command and message: \n${p.errorStream.readLines().joinToString("\n")}")
     }
 
-    fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
+    private fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
         if (p.exitValue() !in expectedExits)
             throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: ${splittedCommandLineArguments.joinToString(" ")}")
     }
@@ -143,7 +143,7 @@ abstract class AbstractWorkingDir<T>(
 
     @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
-        solutionCollector.collectedCommands.add({ (this as T).solution() })
+        solutionCollector.collectedCommands.add { (this as T).solution() }
         logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
             markdown("## Schritt ${solutionCollector.collectedCommands.size} - $title")
             markdown(description)
@@ -179,7 +179,7 @@ abstract class AbstractWorkingDir<T>(
         return lines.singleOrNull() ?: "MASTER"
     }
 
-    protected fun currentUser(): String =
+    private fun currentUser(): String =
             executeProcess("git", "config", "user.name")
                     .inputStream
                     .bufferedReader()

@@ -47,8 +47,7 @@ class LogBuilder {
                 .flatMap { (line, names) -> names.map { it to line } }
                 .filter { (name, _) -> name != fullLogFileName }
                 .sortedBy { (name, _) -> name }
-                .map { (_, line) -> line }
-                .joinToString("\n")
+                .joinToString("\n") { (_, line) -> line }
                 .also { File(rootDir, "index.md").writeText(it) }
     }
 
@@ -74,7 +73,7 @@ class LogBuilder {
 
     fun reset() {
         activeCollectors = mutableSetOf(fullLogFileName)
-        collectedLogs = mutableListOf<Pair<String, Set<String>>>()
+        collectedLogs = mutableListOf()
     }
 
 }

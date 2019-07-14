@@ -171,7 +171,7 @@ fun CollectionOfSamples.pushRejected() {
 
                 markdown("#### Achtung: Falls schon wieder jemand schneller war ...")
                 markdown("""
-                    ... und nach ${blessedRepo} gepushed hat,
+                    ... und nach $blessedRepo gepushed hat,
                     kann es nochmal ein *Push Reject* geben,
                     und wir versuchen erneut ein `pull`, dann ein `push`,
                     solange, bis es klapp.
