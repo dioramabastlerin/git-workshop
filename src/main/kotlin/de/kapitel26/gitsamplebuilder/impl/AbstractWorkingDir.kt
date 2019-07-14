@@ -131,9 +131,19 @@ abstract class AbstractWorkingDir<T>(
         log.writeMarkdownFiles(rootDir)
     }
 
+
     @Suppress("UNCHECKED_CAST")
-    fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
-        solutionCollector.collectedCommands.add({ (this as T).commands() })
+    fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
+        logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
+            markdown("# Übung - $title")
+            markdown(description)
+            setup()
+        }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
+        solutionCollector.collectedCommands.add({ (this as T).solution() })
         logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
             markdown("## Schritt ${solutionCollector.collectedCommands.size} - $title")
             markdown(description)

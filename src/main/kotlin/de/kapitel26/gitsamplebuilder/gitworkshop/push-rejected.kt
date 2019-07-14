@@ -29,9 +29,9 @@ fun CollectionOfSamples.pushRejected() {
             git("push")
         }
 
-        logTo("00-aufgabe.md") {
-            markdown("""
-                # Übung - Umgang mit "Push Reject"
+        createIntro(
+                """Umgang mit "Push Reject"""",
+                """
                 
                 Wenn mehrere Entwickler am selben Projekt arbeiten,
                 kommt es beim `git push` häufig zu der Meldung
@@ -79,9 +79,8 @@ fun CollectionOfSamples.pushRejected() {
                    - `$blessedRepo/` Das geteilte (blessed) Repository liegt hier.
                    - `$anjasClone/` Hier arbeitet Anja.  
                    - `$myClone/` **Du arbeitest hier.**
-            """)
-        }
-
+            """
+        )
 
         inRepo(myClone) {
             createAufgabe(
