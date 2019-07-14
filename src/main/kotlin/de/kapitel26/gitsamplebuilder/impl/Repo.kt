@@ -35,4 +35,9 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
         git("config user.name $user")
         git("config user.email $user@nfakeemai.l")
     }
+
+    fun createClone(cloneLocation: String, vararg args: String, commands: (Repo.() -> Unit)? = null) {
+        git("clone", ".", cloneLocation, *args)
+        inRepo(cloneLocation, commands)
+    }
 }
