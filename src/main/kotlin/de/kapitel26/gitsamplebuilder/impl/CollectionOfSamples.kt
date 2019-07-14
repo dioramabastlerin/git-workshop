@@ -15,6 +15,7 @@ class CollectionOfSamples(rootDir: File)
         createDir(sampleName, commands)
     }
 
+    // TODO obsolete?
     fun copySample(original: String, copy: String, commands: Dir.() -> Unit) =
             Dir(File(rootDir, copy), log, solutionCollector)
                     .also { duplicate ->
@@ -43,7 +44,7 @@ class CollectionOfSamples(rootDir: File)
                             writeDocs()
                         }
 
-
+                reset()
             }
 
 }

@@ -72,5 +72,9 @@ class LogBuilder {
                     .filter { (_, ns) -> ns.contains(name) }
                     .map { (s, _) -> s }
 
+    fun reset() {
+        activeCollectors = mutableSetOf(fullLogFileName)
+        collectedLogs = mutableListOf<Pair<String, Set<String>>>()
+    }
 
 }

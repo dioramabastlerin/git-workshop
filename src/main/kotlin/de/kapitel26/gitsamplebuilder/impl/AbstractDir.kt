@@ -27,4 +27,9 @@ abstract class AbstractDir<T>(
 
     protected fun currentDirname(): String = rootDir.name
 
+    protected fun reset() {
+        log.reset()
+        solutionCollector.reset()
+    }
+
 }
