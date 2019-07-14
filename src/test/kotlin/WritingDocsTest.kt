@@ -9,13 +9,13 @@ class WritingDocsTest : StringSpec({
         buildGitSamples(description().name) {
 
             log.addRawLine("1")
-            log.enableDoc("A")
+            log.startLoggingTo("A")
             log.addRawLine("2")
-            log.enableDoc("B")
+            log.startLoggingTo("B")
             log.addRawLine("3")
-            log.disableDoc("A")
+            log.stopLoggingTo("A")
             log.addRawLine("4")
-            log.disableDoc("B")
+            log.stopLoggingTo("B")
             log.addRawLine("5")
 
             log.writeMarkdownFiles(rootDir)
@@ -30,7 +30,7 @@ class WritingDocsTest : StringSpec({
         buildGitSamples(description().name) {
 
             log.addRawLine("1")
-            doc("A") {
+            logTo("A") {
                 log.addRawLine("2")
             }
             log.addRawLine("3")

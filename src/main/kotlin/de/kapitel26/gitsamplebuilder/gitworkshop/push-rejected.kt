@@ -29,7 +29,7 @@ fun CollectionOfSamples.pushRejected() {
             git("push")
         }
 
-        doc("00-aufgabe.md") {
+        logTo("00-aufgabe.md") {
             markdown("""
                 # Übung - Umgang mit "Push Reject"
                 

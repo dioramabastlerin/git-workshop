@@ -21,7 +21,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             createFileAndCommit("und-tschuess")
         }
 
-        doc("00-intro.md") {
+        logTo("00-intro.md") {
             markdown("""
             # Repositorys untersuchen
 

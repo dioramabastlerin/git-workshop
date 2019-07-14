@@ -35,9 +35,9 @@ class LogBuilder {
         addRawLine("")
     }
 
-    fun enableDoc(name: String) = activeCollectors.add(name)
+    fun startLoggingTo(name: String) = activeCollectors.add(name)
 
-    fun disableDoc(name: String) = activeCollectors.remove(name)
+    fun stopLoggingTo(name: String) = activeCollectors.remove(name)
 
     fun addRawLine(s: String) =
         collectedLogs.add(s to activeCollectors.toSet())

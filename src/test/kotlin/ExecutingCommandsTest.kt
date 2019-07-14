@@ -69,7 +69,7 @@ class ExecutingCommandsTest : StringSpec({
     "logging bash shell commands with output" {
         buildGitSamples(description().name) {
             createDir("test") {
-                doc("shell-log") {
+                logTo("shell-log") {
                     bash("echo moin")
                 }
             }

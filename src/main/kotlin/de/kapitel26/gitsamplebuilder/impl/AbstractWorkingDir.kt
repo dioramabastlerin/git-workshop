@@ -120,10 +120,10 @@ abstract class AbstractWorkingDir<T>(
             inFile(filename) { edit(lineNumber..lineNumber, message) }
 
     @Suppress("UNCHECKED_CAST")
-    fun doc(name: String, commands: T.() -> Unit) {
-        log.enableDoc(name)
+    fun logTo(name: String, commands: T.() -> Unit) {
+        log.startLoggingTo(name)
         (this as T).commands()
-        log.disableDoc(name)
+        log.stopLoggingTo(name)
     }
 
     fun writeDocs() {
@@ -134,7 +134,7 @@ abstract class AbstractWorkingDir<T>(
     @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", commands: T.() -> Unit = {}) {
         solutionCollector.collectedCommands.add({ (this as T).commands() })
-        doc(markdownFilename(solutionCollector.collectedCommands.size)) {
+        logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
             markdown("## Schritt ${solutionCollector.collectedCommands.size} - $title")
             markdown(description)
         }
@@ -179,7 +179,7 @@ abstract class AbstractWorkingDir<T>(
 
     fun applyLoesungen() =
             solutionCollector.collectedCommands.forEachIndexed { index, command ->
-                doc(markdownFilename(index + 1)) {
+                logTo(markdownFilename(index + 1)) {
                     markdown("### Lösung")
                     command()
                 }

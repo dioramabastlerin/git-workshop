@@ -10,7 +10,7 @@ fun CollectionOfSamples.cloning() {
             createFileAndCommit("bar")
         }
 
-        doc("00-intro.md") {
+        logTo("00-intro.md") {
             markdown("""
             # Klonen von Repositorys
 
