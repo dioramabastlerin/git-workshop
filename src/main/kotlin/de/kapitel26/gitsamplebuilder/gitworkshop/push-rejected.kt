@@ -49,6 +49,14 @@ fun CollectionOfSamples.pushRejected() {
                 um sie zu untersuchen, und später zu entscheiden,
                 was man damit machen möchte.
 
+                ## Tipps
+                
+                 * `git push` überträgt Commits zum `origin`.
+                 * `git fetch` holt Commit, ändert aber Workspace und lokalen Branch nicht
+                 * `git pull` hold und integriert Commits
+                 * Die `A..B`-Notation bei `git log` zeigt Commits aus `B`, die noch nicht in `A` enthalten sind.
+                 * 
+    
                 ## Setup
     
                  * Du arbeitest an einem Projekt `$projectName`,
@@ -61,10 +69,10 @@ fun CollectionOfSamples.pushRejected() {
                 
                 ### Verzeichnisse
 
-                 * Das Übungsverzeichnis ist `${rootDir.name}`
-                   - Das gemeinsame Projekt liegt in `$blessedRepo`
-                   - Anja arbeitet in  `$anjasClone`
-                   - **Du arbeitest in `$myClone`**
+                 * `${rootDir.name}/` Haupverzeichnis für diese Übung 
+                   - `$blessedRepo/` Das geteilte (blessed) Repository liegt hier.
+                   - `$anjasClone/` Hier arbeitet Anja.  
+                   - `$myClone/` **Du arbeitest hier.**
             """)
         }
 
@@ -78,18 +86,19 @@ fun CollectionOfSamples.pushRejected() {
                     """
             ) {
                 editAndCommit(myFile, 1)
+                markdown("""Und jetzt noch eben prüfen, ob `working tree clean` ist.""")
                 git("status")
             }
 
             createAufgabe(
                     "Push versuchen",
-                    """Versuche jetzt die Änderung zu pushen."""
+                    """Versuche jetzt Deine Änderungen zu pushen."""
             ) {
                 git("push", setOf(1))
                 markdown("""
                     Wie Du siehst, der Push wurde verweigert. 
                     Anscheinend war Anja schneller,
-                    und hat ihre Änderungen zuerst nach `blessed.git` gebracht.
+                    und hat ihre Änderungen zuerst nach `$blessedRepo` gepushed.
                 """)
             }
 
@@ -98,11 +107,27 @@ fun CollectionOfSamples.pushRejected() {
                     , """
                     Hole zunächt die Änderungen, ohne zu integrieren (`fetch`),
                     und lasse Dir die Änderungen von *Anja* zeigen.
+                     
+                     * Welche Commits hat Anja gemacht (`log`)?
+                     * Welche Unterschiede gibt es zweichen deiner und Anjas Version (symmetrisches `diff`)?
+                     * Welche Änderungen hat Anja gemacht (asymmetrisches `diff`)?
                     """
             ) {
+                markdown("`fetch` holt die Daten, ohne den Workspace oder Deine lokalen Branches zu verändern.")
                 git("fetch")
-                git("log --oneline HEAD..origin/master")
+                markdown("Die Ausgabe zeigt, dass neue Commit für den `origin/master` geholt wurden")
+                markdown("Die `..`-Notation zeigt, welche Commits hinzugekommen sind:")
+                git("log --oneline master..origin/master")
+                markdown("""
+                    Das normale (symmetrische) Diff zeig alle Unterschiede. 
+                    Sowohl das, was du gemacht hast, als auch das, was Anja gemacht hat:"
+                """)
                 git("diff --stat HEAD origin/master")
+                markdown("""
+                    Das asymmetrische Diff `...` zeigt nur jene Änderungen,
+                    die Anja gemacht hat
+                    (bezogen auf den letzten gemeinsamen Vorgänger):"
+                """)
                 git("diff --stat HEAD...origin/master")
             }
 
@@ -114,12 +139,18 @@ fun CollectionOfSamples.pushRejected() {
             ) {
                 git("pull")
                 markdown("""
-                    Da *Anja* eine andere Datei (`$anjasFile`) bearbeitet hat,
+                    Da *Anja* eine andere Datei (`$anjasFile`) bearbeitet hat als Du (`$myFile`),
                     konnten ihre Änderungen problemlos integriert werden.
                     Man sieht, dass ein neues Commit entstanden ist,
                     welches die Stränge zusammenführt.
                 """)
                 git("log --graph --oneline")
+
+                markdown("#### Achtung: Beim `pull` kann Merge-Konflikte geben ...")
+                markdown("""
+                    ... wenn beide Seiten dieselben Stellen bearbeitet haben.
+                    Das Auflösen von Merge-Konflikten ist Thema eines folgenden Kapitels.
+                """.trimIndent())
             }
 
             createAufgabe(
@@ -131,6 +162,14 @@ fun CollectionOfSamples.pushRejected() {
                 git("push")
                 markdown("""
                     Und siehe da: Jetzt klappt's.
+                """)
+
+                markdown("#### Achtung: Falls schon wieder jemand schneller war ...")
+                markdown("""
+                    ... und nach ${blessedRepo} gepushed hat,
+                    kann es nochmal ein *Push Reject* geben,
+                    und wir versuchen erneut ein `pull`, dann ein `push`,
+                    solange, bis es klapp.
                 """)
             }
         }
