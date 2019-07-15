@@ -1,6 +1,6 @@
 import de.kapitel26.gitsamplebuilder.CommandLineException
 import de.kapitel26.gitsamplebuilder.buildGitSamples
-import de.kapitel26.gitsamplebuilder.impl.readLines
+import impl.readLines
 import io.kotlintest.matchers.beEmpty
 import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.collections.shouldContainExactly

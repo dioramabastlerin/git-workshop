@@ -1,4 +1,4 @@
-package de.kapitel26.gitsamplebuilder.impl
+package impl
 
 class SolutionCollector {
     val collectedCommands: MutableList<() -> Unit> = mutableListOf()

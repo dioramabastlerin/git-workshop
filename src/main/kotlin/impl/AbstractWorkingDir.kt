@@ -1,4 +1,4 @@
-package de.kapitel26.gitsamplebuilder.impl
+package impl
 
 import de.kapitel26.gitsamplebuilder.CommandLineException
 import java.io.InputStream
@@ -79,7 +79,12 @@ abstract class AbstractWorkingDir<T>(
 
     private fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
         if (p.exitValue() !in expectedExits)
-            throw CommandLineException(p, "Failed with exit code ${p.exitValue()}: $command and message: \n${p.errorStream.readLines().joinToString("\n")}")
+            throw CommandLineException(p,
+                    "Failed with exit code ${p.exitValue()}: $command" +
+                            " and message: \n${p.errorStream.readLines().joinToString("\n")}" +
+                            "\n and output: \n${p.inputStream.readLines().joinToString("\n")}" +
+                            "\n."
+            )
     }
 
     private fun assertExitCode(p: Process, expectedExits: Set<Int>, splittedCommandLineArguments: Array<out String>) {
@@ -161,8 +166,13 @@ abstract class AbstractWorkingDir<T>(
         commit(fileName, "`$fileName`: $message")
     }
 
-    fun createFileAndCommit(fileName: String, message: String = "Create file $fileName on branch ${currentBranch()} by ${currentUser()}.") {
-        createFile(fileName)
+    fun inFileCommit(fileName: String, commands: File.() -> Unit = {}) {
+        inFile(fileName, commands)
+        commit(fileName)
+    }
+
+    fun createFileAndCommit(fileName: String, content: String? = null, message: String = "Create file $fileName on branch ${currentBranch()} by ${currentUser()}.") {
+        createFile(fileName, content)
         git("add $fileName")
         commit(fileName, message)
     }

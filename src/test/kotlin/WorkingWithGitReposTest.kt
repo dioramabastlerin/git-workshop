@@ -1,6 +1,6 @@
 package de.kapitel26.gitsamplebuilder
 
-import de.kapitel26.gitsamplebuilder.impl.Repo
+import impl.Repo
 import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.string.include

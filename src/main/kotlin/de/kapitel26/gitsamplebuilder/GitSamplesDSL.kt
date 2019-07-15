@@ -1,9 +1,9 @@
 package de.kapitel26.gitsamplebuilder
 
-import de.kapitel26.gitsamplebuilder.impl.CollectionOfSamples
-import de.kapitel26.gitsamplebuilder.impl.Dir
-import de.kapitel26.gitsamplebuilder.impl.LogBuilder
-import de.kapitel26.gitsamplebuilder.impl.SolutionCollector
+import impl.CollectionOfSamples
+import impl.Dir
+import impl.LogBuilder
+import impl.SolutionCollector
 import java.io.File as IOFile
 
 class CommandLineException(val failedProcess: Process, message: String) : RuntimeException(message)

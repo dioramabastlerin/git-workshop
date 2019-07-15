@@ -1,6 +1,12 @@
-package de.kapitel26.gitsamplebuilder.impl
+package impl
 
 class File(val location: java.io.File, val log: LogBuilder) {
+
+    var content: String
+        get() = location.readText()
+        set(value) {
+            location.writeText(value)
+        }
 
     fun createSampleFileContent(): String =
             (0..11).joinToString("\n") { "line $it created" }

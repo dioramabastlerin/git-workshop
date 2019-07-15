@@ -1,4 +1,4 @@
-package de.kapitel26.gitsamplebuilder.impl
+package impl
 
 import java.io.BufferedWriter
 import java.io.File

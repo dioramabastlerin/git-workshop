@@ -1,5 +1,6 @@
 import de.kapitel26.gitsamplebuilder.buildGitSamples
 import io.kotlintest.inspectors.forAll
+import io.kotlintest.matchers.collections.containExactly
 import io.kotlintest.matchers.containAll
 import io.kotlintest.matchers.endWith
 import io.kotlintest.should
@@ -47,6 +48,28 @@ class BuildingFilesTest : StringSpec({
         }
     }
 
+
+    "manipulating content files" {
+        buildGitSamples(description().name) {
+            createFile("afile") {
+                content.lines().size shouldBe 12
+
+                content = """
+                    eins
+                    zwei
+                    drei
+                """.trimIndent()
+
+                content.lines().size shouldBe 3
+            }
+
+            File(rootDir, "afile").readLines() should containExactly("eins", "zwei", "drei")
+
+            inFile("afile") { content = "moin" }
+
+            File(rootDir, "afile").readText() shouldBe "moin"
+        }
+    }
 
     "editing files" {
         buildGitSamples(description().name) {
