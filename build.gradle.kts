@@ -42,3 +42,6 @@ allprojects {
 task("stage") {
     dependsOn("build")
 }
+dependencies {
+    compile(kotlin("script-runtime"))
+}
