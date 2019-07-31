@@ -92,4 +92,42 @@ class BuildingFilesTest : StringSpec({
             )
         }
     }
+
+    "editing files" {
+        buildGitSamples(description().name) {
+            createFile("afile") {
+                edit(0)
+                edit(2..3)
+                edit(5..5, "BETA")
+            }
+
+            edit("afile", 7)
+            edit("afile", 8, "GAMMA")
+
+            File(rootDir, "afile").readLines() should containAll(
+                    "line 0 edited / line 0 created",
+                    "line 2 edited / line 2 created",
+                    "line 3 edited / line 3 created",
+                    "line 5 BETA / line 5 created",
+                    "line 7 edited / line 7 created",
+                    "line 8 GAMMA / line 8 created"
+            )
+        }
+    }
+
+    "replacing in files" {
+        buildGitSamples(description().name) {
+            createFile("afile", "abc\ndef\nghi") {
+                replace("ef", "EF")
+            }
+
+
+            File(rootDir, "afile").readLines() should containAll(
+                    "abc",
+                    "EF",
+                    "ghi"
+            )
+        }
+    }
+
 })

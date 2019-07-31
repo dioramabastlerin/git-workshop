@@ -27,6 +27,14 @@ class File(val location: java.io.File, val log: LogBuilder) {
                 .also { location.writeText(it) }
     }
 
+    fun replace(searchFor: String, replaceWith: String) {
+        location
+                .apply { log.editFile(dirName(), "replace $searchFor with $replaceWith") }
+                .readText()
+                .replace(searchFor, replaceWith)
+                .also { location.writeText(it) }
+    }
+
     private fun dirName() = location.parentFile.name
 
     fun lines() = location.readLines()

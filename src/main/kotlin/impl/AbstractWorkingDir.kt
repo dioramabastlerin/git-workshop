@@ -166,9 +166,9 @@ abstract class AbstractWorkingDir<T>(
         commit(fileName, "`$fileName`: $message")
     }
 
-    fun inFileCommit(fileName: String, commands: File.() -> Unit = {}) {
+    fun inFileCommit(fileName: String, message: String = "TODO", commands: File.() -> Unit = {}) {
         inFile(fileName, commands)
-        commit(fileName)
+        commit(fileName, message)
     }
 
     fun createFileAndCommit(fileName: String, content: String? = null, message: String = "Create file $fileName on branch ${currentBranch()} by ${currentUser()}.") {
