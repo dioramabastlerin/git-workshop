@@ -163,11 +163,6 @@ abstract class AbstractWorkingDir<T>(
         git { commit(fileName, "`$fileName`: $message") }
     }
 
-    fun inFileCommit(fileName: String, message: String = "Edited file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
-        inFile(fileName, commands)
-        git { commit(fileName, message) }
-    }
-
     fun createFileAndCommit(fileName: String, message: String = "Created file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
         createFile(fileName)
         inFile(fileName, commands)

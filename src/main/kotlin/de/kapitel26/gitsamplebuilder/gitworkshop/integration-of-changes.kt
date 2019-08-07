@@ -73,14 +73,16 @@ fun CollectionOfSamples.integrationOfChanges() {
             }
 
             createClone("../changes-in-same-files") {
-                inFileCommit("average.kts", "Refactoring: s in summe umbenennen") {
+                inFile("average.kts") {
                     replace("val s = ", "val summe = ")
                     replace("{s/args.size}", replaceWith = "{summe/args.size}")
+                    commit("Refactoring: s in summe umbenennen")
                 }
             }
 
-            inFileCommit("average.kts", "Verwende double Werte statt int") {
+            inFile("average.kts") {
                 replace("{ it.toInt() }", "{ it.toDouble() }")
+                commit("Verwende double Werte statt int")
             }
         }
 
@@ -102,7 +104,11 @@ fun CollectionOfSamples.integrationOfChanges() {
                            - die Commits, die Anja gemacht hat
                     """) {
 
-                inFileCommit("README.md") { content = "Hallo Welt!\n" }
+                inFile("README.md") {
+                    content = "Hallo Welt!\n"
+                    commit()
+                }
+
                 git("show")
 
                 git("push", setOf(1))

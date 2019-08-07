@@ -48,5 +48,5 @@ class File(val location: java.io.File, val log: LogBuilder, val solutionCollecto
 
     fun lines() = location.readLines()
 
-    fun commit() = GitContext(Dir(location.parentFile, log, solutionCollector)).commit(location.name, null)
+    fun commit(message: String? = null) = GitContext(Dir(location.parentFile, log, solutionCollector)).commit(location.name, message)
 }
