@@ -155,8 +155,12 @@ abstract class AbstractWorkingDir<T>(
         }
     }
 
+    fun add(fileName: String) {
+        git("""add $fileName""")
+    }
+
     fun commit(fileName: String, message: String = "Commited file $fileName on branch ${currentBranch()} by ${currentUser()}") {
-        git("""commit $fileName -m "$message"""")
+        git("""commit -am "$message"""")
     }
 
     fun editAndCommit(fileName: String, line: Int, message: String = "Edit file $fileName at line $line on branch ${currentBranch()} by ${currentUser()}.") = editAndCommit(fileName, line..line, message)
@@ -166,14 +170,15 @@ abstract class AbstractWorkingDir<T>(
         commit(fileName, "`$fileName`: $message")
     }
 
-    fun inFileCommit(fileName: String, message: String = "TODO", commands: File.() -> Unit = {}) {
+    fun inFileCommit(fileName: String, message: String = "Edited file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
         inFile(fileName, commands)
         commit(fileName, message)
     }
 
-    fun createFileAndCommit(fileName: String, content: String? = null, message: String = "Create file $fileName on branch ${currentBranch()} by ${currentUser()}.") {
-        createFile(fileName, content)
-        git("add $fileName")
+    fun createFileAndCommit(fileName: String, message: String = "Created file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
+        createFile(fileName)
+        inFile(fileName, commands)
+        add(fileName)
         commit(fileName, message)
     }
 

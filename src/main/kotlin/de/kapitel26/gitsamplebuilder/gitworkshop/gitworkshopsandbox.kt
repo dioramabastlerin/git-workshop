@@ -4,9 +4,9 @@ import de.kapitel26.gitsamplebuilder.createCollectionOfSamples
 
 fun main() {
 
-    createCollectionOfSamples("gitworkshop") {
+    createCollectionOfSamples("gitworkshop-sandbox") {
 
-        mergeConflicts()
+        integrationOfChanges()
 
     }
 }
