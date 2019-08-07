@@ -12,10 +12,11 @@ fun CollectionOfSamples.integrationOfChanges() {
                 Wenn mehrere Entwickler unabhängig am selben Projekt arbeiten,
                 müssen deren Änderungen von Zeit zu Zeit integriert werden.
                 Dies nennt man *Merging*.
-                Dabei kommt es immer mal wieder zu sogenannen *Merge-Konflikten*.
                 
                 Die Integration kann in Git mit den Befehlen `pull`, `merge`
                 und `rebase` durchgeführt werden.
+
+                Dabei kommt es immer mal wieder zu *Merge-Konflikten*.
                 
                 In dieser Übung zeigen wir die Integration per `pull`,
                 weil dies sehr typisch für das Arbeiten mit Git ist.
@@ -36,11 +37,6 @@ fun CollectionOfSamples.integrationOfChanges() {
                   des aktuellen `HEAD`-Commits.
                 * `git diff HEAD^1...HEAD^2` zeigt die "fremden" Änderungen 
                 * `git log HEAD^1..HEAD^2` zeigt die "fremden" Commits 
-
-                ## Setup
-    
-
-                ### Verzeichnisse
 
             """
         )
@@ -114,15 +110,11 @@ fun CollectionOfSamples.integrationOfChanges() {
                     Just pull.
                     """
             ) {
+                git("show")
                 git("pull", acceptableExitCodes = setOf(1))
                 git("status")
-                git("show --stat")
             }
         }
 
     }
 }
-
-class Dummy
-
-fun loadResource(s: String): String = Dummy().javaClass.getResourceAsStream(s).bufferedReader().readText()
