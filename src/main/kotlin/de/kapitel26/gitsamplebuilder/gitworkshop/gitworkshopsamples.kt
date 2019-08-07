@@ -10,8 +10,7 @@ fun main() {
         cloning()
         pushFetchPull()
         pushRejected()
-
-
+        integrationOfChanges()
     }
 }
 

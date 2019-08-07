@@ -6,8 +6,11 @@ fun main() {
 
     createCollectionOfSamples("gitworkshop-sandbox") {
 
-        integrationOfChanges()
-
+        repositoryUntersuchen()
+        cloning()
+        pushFetchPull()
+        // pushRejected()
+        // integrationOfChanges()
     }
 }
 

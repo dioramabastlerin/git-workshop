@@ -6,6 +6,22 @@ fun CollectionOfSamples.repositoryUntersuchen() {
 
     createAufgabenFolge("repository-untersuchen") {
 
+        createIntro(
+                """Repository untersuchen""",
+                """
+                Hier geht es darum, herauszufinden, was in einem Repository enthalten ist.
+
+                ## Tipps
+                
+                * `git log` zeigt alles Commits, die im aktuellen Branch enthalten sind.
+                  - `--oneline` macht die Ausgabe kompakter.
+                * `git show <some-commit>` zeigt Details zu einem Commit
+                * Mit `~` Adressiert man Vorgänger eines Commits, 
+                  z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
+            """
+        )
+
+
         createRepo {
             createFileAndCommit("hallo-welt")
             createDir("foo") {
@@ -34,9 +50,8 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             }
 
             markdown("""
-                
                 Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
-                und natürlich auch ein `.git`-Verzeichnis, welches das Repository
+                und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
             """.trimIndent())
         }
 
