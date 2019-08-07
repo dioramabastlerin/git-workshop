@@ -1,6 +1,6 @@
 package impl
 
-class File(val location: java.io.File, val log: LogBuilder) {
+class File(val location: java.io.File, val log: LogBuilder, val solutionCollector: SolutionCollector) {
 
     var content: String
         get() = location.readText()
@@ -47,4 +47,6 @@ class File(val location: java.io.File, val log: LogBuilder) {
     private fun dirName() = location.parentFile.name
 
     fun lines() = location.readLines()
+
+    fun commit() = GitContext(Dir(location.parentFile, log, solutionCollector)).commit(location.name, null)
 }
