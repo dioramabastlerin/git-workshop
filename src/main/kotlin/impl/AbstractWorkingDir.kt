@@ -39,7 +39,10 @@ abstract class AbstractWorkingDir<T>(
                     .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
                     .run(commands)
 
-    fun git(gitCommand: String, acceptableExitCodes: Set<Int> = setOf(0)) =
+    fun git(commands: GitContext<T>.() -> Unit = {}) =
+            GitContext<T>(this).commands()
+
+    fun git(gitCommand: String? = null, acceptableExitCodes: Set<Int> = setOf(0)) =
             bash("git $gitCommand", acceptableExitCodes)
 
     fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0)): List<String> {
