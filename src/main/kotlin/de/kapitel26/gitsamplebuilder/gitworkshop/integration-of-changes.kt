@@ -27,7 +27,7 @@ fun CollectionOfSamples.integrationOfChanges() {
                 ## Infos
                 
                 * `git pull` integriert den lokalen Branch mit seinem "upstream" Gegenstück,
-                  hier: `master` und `origin/master`
+                   hier: `master` und `origin/master`
 
                 ## Tipps
                 
@@ -37,38 +37,48 @@ fun CollectionOfSamples.integrationOfChanges() {
                   des aktuellen `HEAD`-Commits.
                 * `git diff HEAD^1...HEAD^2` zeigt die "fremden" Änderungen 
                 * `git log HEAD^1..HEAD^2` zeigt die "fremden" Commits 
+                * Nach einem Merge-Konflikt:
+                  1. Konfliktdateien bearbeiten
+                  2. dann `git add` nicht vergessen
+                  3. Den Merge mit `git commit` abschließen
+                  
+                  
+                ## Ausgangssituation
+                
+                Ihre Kollegin Anja hat die Arbeit an einem Projekt begonnen.
+                Nun kommen Sie hinzu und übernehmen Aufgaben.
+                Anja hat aber parallel ebenfalls weiter gearbeitet.
+                Integrieren Sie die neuen Änderungen von Anja.
 
             """
         )
 
         createRepo("origin-for-merge-samples") {
-            user("bea")
+            user("anja")
 
-            createFileAndCommit("README.md")
+            createFileAndCommit("README.md") { content = "Hallo Wolt!\n" }
             createFileAndCommit("average.kts") {
                 content = """
-                if(args.isEmpty())
-                    throw RuntimeException("No arguments given!")
-
-                val s = args.map{ it.toInt() }.sum()
-                
-                println("The average is ${'$'}{s/args.size}")
-            """.trimIndent()
+                    if(args.isEmpty())
+                        throw RuntimeException("No arguments given!")
+    
+                    val s = args.map{ it.toInt() }.sum()
+                    
+                    println("The average is ${'$'}{s/args.size}")
+                    
+                """.trimIndent()
             }
 
             createClone("../changes-in-different-files") {
-
             }
 
-            createClone("../my-conflicting-merge") {
-
+            createClone("../changes-in-same-files") {
                 inFileCommit("average.kts", "Refactoring: s in summe umbenennen") {
                     replace("val s = ", "val summe = ")
                     replace("{s/args.size}", replaceWith = "{summe/args.size}")
                 }
             }
 
-            user("anja")
             inFileCommit("average.kts", "Verwende double Werte statt int") {
                 replace("{ it.toInt() }", "{ it.toDouble() }")
             }
@@ -76,26 +86,37 @@ fun CollectionOfSamples.integrationOfChanges() {
 
         inRepo("changes-in-different-files") {
             createAufgabe(
-                    "Integration von Änderungen in verschiedenen Dateien",
+                    "Integration bei Änderungen in verschiedenen Dateien",
                     """
                         1. Bearbeite die Datei `README.md`.
                            - Erstelle ein Commit dazu.
                            - Prüfe mit `git show`, ob das Commit OK ist.
-                        2. Versuche ein `git push`
-                           - Dies wird scheitern, denn Deine Kollegin Anja 
+                        2. Versuche ein Push
+                           - Dies wird scheitern, denn Deine Kollegin Bea 
                              hat die in der Zwischenzeit die Datei `average.kts`
                              bearbeitet und gepushed.
-                        3. Integriere mit `git pull`
+                        3. Integriere mit Pull
                         4. Untersuche das Ergebnis, z. B.
-                           - den Commit-Graphen an (Log mit `--graph`)
-                           - die Änderungen, die Anja gemacht hat (`diff` mit `...`)
-                           - die Commits, die Anja gemacht hat (`log` mit `..`)
+                           - den Commit-Graphen an
+                           - die Änderungen, die Anja gemacht hat 
+                           - die Commits, die Anja gemacht hat
                     """) {
-                bash("touch wurst")
-                inFileCommit("README.md") { edit(3) }
+
+                inFileCommit("README.md") { content = "Hallo Welt!\n" }
                 git("show")
 
+                git("push", setOf(1))
+
+                markdown("""
+                    Diese Meldung zeigt, dass im `origin` Änderungen vorliegen,
+                    die wir noch nicht integriert haben.
+                """)
+
                 git("pull")
+
+                markdown("""
+                    Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
+                """)
 
                 git("log --oneline --graph")
                 git("diff HEAD^1...HEAD^2")
@@ -103,15 +124,27 @@ fun CollectionOfSamples.integrationOfChanges() {
             }
         }
 
-        inRepo("my-conflicting-merge") {
+        inRepo("changes-in-same-files") {
             createAufgabe(
-                    "Integration bei Änderungen in derselben Dateie",
+                    "Integration bei Änderungen in derselben Datei",
                     """
-                    Just pull.
+                    In diesem Fall bearbeiten wir dieselbe Datei,
+                    die auch Anja bearbeitet hat.
+                    Es wird zu einem Konflikt kommen, 
+                    den wir aulösen müssen.
+                    
+                    1. Wir haben schon eine Änderung, die zu einem Konflikt führt,
+                       vorbereitet und committed. Untersuche diese mit `git show`
+                    2. Führe ein Pull durch.
+                    3. Lasse Dir den Status zeigen und löse den Konflikt.
                     """
             ) {
                 git("show")
+
                 git("pull", acceptableExitCodes = setOf(1))
+
+                markdown("Wie erwartet, ist es zu einem Konflikt gekommen.")
+
                 git("status")
 
                 inFile("average.kts") {
@@ -120,9 +153,11 @@ fun CollectionOfSamples.integrationOfChanges() {
                             "val summe = args.map{ it.toDouble() }.sum()"
                     )
                 }
+                markdown("Nicht vergessen: Nach dem Bereinigen `git add` aufrufen.")
                 git("add average.kts")
                 git("commit -m 'Änderungen von Anja integriert'")
 
+                markdown("Und hier nochmal der entstandene Graph:")
                 git("log --graph --oneline")
             }
         }

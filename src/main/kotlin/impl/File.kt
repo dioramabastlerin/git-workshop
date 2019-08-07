@@ -11,7 +11,7 @@ class File(val location: java.io.File, val log: LogBuilder) {
     fun createSampleFileContent(): String =
             (0..11).joinToString("\n") { "line $it created" }
 
-    fun edit(line: Int, message: String = "edited") = edit(line..line, message)
+    fun edit(line: Int, message: String = "Edit file ${location.name}") = edit(line..line, message)
 
     fun edit(linesToEdit: IntRange, message: String = "edited") {
         location
@@ -29,7 +29,7 @@ class File(val location: java.io.File, val log: LogBuilder) {
 
     fun replace(searchFor: String, replaceWith: String) {
         location
-                .apply { log.editFile(dirName(), "replace $searchFor with $replaceWith") }
+                .apply { log.editFile(dirName(), "Edit $name replacing $searchFor with $replaceWith") }
                 .readText()
                 .replace(searchFor, replaceWith)
                 .also { location.writeText(it) }
@@ -37,7 +37,7 @@ class File(val location: java.io.File, val log: LogBuilder) {
 
     fun replaceRegex(searchFor: Regex, replaceWith: String) {
         location
-                .apply { log.editFile(dirName(), "replace pattern $searchFor with $replaceWith") }
+                .apply { log.editFile(dirName(), "Edit $name replacing pattern with $replaceWith") }
                 .readText()
                 .replace(searchFor, replaceWith)
                 .also { location.writeText(it) }
