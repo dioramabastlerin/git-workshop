@@ -156,27 +156,23 @@ abstract class AbstractWorkingDir<T>(
         }
     }
 
-    fun commit(fileName: String, message: String = "Commited file $fileName on branch ${currentBranch()} by ${currentUser()}") {
-        git("""commit -am "$message"""")
-    }
-
     fun editAndCommit(fileName: String, line: Int, message: String = "Edit file $fileName at line $line on branch ${currentBranch()} by ${currentUser()}.") = editAndCommit(fileName, line..line, message)
 
     fun editAndCommit(fileName: String, lines: IntRange, message: String = "Edit file $fileName at lines $lines on branch ${currentBranch()} by ${currentUser()}.") {
         inFile(fileName) { edit(lines, message) }
-        commit(fileName, "`$fileName`: $message")
+        git { commit(fileName, "`$fileName`: $message") }
     }
 
     fun inFileCommit(fileName: String, message: String = "Edited file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
         inFile(fileName, commands)
-        commit(fileName, message)
+        git { commit(fileName, message) }
     }
 
     fun createFileAndCommit(fileName: String, message: String = "Created file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
         createFile(fileName)
         inFile(fileName, commands)
         git("""add $fileName""")
-        commit(fileName, message)
+        git { commit(fileName, message) }
     }
 
     private fun markdownFilename(nr: Int) = "${formatNr(nr)}-aufgabe.md"
@@ -184,14 +180,14 @@ abstract class AbstractWorkingDir<T>(
     private fun formatNr(nr: Int): String = "%02d".format(nr)
 
     // TODO does not work in new repo
-    protected fun currentBranch(): String {
+    fun currentBranch(): String {
         val lines = executeProcess(
                 "git", "symbolic-ref", "--short", "HEAD"
         ).inputStream.bufferedReader().lines().toList()
         return lines.singleOrNull() ?: "MASTER"
     }
 
-    private fun currentUser(): String =
+    fun currentUser(): String =
             executeProcess("git", "config", "user.name")
                     .inputStream
                     .bufferedReader()

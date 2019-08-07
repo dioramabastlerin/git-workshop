@@ -47,10 +47,10 @@ class WorkingWithGitReposTest : StringSpec({
             createRepo {
                 createFile("myfile")
                 git("add myfile") // bc file is new
-                commit("myfile")
+                git { commit("myfile", null) }
 
                 edit("myfile", 1)
-                commit("myfile")
+                git { commit("myfile", null) }
 
                 filesInHead() shouldBe listOf("myfile")
             }

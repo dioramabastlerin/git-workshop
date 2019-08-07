@@ -13,7 +13,7 @@ class GitSampleBuilderSample : StringSpec({
 
                     createFile("file")
                     git("add file")
-                    commit("file")
+                    git { commit("file", null) }
 
                     startBranch("feature") {
                         editAndCommit("file", 5, "to be REBASED")
