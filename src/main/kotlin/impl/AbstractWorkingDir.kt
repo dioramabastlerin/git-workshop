@@ -158,10 +158,6 @@ abstract class AbstractWorkingDir<T>(
         }
     }
 
-    fun add(fileName: String) {
-        git("""add $fileName""")
-    }
-
     fun commit(fileName: String, message: String = "Commited file $fileName on branch ${currentBranch()} by ${currentUser()}") {
         git("""commit -am "$message"""")
     }
@@ -181,7 +177,7 @@ abstract class AbstractWorkingDir<T>(
     fun createFileAndCommit(fileName: String, message: String = "Created file $fileName on branch ${currentBranch()} by ${currentUser()}.", commands: File.() -> Unit = {}) {
         createFile(fileName)
         inFile(fileName, commands)
-        add(fileName)
+        git("""add $fileName""")
         commit(fileName, message)
     }
 
