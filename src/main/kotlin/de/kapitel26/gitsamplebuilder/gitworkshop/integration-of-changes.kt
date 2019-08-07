@@ -91,7 +91,7 @@ fun CollectionOfSamples.integrationOfChanges() {
                            - die Änderungen, die Anja gemacht hat (`diff` mit `...`)
                            - die Commits, die Anja gemacht hat (`log` mit `..`)
                     """) {
-                "Integration von Änderungen in verschiedenen Dateien"
+                bash("touch wurst")
                 inFileCommit("README.md") { edit(3) }
                 git("show")
 

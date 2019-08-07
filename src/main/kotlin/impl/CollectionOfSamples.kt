@@ -27,16 +27,16 @@ class CollectionOfSamples(rootDir: File)
                     .apply(commands)
 
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) =
-            createSample("$name.aufgabe") {
+            createSample("$name.loesung") {
                 commands()
 
                 writeDocs()
 
-                val aufgabenDir = rootDir
-                val loesungDir = File(rootDir.parent, "$name.loesung")
+                val aufgabenDir = File(rootDir.parent, "$name.aufgaben")
+                val loesungDir = rootDir
                 executeProcess(
                         "cp", "-a",
-                        aufgabenDir.absolutePath + "/", loesungDir.absolutePath
+                        loesungDir.absolutePath + "/", aufgabenDir.absolutePath
                 )
                 Dir(loesungDir, log, solutionCollector)
                         .apply {
