@@ -28,13 +28,13 @@ class GitSampleBuilderSample : StringSpec({
                 createSampleVariant("rebased-commit-will-not-merge") {
                     inRepo {
                         startBranch("rebased-feature", "feature") {
-                            git("rebase", "master")
+                            git("rebase master")
                         }
 
-                        git("checkout", "feature")
+                        git("checkout feature")
                         editAndCommit("file", 5, "edit again")
                         try {
-                            git("merge", "rebased-feature")
+                            git("merge rebased-feature")
                         } catch (e: CommandLineException) {
                             e.failedProcess.exitValue() shouldBe 1
                         }
@@ -44,12 +44,12 @@ class GitSampleBuilderSample : StringSpec({
                 createSampleVariant("merge-will-work") {
                     inRepo {
                         startBranch("merged-feature", "feature") {
-                            git("merge", "master")
+                            git("merge master")
                         }
 
-                        git("checkout", "feature")
+                        git("checkout feature")
                         editAndCommit("file", 5, "edit again")
-                        git("merge", "merged-feature")
+                        git("merge merged-feature")
                     }
                 }
 
@@ -57,11 +57,11 @@ class GitSampleBuilderSample : StringSpec({
                     inRepo {
 
                         startBranch("rebased-feature", "feature") {
-                            git("rebase", "master")
+                            git("rebase master")
                         }
 
-                        git("checkout", "feature")
-                        git("merge", "rebased-feature")
+                        git("checkout feature")
+                        git("merge rebased-feature")
                     }
                 }
 

@@ -15,7 +15,7 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
     val name: String get() = rootDir.name
 
     fun startBranch(branchName: String, startingAt: String = "HEAD", function: () -> Unit) {
-        git("branch", branchName, startingAt)
+        git("branch $branchName $startingAt")
         onBranch(branchName, function)
     }
 
@@ -24,9 +24,9 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
         if (previousBranch == branchName) {
             function()
         } else {
-            git("checkout", branchName)
+            git("checkout $branchName")
             function()
-            git("checkout", previousBranch)
+            git("checkout $previousBranch")
 
         }
     }
@@ -37,7 +37,7 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
     }
 
     fun createClone(cloneLocation: String, vararg args: String, commands: (Repo.() -> Unit)? = null) {
-        git("clone", ".", cloneLocation, *args)
+        git("clone . $cloneLocation ${args.joinToString(" ")}")
         inRepo(cloneLocation, commands)
     }
 }

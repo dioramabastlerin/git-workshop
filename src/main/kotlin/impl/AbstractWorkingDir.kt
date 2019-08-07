@@ -96,10 +96,8 @@ abstract class AbstractWorkingDir<T>(
     }
 
 
-    fun git(vararg commandLineArguments: String): List<String> = git(commandLineArguments.joinToString(" "))
-
     fun createRepo(newRepoName: String = "repo", vararg args: String, commands: (Repo.() -> Unit)? = null) {
-        git("init", newRepoName, *args)
+        git("init $newRepoName ${args.joinToString(" ")}")
         Repo(java.io.File(rootDir, newRepoName).absoluteFile, log, solutionCollector, commands)
     }
 

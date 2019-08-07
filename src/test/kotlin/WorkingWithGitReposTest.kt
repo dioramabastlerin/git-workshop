@@ -80,8 +80,8 @@ class WorkingWithGitReposTest : StringSpec({
                 editAndCommit("myfile", 1) // will be back on master
                 onBranch("master") { editAndCommit("myfile", 2) }
 
-                git("merge", "salami")
-                git("merge", "stracke")
+                git("merge salami")
+                git("merge stracke")
                 val resultLines = File(rootDir, "myfile").readLines()
                 resultLines[0] should include("master")
                 resultLines[1] should include("master")
