@@ -113,6 +113,17 @@ fun CollectionOfSamples.integrationOfChanges() {
                 git("show")
                 git("pull", acceptableExitCodes = setOf(1))
                 git("status")
+
+                inFile("average.kts") {
+                    replaceRegex(
+                            """\<\<\<.*\>\>\>""".toRegex(),
+                            "val summe = args.map{ it.toDouble() }.sum()"
+                    )
+                }
+                git("add average.kts")
+                git("commit -m 'Änderungen von Anja integriert'")
+
+                git("log --graph --oneline")
             }
         }
 
