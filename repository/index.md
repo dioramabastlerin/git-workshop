@@ -4,34 +4,23 @@
 
 ## Lernziel
 
-Was findet man in einem Git-Repository? Wie untersucht man es?
-
- * Dezentralität, Klon
- * Repository
-    * Commit-Graph: Commit, Tree, File (Blob)
-    * Branches und Tags (Refs)
- * Workspace
+Was ist ein Git-Repository,
+und wie findet man heraus,
+was darin enthalten ist?
 
 ---
 
-### Lernziel (Befehle)
-
-```bash
-    # Commit-Graph
-    git log
-    git show
-    git diff
-
-    # Refs
-    git branch -v
-    git tag
-
-    # Workspace
-    git checkout
-```
+ * Klone, Dezentralität, der Workspace und das Repositorys
+ * Commits, Trees und das Log
+ * Der Commit-Graph
+ * HEAD, Branches, Tags
+ * Checkout
 
 ---
 
+## Klone, Dezentralität, der Workspace und das Repositorys
+
+---
 
 ## Übung
 
@@ -42,10 +31,10 @@ Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um e
     ls -lah
 ```
 
-
 ---
 
 Zwei Dinge sind aufgetaucht:
+
  1. Das **Repository**
 
     (in `git-workshop/.git`)
@@ -54,26 +43,36 @@ Zwei Dinge sind aufgetaucht:
 
    (alle anderen Dateien unter `git-workshop`)
 
-
 ---
 
 ## Repository
 
 Damit Git **dezentral** (unabhängig vom Server) arbeiten kann,
-enthälte es eine Datenbank
+enthält es eine Datenbank
 mit der **gesamten Historie** eines Projekts.
 
+ * alle Versionen aller Dateien
+ * Metadaten: Autor, Zeitpunkt
+ * Branches: Ermöglichen parallele Entwicklungsstränge
+ * Markierte Versionen, genannt Tags
 
 ---
 
-## Inhalte des Repositorys
+ * (Bild: Dezentraler Austausch mit Push/Pull)
+ * In jedem Klon wird unabhängig gearbeit.
+ * Fast alle Befehle arbeiten lokal.
+ * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
+ * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
- * alle **Versionen** aller Dateien über die **volle Historie**
- * **Metadaten**: Wer? Wann?
- * Projektdaten
-   - **Branches** (falls parallel an verschiedenen Versionen gearbeitet wird)
-   - **Releases** (genannt *Tags*)
+---
 
+## Workspace
+
+Enthält alle Dateien und Verzeichnisse des Projekts.
+
+ * versionierte Dateien
+ * unversionierte Dateien
+ * ignorierte Dateien
 
 ---
 
@@ -303,5 +302,23 @@ Starten mit:
 ## Nach der Übung
 
     git checkout master
+
+---
+
+### Zusammenfassung (Befehle)
+
+```bash
+    # Commit-Graph
+    git log
+    git show
+    git diff
+
+    # Refs
+    git branch -v
+    git tag
+
+    # Workspace
+    git checkout
+```
 
 
