@@ -64,8 +64,8 @@ Versionsverwaltung für die Linux Kernel Entwicklung
  ## Setup
 
  ```
-    config --global user.email <Ihre-Email>
-    config --global user.name <Ihr-Name>
+    git config --global user.email <Ihre-Email>
+    git config --global user.name <Ihr-Name>
  ```
 
 ### Credential Helper
