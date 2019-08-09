@@ -4,31 +4,41 @@
 
 ## Lernziel
 
-Was ist ein Git-Repository,
-und wie findet man heraus,
+Was ist ein Git-Repository?\
+Und wie findet man heraus,\
 was darin enthalten ist?
 
 ---
 
- * Klone, Dezentralität, der Workspace und das Repositorys
- * Commits, Trees und das Log
- * Der Commit-Graph
- * HEAD, Branches, Tags
+### Themen
+
+ * Repository und Workspace
+ * Klone und Dezentralität
+ * Commits und Revision-Hashes
+ * Das Log
+ * Branches, Tags und HEAD
  * Checkout
 
 ---
 
-## Klone, Dezentralität, der Workspace und das Repositorys
+## Repository und Workspace
 
 ---
 
-## Übung
+### Übung
 
-Mit dem `clone`-Befehl kopieren wir ein Git-Repository auf unseren Rechner, um es zu untersuchen.
+Wir untersuchen ein Repository. Der `clone`-Befehl bringt es auf unseren Rechner.
 ```bash
-    git clone <server-url>/git-workshop.git
-    cd git-workshop
-    ls -lah
+    $ git clone <server-url>/git-workshop.git
+    $ cd git-workshop
+    $ ls -lah
+    ...
+    drwxrwxr-x   3 bjoern bjoern 4,0K Aug  9 19:54 css
+    drwxrwxr-x   2 bjoern bjoern 4,0K Jun 24 18:20 debugging
+    drwxr-xr-x  10 bjoern bjoern 4,0K Aug  9 20:02 .git
+    -rw-rw-r--   1 bjoern bjoern    6 Apr 25 22:00 .gitignore
+    drwxrwxr-x   3 bjoern bjoern 4,0K Jun 24 18:20 gitlab-ci
+    ...
 ```
 
 ---
@@ -37,15 +47,29 @@ Zwei Dinge sind aufgetaucht:
 
  1. Das **Repository**
 
-    (in `git-workshop/.git`)
+    (es liegt in `.git`)
 
  1. Der **Workspace**
 
-   (alle anderen Dateien unter `git-workshop`)
+   (alle anderen Dateien und Verzeichnisse, die nicht in `.git` liegen)
 
 ---
 
-## Repository
+### Der Workspace
+
+umfasst alle Dateien und Verzeichnisse des Projekts
+
+ * **versionierte Dateien**
+   Dateien, die in der aktuellsten Git-Revision des Projekts,
+   `HEAD` genannt, schon bekannt sind.
+ * **unversionierte Dateien**
+   Neue Dateien, die Git "noch nicht kennt".
+ * **ignorierte Dateien**
+   Die gar nicht versioniert werden sollen (Stichwort: `.gitignore`)
+
+---
+
+### Repository
 
 Damit Git **dezentral** (unabhängig vom Server) arbeiten kann,
 enthält es eine Datenbank
@@ -58,21 +82,63 @@ mit der **gesamten Historie** eines Projekts.
 
 ---
 
+### Übung
+
+Wir lassen uns die Commits zeigen.
+```bash
+    $ git log --oneline
+
+    909af6d (HEAD -> master) Fix obsolete text on page
+    02d3329 fix typo in link
+    38efbcb Enable offline use
+    28e7071 Enable offline use
+    6721664 Overwork repository chapter
+    2ca78c1 Remove duplicated slides
+    330fd73 Fix missing git before command
+    ...
+```
+Erkenntnis: Das von uns geklonte Repositor enthält die ganze Historie ders Projekts.
+
+---
+
+## Klone und Dezentralität
+
+---
+
+Warum enthält\
+das geklonte Repository\
+die ganze Historie des Projekts?
+
+---
+
  * (Bild: Dezentraler Austausch mit Push/Pull)
  * In jedem Klon wird unabhängig gearbeit.
- * Fast alle Befehle arbeiten lokal.
+ * Fast alle Befehle arbeiten lokal (und damit schnell).
  * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
  * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
 ---
 
-## Workspace
+## Commits und Revision-Hashes
 
-Enthält alle Dateien und Verzeichnisse des Projekts.
+---
 
- * versionierte Dateien
- * unversionierte Dateien
- * ignorierte Dateien
+Das Git-Repository speichert Versionen (auch Revisions genannt) des Projekts
+in Form von *Commits*. Jedes Commit wiederum hat
+
+ * **Tree** - "Snapshot" aller Dateien und Verzeichnisse zu eine Zeitpunkt
+ * **Metadaten** - Zeitpunkt der Änderung, Autor und Beschreibung der Änderung
+ * **Parent(s)** - Vorgängerversion(en)
+ * **Revision Hash** - die "Versionsnummer" von Git
+   Prüfsumme über alle oben angegebenen Informationen.
+
+---
+
+### `HEAD`
+
+bezeichnet das aktuelle Commit,/
+ist bei vielen Befehlen Default-Wert\
+und kann oft weggelassen werden.
 
 ---
 
@@ -80,23 +146,15 @@ Enthält alle Dateien und Verzeichnisse des Projekts.
 
 ```bash
     # show zeigt detaillierte Informationen zu Commits
-    git show HEAD
-    git show HEAD:README         # Inhalt der Datei
+    git show HEAD                # Infos zum HEAD-Commit
+    git show                     # ebenso
+    git show HEAD:README         # Inhalt einer Datei
     git show --pretty=raw HEAD   # Was Git in der DB hat
 
-    # mit ls-tree kann man den Verzeichnisbaum untersuchen
+    # ls-tree listet Verzeichnisse auf untersuchen
     git ls-tree -r HEAD
     git ls-tree --abbrev HEAD src/main/java
 ```
-
----
-
-# `HEAD`
-
-bezeichnet das aktuelle Commit und
-ist bei vielen Befehlen der Default-Wert
-und kann oft weggelassen werden.
-
 
 ---
 
@@ -113,35 +171,24 @@ oder über symbolische Namen (Refs) angesprochen werden.
     git show f6be3b      # es darf abgekürzt werden
 
     # Refs
-    git show HEAD
-    git show master
-    git show v1.0.0
+    git show HEAD        # "aktuelle" Version
+    git show master      # ein Branch
+    git show v1.0.0      # ein Tag
 ```
 
+## Das Log
 
 ---
 
-### Ein *Commit* enthält
+Bis auf das Allererste haben alle Commits einen Parent.
+Die Menge aller Vorfahren eines Commits, z. B. `master,` nennt man **das Log**.
+Es sind also alle Commits, die zur Entstehung des aktuellen Commits beigetragen haben.
 
- * **Tree** - exakter Stand aller versionierten Dateien und Verzeichnisse
- * **Metadaten** - Autor und Zeitpunkt der Änderung, Beschreibung der Änderung
- * **Parent(s)** - Vorgängerversion(en)
- * **Revision Hash** - Prüfsumme über Dateinhalte und Struktur, Autor, Zeitpunkt, Commit-Kommentar und Parent-Revision.
-
----
-
-
-### Das Log / die Historie
-
-Bis auf das Erste haben alle Commits einen Parent.
-Die Historie ist die Menge aller Vorfahren eines Commits.
-Sie kann Verzweigungen enthalten,
-z. B. wenn mehrere Entwickler parallel gearbeitet haben.
-Mit `~` kann man Vorfahren adressieren.
+`git log master`
 
 ---
 
-`git log master` zeigt alle Commits, die zur Entstehung des aktuellen Master-Standas beigetragen haben.
+Der Log-Befeht biete zahlreiche Optionen. Hier ein paar nützliche Beispiele:
 
 ```bash
     # log zeigt die Historie
@@ -153,10 +200,44 @@ Mit `~` kann man Vorfahren adressieren.
     git show HEAD~2          # vorvorletztet Commit
 ```
 
+Tipp: Mit `~` kann man Vorfahren adressieren.
 
 ---
 
-##  Diff
+### Der Commit-Graph
+
+Das Log kann Verzweigungen enthalten und Zusammenführungen (Merges) enthalten,
+z. B. wenn mehrere Entwickler parallel gearbeitet haben.
+
+```
+* | 5c65d40 Notizen zur Wiederholung
+* | 040bb7d Zeitplan für early birds hinzugefügt
+|/  
+* b1fae20 Fixup
+* 4137535 Add some aufgaben
+* 8f900ba Refactor: Split git intro 
+*   351872f Merge branch 'master' 
+|\  
+| * c81fde8 Update index.en.md
+* | 9bf4c61 Add workshop: Git basics and best practices
+|/  
+* 5f58070 Modify link to edit files on github
+```
+
+---
+
+Die Option `--graph` kann dies darstellen:
+
+```bash
+    git log --graph             # Graphen darstellen
+    git log --graph --oneline   #  
+    git log --graph --all       #
+
+```
+
+---
+
+###  Vergleichen von Commits mit Diff
 
 Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
@@ -174,17 +255,6 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 
 Optionen: `-b/--ignore-space-change`, `--word-diff`
 
-
----
-
-## Workspace
-
-Hier kann man Folgendes finden:
-
- * Dateien des gerade aktuellen Projektstandes (`HEAD`)
-   - die können lokal bearbeitet werden
- * noch unversionierte Dateien
- * von Git ignorierte Dateien
 
 
 ---
