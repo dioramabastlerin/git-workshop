@@ -42,15 +42,6 @@ class LogBuilder {
     fun addRawLine(s: String) =
         collectedLogs.add(s to activeCollectors.toSet())
 
-    fun writeIndexFile(rootDir: File) {
-        collectedLogs
-                .flatMap { (line, names) -> names.map { it to line } }
-                .filter { (name, _) -> name != fullLogFileName }
-                .sortedBy { (name, _) -> name }
-                .joinToString("\n") { (_, line) -> line }
-                .also { File(rootDir, "index.md").writeText(it) }
-    }
-
     fun writeMarkdownFiles(rootDir: File) {
         val name2writer = mutableMapOf<String, BufferedWriter>()
         collectedLogs.forEach { (line, names) ->

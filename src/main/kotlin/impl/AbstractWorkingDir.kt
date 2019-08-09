@@ -126,11 +126,7 @@ abstract class AbstractWorkingDir<T>(
         log.stopLoggingTo(name)
     }
 
-    fun writeDocs() {
-        log.writeIndexFile(rootDir)
-        log.writeMarkdownFiles(rootDir)
-    }
-
+    fun writeDocs() = log.writeMarkdownFiles(rootDir)
 
     @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
@@ -164,7 +160,7 @@ abstract class AbstractWorkingDir<T>(
         git { commit(fileName, message) }
     }
 
-    private fun markdownFilename(nr: Int) = "${formatNr(nr)}-aufgabe.md"
+    private fun markdownFilename(nr: Int) = "index.md"
 
     private fun formatNr(nr: Int): String = "%02d".format(nr)
 
