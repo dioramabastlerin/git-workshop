@@ -101,12 +101,6 @@ abstract class AbstractWorkingDir<T>(
         Repo(java.io.File(rootDir, newRepoName).absoluteFile, log, solutionCollector, commands)
     }
 
-    fun createClonedRepo(originalRepo: String, clonedRepo: String = "repo", commands: (Repo.() -> Unit)? = {}) {
-        git("clone $originalRepo $clonedRepo")
-        inRepo(clonedRepo, commands)
-    }
-
-
     fun inRepo(repoName: String = "repo", commands: (Repo.() -> Unit)? = null): Unit =
             java.io.File(rootDir, repoName).absoluteFile
                     .apply { if (!exists()) throw IllegalStateException("Repo $this does not exist!") }
