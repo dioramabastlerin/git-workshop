@@ -12,16 +12,16 @@ fun CollectionOfSamples.pushRejected() {
         val anjasFile = "backend.java"
         val myFile = "frontend.java"
 
-        createRepo(blessedRepo, "--bare")
+        createRepo(blessedRepo, "--bare") {
+            createClone("../$anjasClone") {
+                user("anja")
+                createFileAndCommit(anjasFile)
+                createFileAndCommit(myFile)
+                git("push")
+            }
 
-        createClonedRepo(blessedRepo, anjasClone) {
-            user("anja")
-            createFileAndCommit(anjasFile)
-            createFileAndCommit(myFile)
-            git("push")
+            createClone("../$myClone")
         }
-
-        createClonedRepo(blessedRepo, myClone)
 
         inRepo(anjasClone) {
             editAndCommit(anjasFile, 1)

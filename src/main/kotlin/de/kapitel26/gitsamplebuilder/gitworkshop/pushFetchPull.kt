@@ -5,15 +5,15 @@ import impl.CollectionOfSamples
 fun CollectionOfSamples.pushFetchPull() {
     createAufgabenFolge("push-fetch-pull") {
 
-        createRepo("blessed.git", "--bare")
+        createRepo("blessed.git", "--bare") {
 
-        createClonedRepo("blessed.git", "anderer-klon") {
-            createFileAndCommit("foo", "Initial edit before cloning")
-            git("push")
+            createClone("../anderer-klon") {
+                createFileAndCommit("foo", "Initial edit before cloning")
+                git("push")
+            }
+
+            createClone("../mein-klon")
         }
-
-        createClonedRepo("blessed.git", "mein-klon")
-
         inRepo("anderer-klon") {
             editAndCommit("foo", 3, "First edit after cloning")
             editAndCommit("foo", 7, "Second edit after cloning")
