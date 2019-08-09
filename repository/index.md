@@ -16,8 +16,8 @@ was darin enthalten ist?
  * Klone und Dezentralität
  * Commits und Revision-Hashes
  * Das Log
- * Branches, Tags und HEAD
  * Checkout
+ * Branches, Tags und HEAD
 
 ---
 
@@ -176,6 +176,8 @@ oder über symbolische Namen (Refs) angesprochen werden.
     git show v1.0.0      # ein Tag
 ```
 
+---
+
 ## Das Log
 
 ---
@@ -244,47 +246,23 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
 ```bash
     # diff vergleicht zwei Commits
     git diff HEAD~4 HEAD
-    git diff 1a8a2 9f5c3 -- inhalt.md  # einzelne Datei
-    git diff 1a8a2 9f5c3 --stat        # Überblick
-    git diff HEAD~3                    # Vergleich mit HEAD
-
+    git diff 1a8a2 9f5c3 -- inhalt.md   # einzelne Datei
+    git diff 1a8a2 9f5c3 --stat         # Überblick
+    git diff 1a8a2 9f5c3 --word-diff    # Wortweiser Vergleich f. Texte
+    git diff 1a8a2 9f5c3 -b             # Whitespace-Änderunen ausblenden
+    git diff HEAD~3                     # Vergleich mit HEAD
 
     # externes tool nutzen
     git difftool HEAD~4 HEAD
 ```
+ 
+---
 
-Optionen: `-b/--ignore-space-change`, `--word-diff`
-
-
+## Branches, Tags und HEAD
 
 ---
 
-### Checkout: Repository -> Workspace
-
-Bestimmte Version ausgewählter Dateien wieder herstellen:
-
-
-    git checkout 83fe378 -- foo.bar
-
-Um Änderungen im Workspace zu verwerfen, wird der checkout-Befehl mit dem
-Argument HEAD verwendet. ACHTUNG: „checkout HEAD“ ohne Dateiname verwirft nichts.
-
-    git checkout HEAD foo.txt #Änderung einer Datei verwerfen
-    git checkout HEAD . #Alle geänderten und gelöschten Dateien wiederherstellen
-
----
-
-## Checkout
-
-Auf eine ältere Version zurückgehen
-
-    git checkout 83fe378
-
-ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnvoll weiterbearbeiten. Dazu benötigt man einen Branch (späteres Kapitel).
-
----
-
-### Ref - Zeiger auf ein Commit
+### Ref - Ein Name für ein Commit
 
 Ein *Ref* ist ein Zeiger auf ein Commit.
 Der Log-Befehl zeigt die Refs idR. mit an, d. h. `--decorate` kann weggelassen werden.
@@ -324,15 +302,40 @@ git tag
 
 ---
 
-## Elementare Begriffe
+---
 
-Mitreden, wo es um Git geht
-   * Repository
-   * Workspace
-   * Klon
-   * Commit, Revision, Revision-Hash
-   * Tree
-   * Ref, Branch, Tag
+## Checkout
+
+---
+
+### Checkout
+ 
+### Commit -> Workspace
+
+Bestimmte Version ausgewählter Dateien wieder herstellen:
+
+```bash
+    git checkout 83fe378~1 -- foo         # Vorige Version von "foo" in den Workspace bringen
+    git checkout 83fe378~1 -- src/        # Vorige Version aller Datein in src
+                                            Workspace bringen
+
+    git checkout HEAD -- foo              # Lokale Änderungen an "foo" entfernen
+```
+
+Anmerkung: Wenn Dateien oder Verzeichniss angegeben sind, werden nur diese ersetzt,
+und der `HEAD` wechselt nicht
+
+**Vorsicht!** Die angegeben Dateien werden ohne Sicherung überschreiben.
+
+---
+
+Auf eine ältere Version zurückgehen
+
+    git checkout 83fe378
+    
+Anmerkung: Da keine Dateien oder Verzeichniss angegeben sind, wechselt der `HEAD`-Stand.
+
+ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnvoll weiterbearbeiten. Dazu benötigt man einen Branch (späteres Kapitel).
 
 ---
 
@@ -372,6 +375,19 @@ Starten mit:
 ## Nach der Übung
 
     git checkout master
+
+---
+
+---
+
+### Zusammenfassung (Begriffe)
+
+   * Repository
+   * Workspace
+   * Klon
+   * Commit, Revision, Revision-Hash
+   * Tree
+   * Ref, Branch, Tag
 
 ---
 
