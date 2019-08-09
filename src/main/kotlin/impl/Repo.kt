@@ -1,6 +1,7 @@
 package impl
 
 import java.io.File
+import java.nio.file.Paths
 
 class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector, commands: (Repo.() -> Unit)? = null) : AbstractWorkingDir<Repo>(rootDir, log = log, solutionCollector = solutionCollector) {
 
@@ -38,6 +39,12 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
 
     fun createClone(cloneLocation: String, vararg args: String, commands: (Repo.() -> Unit)? = null) {
         git("clone . $cloneLocation ${args.joinToString(" ")}")
-        inRepo(cloneLocation, commands)
+        val originDir = rootDir
+        inRepo(cloneLocation) {
+            val relativeOrigin = Paths.get(rootDir.canonicalPath).relativize(Paths.get(originDir.canonicalPath))
+            git("remote set-url origin $relativeOrigin")
+            if (commands != null)
+                commands()
+        }
     }
 }
