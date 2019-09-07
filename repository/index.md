@@ -255,7 +255,7 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
     # externes tool nutzen
     git difftool HEAD~4 HEAD
 ```
- 
+
 ---
 
 ## Branches, Tags und HEAD
@@ -299,8 +299,6 @@ git branch
 
 git tag
 ```
-
----
 
 ---
 
@@ -375,8 +373,6 @@ Starten mit:
 ## Nach der Übung
 
     git checkout master
-
----
 
 ---
 

@@ -2,33 +2,26 @@
 
 ---
 
-
 ## Lernziel
 
+Verstehen, was Merges sind,\
+wie Git Änderungen zusammenführt,\
+wie man Mergekonflikte auflöst\
+und wie man Probleme durch Merges vemeidet.
 
- * Commit-Graph
-   - `master` vs. `origin/master`
+---
+
+### Themen
+
+ * Wie enstehen Verzweigungen?
  * 3-Wege-Merge
- * Mergekonflikte
-   - `HEAD` | `MERGE_HEAD`
+ * Konfliktauflösung
+ * Analyse
  * Fast-Forwards
 
 ---
 
-### Lernziel (Befehle)
-
-
-```bash
-  git log --all --graph
-
-  git merge
-
-  git mergetool
-
-  git log branchA..branchB
-  git log HEAD^1..HEAD^2
-```
-
+## Wie entstehen Verzweigungen?
 
 ---
 
@@ -46,18 +39,6 @@
 ![Verzweigungen bim Push](push-pull-diverging.png)
 
 
---------------------------------------------------
-
-### Push rejected
-
-> Grundregel: Nie Historie vernichten!
-
-Alle Commits, die vorher in der Historie des Branches waren, müssen es nachher auch noch sein.
-
-Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
-
--> Der Konflikt muss jetzt lokal aufgelöst werden!
-
 ---
 
 ### Merge
@@ -67,6 +48,11 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
     git merge origin/master
 
 ---
+
+## 3-Wege-Merge
+
+---us
+
 
 ### 3-Wege-Merge
 
@@ -153,6 +139,24 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
 
 
 [Renames und Merges](renames-und-merges.md)
+
+
+---
+
+### Zusammenfassung (Befehle)
+
+```bash
+  git log --all --graph
+
+  git merge
+
+  git mergetool
+
+  git log branchA..branchB
+  git log HEAD^1..HEAD^2
+```
+
+
 
 
 

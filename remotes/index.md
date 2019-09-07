@@ -240,6 +240,18 @@ git push origin master
 Achtung: `origin master` (Remote + lokaler branch) nicht `origin/master`
 
 
+--------------------------------------------------
+
+### Push rejected
+
+> Grundregel: Nie Historie vernichten!
+
+Alle Commits, die vorher in der Historie des Branches waren, müssen es nachher auch noch sein.
+
+Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
+
+-> Der Konflikt muss jetzt lokal aufgelöst werden!
+
 ---
 
 ### Fetch
