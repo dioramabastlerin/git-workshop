@@ -18,6 +18,12 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 * `git show <some-commit>` zeigt Details zu einem Commit
                 * Mit `~` Adressiert man Vorgänger eines Commits, 
                   z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
+
+                # Setup
+    
+                Im Verzeichnis `repo` wartet ein Git-Projekt darauf,
+                untersucht zu werden. 
+
             """
         )
 
@@ -37,13 +43,10 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             createFileAndCommit("und-tschuess")
         }
 
-        logTo("00-intro.md") {
-            markdown("""
-            # Repositorys untersuchen
-
-            Im Verzeichnis `repo` wartet ein Git-Projekt darauf,
-            untersucht zu werden. 
-            """)
+        createAufgabe(
+                "Verzeichnisstruktur", """
+                    Untersuche das Projektverzeichnis.
+        """) {
 
             inRepo {
                 bash("ls -hal")
