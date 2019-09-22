@@ -15,17 +15,6 @@ class CollectionOfSamples(rootDir: File)
         createDir(sampleName, commands)
     }
 
-    // TODO obsolete?
-    fun copySample(original: String, copy: String, commands: Dir.() -> Unit) =
-            Dir(File(rootDir, copy), log, solutionCollector)
-                    .also { duplicate ->
-                        Dir(rootDir, log, solutionCollector)
-                                .executeProcess(
-                                        "cp", "-a", File(rootDir, original).absolutePath + "/.", duplicate.rootDir.absolutePath
-                                )
-                    }
-                    .apply(commands)
-
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) =
             createSample("$name.loesung") {
                 commands()
