@@ -4,7 +4,7 @@ import impl.CollectionOfSamples
 
 fun CollectionOfSamples.commitsErstellen() {
 
-    createAufgabenFolge("commits-erstellen") {
+    createAufgabenFolge("erstellen") {
 
         createIntro(
                 """Commits erstellen""",

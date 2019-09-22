@@ -4,7 +4,7 @@ import impl.CollectionOfSamples
 
 fun CollectionOfSamples.repositoryUntersuchen() {
 
-    createAufgabenFolge("repository-untersuchen") {
+    createAufgabenFolge("untersuchen") {
 
         createIntro(
                 """Repository untersuchen""",

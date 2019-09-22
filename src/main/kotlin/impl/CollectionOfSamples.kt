@@ -5,18 +5,25 @@ import java.io.File
 class CollectionOfSamples(rootDir: File)
     : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(), solutionCollector = SolutionCollector()) {
 
+    var aufgabenFolgenNummer: Int = 0
+    var thema: String? = null
+
     fun clear() {
         rootDir.deleteRecursively()
         rootDir.mkdirs()
     }
 
-    fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) =
-            createSample("$name.loesung") {
+    fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) {
+        aufgabenFolgenNummer++
+        val prefix = "%02d".format(aufgabenFolgenNummer)
+        val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
+
+        createSample("$fullName.loesung") {
                 commands()
 
                 writeDocs()
 
-                val aufgabenDir = File(rootDir.parent, "$name.aufgaben")
+            val aufgabenDir = File(rootDir.parent, "$fullName.aufgaben")
                 val loesungDir = rootDir
                 executeProcess(
                         "cp", "-a",
@@ -30,9 +37,17 @@ class CollectionOfSamples(rootDir: File)
 
                 reset()
             }
+    }
 
     fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {
         log.collectedLogs.clear()
         createDir(sampleName, commands)
+    }
+
+    fun thema(thema: String, commands: CollectionOfSamples.() -> Unit) {
+        val previousThema = this.thema
+        this.thema = thema
+        commands()
+        this.thema = previousThema
     }
 }

@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import impl.CollectionOfSamples
 
 fun CollectionOfSamples.integrationOfChanges() {
-    createAufgabenFolge("integration-of-changes") {
+    createAufgabenFolge("integration-von-aenderungen") {
 
         createIntro(
                 """Integration von Änderungen""",

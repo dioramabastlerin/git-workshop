@@ -6,19 +6,23 @@ fun main() {
 
     createCollectionOfSamples("gitworkshop") {
 
-        // Repository
-        repositoryUntersuchen()
+        thema("Repository") {
+            repositoryUntersuchen()
+        }
 
-        // Commits
-        commitsErstellen()
+        thema("Commits") {
+            commitsErstellen()
+        }
 
-        // Dezentralität, Klone und Remotes
-        cloning()
-        pushFetchPull()
-        pushRejected()
+        thema("Klone") {
+            cloning()
+            pushFetchPull()
+            pushRejected()
+        }
 
-        // Merges
-        integrationOfChanges()
+        thema("Merges") {
+            integrationOfChanges()
+        }
 
         // Branches
 
@@ -29,4 +33,5 @@ fun main() {
         // Modules
     }
 }
+
 

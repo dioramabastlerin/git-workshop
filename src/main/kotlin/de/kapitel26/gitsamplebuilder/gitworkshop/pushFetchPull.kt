@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import impl.CollectionOfSamples
 
 fun CollectionOfSamples.pushFetchPull() {
-    createAufgabenFolge("push-fetch-pull") {
+    createAufgabenFolge("push-fetch-und-pull") {
 
         createRepo("blessed.git", "--bare") {
 
