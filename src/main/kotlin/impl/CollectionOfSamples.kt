@@ -10,11 +10,6 @@ class CollectionOfSamples(rootDir: File)
         rootDir.mkdirs()
     }
 
-    fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {
-        log.collectedLogs.clear()
-        createDir(sampleName, commands)
-    }
-
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) =
             createSample("$name.loesung") {
                 commands()
@@ -36,4 +31,8 @@ class CollectionOfSamples(rootDir: File)
                 reset()
             }
 
+    fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {
+        log.collectedLogs.clear()
+        createDir(sampleName, commands)
+    }
 }
