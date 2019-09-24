@@ -14,6 +14,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven("http://dl.bintray.com/jetbrains/markdown")
     }
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
@@ -31,6 +32,8 @@ allprojects {
 
     dependencies {
         api(kotlin("stdlib-jdk8"))
+
+        implementation("org.jetbrains:markdown:0.1.33")
 
         testImplementation(kotlin("reflect"))
         testImplementation("io.kotlintest:kotlintest-runner-junit5:3.1.10")

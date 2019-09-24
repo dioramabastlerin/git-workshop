@@ -1,5 +1,8 @@
 package impl
 
+import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
+import org.intellij.markdown.html.HtmlGenerator
+import org.intellij.markdown.parser.MarkdownParser
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -55,6 +58,33 @@ class LogBuilder {
             }
         }
         name2writer.values.forEach { it.close() }
+    }
+
+    fun writeHtmlFiles(rootDir: File) {
+        val header = """
+            <head>
+            <meta charset="utf-8">  
+            </head>
+            
+        """.trimIndent()
+
+        collectedLogs
+                .flatMap { (line, names) -> names.map { name -> name to line } }
+                .groupBy { it.first }
+                .entries
+                .map { (name, lines) -> name to lines.map { it.second }.joinToString("\n") }
+                .map { (name, markdown) ->
+                    val htmlBody = markdown2html(markdown)
+                    val nameWithoutExtension = File(name).nameWithoutExtension
+                    File(rootDir, "$nameWithoutExtension.html").writeText(header + htmlBody)
+                }
+    }
+
+    private fun markdown2html(markdown: String): String {
+        val flavour = CommonMarkFlavourDescriptor()
+        val parsedTree = MarkdownParser(flavour).buildMarkdownTreeFromString(markdown)
+        val html = HtmlGenerator(markdown, parsedTree, flavour).generateHtml()
+        return html
     }
 
     fun of(name: String) =

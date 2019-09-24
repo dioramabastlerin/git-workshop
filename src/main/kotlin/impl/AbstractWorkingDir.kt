@@ -126,7 +126,11 @@ abstract class AbstractWorkingDir<T>(
         log.stopLoggingTo(name)
     }
 
-    fun writeDocs() = log.writeMarkdownFiles(rootDir)
+    fun writeDocs() =
+            log
+                    // .also { it.writeMarkdownFiles(rootDir) }
+                    .also { it.writeHtmlFiles(rootDir) }
+
 
     @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
