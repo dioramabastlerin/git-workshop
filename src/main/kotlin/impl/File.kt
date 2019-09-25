@@ -5,6 +5,7 @@ class File(val location: java.io.File, val log: LogBuilder, val solutionCollecto
     var content: String
         get() = location.readText()
         set(value) {
+            log.editFile(dirName(), "Edit file ${location.name}")
             location.writeText(value)
         }
 
