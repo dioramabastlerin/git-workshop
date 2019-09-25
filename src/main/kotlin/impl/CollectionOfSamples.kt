@@ -2,8 +2,8 @@ package impl
 
 import java.io.File
 
-class CollectionOfSamples(rootDir: File)
-    : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(), solutionCollector = SolutionCollector()) {
+class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
+    : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(options), solutionCollector = SolutionCollector()) {
 
     var aufgabenFolgenNummer: Int = 0
     var thema: String? = null

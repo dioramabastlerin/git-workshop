@@ -4,7 +4,7 @@ import io.kotlintest.specs.StringSpec
 class BuildingSampleVariantsTest : StringSpec({
 
     "duplication" {
-        createCollectionOfSamples(description().name) {
+        createCollectionOfSamples(description().name, ) {
 
             var expectedDir: String? = null
 
