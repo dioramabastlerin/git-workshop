@@ -41,7 +41,8 @@ fun CollectionOfSamples.commitsErstellen() {
                     "Verzeichnisstruktur", """
                     Untersuche das Projektverzeichnis.
         """) {
-
+                bash("ls -lah")
+                bash("git status")
 
                 markdown("""
                 Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
