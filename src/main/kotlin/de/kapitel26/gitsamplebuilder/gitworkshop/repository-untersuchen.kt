@@ -18,6 +18,9 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 * `git show <some-commit>` zeigt Details zu einem Commit
                 * Mit `~` Adressiert man Vorgänger eines Commits, 
                   z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
+                * `git branch` und `git tag` listen vorhande Branches und Tags auf.
+                * Mit `A..B` Adressiert man Commit, die auf dem Weg
+                  von `A` nach `B` hinzukommen. 
 
                 # Setup
     
@@ -37,51 +40,65 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             editAndCommit("hallo-welt", 3)
             inDir("foo") {
                 editAndCommit("bar", 1)
+                git("branch some-old-branch")
                 editAndCommit("bar", 5)
             }
             git("tag release1.1")
             createFileAndCommit("und-tschuess")
         }
 
-        createAufgabe(
-                "Verzeichnisstruktur", """
+        inRepo {
+            createAufgabe(
+                    "Verzeichnisstruktur", """
                     Untersuche das Projektverzeichnis.
         """) {
 
-            inRepo {
                 bash("ls -hal")
-            }
 
-            markdown("""
+                markdown("""
                 Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
                 und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
             """.trimIndent())
-        }
+            }
 
 
-        createAufgabe(
-                "Commits ansehen", """
+            createAufgabe(
+                    "Commits ansehen", """
                     Sieh Dir die Commits an und lasse dabei Informationen 
                     zu Branches und Tags mit anzeigen.
         """) {
-            inRepo {
                 git("log --oneline --decorate")
             }
-        }
 
-        createAufgabe(
-                "Einzelne Commits untersuchen", """
+            createAufgabe(
+                    "Einzelne Commits untersuchen", """
                     Zeige Details zur aktuellen Version,
                     und zur Vorgängerversion des Releases 1.0
                 """) {
-            inRepo {
                 markdown("\n\nHier die aktuelle Version `HEAD`:")
                 git("show")
                 markdown("\n\nUnd hier kommt die 1.0:")
                 git("show release1.0~1")
             }
+
+            createAufgabe(
+                    "Branches und Tags", """
+                    Zeige die Branches und Tags an.
+                """) {
+                git("branch -vv")
+                git("tag")
+            }
+
+
+            createAufgabe(
+                    "Strecken von Commits", """
+                    Zeige die Commits, die seit 1.0 bis 1.1
+                    hinzugekommen sind.
+                """) {
+                git("log --oneline release1.0..release1.1")
+            }
+
+
         }
-
-
     }
 }
