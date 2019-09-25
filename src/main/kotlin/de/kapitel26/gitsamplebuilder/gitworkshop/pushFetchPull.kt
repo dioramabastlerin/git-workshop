@@ -20,26 +20,25 @@ fun CollectionOfSamples.pushFetchPull() {
             git("push")
         }
 
-        createAufgabe(
-                "Änderungen holen", """
+        inRepo("mein-klon") {
+
+            createAufgabe(
+                    "Änderungen holen", """
                     Hole die beiden neuen Commits vom `origin`-Repository,
                     ohne den lokalen `master` zu verändern.
         """) {
-            inRepo("mein-klon") {
                 git("fetch")
                 markdown("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
                 git("status")
             }
-        }
 
-        createAufgabe(
-                "Änderungen untersuchen", """
+            createAufgabe(
+                    "Änderungen untersuchen", """
                     Lasse dir den Status zeigen,
                     und untersuche dann,
                     welche Commits im `master` des `origin`-Repository vorhanden sind,
                     welche im lokalen `master` noch nicht integriert wurden..
         """) {
-            inRepo("mein-klon") {
                 git("status")
                 markdown("""
                         Der Status zeigt, dass es im Origin-Repo
@@ -55,18 +54,16 @@ fun CollectionOfSamples.pushFetchPull() {
                     """)
 
             }
-        }
 
-        createAufgabe(
-                "Änderungen integrieren", """
+            createAufgabe(
+                    "Änderungen integrieren", """
                     Integriere die neuesten Commits vom `origin`-Repository
                     in den lokalen `master`.
         """) {
-            inRepo("mein-klon") {
                 git("pull")
                 git("log --graph --oneline")
             }
-        }
 
+        }
     }
 }
