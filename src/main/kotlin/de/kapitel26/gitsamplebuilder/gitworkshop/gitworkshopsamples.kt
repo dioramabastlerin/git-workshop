@@ -2,11 +2,11 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import de.kapitel26.gitsamplebuilder.createCollectionOfSamples
 import impl.LogBuilderOptions
-import impl.LogOutputFormat.MARKDOWN
+import impl.LogOutputFormat.HTML
 
 fun main() {
 
-    createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = MARKDOWN)) {
+    createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = HTML)) {
 
         thema("Repository") {
             repositoryUntersuchen()
