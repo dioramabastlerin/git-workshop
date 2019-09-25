@@ -4,7 +4,7 @@ import de.kapitel26.gitsamplebuilder.createCollectionOfSamples
 
 fun main() {
 
-    createCollectionOfSamples("gitworkshop") {
+    createCollectionOfSamples("git-uebungen") {
 
         thema("Repository") {
             repositoryUntersuchen()
