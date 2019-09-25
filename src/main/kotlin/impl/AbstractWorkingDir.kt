@@ -139,7 +139,7 @@ abstract class AbstractWorkingDir<T>(
 
     @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
-        val header = "Schritt ${solutionCollector.collectedCommands.size} - $title"
+        val header = "Schritt ${solutionCollector.collectedCommands.size + 1} - $title"
         solutionCollector.collectedCommands.add(header to { (this as T).solution() })
         logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
             markdown("## " + header)
