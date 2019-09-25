@@ -37,42 +37,63 @@ fun CollectionOfSamples.commitsErstellen() {
         }
 
         inRepo {
-            createAufgabe(
-                    "Verzeichnisstruktur", """
-                    Untersuche das Projektverzeichnis.
-        """) {
-                bash("ls -lah")
-                bash("git status")
-
-                markdown("""
-                Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
-                und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
-            """.trimIndent())
-            }
 
 
             createAufgabe(
-                    "Commit - geänderte Datei", """
-                    1. Bearbeite die Datei `hallo-welt`, 
-                       füge sie mit `git add` zum Index hinzu (Staging)
-                       und erstelle ein Commit mit diesen Änderungen.
-                    2. Bearbeite die Datei `hallo-welt` erneut
-                       und erstelle wieder ein Commit,
-                       dieses mal mal aber mit `-a`.
-                    
-        """) {
+                    "Commit - mit Staging", """
+                    Bearbeite die Datei `hallo-welt`,
+                    füge sie mit `git add` zum Index hinzu (Staging)
+                    und erstelle ein Commit mit diesen Änderungen.
+             """) {
                 inFile("hallo-welt") { content = "Hallo Welt!" }
                 git("add hallo-welt")
                 git("commit -m 'Erste Änderung'")
                 git("show")
+            }
 
-                markdown("Mit der Option `-a` kann man sich den `add`-Aufruf sparen:")
+            createAufgabe(
+                    "Commit - automatisches Staging", """
+                    Bearbeite die Datei `hallo-welt` erneut
+                    und erstelle wieder ein Commit,
+                    dieses mal mal aber mit `-a`.
+             """) {
 
                 inFile("hallo-welt") { content = "Hallo Welt!!" }
                 git("commit -am 'Zweite Änderung'")
-                git("show")
+                markdown("Mit der Option `-a` kann man sich den `add`-Aufruf sparen:")
+                git("log --oneline")
+            }
+
+            createAufgabe(
+                    "Commit - neue Datei", """
+                    Erstelle `new-world` und bestätige sie mit einem Commit.
+             """) {
+
+                createFile("new-world") { content = "New World!" }
+                git("add .")
+                git("commit -m 'Neue Datei'")
+            }
+
+            createAufgabe(
+                    "Commit - Datei löschen", """
+                    Lösche `hallo-welt` und bestätige dies per Commit.
+             """) {
+
+                bash("rm hallo-welt")
+                git("commit -am 'Neue Datei'")
+            }
+
+            createAufgabe(
+                    "Commit - Datei verschieben/umbenennen", """
+                    Benenne die Datei `hello-world` in `renamed-world` um.
+             """) {
+
+                bash("mv hello-world renamed-world")
+                git("add .")
+                git("commit -m 'Neue Datei'")
+                markdown("Anmerkung: Wenn wir `git mv`  statt `mv` genutzt" +
+                        " hätten, dann wäre das separate `git add` nicht nötig gewesen.")
             }
         }
-
     }
 }
