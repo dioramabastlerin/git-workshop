@@ -53,12 +53,14 @@ fun CollectionOfSamples.integrationOfChanges() {
             """
         )
 
-        createRepo("origin-for-merge-samples") {
-            user("anja")
+        createRepo("origin-for-merge-samples.git", "--bare") {
 
-            createFileAndCommit("README.md") { content = "Hallo Wolt!\n" }
-            createFileAndCommit("average.kts") {
-                content = """
+            createClone("../anjas-repo") {
+                user("anja")
+
+                createFileAndCommit("README.md") { content = "Hallo Wolt!\n" }
+                createFileAndCommit("average.kts") {
+                    content = """
                     if(args.isEmpty())
                         throw RuntimeException("No arguments given!")
     
@@ -67,6 +69,8 @@ fun CollectionOfSamples.integrationOfChanges() {
                     println("The average is ${'$'}{s/args.size}")
                     
                 """.trimIndent()
+                }
+                git("push")
             }
 
             createClone("../changes-in-different-files") {
@@ -79,12 +83,16 @@ fun CollectionOfSamples.integrationOfChanges() {
                     commit("Refactoring: s in summe umbenennen")
                 }
             }
+        }
 
+        inRepo("anjas-repo") {
             inFile("average.kts") {
                 replace("{ it.toInt() }", "{ it.toDouble() }")
                 commit("Verwende double Werte statt int")
             }
+            git("push")
         }
+
 
         inRepo("changes-in-different-files") {
             createAufgabe(
@@ -127,6 +135,13 @@ fun CollectionOfSamples.integrationOfChanges() {
                 git("log --oneline --graph")
                 git("diff HEAD^1...HEAD^2")
                 git("log HEAD^2..HEAD^1")
+
+                markdown("""
+                    Und jetzt können wir erneut ein Push versuchen.
+                """)
+
+                git("push")
+
             }
         }
 
