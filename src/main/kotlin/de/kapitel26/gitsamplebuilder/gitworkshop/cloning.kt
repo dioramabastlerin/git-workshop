@@ -10,18 +10,28 @@ fun CollectionOfSamples.cloning() {
             createFileAndCommit("bar")
         }
 
-        logTo("00-intro.md") {
-            markdown("""
-            # Klonen von Repositorys
+        createIntro(
+                """Klonen von Repositorys""",
+                """
 
-            Ein Git-Repository namens `myfirstrepo` wurde bereits erstellt.
-            Es enthält zwei Commits:
-            """)
+                ## Tipps
+                
+                 * `git clone <original> <kopie>`: Klont ein Repository.
+                 * `git remote -v`: Zeigt auf, welchen anderen Klone bekannt sind,
+                   insbesondere `origin`.
 
-            inRepo("myfirstrepo") {
-                git("log --oneline")
-            }
-        }
+                ## Setup
+                
+                Ein Git-Repository namens `myfirstrepo` wurde bereits erstellt.
+                Es enthält zwei Commits.
+
+                ### Verzeichnisse
+
+                 * `${rootDir.name}/` Haupverzeichnis für diese Übung 
+                   - `myfirstrepo/` Bereits vorhandenes Repository.
+                  
+            """
+        )
 
         createAufgabe(
                 "Klon durchführen",
@@ -32,12 +42,15 @@ fun CollectionOfSamples.cloning() {
 
         createAufgabe(
                 "Klon untersuchen",
-                """Zeige den Origin des Klons `myfirstclone`.
+                """
+                    Schaue die Commits and und
+                    zeige den Origin des Klons `myfirstclone`.
                     `origin` steht in der Regel für jenes Repository,
                     von dem geklont wurde.
                 """
         ) {
             inRepo("myfirstclone") {
+                git("log --oneline")
                 git("remote -v")
             }
         }
