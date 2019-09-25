@@ -126,11 +126,7 @@ abstract class AbstractWorkingDir<T>(
         log.stopLoggingTo(name)
     }
 
-    fun writeDocs() =
-            log
-                    // .also { it.writeMarkdownFiles(rootDir) }
-                    .also { it.writeHtmlFiles(rootDir) }
-
+    fun writeDocs() = log.writeDocs(rootDir)
 
     @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
@@ -143,9 +139,10 @@ abstract class AbstractWorkingDir<T>(
 
     @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
-        solutionCollector.collectedCommands.add { (this as T).solution() }
+        val header = "Schritt ${solutionCollector.collectedCommands.size} - $title"
+        solutionCollector.collectedCommands.add(header to { (this as T).solution() })
         logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
-            markdown("## Schritt ${solutionCollector.collectedCommands.size} - $title")
+            markdown("## " + header)
             markdown(description)
         }
     }
@@ -185,9 +182,9 @@ abstract class AbstractWorkingDir<T>(
                     .single()
 
     fun applyLoesungen() =
-            solutionCollector.collectedCommands.forEachIndexed { index, command ->
+            solutionCollector.collectedCommands.forEachIndexed { index, (header, command) ->
                 logTo(markdownFilename(index + 1)) {
-                    markdown("### Lösung")
+                    markdown("## Lösung zu $header")
                     command()
                 }
             }

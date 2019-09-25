@@ -1,20 +1,20 @@
 package de.kapitel26.gitsamplebuilder
 
-import impl.CollectionOfSamples
-import impl.Dir
-import impl.LogBuilder
-import impl.SolutionCollector
+import impl.*
 import java.io.File as IOFile
 
 class CommandLineException(val failedProcess: Process, message: String) : RuntimeException(message)
 
 fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples", suffix: String = "aufgabe", commands: Dir.() -> Unit) =
-        buildGitSamples(IOFile(sampleDir, "$sampleName.$suffix")) {
+        buildGitSamples(
+                IOFile(sampleDir, "$sampleName.$suffix"),
+                LogBuilderOptions(outputFormat = LogOutputFormat.MARKDOWN, createFullLog = true)
+        ) {
             commands()
         }
 
-fun buildGitSamples(rootDir: IOFile, commands: Dir.() -> Unit) {
-    Dir(rootDir, LogBuilder(), SolutionCollector())
+fun buildGitSamples(rootDir: java.io.File, options: LogBuilderOptions = LogBuilderOptions(), commands: Dir.() -> Unit) {
+    Dir(rootDir, LogBuilder(options), SolutionCollector())
             .apply { clear() }
             .run(commands)
 }

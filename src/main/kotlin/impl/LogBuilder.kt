@@ -1,5 +1,7 @@
 package impl
 
+import impl.LogOutputFormat.HTML
+import impl.LogOutputFormat.MARKDOWN
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.intellij.markdown.html.HtmlGenerator
 import org.intellij.markdown.parser.MarkdownParser
@@ -7,10 +9,16 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 
-class LogBuilder {
+class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions()) {
 
     private val fullLogFileName = ".full-log.md"
-    private var activeCollectors = mutableSetOf(fullLogFileName)
+
+    private var activeCollectors =
+            if (options.createFullLog)
+                mutableSetOf(fullLogFileName)
+            else
+                mutableSetOf()
+
     var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
     fun createDir(dirName: String, where: String) = shell("mkdir $dirName", where)
@@ -43,7 +51,13 @@ class LogBuilder {
     fun stopLoggingTo(name: String) = activeCollectors.remove(name)
 
     fun addRawLine(s: String) =
-        collectedLogs.add(s to activeCollectors.toSet())
+            collectedLogs.add(s to activeCollectors.toSet())
+
+    fun writeDocs(rootDir: File): Any =
+            when (options.outputFormat) {
+                HTML -> writeHtmlFiles(rootDir)
+                MARKDOWN -> writeMarkdownFiles(rootDir)
+            }
 
     fun writeMarkdownFiles(rootDir: File) {
         val name2writer = mutableMapOf<String, BufferedWriter>()
@@ -96,5 +110,6 @@ class LogBuilder {
         activeCollectors = mutableSetOf(fullLogFileName)
         collectedLogs = mutableListOf()
     }
+
 
 }

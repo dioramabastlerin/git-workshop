@@ -1,7 +1,8 @@
 package impl
 
 class SolutionCollector {
-    val collectedCommands: MutableList<() -> Unit> = mutableListOf()
+
+    val collectedCommands: MutableList<Pair<String, () -> Unit>> = mutableListOf()
 
     fun reset() {
         collectedCommands.clear()
