@@ -13,11 +13,7 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions()) {
 
     private val fullLogFileName = ".full-log.md"
 
-    private var activeCollectors =
-            if (options.createFullLog)
-                mutableSetOf(fullLogFileName)
-            else
-                mutableSetOf()
+    private var activeCollectors = resetCollectors()
 
     var collectedLogs = mutableListOf<Pair<String, Set<String>>>()
 
@@ -107,8 +103,15 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions()) {
                     .map { (s, _) -> s }
 
     fun reset() {
-        activeCollectors = mutableSetOf(fullLogFileName)
+        activeCollectors = resetCollectors()
         collectedLogs = mutableListOf()
+    }
+
+    private fun resetCollectors(): MutableSet<String> {
+        return if (options.createFullLog)
+            mutableSetOf(fullLogFileName)
+        else
+            mutableSetOf()
     }
 
 
