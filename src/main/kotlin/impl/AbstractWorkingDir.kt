@@ -144,6 +144,7 @@ abstract class AbstractWorkingDir<T>(
         logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
             markdown("## " + header)
             markdown(description)
+            markdown("Starte im Verzeichnis `${rootDir.name}`")
         }
     }
 
