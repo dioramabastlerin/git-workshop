@@ -339,41 +339,8 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
 
 ### Übung: Repository untersuchen
 
-Starten mit:
-
-     git checkout uebung/repository
-
----
-
-### Übung: Fragen
-
- * Was ist im aktuellen Commit passiert?
- * Wie oft wurde `content.md` geändert?
- * Wann wurde etwas zusammengeführt?
- * Welches Datei wurde im "Ur-Commit" hinzugefügt?
- * Welcher "seltsame Autor" hat beigetragen?
-
----
-
-## Übung: Anworten
-
- * Was ist im aktuellen Commit passiert?
-   "Workflow:"-Prefix aus Überschrift entfernt
- * Wie oft wurde `content.md` geändert?
-   In 5 Commits (ein davon Erstellung)
- * Wann wurde etwas zusammengeführt?
-   `2bd9289`, 25.9.2018 18:42 Uhr
- * Welches Datei wurde im "Ur-Commit" hinzugefügt?
-   `.gitmodules` (in `b4db3f6`)
- * Welcher "seltsame Autor" hat beigetragen?
-   Torsten Test (`git log --pretty="%an" | uniq`)
-
----
-
-## Nach der Übung
-
-    git checkout master
-
+    *-repository-untersuchen.aufgaben
+ 
 ---
 
 ### Zusammenfassung (Begriffe)

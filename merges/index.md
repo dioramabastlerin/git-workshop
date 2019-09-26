@@ -132,6 +132,14 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
 
 ---
 
+
+## Übung
+
+    *-merges-integration-von-aenderungen.aufgaben
+
+
+---
+
 ![Merges mildern](merges-mildern.jpg)
 
 
