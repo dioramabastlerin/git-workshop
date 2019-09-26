@@ -340,8 +340,10 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
 ### Übung: Repository untersuchen
 
     *-repository-untersuchen.aufgaben
- 
+
+
 ---
+
 
 ### Zusammenfassung (Begriffe)
 
