@@ -88,17 +88,6 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 git("branch -vv")
                 git("tag")
             }
-
-
-            createAufgabe(
-                    "Strecken von Commits", """
-                    Zeige die Commits, die seit 1.0 bis 1.1
-                    hinzugekommen sind.
-                """) {
-                git("log --oneline release1.0..release1.1")
-            }
-
-
         }
     }
 }
