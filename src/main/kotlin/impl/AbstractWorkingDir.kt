@@ -143,8 +143,9 @@ abstract class AbstractWorkingDir<T>(
         solutionCollector.collectedCommands.add(header to { (this as T).solution() })
         logTo(markdownFilename()) {
             markdown("## " + header)
+            val relativePath = log.gitSamplesRootDir.absoluteFile.toPath().relativize(rootDir.absoluteFile.toPath())
+            markdown("*(Arbeitsverzeichnis: `${relativePath}`)*")
             markdown(description)
-            markdown("Starte im Verzeichnis `${rootDir.name}`")
         }
     }
 
