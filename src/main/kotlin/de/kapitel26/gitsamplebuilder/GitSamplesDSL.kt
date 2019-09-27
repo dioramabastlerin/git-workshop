@@ -13,8 +13,8 @@ fun buildGitSamples(sampleName: String, sampleDir: String = "build/git-samples",
             commands()
         }
 
-fun buildGitSamples(rootDir: java.io.File, options: LogBuilderOptions = LogBuilderOptions(), commands: Dir.() -> Unit) {
-    Dir(rootDir, LogBuilder(options), SolutionCollector())
+fun buildGitSamples(gitSamplesRootDir: java.io.File, options: LogBuilderOptions = LogBuilderOptions(), commands: Dir.() -> Unit) {
+    Dir(gitSamplesRootDir, LogBuilder(options, gitSamplesRootDir), SolutionCollector())
             .apply { clear() }
             .run(commands)
 }
