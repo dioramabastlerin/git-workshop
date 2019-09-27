@@ -9,7 +9,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 
-class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSamplesRootDir: File? = null) {
+class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSamplesRootDir: File) {
 
     private val fullLogFileName = ".full-log.md"
 

@@ -3,7 +3,7 @@ package impl
 import java.io.File
 
 class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
-    : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(options), solutionCollector = SolutionCollector()) {
+    : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(options, rootDir), solutionCollector = SolutionCollector()) {
 
     var aufgabenFolgenNummer: Int = 0
     var thema: String? = null

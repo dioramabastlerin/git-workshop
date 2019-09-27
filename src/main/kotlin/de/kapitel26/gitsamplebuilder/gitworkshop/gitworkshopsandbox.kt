@@ -10,12 +10,12 @@ fun main() {
 
         thema("beispiel") {
 
-            //repositoryUntersuchen()
-            commitsErstellen()
-            // cloning()
+            // repositoryUntersuchen()
+            // commitsErstellen()
+            cloning()
             // pushFetchPull()
             // pushRejected()
-            // integrationOfChanges()
+            integrationOfChanges()
         }
     }
 }
