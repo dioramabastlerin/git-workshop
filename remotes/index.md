@@ -104,7 +104,7 @@ myrepos/sample.git                # Lokaler Pfad zu bare Repo
 ssh://ich@meinserver/sample.git   # SSH
 ich@meinserver:sample.git         # auch SSH
 
-https://ich@meinserver/sample.git # SSH
+https://ich@meinserver/sample.git # HTTPS
 ```
 
 
