@@ -6,11 +6,8 @@ class BuildingSampleVariantsTest : StringSpec({
     "duplication" {
         createCollectionOfSamples(description().name) {
 
-            var expectedDir: String? = null
-
             createSample("base.aufgabe") {
                 createFile("base-file")
-                expectedDir = rootDir.parent
             }
         }
     }

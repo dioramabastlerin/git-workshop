@@ -130,7 +130,7 @@ abstract class AbstractWorkingDir<T>(
 
     @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
-        logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
+        logTo(markdownFilename()) {
             markdown("# Übung - $title")
             markdown(description)
             setup()
@@ -141,7 +141,7 @@ abstract class AbstractWorkingDir<T>(
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
         val header = "Schritt ${solutionCollector.collectedCommands.size + 1} - $title"
         solutionCollector.collectedCommands.add(header to { (this as T).solution() })
-        logTo(markdownFilename(solutionCollector.collectedCommands.size)) {
+        logTo(markdownFilename()) {
             markdown("## " + header)
             markdown(description)
             markdown("Starte im Verzeichnis `${rootDir.name}`")
@@ -162,7 +162,7 @@ abstract class AbstractWorkingDir<T>(
         git { commit(fileName, message) }
     }
 
-    private fun markdownFilename(nr: Int) = "index.md"
+    private fun markdownFilename() = "index.md"
 
     private fun formatNr(nr: Int): String = "%02d".format(nr)
 
@@ -183,8 +183,8 @@ abstract class AbstractWorkingDir<T>(
                     .single()
 
     fun applyLoesungen() =
-            solutionCollector.collectedCommands.forEachIndexed { index, (header, command) ->
-                logTo(markdownFilename(index + 1)) {
+            solutionCollector.collectedCommands.forEach { (header, command) ->
+                logTo(markdownFilename()) {
                     markdown("## Lösung zu $header")
                     command()
                 }
