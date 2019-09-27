@@ -19,24 +19,22 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
 
         createSample("$fullName.loesung") {
-                commands()
+            commands()
 
-                writeDocs()
+            writeDocs()
 
-            val aufgabenDir = File(rootDir.parent, "$fullName.aufgaben")
-                val loesungDir = rootDir
-                executeProcess(
-                        "cp", "-a",
-                        loesungDir.absolutePath + "/", aufgabenDir.absolutePath
-                )
-                Dir(loesungDir, log, solutionCollector)
-                        .apply {
-                            applyLoesungen()
-                            writeDocs()
-                        }
+            val loesungDir = rootDir.absolutePath
+            val aufgabenDir = File(rootDir.parent, "$fullName.aufgaben").absolutePath
+            executeProcess("cp", "-a", loesungDir + "/", aufgabenDir)
 
-                reset()
-            }
+            Dir(rootDir, log, solutionCollector)
+                    .apply {
+                        applyLoesungen()
+                        writeDocs()
+                    }
+
+            reset()
+        }
     }
 
     fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {
