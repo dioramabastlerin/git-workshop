@@ -18,12 +18,17 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         val prefix = "%02d".format(aufgabenFolgenNummer)
         val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
 
-        createSample("$fullName.aufgabe") {
-            commands()
+        val nameAufgabe = "$fullName.aufgabe"
+        val nameLoesungen = "$fullName.loesungen"
 
+        createSample(nameAufgabe) {
+            commands()
+            logTo(markdownFilename()) {
+                markdown("[Zur Lösung](../$nameLoesungen)")
+            }
             writeDocs()
 
-            val loesungDir = File(rootDir.parent, "$fullName.loesungen")
+            val loesungDir = File(rootDir.parent, nameLoesungen)
             executeProcess("cp", "-a", rootDir.absolutePath + "/", loesungDir.absolutePath)
 
             Dir(loesungDir, log, solutionCollector)
