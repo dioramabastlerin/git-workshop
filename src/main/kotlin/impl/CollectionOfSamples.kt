@@ -18,16 +18,15 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         val prefix = "%02d".format(aufgabenFolgenNummer)
         val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
 
-        createSample("$fullName.loesung") {
+        createSample("$fullName.aufgabe") {
             commands()
 
             writeDocs()
 
-            val loesungDir = rootDir.absolutePath
-            val aufgabenDir = File(rootDir.parent, "$fullName.aufgaben").absolutePath
-            executeProcess("cp", "-a", loesungDir + "/", aufgabenDir)
+            val loesungDir = File(rootDir.parent, "$fullName.loesungen")
+            executeProcess("cp", "-a", rootDir.absolutePath + "/", loesungDir.absolutePath)
 
-            Dir(rootDir, log, solutionCollector)
+            Dir(loesungDir, log, solutionCollector)
                     .apply {
                         applyLoesungen()
                         writeDocs()
