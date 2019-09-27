@@ -4,7 +4,7 @@ import java.io.File
 
 class Dir(
         rootDir: File,
-        log: LogBuilder = LogBuilder(),
+        log: LogBuilder,
         solutionCollector: SolutionCollector)
     : AbstractWorkingDir<Dir>(rootDir, log, solutionCollector) {
 

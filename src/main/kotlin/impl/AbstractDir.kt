@@ -3,7 +3,7 @@ package impl
 abstract class AbstractDir<T>(
         val rootDir: java.io.File,
         val baseName: String = rootDir.name,
-        val log: LogBuilder = LogBuilder(),
+        val log: LogBuilder,
         val solutionCollector: SolutionCollector
 ) {
 
