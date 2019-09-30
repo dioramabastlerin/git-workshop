@@ -120,15 +120,6 @@ abstract class AbstractWorkingDir<T>(
             inFile(filename) { edit(lineNumber..lineNumber, message) }
 
     @Suppress("UNCHECKED_CAST")
-    fun logTo(name: String, commands: T.() -> Unit) {
-        log.startLoggingTo(name)
-        (this as T).commands()
-        log.stopLoggingTo(name)
-    }
-
-    fun writeDocs() = log.writeDocs(rootDir)
-
-    @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
         logTo(markdownFilename()) {
             markdown("# Übung - $title")

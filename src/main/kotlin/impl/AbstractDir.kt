@@ -32,4 +32,13 @@ abstract class AbstractDir<T>(
         solutionCollector.reset()
     }
 
+    @Suppress("UNCHECKED_CAST")
+    fun logTo(name: String, commands: T.() -> Unit) {
+        log.startLoggingTo(name)
+        (this as T).commands()
+        log.stopLoggingTo(name)
+    }
+
+    fun writeDocs() = log.writeDocs(rootDir)
+
 }

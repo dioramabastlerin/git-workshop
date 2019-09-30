@@ -5,7 +5,7 @@ import java.io.File
 class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
     : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(options, rootDir), solutionCollector = SolutionCollector()) {
 
-    var aufgabenFolgenNummer: Int = 0
+    var aufgabenNamen: MutableList<String> = mutableListOf()
     var thema: String? = null
 
     fun clear() {
@@ -14,9 +14,9 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
     }
 
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) {
-        aufgabenFolgenNummer++
-        val prefix = "%02d".format(aufgabenFolgenNummer)
+        val prefix = "%02d".format(aufgabenNamen.size + 1)
         val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
+        aufgabenNamen.add(fullName)
 
         val nameAufgabe = "$fullName.aufgabe"
         val nameLoesungen = "$fullName.loesungen"
@@ -24,7 +24,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         createSample(nameAufgabe) {
             commands()
             logTo(markdownFilename()) {
-                markdown("[Zur Lösung](../$nameLoesungen)")
+                markdown("[Zur Lösung](../$nameLoesungen#loesungen)")
             }
             writeDocs()
 
@@ -33,12 +33,22 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
             Dir(loesungDir, log, solutionCollector)
                     .apply {
+                        logTo("index.md") {
+                            markdown("""<div id="loesungen"/>""")
+                        }
                         applyLoesungen()
                         writeDocs()
                     }
 
             reset()
         }
+
+        logTo("index.md") {
+            aufgabenNamen.forEach { name ->
+                markdown(" * [$name]($name.aufgabe/index.html) [Lösung]($name.loesungen/index.html#loesungen)")
+            }
+        }
+        writeDocs()
     }
 
     fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {
