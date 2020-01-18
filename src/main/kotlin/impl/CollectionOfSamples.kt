@@ -23,8 +23,11 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
         createSample(nameAufgabe) {
             commands()
+
             logTo(markdownFilename()) {
-                markdown("[Zur Lösung](../$nameLoesungen#loesungen)")
+                markdown("[Zur Lösung](../$nameLoesungen)" +
+                        " [Zum Überblick](../index.html)"
+                )
             }
             writeDocs()
 
@@ -33,11 +36,14 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
             Dir(loesungDir, log, solutionCollector)
                     .apply {
-                        logTo("index.md") {
-                            markdown("""<div id="loesungen"/>""")
-                        }
                         applyLoesungen()
+                        logTo("index.md") { markdown("[Zum Überblick](../index.html)") }
                         writeDocs()
+                        logTo(markdownFilename()) {
+                            markdown("[Zur Aufgabe](../$nameAufgabe)" +
+                                    " [Zum Überblick](../index.html)"
+                            )
+                        }
                     }
 
             reset()
