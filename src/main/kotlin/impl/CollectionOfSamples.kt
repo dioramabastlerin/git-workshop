@@ -25,7 +25,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
             commands()
 
             logTo(markdownFilename()) {
-                markdown("[Zur Lösung](../$nameLoesungen)" +
+                markdown("[Zur Lösung](../$nameLoesungen/index.html)" +
                         " [Zum Überblick](../index.html)"
                 )
             }

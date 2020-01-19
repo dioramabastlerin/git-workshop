@@ -2,6 +2,8 @@ package impl
 
 import impl.LogOutputFormat.HTML
 import impl.LogOutputFormat.MARKDOWN
+import kotlinx.html.*
+import kotlinx.html.stream.appendHTML
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.intellij.markdown.html.HtmlGenerator
 import org.intellij.markdown.parser.MarkdownParser
@@ -31,10 +33,22 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
             outputLines: List<String> = emptyList(),
             errorLines: List<String> = emptyList()
     ) {
-        addRawLine("    $where$ $cmd")
-        outputLines.forEach { addRawLine("    $it") }
-        errorLines.forEach { addRawLine("    $it") }
-        addRawLine("    ")
+        val builder = StringBuilder()
+        builder.appendHTML().div {
+            code {
+                p {
+                    small { +"$where $ " }
+                    b { +"$cmd" }
+
+                }
+                small {
+                    (outputLines + errorLines).forEach {
+                        br { +it }
+                    }
+                }
+            }
+        }
+        addRawLine(builder.toString())
     }
 
     fun doc(message: String) {
