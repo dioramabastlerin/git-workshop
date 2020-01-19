@@ -2,7 +2,10 @@ package impl
 
 import impl.LogOutputFormat.HTML
 import impl.LogOutputFormat.MARKDOWN
-import kotlinx.html.*
+import kotlinx.html.b
+import kotlinx.html.br
+import kotlinx.html.code
+import kotlinx.html.pre
 import kotlinx.html.stream.appendHTML
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.intellij.markdown.html.HtmlGenerator
@@ -34,21 +37,17 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
             errorLines: List<String> = emptyList()
     ) {
         val builder = StringBuilder()
-        builder.appendHTML().div {
-            code {
-                p {
-                    small { +"$where $ " }
-                    b { +"$cmd" }
-
-                }
-                small {
-                    (outputLines + errorLines).forEach {
-                        br { +it }
+        builder.appendHTML()
+                .code {
+                    pre {
+                        +"$where $ "; b { +cmd }; br()
+                        (outputLines + errorLines).forEach { +it; br() }
                     }
                 }
-            }
-        }
+
+        addRawLine("")
         addRawLine(builder.toString())
+        addRawLine("")
     }
 
     fun doc(message: String) {
@@ -87,7 +86,19 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
     fun writeHtmlFiles(rootDir: File) {
         val header = """
             <head>
-            <meta charset="utf-8">  
+            <meta charset="utf-8">
+            <style>
+            code,pre *,code * {
+                color: lightgreen;
+                background-color: black;
+                padding: 0px;
+                border: 2px solid black;
+                margin: 0px;
+            }
+            code b {
+                color: lime;
+            }
+            </style>
             </head>
             
         """.trimIndent()
