@@ -4,6 +4,7 @@ import de.kapitel26.gitsamplebuilder.CommandLineException
 import java.io.InputStream
 import java.lang.ProcessBuilder.Redirect
 import java.lang.ProcessBuilder.Redirect.PIPE
+import java.nio.file.Paths
 import kotlin.streams.toList
 
 abstract class AbstractWorkingDir<T>(
@@ -132,9 +133,13 @@ abstract class AbstractWorkingDir<T>(
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
         val header = "Schritt ${solutionCollector.collectedCommands.size + 1} - $title"
         solutionCollector.collectedCommands.add(header to { (this as T).solution() })
+        val pathInUebungsverzeichnis = Paths.get(rootDir.parentFile.parentFile.canonicalPath).relativize(Paths.get(rootDir.canonicalPath))
         logTo(markdownFilename()) {
             markdown("## " + header)
-            markdown(description)
+            logTo(markdownFilename()) {
+                markdown("Starte im Verzeichnis `${pathInUebungsverzeichnis}`.")
+                markdown(description)
+            }
         }
     }
 

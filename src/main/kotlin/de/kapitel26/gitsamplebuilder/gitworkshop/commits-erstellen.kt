@@ -36,8 +36,8 @@ fun CollectionOfSamples.commitsErstellen() {
             createFileAndCommit("hello-world") { content = "Hello world!" }
         }
 
-        inRepo {
 
+        inRepo {
 
             createAufgabe(
                     "Commit - mit Staging", """
