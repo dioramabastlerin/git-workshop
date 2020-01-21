@@ -21,7 +21,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         val nameAufgabe = "$fullName.aufgabe"
         val nameLoesungen = "$fullName.loesungen"
 
-        createSample(nameAufgabe) {
+        createSample(nameLoesungen) {
             commands()
 
             logTo(markdownFilename()) {
@@ -31,7 +31,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
             }
             writeDocs()
 
-            val loesungDir = File(rootDir.parent, nameLoesungen)
+            val loesungDir = File(rootDir.parent, nameAufgabe)
             executeProcess("cp", "-a", rootDir.absolutePath + "/", loesungDir.absolutePath)
 
             Dir(loesungDir, log, solutionCollector)
