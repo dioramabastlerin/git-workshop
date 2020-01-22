@@ -21,6 +21,9 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         val nameAufgabe = "$fullName.aufgabe"
         val nameLoesungen = "$fullName.loesungen"
 
+        val aufgabeDir = File(rootDir, nameAufgabe)
+        val loesungDir = File(rootDir, nameLoesungen)
+
         createSample(nameLoesungen) {
             commands()
 
@@ -31,23 +34,20 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
             }
             writeDocs()
 
-            val loesungDir = File(rootDir.parent, nameAufgabe)
-            executeProcess("cp", "-a", rootDir.absolutePath + "/", loesungDir.absolutePath)
+            executeProcess("cp", "-a", rootDir.absolutePath + "/", aufgabeDir.absolutePath)
 
-            Dir(loesungDir, log, solutionCollector)
-                    .apply {
-                        applyLoesungen()
-                        logTo("index.md") { markdown("[Zum Überblick](../index.html)") }
-                        writeDocs()
-                        logTo(markdownFilename()) {
-                            markdown("[Zur Aufgabe](../$nameAufgabe)" +
-                                    " [Zum Überblick](../index.html)"
-                            )
-                        }
-                    }
+            applyLoesungen()
 
-            reset()
+            logTo("index.md") { markdown("[Zum Überblick](../index.html)") }
+            logTo(markdownFilename()) {
+                markdown("[Zur Aufgabe](../$nameAufgabe)" +
+                        " [Zum Überblick](../index.html)"
+                )
+            }
+            writeDocs()
         }
+
+        reset()
 
         logTo("index.md") {
             aufgabenNamen.forEach { name ->
