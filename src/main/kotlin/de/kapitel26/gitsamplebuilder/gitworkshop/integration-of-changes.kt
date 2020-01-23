@@ -76,6 +76,9 @@ fun CollectionOfSamples.integrationOfChanges() {
             createClone("../changes-in-different-files") {
             }
 
+            createClone("../fast-forward") {
+            }
+
             createClone("../changes-in-same-files") {
                 inFile("average.kts") {
                     replace("val s = ", "val summe = ")
@@ -92,6 +95,29 @@ fun CollectionOfSamples.integrationOfChanges() {
             }
             git("push")
         }
+
+        inRepo("fast-forward") {
+            createAufgabe(
+                    "Fast-Forward beim Pull",
+                    """
+                    Im einfachste Fall haben wir selber gar nichts gemacht,
+                    und wollen nur die Änderungen von Anja übernehmen.
+                    
+                    Führe ein Pull durch.
+                    
+                    Lasse Dir Status und den Commit-Graphen zeigen.
+                    """
+            ) {
+
+                git("pull")
+
+                markdown("Git signalisiert, dass ein Fast-Forward durchgeführt wurde.")
+                markdown("Der Graph zeigt, dass keine Verzweigung entstanden ist und kein Merge notwendig war.")
+
+                git("log --graph --oneline --decorate")
+            }
+        }
+
 
 
         inRepo("changes-in-different-files") {
@@ -182,6 +208,5 @@ fun CollectionOfSamples.integrationOfChanges() {
                 git("log --graph --oneline")
             }
         }
-
     }
 }
