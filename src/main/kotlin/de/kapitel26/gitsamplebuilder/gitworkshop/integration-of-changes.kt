@@ -79,6 +79,9 @@ fun CollectionOfSamples.integrationOfChanges() {
             createClone("../fast-forward") {
             }
 
+            createClone("../no-ff") {
+            }
+
             createClone("../changes-in-same-files") {
                 inFile("average.kts") {
                     replace("val s = ", "val summe = ")
@@ -113,6 +116,28 @@ fun CollectionOfSamples.integrationOfChanges() {
 
                 markdown("Git signalisiert, dass ein Fast-Forward durchgeführt wurde.")
                 markdown("Der Graph zeigt, dass keine Verzweigung entstanden ist und kein Merge notwendig war.")
+
+                git("log --graph --oneline --decorate")
+            }
+        }
+
+        inRepo("no-ff") {
+            createAufgabe(
+                    "Merge erzwingen beim Pull",
+                    """
+                    Auch dieses haben wir nichtnichts gemacht,
+                    und wollen nur die Änderungen von Anja übernehmen.
+                    
+                    Führe ein Pull mit `--no-ff` durch.
+                    
+                    Lasse Dir Status und den Commit-Graphen zeigen.
+                    """
+            ) {
+
+                git("pull --no-ff")
+
+                markdown("Git signalisiert, dass kein Fast-Forward durchgeführt wurde.")
+                markdown("Der Graph zeigt, dass ein Merge enstanden ist.")
 
                 git("log --graph --oneline --decorate")
             }
