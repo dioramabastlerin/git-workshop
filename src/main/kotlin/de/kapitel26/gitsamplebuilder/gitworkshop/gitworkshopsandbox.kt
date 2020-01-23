@@ -6,16 +6,17 @@ import impl.LogOutputFormat
 
 fun main() {
 
-    createCollectionOfSamples("gitworkshop-sandbox", LogBuilderOptions(outputFormat = LogOutputFormat.MARKDOWN)) {
+    createCollectionOfSamples("gitworkshop-sandbox", LogBuilderOptions(outputFormat = LogOutputFormat.HTML)) {
 
         thema("beispiel") {
 
             // repositoryUntersuchen()
             // commitsErstellen()
-            cloning()
+            // cloning()
             // pushFetchPull()
             // pushRejected()
-            integrationOfChanges()
+            // integrationOfChanges()
+            rebasing()
         }
     }
 }
