@@ -299,6 +299,9 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 -> Der Konflikt muss jetzt lokal aufgelöst werden!
 
 
+---
+
+
 ## Übung
 
     *-klone-push-rejected.aufgaben
