@@ -9,6 +9,7 @@ fun CollectionOfSamples.pushFetchPull() {
 
             createClone("../anderer-klon") {
                 createFileAndCommit("foo", "Initial edit before cloning")
+                createFileAndCommit("bar", "Initial edit before cloning")
                 git("push")
             }
 
@@ -21,6 +22,7 @@ fun CollectionOfSamples.pushFetchPull() {
         }
 
         inRepo("mein-klon") {
+            editAndCommit("bar", 3, "My local edit")
 
             createAufgabe(
                     "Änderungen holen", """
