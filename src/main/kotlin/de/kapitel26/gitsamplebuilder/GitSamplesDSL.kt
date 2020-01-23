@@ -22,5 +22,7 @@ fun buildGitSamples(gitSamplesRootDir: java.io.File, options: LogBuilderOptions 
 fun createCollectionOfSamples(dirName: String, options: LogBuilderOptions = LogBuilderOptions(), commands: CollectionOfSamples.() -> Unit) {
     CollectionOfSamples(IOFile("build", dirName), options)
             .apply { clear() }
+            .apply { createDir("aufgaben") }
+            .apply { createDir("loesungen") }
             .run(commands)
 }

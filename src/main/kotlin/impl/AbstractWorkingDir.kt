@@ -137,7 +137,7 @@ abstract class AbstractWorkingDir<T>(
         logTo(markdownFilename()) {
             markdown("## " + header)
             logTo(markdownFilename()) {
-                markdown("Starte im Verzeichnis `${pathInUebungsverzeichnis}`.")
+                markdown("Starte im Verzeichnis `aufgaben/${pathInUebungsverzeichnis}`.")
                 markdown(description)
             }
         }

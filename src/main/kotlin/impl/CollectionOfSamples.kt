@@ -18,40 +18,30 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
         aufgabenNamen.add(fullName)
 
-        val nameAufgabe = "$fullName.aufgabe"
-        val nameLoesungen = "$fullName.loesungen"
-
-        val aufgabeDir = File(rootDir, nameAufgabe)
-        val loesungDir = File(rootDir, nameLoesungen)
-
-        createSample(nameLoesungen) {
-            commands()
-
+        createSample("loesungen/$fullName") {
             logTo(markdownFilename()) {
-                markdown("[Zur Lösung](../$nameLoesungen/index.html)" +
-                        " [Zum Überblick](../index.html)"
+                markdown(
+                        "[Aufgabe](../../aufgaben/$fullName/index.html)" +
+                                " [Lösung](../../loesungen/$fullName/index.html)" +
+                                " [Überblick](../../index.html)"
                 )
             }
+
+            commands()
             writeDocs()
 
-            executeProcess("cp", "-a", rootDir.absolutePath + "/", aufgabeDir.absolutePath)
+            executeProcess("cp", "-a", rootDir.absolutePath, "../../aufgaben/")
 
             applyLoesungen()
-
-            logTo("index.md") { markdown("[Zum Überblick](../index.html)") }
-            logTo(markdownFilename()) {
-                markdown("[Zur Aufgabe](../$nameAufgabe)" +
-                        " [Zum Überblick](../index.html)"
-                )
-            }
             writeDocs()
         }
+
 
         reset()
 
         logTo("index.md") {
             aufgabenNamen.forEach { name ->
-                markdown(" * [$name]($name.aufgabe/index.html) [Lösung]($name.loesungen/index.html#loesungen)")
+                markdown(" * [$name](aufgaben/$name/index.html) [Lösung](loesungen/$name/index.html#loesungen)")
             }
         }
         writeDocs()
