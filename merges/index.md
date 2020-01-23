@@ -51,10 +51,9 @@ und wie man Probleme durch Merges vemeidet.
 
 ## 3-Wege-Merge
 
----us
 
+---
 
-### 3-Wege-Merge
 
 ![3-Wege-Merge](3-wege-merge.jpg)
 
