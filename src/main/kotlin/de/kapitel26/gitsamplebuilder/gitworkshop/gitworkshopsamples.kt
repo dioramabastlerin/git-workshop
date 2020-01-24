@@ -26,6 +26,10 @@ fun main() {
             integrationOfChanges()
         }
 
+        thema("Rebasing") {
+            rebasing()
+        }
+
         // Branches
 
         // Workflows
