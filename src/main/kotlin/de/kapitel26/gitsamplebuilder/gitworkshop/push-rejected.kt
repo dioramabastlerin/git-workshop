@@ -33,6 +33,8 @@ fun CollectionOfSamples.pushRejected() {
                 """Umgang mit "Push Reject"""",
                 """
                 
+                TODO Dateinamen fixen!
+                
                 Wenn mehrere Entwickler am selben Projekt arbeiten,
                 kommt es beim `git push` häufig zu der Meldung
                 `error: failed to push some refs ...`,

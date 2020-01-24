@@ -26,6 +26,10 @@ fun main() {
             integrationOfChanges()
         }
 
+        thema("Branching") {
+            branching()
+        }
+
         thema("Rebasing") {
             rebasing()
         }

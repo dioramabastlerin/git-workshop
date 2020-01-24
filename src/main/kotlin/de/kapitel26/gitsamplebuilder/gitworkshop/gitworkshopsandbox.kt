@@ -17,6 +17,7 @@ fun main() {
             // pushRejected()
             // integrationOfChanges()
             rebasing()
+            branching()
         }
     }
 }
