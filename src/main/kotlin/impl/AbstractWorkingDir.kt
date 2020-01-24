@@ -132,7 +132,12 @@ abstract class AbstractWorkingDir<T>(
     @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
         val header = "Schritt ${solutionCollector.collectedCommands.size + 1} - $title"
-        solutionCollector.collectedCommands.add(header to { (this as T).solution() })
+        solutionCollector.collectedCommands.add(
+                header to {
+                    markdown(description)
+                    (this as T).solution()
+                }
+        )
         val pathInUebungsverzeichnis = Paths.get(rootDir.parentFile.parentFile.canonicalPath).relativize(Paths.get(rootDir.canonicalPath))
         logTo(markdownFilename()) {
             markdown("## " + header)
