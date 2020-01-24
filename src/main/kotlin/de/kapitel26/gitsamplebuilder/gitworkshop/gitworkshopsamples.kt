@@ -34,11 +34,7 @@ fun main() {
             rebasing()
         }
 
-        // Branches
-
         // Workflows
-
-        // Rebasing
 
         // Modules
     }

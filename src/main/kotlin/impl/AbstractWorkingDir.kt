@@ -182,9 +182,10 @@ abstract class AbstractWorkingDir<T>(
                     .toList()
                     .single()
 
-    fun applyLoesungen() =
-            solutionCollector.collectedCommands.forEach { (header, command) ->
-                logTo(markdownFilename()) {
+    fun applyLoesungen(navigationLinks: String) =
+            logTo("loesung.md") {
+                markdown(navigationLinks)
+                solutionCollector.collectedCommands.forEach { (header, command) ->
                     markdown("## Lösung zu $header")
                     command()
                 }

@@ -20,11 +20,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
         createSample("loesungen/$fullName") {
             logTo(markdownFilename()) {
-                markdown(
-                        "[Aufgabe](../../aufgaben/$fullName/index.html)" +
-                                " [Lösung](../../loesungen/$fullName/index.html)" +
-                                " [Überblick](../../index.html)"
-                )
+                markdown(navigationLinks(fullName))
             }
 
             commands()
@@ -32,7 +28,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
             executeProcess("cp", "-a", rootDir.absolutePath, "../../aufgaben/")
 
-            applyLoesungen()
+            applyLoesungen(navigationLinks(fullName))
             writeDocs()
         }
 
@@ -41,7 +37,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
         logTo("index.md") {
             aufgabenNamen.forEach { name ->
-                markdown(" * [$name](aufgaben/$name/index.html) [Lösung](loesungen/$name/index.html#loesungen)")
+                markdown(" * [$name](aufgaben/$name/index.html) [Lösung](loesungen/$name/loesung.html)")
             }
         }
         writeDocs()
@@ -58,4 +54,10 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         commands()
         this.thema = previousThema
     }
+}
+
+fun navigationLinks(fullName: String): String {
+    return "[Aufgabe](../../aufgaben/$fullName/index.html)" +
+            " [Lösung](../../loesungen/$fullName/loesung.html)" +
+            " [Überblick](../../index.html)"
 }
