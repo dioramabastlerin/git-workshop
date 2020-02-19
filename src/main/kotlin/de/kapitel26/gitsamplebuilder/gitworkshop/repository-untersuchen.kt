@@ -39,6 +39,10 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             git("tag release1.0")
             editAndCommit("hallo-welt", 3)
             inDir("foo") {
+                startBranch("feature-a") {
+                    editAndCommit("bar", 7)
+                }
+
                 editAndCommit("bar", 1)
                 git("branch some-old-branch")
                 editAndCommit("bar", 5)
@@ -82,11 +86,31 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             }
 
             createAufgabe(
+                    "Inhalte vergangener Versionen untersuchen", """
+                    Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
+                    
+                    Gebe den Inhalt der Datei `bar` in diese Version aus.
+                    
+                    Hole diese Version in den Workspace, um sie näher zu untersuchen.
+                """) {
+                markdown("\n\nDiese Dateien gab es in `HEAD~1`:")
+                git("ls-tree -r HEAD~1")
+                markdown("\n\nUnd hier der Inhalt von `bar`:")
+                git("show HEAD~1:foo/bar")
+                markdown("\n\nUnd jetzt holen wir genau diese Version in den Workspace:")
+                git("checkout HEAD~1")
+                bash("ls -Rl")
+            }
+
+            createAufgabe(
                     "Branches und Tags", """
                     Zeige die Branches und Tags an.
+                    Zeige jetzt den Commit-Graphen über alle Branches an.
                 """) {
                 git("branch -vv")
                 git("tag")
+                markdown("Im Commit-Graphen sieht man, wo die Branches und Tag stehen:")
+                git("log --decorate --oneline --graph --all")
             }
         }
     }
