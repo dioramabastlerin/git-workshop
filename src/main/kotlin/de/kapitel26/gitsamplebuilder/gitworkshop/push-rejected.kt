@@ -32,9 +32,7 @@ fun CollectionOfSamples.pushRejected() {
         createIntro(
                 """Umgang mit "Push Reject"""",
                 """
-                
-                TODO Dateinamen fixen!
-                
+                 
                 Wenn mehrere Entwickler am selben Projekt arbeiten,
                 kommt es beim `git push` häufig zu der Meldung
                 `error: failed to push some refs ...`,
@@ -88,7 +86,7 @@ fun CollectionOfSamples.pushRejected() {
             createAufgabe(
                     "Lokal Commit(s) erstellen",
                     """
-                    Bearbeite die Datei `bar` und erstelle (mindestens) ein Commit mit den Änderungen.
+                    Bearbeite die Datei `$myFile` und erstelle (mindestens) ein Commit mit den Änderungen.
                     Überprüfe danach mit `git status`, ob der Workspace sauber ist.
                     """
             ) {
@@ -141,7 +139,7 @@ fun CollectionOfSamples.pushRejected() {
             createAufgabe(
                     "Fremde Änderungen integrieren",
                     """
-                    
+                    Integriere die Änderungen mit Pull und sieh Dir dann den Commit-Graphen an.
                     """
             ) {
                 git("pull")
@@ -153,7 +151,7 @@ fun CollectionOfSamples.pushRejected() {
                 """)
                 git("log --graph --oneline")
 
-                markdown("#### Achtung: Beim `pull` kann Merge-Konflikte geben ...")
+                markdown("#### Achtung: Beim `pull` kann es Merge-Konflikte geben ...")
                 markdown("""
                     ... wenn beide Seiten dieselben Stellen bearbeitet haben.
                     Das Auflösen von Merge-Konflikten ist Thema eines folgenden Kapitels.
