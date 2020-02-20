@@ -219,7 +219,7 @@ Commit Trees
 
 ## Verzeichnisse
 
-Verzeichnisse verden in Git nicht explizit versioniert.
+Verzeichnisse werden in Git nicht explizit versioniert.
 
 Ein Verzeichnis muss mindestens eine Datei enthalten.
 
