@@ -16,8 +16,9 @@ fun main() {
             // pushFetchPull()
             // pushRejected()
             // integrationOfChanges()
-            rebasing()
-            branching()
+            // rebasing()
+            // branching()
+            modules()
         }
     }
 }
