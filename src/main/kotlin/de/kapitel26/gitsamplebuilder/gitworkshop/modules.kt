@@ -18,13 +18,16 @@ fun CollectionOfSamples.modules() {
             git("push")
         }
 
-        createAufgabe(
-                "Subtree1",
-                """
-                    TODO.
+
+        createRepo("subtrees") {
+            createAufgabe(
+                    "Module als Subtree einbinden",
                     """
-        ) {
-            createRepo("subtrees") {
+                    Binde die Module `mod-a.git` und `mod-b.git`
+                    per `subtree add` ein.
+                    Untersuche dann die entstandene Verzeichnisstruktur.
+                    """
+            ) {
                 createFileAndCommit("README")
                 git("subtree add --prefix=mod-a ../mod-a.git master")
                 git("subtree add --prefix=mod-b ../mod-b.git master")
@@ -33,38 +36,44 @@ fun CollectionOfSamples.modules() {
         }
 
         createAufgabe(
-                "Subtree2",
+                "Änderung aus eine Modul übernehmen",
                 """
-                    TODO.
-                    """
-        ) {
-            inRepo("subtrees") {
-                editAndCommit("mod-a/anton", 3)
-                git("show --stat ")
-                git("subtree push --prefix=mod-a ../mod-a.git master")
-            }
-
-            inRepo("mod-a") {
-                git("pull")
-                // git("show --stat ")
-            }
-        }
-
-        createAufgabe(
-                "Subtree3",
-                """
-                    TODO.
+                    Gehe in das Repo `mod-b` ändere die Datei `berta`, committe und pushe.
+                    Sie Dir das entstandene Commit an (`show --stat`)
+                    Gehe in das Repo `subtrees` und hole die Änderungen per `subtree pull` ab.
+                    Sieh Dir das übertragene Commit an.
                     """
         ) {
             inRepo("mod-b") {
                 editAndCommit("berta", 7)
-                // git("show --stat ")
+                git("show --stat ")
+                git("push")
             }
 
             inRepo("subtrees") {
                 git("subtree pull --prefix=mod-b ../mod-b.git master")
-                // git("show --stat ")
+                git("show --stat ")
             }
         }
+
+        createAufgabe(
+                "Änderung in ein Modul übertragen",
+                """
+                    Gehe in `subtrees` ändere `mod-a/anton` und committe.
+                    Übertrage die Änderung per `subtree push` nach `mod-a.git`.
+                    Sieh Dir das übertragene Commit in `mod-a.git` an.
+                    """
+        ) {
+            inRepo("subtrees") {
+
+                editAndCommit("mod-a/anton", 3)
+                git("subtree push --prefix=mod-a ../mod-a.git master")
+            }
+
+            inRepo("mod-a.git") {
+                git("show --stat ")
+            }
+        }
+
     }
 }
