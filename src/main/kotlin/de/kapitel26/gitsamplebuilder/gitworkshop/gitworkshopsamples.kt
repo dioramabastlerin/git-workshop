@@ -37,6 +37,9 @@ fun main() {
         // Workflows
 
         // Modules
+        thema("Module") {
+            modules()
+        }
     }
 }
 
