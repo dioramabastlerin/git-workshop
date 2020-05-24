@@ -1,7 +1,8 @@
-# Dezentralität, Klone und Remotes
+# Klone und Remotes
 
 
 ---
+
 
 ## Lernziel
 
