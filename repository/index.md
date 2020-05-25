@@ -117,7 +117,6 @@ die ganze Historie des Projekts?
  * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
  * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
----
 
 ## Commits und Revision-Hashes
 
@@ -337,9 +336,27 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
 
 ---
 
-### Übung: Repository untersuchen
 
-    *-repository-untersuchen.aufgaben
+### Übung 01: Repository untersuchen
+
+Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
+Übungen entpackt haben).
+
+    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
+
+Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf Windows,
+`xdg-open` auf Ubuntu,`open` auf MacOs).
+
+    $ start aufgaben/01-repository-untersuchen/index.html
+
+**Achtung!** Es ist wichtig, die Übungen im *angegebenen Startverzeichnis*
+zu beginnen. Achten Sie auf die Beschreibung:
+
+> Starte im Verzeichnis `aufgaben/<angegebenes Startverzeichnis>`
+
+   $ cd aufgaben/<angegebenes Startverzeichnis>
+
+Folgen Sie dann den weiteren Anweisungen.
 
 
 ---

@@ -228,14 +228,6 @@ Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
 ---
 
-
-## Übung
-
-    *-commits-erstellen.aufgaben/
-
-
----
-
 ## Tags
 
     git tag v0.1.7
@@ -281,3 +273,23 @@ Ganzen Workspace zurücksetzen
     git stash -u
 
 
+### Übung 02: Commits erstellen
+
+Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
+Übungen entpackt haben).
+
+    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
+
+Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf Windows,
+`xdg-open` auf Ubuntu,`open` auf MacOs).
+
+    $ start aufgaben/02-commits-erstellen/index.html 
+
+**Achtung!** Es ist wichtig, die Übungen im *angegebenen Startverzeichnis*
+zu beginnen. Achten Sie auf die Beschreibung:
+
+> Starte im Verzeichnis `aufgaben/<angegebenes Startverzeichnis>`
+
+   $ cd aufgaben/<angegebenes Startverzeichnis>
+
+Folgen Sie dann den weiteren Anweisungen.
