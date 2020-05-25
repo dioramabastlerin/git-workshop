@@ -341,20 +341,14 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
-
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf Windows,
-`xdg-open` auf Ubuntu,`open` auf MacOs).
-
-    $ start aufgaben/01-repository-untersuchen/index.html
-
+Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
+Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 **Achtung!** Es ist wichtig, die Übungen im *angegebenen Startverzeichnis*
 zu beginnen. Achten Sie auf die Beschreibung:
 
-> Starte im Verzeichnis `aufgaben/<angegebenes Startverzeichnis>`
-
-   $ cd aufgaben/<angegebenes Startverzeichnis>
+    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
+    $ start aufgaben/01-repository-untersuchen/index.html
+    $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.
 
