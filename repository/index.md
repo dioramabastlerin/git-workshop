@@ -117,6 +117,8 @@ die ganze Historie des Projekts?
  * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
  * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
+---
+
 
 ## Commits und Revision-Hashes
 
@@ -307,9 +309,9 @@ git tag
 
 ### Checkout
  
-### Commit -> Workspace
+Commit -> Workspace
 
-Bestimmte Version ausgewählter Dateien wieder herstellen:
+Einzelne Dateien/Verzeichnisse wieder herstellen:
 
 ```bash
     git checkout 83fe378~1 -- foo         # Vorige Version von "foo" in den Workspace bringen
@@ -319,10 +321,9 @@ Bestimmte Version ausgewählter Dateien wieder herstellen:
     git checkout HEAD -- foo              # Lokale Änderungen an "foo" entfernen
 ```
 
-Anmerkung: Wenn Dateien oder Verzeichniss angegeben sind, werden nur diese ersetzt,
-und der `HEAD` wechselt nicht
+Anmerkung: Wenn Dateien oder Verzeichniss angegeben sind, wechselt `HEAD` nicht
 
-**Vorsicht!** Die angegeben Dateien werden ohne Sicherung überschreiben.
+**Vorsicht!** Dateien werden ohne Sicherung überschreiben.
 
 ---
 
