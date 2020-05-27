@@ -86,6 +86,166 @@ Notes:
 
 ---
 
+### Aktiver Branch
+
+ * Ein Branch ist ein Zeiger auf ein Commit
+ * (max.) 1 Branch ist aktiv
+ * Default `master`
+ * Neues Commit: Zeiger des aktiven Branches wird aktualisiert.
+
+
+---
+
+
+## `git commit`
+
+ * Erstellt ein neues Commit
+ * Setzt `HEAD` auf den neue Commit
+ * Setzt den aktiven Branch auf das neue Commit
+
+
+---
+
+
+### Commit - geänderte Dateien
+
+Einzelne Datei:
+
+    git commit <file>
+
+Alle geänderen Dateien, die bereits versioniert sind.
+
+    git commit -a
+
+Und gleich mit Message:
+
+    git commit -am "Edit some files."
+
+
+---
+
+
+### Commit - neue Dateien
+
+Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen zunächst angemeldet werden.
+
+    git add <file>
+
+    git add <dir>
+
+    git add .
+
+Dann Commit, wie gehabt.
+
+    git commit
+
+
+---
+
+### Commit - gelöschte Dateien
+
+    rm my-file # Oder über file explorer
+
+Löschungen werden bei `-a` übernommen:
+
+    git commit -am 'deleted my-file'
+
+Es gibt auch einen Git-Befehl zum Löschen:
+
+    git rm my-file
+    git commit -am 'deleted my-file'
+
+
+---
+
+
+Git kann Verschiebungen von Dateien erkennen (*Rename Detection*).
+
+Wie geht das?
+
+
+---
+
+Wenn in einem Commit,
+
+ * eine Datei gelöscht wurde,
+ * und eine neue Datei hinzugekommen ist, und
+ * die Inhalte (fast) gleich sind,
+ 
+geht Git davon aus, dass eine Datei verschoben wurde.
+
+Die Option `--follow` am `log`-Befehl forciert die *rename detection*.
+
+
+---
+
+
+### Commit - Verschieben von Dateien
+
+   mv hallo hello       
+   git add .
+   git commit -m "hallo -> hello"
+   
+Die Historie von `hello`:
+
+   git log --follow -- hello
+   
+  
+---
+
+
+###  Tipp: Separate move from change
+
+ 1. Move
+ 1. Commit
+ 1. Change
+ 1. Commit
+
+
+---
+
+
+Commit Trees
+
+![Commit Trees](commit-tree.jpg)
+
+
+---
+
+Was genau ist in einem Commit enthalten?
+
+    git log --pretty=raw
+
+
+---
+
+## Verzeichnisse
+
+Verzeichnisse werden in Git nicht explizit versioniert.
+
+Ein Verzeichnis muss mindestens eine Datei enthalten.
+
+Ggf. legt man ein hidden File an, z. B. `.gitkeep`
+
+
+---
+
+### Übung 02: Commits erstellen
+
+Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
+Übungen entpackt haben).
+Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
+Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
+**Achtung!** Es ist wichtig, die Übungen im *angegebenen
+Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
+
+    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
+    $ start aufgaben/02-commits-erstellen/index.html 
+    $ cd aufgaben/<angegebenes Startverzeichnis>
+
+Folgen Sie dann den weiteren Anweisungen.
+
+
 ### `git diff`
 
 vergleicht Commits, den Workspace, den Index, Verzeichnisse und Dateien.
@@ -129,105 +289,6 @@ Notes:
 
 ---
 
-### Aktiver Branch
-
- * Ein Branch ist ein Zeiger auf ein Commit
- * (max.) 1 Branch ist aktiv
- * Default `master`
- * Neues Commit: Zeiger des aktiven Branches wird aktualisiert.
-
-
----
-
-### Commit - geänderte Dateien
-
-Einzelne Datei:
-
-    git commit <file>
-
-Alle geänderen Dateien, die bereits versioniert sind.
-
-    git commit -a
-
-Und gleich mit Message:
-
-    git commit -am "Edit some files."
-
-
----
-
-### Commit - neue Dateien
-
-Neue Dateien werden beim `commit -a` nicht automatisch übernommen. Sie müssen zunächst angemeldet werden.
-
-    git add <file>
-
-    git add <dir>
-
-    git add .
-
-Dann Commit, wie gehabt.
-
-    git commit
-
-
----
-
-### Commit - gelöschte Dateien
-
-    rm my-file # Oder über file explorer
-
-Löschungen werden bei `-a` übernommen:
-
-    git commit -am 'deleted my-file'
-
-Es gibt auch einen Git-Befehl zum Löschen:
-
-    git rm my-file
-    git commit -am 'deleted my-file'
-
-
----
-
-## Umbenennen und verschieben
-
-   - `mv`
-   - `log --follow`, `-M`
-   - Tipp: Separate move from Change
-     1. Move
-     1. Commit
-     1. Change
-     1. Commit
-
-
----
-
-Was genau ist in einem Commit enthalten?
-
-    git log --pretty=raw
-
-
----
-
-Commit Trees
-
-![Commit Trees](commit-tree.jpg)
-
-
----
-
-
-## Verzeichnisse
-
-Verzeichnisse werden in Git nicht explizit versioniert.
-
-Ein Verzeichnis muss mindestens eine Datei enthalten.
-
-Ggf. legt man ein hidden File an, z. B. `.gitkeep`
-
-
----
-
 ## Tags
 
     git tag v0.1.7
@@ -256,6 +317,7 @@ Angefangene Änderungen kann man jeder zeit mit `stash` wegsichern.
 
 ---
 
+
 ### Oops - versehentlich geändert
 
 Vorsicht: Dateien werden überschrieben!
@@ -272,18 +334,3 @@ Ganzen Workspace zurücksetzen
 
     git stash -u
 
-
-### Übung 02: Commits erstellen
-
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
-
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/02-commits-erstellen/index.html 
-    $ cd aufgaben/<angegebenes Startverzeichnis>
-
-Folgen Sie dann den weiteren Anweisungen.
