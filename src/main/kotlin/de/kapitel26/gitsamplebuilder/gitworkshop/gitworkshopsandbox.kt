@@ -12,13 +12,14 @@ fun main() {
 
             // repositoryUntersuchen()
             // commitsErstellen()
+            staging()
             // cloning()
             // pushFetchPull()
             // pushRejected()
             // integrationOfChanges()
             // rebasing()
             // branching()
-            modules()
+            // modules()
         }
     }
 }
