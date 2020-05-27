@@ -250,45 +250,50 @@ Folgen Sie dann den weiteren Anweisungen.
 ---
 
 
-### `git diff`
+## Der *Stage*-Bereich 
 
-vergleicht Commits, den Workspace, den Index, Verzeichnisse und Dateien.
+(aka *Index*)
 
- * **ohne Parameter:** HEAD -> Workspace
-   ```bash
-   git diff
-   ```
+Git sammelt Änderungen im Stage-Bereich.
+`git add` "parkt" sie dort,
+bis sie in einem Commit verwendet werden.
 
- * **1 Parameter:** Workspace -> Commit
-   ```bash
-   git diff HEAD~2
-   ```
+    Workspace   -add->   Stage   -commit->   Repository
+
+d.h. wenn ändert man Dateien nach dem `add`,
+werden diese beim Commit noch nicht übernommen.
 
 
 Notes:
 
- * Was Index/Stage ist, kommt später
- * Diff-Format kurz zeigen und beschreiben
+Im "Grundzustand" enspricht die Stage dem HEAD-Stand
+
 
 ---
 
-### `git diff`
 
- * **2 Parameter:** Commit -> Commit
-   ```bash
-   git diff HEAD~5 HEAD~2
-   ```
+### Tipps zum Staging
 
- * **Auf Datei/Verzeichnis einschränken:**
-   ```bash
-   git diff HEAD~2 -- src/main/java/
-   ```
+Unterschied zwischen Workspace und Stage:
 
-Notes:
+    git diff
 
- * Reihenfolge ist relevant. +/- vertauscht sich
- * `difftool` zeigen
- * `--` kann weggelassen werden, wenn es keine Namenskonflikte zwischen Datein und Commits gibt.
+Unterschied zwischen Workspace und Stage:
+
+    git diff --staged
+
+Setzt Stage auf den `HEAD`-Stand zurück:
+
+    git restore --staged <file>
+
+Setzt Workspace auf den Stage-Stand zurück:
+
+    git restore <file>
+
+
+---
+
+
 
 
 ---
