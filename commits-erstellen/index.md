@@ -190,7 +190,8 @@ Die Historie von `hello`:
 
    git log --follow -- hello
    
-  
+   
+
 ---
 
 
@@ -244,6 +245,9 @@ Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.
+
+
+---
 
 
 ### `git diff`
