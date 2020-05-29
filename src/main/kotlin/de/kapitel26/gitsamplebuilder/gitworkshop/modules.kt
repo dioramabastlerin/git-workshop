@@ -72,7 +72,9 @@ fun CollectionOfSamples.modules() {
                  * `subtree pull --prefix=<Zielverzeichnis> <Quellrepository>`: Aktualisieren aus dem Quellrepository.
                  * `subtree push--prefix=<Zielverzeichnis> <Quellrepository>`: Übertragen ins Quellrepository.
                 
-                Tipp: Normalerweise werden beim Subtree alle Commits aus dem Quellrepository
+                Tipp: Wer nicht mag,
+                dass Subtree alle Commit aus dem Quellrepository holt,
+                kann die Option `--squash` nutzen.
 
                 ## Setup
                 
