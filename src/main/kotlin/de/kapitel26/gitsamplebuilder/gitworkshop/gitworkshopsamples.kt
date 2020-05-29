@@ -14,6 +14,7 @@ fun main() {
 
         thema("Commits") {
             commitsErstellen()
+            staging()
         }
 
         thema("Klone") {
