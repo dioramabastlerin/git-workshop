@@ -10,6 +10,7 @@ fun main() {
 
         thema("beispiel") {
 
+            halloWelt()
             // repositoryUntersuchen()
             // commitsErstellen()
             // staging()
@@ -19,7 +20,7 @@ fun main() {
             // integrationOfChanges()
             // rebasing()
             // branching()
-            modules()
+            // modules()
         }
     }
 }

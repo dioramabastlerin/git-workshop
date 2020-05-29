@@ -8,6 +8,10 @@ fun main() {
 
     createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = HTML)) {
 
+        thema("Intro") {
+            halloWelt()
+        }
+
         thema("Repository") {
             repositoryUntersuchen()
         }
