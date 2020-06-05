@@ -44,6 +44,7 @@ fun main() {
         // Modules
         thema("Module") {
             modules()
+            repositorysZusammenfuehren()
         }
     }
 }
