@@ -3,7 +3,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 import impl.CollectionOfSamples
 
 fun CollectionOfSamples.repositorysZusammenfuehren() {
-    createAufgabenFolge("modules") {
+    createAufgabenFolge("repositorys-zusammenfuehren") {
 
         createRepo("backend.git", "--bare") { createClone("../backend") }
         createRepo("ui.git", "--bare") { createClone("../ui") }
