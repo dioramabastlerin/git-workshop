@@ -49,4 +49,8 @@ task("stage") {
 }
 dependencies {
     compile(kotlin("script-runtime"))
+    implementation(kotlin("stdlib"))
+}
+repositories {
+    mavenCentral()
 }
