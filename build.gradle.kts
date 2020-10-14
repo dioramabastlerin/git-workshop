@@ -1,38 +1,33 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 
 group = "de.kapitel26.git"
 version = "0.1-SNAPSHOT"
 
-
 plugins {
-    kotlin("jvm") version "1.3.72"
+    kotlin("jvm") version "1.4.10"
 }
-
 
 allprojects {
 
     repositories {
+        mavenCentral()
         jcenter()
+        maven("https://kotlin.bintray.com/kotlinx")
         maven("http://dl.bintray.com/jetbrains/markdown")
     }
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
-
 
     tasks.withType<Test> {
         useJUnitPlatform()
     }
 
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "11"
     }
 
 
     dependencies {
-        api(kotlin("stdlib-jdk8"))
-
 
         implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.6.10")
         implementation("org.jetbrains:markdown:0.1.33")
@@ -42,7 +37,6 @@ allprojects {
         testImplementation("org.slf4j:slf4j-simple:1.7.25")
     }
 }
-
 
 task("stage") {
     dependsOn("build")

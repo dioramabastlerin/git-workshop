@@ -5,7 +5,6 @@ import java.io.InputStream
 import java.lang.ProcessBuilder.Redirect
 import java.lang.ProcessBuilder.Redirect.PIPE
 import java.nio.file.Paths
-import kotlin.streams.toList
 
 abstract class AbstractWorkingDir<T>(
         rootDir: java.io.File,
@@ -57,8 +56,8 @@ abstract class AbstractWorkingDir<T>(
         )
 
 
-        val outputLines = process.inputStream.bufferedReader().lines().toList()
-        val errorLines = process.errorStream.bufferedReader().lines().toList()
+        val outputLines = process.inputStream.bufferedReader().readLines()
+        val errorLines = process.errorStream.bufferedReader().readLines()
         log.shell(command, rootDir.name, outputLines, errorLines)
 
         return outputLines
@@ -170,7 +169,7 @@ abstract class AbstractWorkingDir<T>(
     fun currentBranch(): String {
         val lines = executeProcess(
                 "git", "symbolic-ref", "--short", "HEAD"
-        ).inputStream.bufferedReader().lines().toList()
+        ).inputStream.bufferedReader().readLines()
         return lines.singleOrNull() ?: "MASTER"
     }
 
@@ -178,8 +177,7 @@ abstract class AbstractWorkingDir<T>(
             executeProcess("git", "config", "user.name")
                     .inputStream
                     .bufferedReader()
-                    .lines()
-                    .toList()
+                    .readLines()
                     .single()
 
     fun applyLoesungen(navigationLinks: String) =

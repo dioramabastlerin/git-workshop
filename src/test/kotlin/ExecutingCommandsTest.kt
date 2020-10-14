@@ -75,7 +75,9 @@ class ExecutingCommandsTest : StringSpec({
             }
 
             log.of("shell-log") should
-                    containExactly("    test$ echo moin", "    moin", "    ")
+                    containExactly("", "<code>\n" +
+                            "  <pre>test \$ <b>echo moin</b><br>moin<br></pre>\n" +
+                            "</code>", "")
         }
     }
 
