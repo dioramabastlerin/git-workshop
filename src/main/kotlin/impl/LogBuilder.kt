@@ -29,21 +29,24 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
     fun createFile(name: String, where: String) = shell("# created file '$name'", where)
 
     fun editFile(where: String, message: String) =
-            shell("# $message", where)
+        shell("# $message", where)
 
     fun shell(
-            cmd: String, where: String?,
-            outputLines: List<String> = emptyList(),
-            errorLines: List<String> = emptyList()
+        cmd: String, where: String?,
+        outputLines: List<String> = emptyList(),
+        errorLines: List<String> = emptyList()
     ) {
         val builder = StringBuilder()
         builder.appendHTML()
-                .code {
-                    pre {
-                        +"$where $ "; b { +cmd }; br()
-                        (outputLines + errorLines).forEach { +it; br() }
-                    }
+            .pre {
+                code {
+                    +"$where $ "; b { +cmd }
+                    br()
+                    br()
+                    (outputLines + errorLines).forEach { +it; br() }
+                    br()
                 }
+            }
 
         addRawLine("")
         addRawLine(builder.toString())
@@ -60,13 +63,13 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
     fun stopLoggingTo(name: String) = activeCollectors.remove(name)
 
     fun addRawLine(s: String) =
-            collectedLogs.add(s to activeCollectors.toSet())
+        collectedLogs.add(s to activeCollectors.toSet())
 
     fun writeDocs(rootDir: File): Any =
-            when (options.outputFormat) {
-                HTML -> writeHtmlFiles(rootDir)
-                MARKDOWN -> writeMarkdownFiles(rootDir)
-            }
+        when (options.outputFormat) {
+            HTML -> writeHtmlFiles(rootDir)
+            MARKDOWN -> writeMarkdownFiles(rootDir)
+        }
 
     fun writeMarkdownFiles(rootDir: File) {
         val name2writer = mutableMapOf<String, BufferedWriter>()
@@ -88,7 +91,7 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
             <head>
             <meta charset="utf-8">
             <style>
-            code,pre *,code * {
+            pre {
                 color: lightgreen;
                 background-color: black;
                 padding: 0px;
@@ -104,15 +107,15 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
         """.trimIndent()
 
         collectedLogs
-                .flatMap { (line, names) -> names.map { name -> name to line } }
-                .groupBy { it.first }
-                .entries
-                .map { (name, lines) -> name to lines.map { it.second }.joinToString("\n") }
-                .map { (name, markdown) ->
-                    val htmlBody = markdown2html(markdown)
-                    val nameWithoutExtension = File(name).nameWithoutExtension
-                    File(rootDir, "$nameWithoutExtension.html").writeText(header + htmlBody)
-                }
+            .flatMap { (line, names) -> names.map { name -> name to line } }
+            .groupBy { it.first }
+            .entries
+            .map { (name, lines) -> name to lines.map { it.second }.joinToString("\n") }
+            .map { (name, markdown) ->
+                val htmlBody = markdown2html(markdown)
+                val nameWithoutExtension = File(name).nameWithoutExtension
+                File(rootDir, "$nameWithoutExtension.html").writeText(header + htmlBody)
+            }
     }
 
     private fun markdown2html(markdown: String): String {
@@ -123,9 +126,9 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
     }
 
     fun of(name: String) =
-            collectedLogs
-                    .filter { (_, ns) -> ns.contains(name) }
-                    .map { (s, _) -> s }
+        collectedLogs
+            .filter { (_, ns) -> ns.contains(name) }
+            .map { (s, _) -> s }
 
     fun reset() {
         activeCollectors = resetCollectors()
