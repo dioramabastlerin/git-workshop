@@ -21,7 +21,8 @@ fun main() {
             // rebasing()
             // branching()
             // modules()
-            repositorysZusammenfuehren()
+            // repositorysZusammenfuehren()
+            sparseCeckouts()
         }
     }
 }
