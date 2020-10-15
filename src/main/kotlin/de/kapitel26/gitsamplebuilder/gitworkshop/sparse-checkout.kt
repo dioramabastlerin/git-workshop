@@ -43,6 +43,49 @@ fun CollectionOfSamples.sparseCeckouts() {
         )
 
         createAufgabe(
+            "Beispiel von Slide mit --no-checkout",
+            """
+                    """
+        ) {
+            git("clone --no-checkout repo myrepo2")
+
+            inRepo("myrepo2") {
+                markdown(
+                    "Man sieht hier das Problem mit --no-checkout, weil der Workspace leer ist, " +
+                            "sieht git hier lauter Löschungen."
+                )
+                git("status")
+                git("sparse-checkout init --cone")
+                git("sparse-checkout add component-a/foo")
+                git("checkout")
+                markdown("Man sieht, dass das `checkout` dann auch nicht wie erhofft wirkt.")
+                bash("ls -R")
+                git("status")
+            }
+        }
+
+
+        createAufgabe(
+            "Beispiel für Slide mit --sparse",
+            """
+                | Sparse clone, `--cone` aktivieren,
+                | Verzeichnis hinzufügen, dann Checkout.
+                """.trimMargin()
+        ) {
+            git("clone --sparse repo myclone")
+            inRepo("myclone") {
+                git("sparse-checkout init --cone")
+                git("sparse-checkout add component-a")
+                git("sparse-checkout list")
+                git("checkout")
+                bash("ls -lR")
+            }
+        }
+
+
+
+
+        createAufgabe(
             "Sparse-Klon durchführen",
             """
                 | Erstelle einen Sparse-Klon von `repo` mit dem Namen `myrepo`,
@@ -82,45 +125,6 @@ fun CollectionOfSamples.sparseCeckouts() {
                 git("sparse-checkout disable")
                 git("checkout")
                 bash("ls -lR")
-            }
-        }
-
-
-        createAufgabe(
-            "Beispiel für Slide",
-            """
-                | Sparse clone, `--cone` aktivieren,
-                | Verzeichnis hinzufügen, dann Checkout.
-                """.trimMargin()
-        ) {
-            git("clone --sparse repo myclone")
-            inRepo("myclone") {
-                git("sparse-checkout init --cone")
-                git("sparse-checkout add component-a")
-                git("sparse-checkout list")
-                git("checkout")
-                bash("ls -lR")
-            }
-        }
-
-
-
-        createAufgabe(
-            "Beispiel von Slide mit --no-checkout",
-            """
-                    Beim Checkout mit --no-checkout sieht Git,
-                    logischerweise lauter Loechungen   
-                    """
-        ) {
-            git("clone --no-checkout repo myrepo2")
-
-            inRepo("myrepo2") {
-                git("status")
-                git("sparse-checkout init --cone")
-                git("sparse-checkout add component-a/foo")
-                git("checkout")
-                bash("ls -R")
-                git("status")
             }
         }
 
