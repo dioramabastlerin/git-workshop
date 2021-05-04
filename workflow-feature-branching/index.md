@@ -1,6 +1,13 @@
 # Workflow
 ## Feature Branching
 
+<!-- .slide: data-background-image="workflow-feature-branching/feature-branch.png" data-background-opacity="0.15" -->
+
+---
+
+<!-- .slide: data-background-image="workflow-feature-branching/friends-gitflow.png" data-background-opacity="1.0" -->
+
+Achtung!
 
 ---
 

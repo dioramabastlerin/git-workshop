@@ -1,4 +1,6 @@
-# Repository
+# Repository!!
+
+<!-- .slide: data-background-image="repository/git-log.png" data-background-opacity="0.7" -->
 
 ---
 

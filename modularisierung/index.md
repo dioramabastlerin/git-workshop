@@ -1,5 +1,7 @@
 # Module
 
+<!-- .slide: data-background-image="modularisierung/modules.png" data-background-opacity="0.6" -->
+
 ---
 
 ## Lernziele
