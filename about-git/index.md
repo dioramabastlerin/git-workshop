@@ -4,7 +4,7 @@
 >
 > There is no way to do CVS right.
 
-(Torsten Torvalds, Mai 2007)
+(Linus Torvalds, Mai 2007)
 
 
 ---
