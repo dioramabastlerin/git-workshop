@@ -1,16 +1,3 @@
-# Push & Pull
-
-
----
-
-## Lernziel
-
- * `push` und `pull` oder wie synchronisiert man Repos?
- * Hosting: GitHub, GitLab & Co.
-
-
----
-
 ### Lernziel (Befehle)
 
 ```bash
