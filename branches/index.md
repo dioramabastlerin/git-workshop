@@ -1,17 +1,3 @@
-# Branches
-
----
-
-
-## Lernziele
-
- * Branches zeigen auf Commits
- * Wechseln zwischen Branches
- * Remote Branches
- * Upstream Branches
-
----
-
 ### Lernziel (Befehle)
 
 ```bash
