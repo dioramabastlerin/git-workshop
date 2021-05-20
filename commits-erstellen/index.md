@@ -1,19 +1,3 @@
-# Commits
-
----
-
-### Lernziel
-
-Wie *erstelle* ich Commits?
-
-Was genau *ist* eigentlich ein Commit?
-
-Wie *markiere* ich Commits mit *Tags*?
-
-**Oops!** Was tun, wenn mal was schief geht?
-
----
-
 ### Lernziel (Befehle)
 
 ```bash
