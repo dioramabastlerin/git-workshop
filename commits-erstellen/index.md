@@ -189,8 +189,25 @@ Die Historie von `hello`:
 
 ---
 
+# Anatomie eines Commits
 
-Commit Trees
+
+---
+
+Das Herz von Git ist der sogenannte **Object Store**,
+eine Datenbank, in der 
+ 
+ * Inhalte von Dateien (**Blob**)
+ * Verzeichnisse (**Tree**)\
+   Auflistungen von Dateien
+ * **Commits**\
+   mitsamt Metadaten
+   
+gespeichert werden.
+
+
+---
+
 
 ![Commit Trees](commit-tree.jpg)
 
@@ -200,6 +217,8 @@ Commit Trees
 Was genau ist in einem Commit enthalten?
 
     git log --pretty=raw
+
+Insbesondere sind die (Posix) Permissions enthalten, nicht aber die Timestamps.
 
 
 ---
@@ -215,7 +234,7 @@ Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
 ---
 
-### Übung 02: Commits erstellen
+### Übung: Commits erstellen
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -273,9 +292,6 @@ Setzt Stage auf den `HEAD`-Stand zurück:
 Setzt Workspace auf den Stage-Stand zurück:
 
     git restore <file>
-
-
----
 
 
 
