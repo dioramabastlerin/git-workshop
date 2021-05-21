@@ -78,7 +78,11 @@ Erkenntnis: Das von uns geklonte Repositor enthält die ganze Historie ders Proj
 
 ---
 
-## Klone und Dezentralität
+## Klone
+
+---
+
+Das lokale Repository ist eine Kopie des Projekts mit der gesamten Historie, genannt **Klon**.
 
 ---
 
@@ -88,7 +92,6 @@ die ganze Historie des Projekts?
 
 ---
 
- * (Bild: Dezentraler Austausch mit Push/Pull)
  * In jedem Klon wird unabhängig gearbeit.
  * Fast alle Befehle arbeiten lokal (und damit schnell).
  * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
@@ -98,6 +101,7 @@ die ganze Historie des Projekts?
 
 
 ## Commits und Revision-Hashes
+
 
 ---
 
@@ -315,7 +319,7 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
 ---
 
 
-### Übung 01: Repository untersuchen
+### Übung: Repository untersuchen
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).

@@ -9,7 +9,7 @@
 Was ist ein Git-Repository? Und wie findet man heraus, was darin enthalten ist?
 
 * Repository und Workspace
-* Klone und Dezentralität
+* Klon
 * Commits und Revision-Hashes
 * Das Log
 * Checkout, Branches und Refs
