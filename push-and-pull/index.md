@@ -33,11 +33,34 @@ Man kann auch mit unrelated Repos synchen.
 
 Wie funktioniert die Synchronisation?
 
-![Trees and Object Store](trees-and-object-storage.jpg)
+
+---
+
+
+Nach dem Klone ist alles gleich.
+
+![After Clone](repo-push-1.png)
+
+
+---
+
+Neue Commits sollen per `push` übertragen werden.
+
+![Before push](repo-push-2.png)
+
+
+---
+
+Commits wurden übertragen und Refs aktualisiert.
+
+![After push](repo-push-3.png)
+
 
 ---
 
 ### Push
+
+#### Übertragt vom *aktiven Branch* zum Remote Repository.
 
 ```bash
 git push
@@ -55,19 +78,17 @@ Achtung: `origin master` (Remote + lokaler branch) nicht `origin/master`
 
 ### Fetch
 
+#### Holt alle Branches vom Remote Repository.
+
 Synchronisiert und aktualisiert die Remote-Refs.
+
+Verändert weder Workspace, noch den aktiven Branch.
 
 ```bash
     git fetch
-```
-
-Oder genauer:
-
-```bash
     git fetch origin
 ```
 
-Berührt weder Workspace, noch den aktiven Branch.
 
 ---
 
