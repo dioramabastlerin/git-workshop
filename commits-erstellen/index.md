@@ -209,7 +209,14 @@ gespeichert werden.
 ---
 
 
-![Commit Trees](commit-tree.jpg)
+![Commit Trees](commits-im-object-store.svg)
+
+[Download](commits-im-object-store.svg)
+
+---
+
+
+![Commit Trees](commits-im-object-store.png)
 
 
 ---
