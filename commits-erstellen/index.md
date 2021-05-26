@@ -251,7 +251,7 @@ Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/02-commits-erstellen/index.html 
+    $ start aufgaben/XX-commits-erstellen/index.html 
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

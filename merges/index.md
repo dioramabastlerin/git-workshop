@@ -109,7 +109,7 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
 ---
 
 
-### Übung 06: Integration von Änderungen
+### Übung: Integration von Änderungen
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -119,7 +119,7 @@ Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/06-merges-integration-von-aenderungen/index.html
+    $ start aufgaben/XX-merges-integration-von-aenderungen/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

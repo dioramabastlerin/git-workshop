@@ -329,7 +329,7 @@ Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/01-repository-untersuchen/index.html
+    $ start aufgaben/XX-repository-untersuchen/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

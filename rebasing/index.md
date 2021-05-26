@@ -59,7 +59,7 @@ Ohne Parameter: Upstream Branch.
 
 ---
 
-### Übung 08: Rebasing
+### Übung: Rebasing
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -69,7 +69,7 @@ Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start xdg-open aufgaben/08-rebasing-rebasing/index.html
+    $ start xdg-open aufgaben/XX-rebasing-rebasing/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

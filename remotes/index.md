@@ -126,7 +126,7 @@ $ git clone https://<server>/<pfad>/git-training-protocol.git
 
 ---
 
-### Übung 03: Klonen
+### Übung: Klonen
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -136,7 +136,7 @@ Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/03-klone-klonen/index.html
+    $ start aufgaben/XX-klone-klonen/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

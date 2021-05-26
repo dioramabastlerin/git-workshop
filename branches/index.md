@@ -120,7 +120,7 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
 
 ---
 
-### Übung 07: Branching
+### Übung: Branching
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -130,7 +130,7 @@ Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
 Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/07-branching-branching/index.html
+    $ start aufgaben/XX-branching-branching/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

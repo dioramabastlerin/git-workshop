@@ -107,7 +107,7 @@ git pull
 ---
 
 
-### Übung 04: Push, Fetch und Pull
+### Übung: Push, Fetch und Pull
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -118,7 +118,7 @@ Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/04-klone-push-fetch-und-pull/index.html
+    $ start aufgaben/XX-klone-push-fetch-und-pull/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.
@@ -159,7 +159,7 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 ---
 
 
-### Übung 05: Push rejected!
+### Übung: Push rejected!
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
@@ -169,7 +169,7 @@ Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/05-klone-push-rejected/index.html
+    $ start aufgaben/XX-klone-push-rejected/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.

@@ -28,16 +28,16 @@
 
 ---
 
-### Übung 09: Module
+### Übung: Module
 
 Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
 Übungen entpackt haben).
 Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
 Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-aufgaben/09-module-modules/index.html
+aufgaben/XX-module-modules/index.html
 
     $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/09-module-modules/index.html
+    $ start aufgaben/XX-module-modules/index.html
     $ cd aufgaben/<angegebenes Startverzeichnis>
 
 Folgen Sie dann den weiteren Anweisungen.
