@@ -78,11 +78,11 @@ Achtung: `origin master` (Remote + lokaler branch) nicht `origin/master`
 
 ### Fetch
 
-#### Holt alle Branches vom Remote Repository.
+#### Holt *alle Branches* vom Remote Repository.
 
-Synchronisiert und aktualisiert die Remote-Refs.
+Synchronisiert und aktualisiert Remote-Refs.
 
-Verändert weder Workspace, noch den aktiven Branch.
+Workspace und aktiver Branch bleiben unverändert.
 
 ```bash
     git fetch
@@ -126,8 +126,26 @@ Folgen Sie dann den weiteren Anweisungen.
 
 ---
 
+### Push rejected
+
+---
+
+
+![Push reject 1](push-reject-1.png)
+
+[Push Reject](repo-push-rejected.svg)
+
+
+--- 
+
+
+![Push reject 2](push-reject-2.png)
+
+
+--- 
 
 ### Push rejected
+
 
 > Grundregel: Nie Historie vernichten!
 
