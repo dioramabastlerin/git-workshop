@@ -32,7 +32,26 @@
 ---
 
 
-![3-Wege-Merge](3-wege-merge.jpg)
+![2-Wege-Merge](3-wege-merge-1.png)
+
+
+---
+
+
+![Common Ancestor](3-wege-merge-2.png)
+
+
+---
+
+
+![Delta](3-wege-merge-3.png)
+
+
+---
+
+
+![3-Wege-Merge](3-wege-merge-4.png)
+
 
 
 ---
