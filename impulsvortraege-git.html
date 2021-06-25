@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Impulse für Git-Entwickler</title>
+
+	<meta name="description" content="Interessantes für Leute, die bereits mit Git arbeiten">
+	<meta name="author" content="René Preißel und Bjørn Stachmann">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="revealjs/css/reveal.css">
+	<!--<link rel="stylesheet" href="revealjs/css/theme/night.css" id="theme">-->
+	<!--<link rel="stylesheet" href="revealjs/css/theme/moon.css" id="theme">-->
+	<!--<link rel="stylesheet" href="revealjs/css/theme/white.css" id="theme">-->
+	<!--<link rel="stylesheet" href="revealjs/css/theme/sky.css" id="theme">-->
+
+	<!--<link rel="stylesheet" href="revealjs/css/theme/simple.css" id="theme">-->
+	<link rel="stylesheet" href="css/theme/offline.css" id="theme">
+
+	<!--<link rel="stylesheet" href="revealjs/css/theme/league.css" id="theme">-->
+
+	<!-- Theme ucomsed for syntax highlighting of code -->
+	<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	<!--[if lt IE 9]>
+	<script src="revealjs/lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+
+		<section>
+			<section data-markdown="workshop-git-intro/index.md"></section>
+			<section data-markdown="schedule/impuls-1000-1500.md"></section>
+			<section data-markdown="questions/2021-06-28.md"></section>
+			<section data-markdown="content-overview/impuls-4h.md"></section>
+		</section>
+		<section>
+			<!-- was git im innersten zusammenhält -->
+			<section data-markdown="section-headers/wie-funktioniert-git.md"></section>
+			<section data-markdown="repository/index.md"></section>
+			<section data-markdown="how-git-stores-data/index.en.md"></section>
+		</section>
+		<section>
+			<section data-markdown="rebasing/index.md"></section>
+			<!-- cherry-picking -->
+			<section data-markdown="interactive-rebasing/index.md"></section>
+		</section>
+		<section>
+			<section data-markdown="modularisierung/index.md"></section>
+		</section>
+		<section>
+			<section data-markdown="workflows/index.md"></section>
+			<section data-markdown="workflow-auf-dem-master-entwickeln/index.md"></section>
+			<section data-markdown="workflow-feature-branching/index.md"></section>
+			<section data-markdown="workflow-continuous-delivery/index.md"></section>
+			<section data-markdown="workflow-periodic-releases/index.md"></section>
+			<section data-markdown="workflow-multiple-releases/index.md"></section>
+			<!-- pull-requess -->
+		</section>
+		<section>
+			<section data-markdown="grosse-repos/index.md"></section>
+		</section>
+
+	</div>
+</div>
+
+<script src="revealjs/lib/js/head.min.js"></script>
+<script src="revealjs/js/reveal.js"></script>
+
+<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				enableRelativePathsInExternalMarkdown: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'revealjs/plugin/search/search.js', async: true },
+					{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+</body>
+</html>
