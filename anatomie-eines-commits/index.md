@@ -1,21 +1,98 @@
 # Anatomie eines Commits
 
+’---
+
+
+```bash
+$ git init
+$ vim hello
+$ git add hello
+$ git commit -m "A minimal commit"
+```
+
+Wie speichert Git Commits?
 
 ---
 
+```
+    git show HEAD
+    git show HEAD:hello         
+
+    git ls-tree -r HEAD
+```
+
+
+---
+
+
+### Alles hat einen (SHA1-) Hash!
+
+
+---
+
+
+## Git hat eine Datenbank:
+
+
+## Den Object Store
+
+---
+
+
 Das Herz von Git ist der sogenannte **Object Store**,
-eine Datenbank, in der 
- 
- * Inhalte von Dateien (**Blob**)
- * Verzeichnisse (**Tree**)\
-   Auflistungen von Dateien
- * **Commits**\
-   mitsamt Metadaten
-   
+eine Datenbank, in der
+
+* Inhalte von Dateien (**Blob**)
+* Verzeichnisse (**Tree**)\
+  Auflistungen von Dateien
+* **Commits**\
+  mitsamt Metadaten
+
 gespeichert werden.
 
 
 ---
+
+
+### Inspect the Object Store
+
+* `.git/objects`
+* Schlüssel sind SHA1-Hashes
+* Inhalte zlib-komprimiert
+  ```bash
+   $ cat 752c104f5f515c0f3b93bd21351f9e1add7e6a | pigz -d
+  ```
+* Git Plumbing-Kommandos:
+
+   ```bash
+   $ git cat-file -t HEAD   # type
+   $ git cat-file -s HEAD   # size
+   $ git cat-file -p HEAD   # print
+   ```
+
+---
+
+### Wichtige Objekttypen
+
+* `blob`
+* `tree`
+* `commit`
+
+
+Identische Inhalte werden nur einmal abgelegt.
+
+
+---
+
+
+### In den Object Store schreiben
+
+```bash
+$ echo 'test content' | git hash-object -w --stdin
+``` 
+
+---
+
 
 
 ![Commit Trees](commits-im-object-store.svg)
@@ -36,33 +113,5 @@ Was genau ist in einem Commit enthalten?
 
 Insbesondere sind die (Posix) Permissions enthalten, nicht aber die Timestamps.
 
-
----
-
-## Verzeichnisse
-
-Verzeichnisse werden in Git nicht explizit versioniert.
-
-Ein Verzeichnis muss mindestens eine Datei enthalten.
-
-Ggf. legt man ein hidden File an, z. B. `.gitkeep`
-
-
----
-
-### Übung: Commits erstellen
-
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
-
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-commits-erstellen/index.html 
-    $ cd aufgaben/<angegebenes Startverzeichnis>
-
-Folgen Sie dann den weiteren Anweisungen.
 
 
