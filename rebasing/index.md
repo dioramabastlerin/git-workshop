@@ -95,12 +95,3 @@ Folgen Sie dann den weiteren Anweisungen.
  * `filter-branch`
 
 
----
-
-
-### Anwendung auf **Workflows**
-
----
-
-
-![Feature Branching mit Rebasing](feature-branching-with-rebasing.png)
