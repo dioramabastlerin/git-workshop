@@ -1,6 +1,6 @@
 # Anatomie eines Commits
 
-’---
+---
 
 
 ```bash

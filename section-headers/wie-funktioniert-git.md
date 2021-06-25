@@ -1,5 +1,10 @@
 ## Was Git im innersten zusammenhält
 
+<!-- .slide: data-background-image="section-headers/faustus.png" data-background-opacity="0.3" data-background-size="90%"-->
+
+<font size="4"><a href="https://commons.wikimedia.org/wiki/File:The_Tragicall_History_of_the_Life_and_Death_of_Doctor_Faustus_(1628)_-_woodcut.png">Christopher Marlowe</a>, Public domain, via Wikimedia Commons</font>
+
+
 ---
 
 > Drum hab' ich **mich der Magie ergeben**,\
@@ -14,9 +19,6 @@
 >
 > *- Johann Wolfgang von Goethe -*
 > 
-<!-- .slide: data-background-image="section-headers/faustus.png" data-background-opacity="0.3" data-background-size="90%"-->
-
-<font size="4"><a href="https://commons.wikimedia.org/wiki/File:The_Tragicall_History_of_the_Life_and_Death_of_Doctor_Faustus_(1628)_-_woodcut.png">Christopher Marlowe</a>, Public domain, via Wikimedia Commons</font>
 
 ---
 
