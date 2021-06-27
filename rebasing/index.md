@@ -16,8 +16,30 @@
 
 ### Rebase und Merge sind verwandt
 
-![Rebasing und Merging](rebasing-and-merging.png)
 
+---
+
+Merge und Rebase sind enge Verwandte:
+
+---
+
+![zwei Branches](rebase-01.png)
+
+---
+
+![Mergen](rebase-02.png)
+
+---
+
+![Interpretation](rebase-03.png)
+
+---
+
+![Vorgänger vergessen](rebase-04.png)
+
+---
+
+![Ein rebase](rebase-05.png)
 
 ---
 
