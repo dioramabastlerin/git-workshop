@@ -14,11 +14,6 @@
 
 ---
 
-### Rebase und Merge sind verwandt
-
-
----
-
 Merge und Rebase sind enge Verwandte:
 
 ---
