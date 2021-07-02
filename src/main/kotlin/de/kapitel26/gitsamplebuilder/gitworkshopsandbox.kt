@@ -10,8 +10,8 @@ fun main() {
 
         thema("beispiel") {
 
-            // halloWelt()
-            // repositoryUntersuchen()
+            halloWelt()
+            repositoryUntersuchen()
             // commitsErstellen()
             // staging()
             // cloning()
@@ -22,7 +22,7 @@ fun main() {
             // branching()
             // modules()
             // repositorysZusammenfuehren()
-            sparseCeckouts()
+            // sparseCeckouts()
         }
     }
 }
