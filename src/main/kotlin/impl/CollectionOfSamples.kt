@@ -15,7 +15,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) {
         val prefix = "%02d".format(aufgabenNamen.size + 1)
-        val fullName = thema?.let { "$prefix-${it.toLowerCase()}-$name" } ?: "$prefix-$name"
+        val fullName = thema?.let { "${it.toLowerCase()}-$name" } ?: "$prefix-$name"
         aufgabenNamen.add(fullName)
 
         createSample("loesungen/$fullName") {
