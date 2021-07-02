@@ -23,7 +23,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
                 markdown(navigationLinks(fullName))
             }
 
-            inDir("") {
+            inDir(".") {
                 commands()
             }
             writeDocs()

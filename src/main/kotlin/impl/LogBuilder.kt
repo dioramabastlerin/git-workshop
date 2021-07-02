@@ -39,8 +39,9 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
         val builder = StringBuilder()
         builder.appendHTML()
             .pre {
+                val w = if (where == ".") "" else where + " "
                 code {
-                    +"$where $ "; b { +cmd }
+                    +"$w$ "; b { +cmd }
                     br()
                     br()
                     (outputLines + errorLines).forEach { +it; br() }
