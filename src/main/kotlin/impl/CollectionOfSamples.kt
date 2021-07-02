@@ -23,7 +23,9 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
                 markdown(navigationLinks(fullName))
             }
 
-            commands()
+            inDir("") {
+                commands()
+            }
             writeDocs()
 
             executeProcess("cp", "-a", rootDir.absolutePath, "../../aufgaben/")
