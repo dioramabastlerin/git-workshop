@@ -99,6 +99,11 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
                 border: 2px solid black;
                 margin: 0px;
             }
+            code {
+                color: lightgreen;
+                background-color: black;
+                padding: 1px;
+            }
             code b {
                 color: lime;
             }
