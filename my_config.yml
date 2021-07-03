@@ -1,0 +1,11 @@
+remote_theme: pmarsceill/just-the-docs
+
+#exclude: ["Gemfile", "Gemfile.lock", "package.json" ]
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - github-pages
+  - jekyll-github-metadata
+  - jekyll-paginate
