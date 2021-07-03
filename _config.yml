@@ -56,6 +56,9 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+exclude:
+  - uebungen/
+
 optional_front_matter:
   remove_originals: false
   enabled: true
