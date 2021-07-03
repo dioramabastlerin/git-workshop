@@ -2,11 +2,11 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import de.kapitel26.gitsamplebuilder.createCollectionOfSamples
 import impl.LogBuilderOptions
-import impl.LogOutputFormat.HTML
+import impl.LogOutputFormat.*
 
 fun main() {
 
-    createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = HTML)) {
+    createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = BOTH)) {
 
         thema("Intro") {
             halloWelt()

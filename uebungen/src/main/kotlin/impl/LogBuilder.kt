@@ -1,7 +1,6 @@
 package impl
 
-import impl.LogOutputFormat.HTML
-import impl.LogOutputFormat.MARKDOWN
+import impl.LogOutputFormat.*
 import kotlinx.html.b
 import kotlinx.html.br
 import kotlinx.html.code
@@ -70,6 +69,10 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
         when (options.outputFormat) {
             HTML -> writeHtmlFiles(rootDir)
             MARKDOWN -> writeMarkdownFiles(rootDir)
+            BOTH -> {
+                writeHtmlFiles(rootDir)
+                writeMarkdownFiles(rootDir)
+            }
         }
 
     fun writeMarkdownFiles(rootDir: File) {
@@ -78,6 +81,13 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
             names.forEach { name ->
                 name2writer.computeIfAbsent(name) { logName ->
                     BufferedWriter(FileWriter(File(rootDir, logName)))
+                        .also { it.write("""
+                            ---
+                            layout: page
+                            title: ${logName}
+                            ---
+                            
+                        """.trimIndent()) }
                 }.apply {
                     write(line)
                     write("\n")
