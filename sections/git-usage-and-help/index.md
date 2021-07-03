@@ -49,5 +49,5 @@
 
 # Git Starter
 
-[Git Starter Kit](../git-starter-kit.html)
+[Git Starter Kit](../../git-starter-kit.html)
 
