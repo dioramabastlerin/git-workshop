@@ -60,7 +60,7 @@ plugins:
 exclude:
   - uebungen/
   - build/
- - revealjs/css/theme/README.md
+  - revealjs/css/theme/README.md
 
 optional_front_matter:
   remove_originals: false
