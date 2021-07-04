@@ -2,13 +2,9 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.cloning() {
+fun CollectionOfSamples.klonen() {
     createAufgabenFolge("klonen") {
 
-        createRepo("myfirstrepo") {
-            createFileAndCommit("foo")
-            createFileAndCommit("bar")
-        }
 
         createIntro(
                 """Klonen von Repositorys""",
@@ -31,7 +27,13 @@ fun CollectionOfSamples.cloning() {
                    - `myfirstrepo/` Bereits vorhandenes Repository.
                   
             """
-        )
+        ) {
+            createRepo("myfirstrepo") {
+                createFileAndCommit("foo")
+                createFileAndCommit("bar")
+            }
+
+        }
 
         createAufgabe(
                 "Klon durchführen",

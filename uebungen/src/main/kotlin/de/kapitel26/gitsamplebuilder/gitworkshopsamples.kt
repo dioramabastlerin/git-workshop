@@ -5,7 +5,10 @@ import impl.LogBuilderOptions
 import impl.LogOutputFormat.*
 
 fun main() {
+    buildGitUebungen()
+}
 
+fun buildGitUebungen() {
     createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = BOTH)) {
 
         thema("Intro") {
@@ -14,36 +17,26 @@ fun main() {
 
         thema("Repository") {
             repositoryUntersuchen()
+            klonen()
+            sparseCeckout()
         }
 
         thema("Commits") {
-            commitsErstellen()
+            erstellen()
             staging()
         }
 
-        thema("Klone") {
-            cloning()
+        thema("Zusammenarbeit") {
             pushFetchPull()
             pushRejected()
-        }
-
-        thema("Merges") {
-            integrationOfChanges()
-        }
-
-        thema("Branching") {
+            integrationVonAenderungen()
             branching()
-        }
-
-        thema("Rebasing") {
             rebasing()
         }
 
-        // Workflows
-
         // Modules
-        thema("Module") {
-            modules()
+        thema("Modularisierung") {
+            submodulesSubtrees()
             repositorysZusammenfuehren()
         }
     }

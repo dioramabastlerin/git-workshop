@@ -17,23 +17,23 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractD
     }
 
     fun createAufgabenFolge(name: String, commands: Dir.() -> Unit) {
-        val prefix = "%02d".format(aufgabenNamen.size + 1)
-        val fullName = thema?.let { "${it.toLowerCase()}-$name" } ?: "$prefix-$name"
+        // val prefix = "%02d".format(aufgabenNamen.size + 1)
+        val fullName = thema?.let { "${it.toLowerCase()}-$name" } ?: "$name"
         aufgabenNamen.add(fullName)
 
         createSample("loesungen/$fullName") {
-            markdown(navigationLinks(fullName))
 
             inDir(".") {
                 logTo("aufgabe-$fullName.md") {
                     commands()
+                    markdown("[Zur Lösung](loesung-$fullName.md){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
                 }
             }
             writeDocs()
 
             executeProcess("cp", "-a", rootDir.absolutePath, "../../aufgaben/")
 
-            applyLoesungen(navigationLinks(fullName), fullName)
+            applyLoesungen(fullName)
             writeDocs()
         }
 
@@ -58,10 +58,4 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractD
         commands()
         this.thema = previousThema
     }
-}
-
-fun navigationLinks(fullName: String): String {
-    return "[Aufgabe](../../aufgaben/$fullName/aufgabe-$fullName.html)" +
-            " [Lösung](../../loesungen/$fullName/loesung-$fullName.html)" +
-            " [Überblick](../../index.html)"
 }

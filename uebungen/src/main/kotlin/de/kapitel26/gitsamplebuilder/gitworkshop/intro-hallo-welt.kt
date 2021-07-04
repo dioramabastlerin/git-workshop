@@ -4,7 +4,7 @@ import impl.CollectionOfSamples
 
 fun CollectionOfSamples.halloWelt() {
 
-    createAufgabenFolge("hallowelt") {
+    createAufgabenFolge("hallo-welt") {
 
         createIntro(
                 """Hallo Git!""",

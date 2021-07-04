@@ -7,8 +7,8 @@ fun CollectionOfSamples.repositoryUntersuchen() {
     createAufgabenFolge("untersuchen") {
 
         createIntro(
-                """Repository untersuchen""",
-                """
+            """Repository untersuchen""",
+            """
                 Hier geht es darum, herauszufinden, was in einem Repository enthalten ist.
 
                 ## Tipps
@@ -28,57 +28,64 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 untersucht zu werden. 
 
             """
-        )
+        ) {
 
 
-        createRepo {
-            createFileAndCommit("hallo-welt")
-            createDir("foo") {
-                createFileAndCommit("bar")
-            }
-            git("tag release1.0")
-            editAndCommit("hallo-welt", 3)
-            inDir("foo") {
-                startBranch("feature-a") {
-                    editAndCommit("bar", 7)
+            createRepo {
+                createFileAndCommit("hallo-welt")
+                createDir("foo") {
+                    createFileAndCommit("bar")
                 }
+                git("tag release1.0")
+                editAndCommit("hallo-welt", 3)
+                inDir("foo") {
+                    startBranch("feature-a") {
+                        editAndCommit("bar", 7)
+                    }
 
-                editAndCommit("bar", 1)
-                git("branch some-old-branch")
-                editAndCommit("bar", 5)
+                    editAndCommit("bar", 1)
+                    git("branch some-old-branch")
+                    editAndCommit("bar", 5)
+                }
+                git("tag release1.1")
+                createFileAndCommit("und-tschuess")
             }
-            git("tag release1.1")
-            createFileAndCommit("und-tschuess")
+
         }
 
         inRepo {
             createAufgabe(
-                    "Verzeichnisstruktur", """
+                "Verzeichnisstruktur", """
                     Untersuche das Projektverzeichnis.
-        """) {
+        """
+            ) {
 
                 bash("ls -hal")
 
-                markdown("""
+                markdown(
+                    """
                 Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
                 und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
-            """.trimIndent())
+            """.trimIndent()
+                )
             }
 
 
             createAufgabe(
-                    "Commits ansehen", """
+                "Commits ansehen", """
                     Sieh Dir die Commits an und lasse dabei Informationen 
                     zu Branches und Tags mit anzeigen.
-        """) {
+        """
+            ) {
                 git("log --oneline --decorate")
             }
 
             createAufgabe(
-                    "Einzelne Commits untersuchen", """
+                "Einzelne Commits untersuchen", """
                     Zeige Details zur aktuellen Version,
                     und zur Vorgängerversion des Releases 1.0
-                """) {
+                """
+            ) {
                 markdown("\n\nHier die aktuelle Version `HEAD`:")
                 git("show")
                 markdown("\n\nUnd hier kommt die 1.0:")
@@ -86,13 +93,14 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             }
 
             createAufgabe(
-                    "Inhalte vergangener Versionen untersuchen", """
+                "Inhalte vergangener Versionen untersuchen", """
                     Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
                     
                     Gebe den Inhalt der Datei `bar` in diese Version aus.
                     
                     Hole diese Version in den Workspace, um sie näher zu untersuchen.
-                """) {
+                """
+            ) {
                 markdown("\n\nDiese Dateien gab es in `HEAD~1`:")
                 git("ls-tree -r HEAD~1")
                 markdown("\n\nUnd hier der Inhalt von `bar`:")
@@ -103,10 +111,11 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             }
 
             createAufgabe(
-                    "Branches und Tags", """
+                "Branches und Tags", """
                     Zeige die Branches und Tags an.
                     Zeige jetzt den Commit-Graphen über alle Branches an.
-                """) {
+                """
+            ) {
                 git("branch -vv")
                 git("tag")
                 markdown("Im Commit-Graphen sieht man, wo die Branches und Tag stehen:")

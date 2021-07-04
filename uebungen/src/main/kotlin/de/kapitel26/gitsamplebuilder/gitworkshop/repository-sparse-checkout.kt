@@ -2,18 +2,9 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.sparseCeckouts() {
-    createAufgabenFolge("sparse-checkouts") {
-
-        createRepo("repo") {
-            createFileAndCommit("README.md")
-            createDir("component-a") {
-                createFileAndCommit("foo")
-            }
-            createDir("component-b") {
-                createFileAndCommit("bar")
-            }
-        }
+fun CollectionOfSamples.sparseCeckout
+            () {
+    createAufgabenFolge("sparse-checkout") {
 
         createIntro(
             """Sparce Checkout""",
@@ -40,7 +31,17 @@ fun CollectionOfSamples.sparseCeckouts() {
                    - `repo/` Bereits vorhandenes Repository.
                   
             """
-        )
+        ) {
+            createRepo("repo") {
+                createFileAndCommit("README.md")
+                createDir("component-a") {
+                    createFileAndCommit("foo")
+                }
+                createDir("component-b") {
+                    createFileAndCommit("bar")
+                }
+            }
+        }
 
         createAufgabe(
             "Sparse-Klon durchführen",

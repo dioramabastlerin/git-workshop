@@ -10,7 +10,7 @@ fun CollectionOfSamples.rebasing() {
                 """
 
                 
-                Rebasing ist, neben dem Merging, eine weitere Möglichket,
+                Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
                 Änderung zu integrieren.
 
                 ## Infos

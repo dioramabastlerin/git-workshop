@@ -1,5 +1,5 @@
 .idea/
 .jekyll-cache/
 _site/
-git-uebungen/
 sandbox.md
+build/

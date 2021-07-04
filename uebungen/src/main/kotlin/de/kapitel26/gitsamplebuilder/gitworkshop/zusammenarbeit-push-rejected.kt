@@ -12,22 +12,6 @@ fun CollectionOfSamples.pushRejected() {
         val anjasFile = "backend.java"
         val myFile = "frontend.java"
 
-        createRepo(blessedRepo, "--bare") {
-            createClone("../$anjasClone") {
-                user("anja")
-                createFileAndCommit(anjasFile)
-                createFileAndCommit(myFile)
-                git("push")
-            }
-
-            createClone("../$myClone")
-        }
-
-        inRepo(anjasClone) {
-            editAndCommit(anjasFile, 1)
-            editAndCommit(anjasFile, 5)
-            git("push")
-        }
 
         createIntro(
                 """Umgang mit "Push Reject"""",
@@ -80,7 +64,25 @@ fun CollectionOfSamples.pushRejected() {
                    - `$anjasClone/` Hier arbeitet Anja.  
                    - `$myClone/` **Du arbeitest hier.**
             """
-        )
+        ) {
+            createRepo(blessedRepo, "--bare") {
+                createClone("../$anjasClone") {
+                    user("anja")
+                    createFileAndCommit(anjasFile)
+                    createFileAndCommit(myFile)
+                    git("push")
+                }
+
+                createClone("../$myClone")
+            }
+
+            inRepo(anjasClone) {
+                editAndCommit(anjasFile, 1)
+                editAndCommit(anjasFile, 5)
+                git("push")
+            }
+
+        }
 
         inRepo(myClone) {
             createAufgabe(

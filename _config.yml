@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Kapitel26 Git-Workshops
+title: Git-Workshops
 email: kapitel26blog@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Unterlagen und Übungen zu den Git-Workshops.

@@ -2,14 +2,13 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.commitsErstellen() {
+fun CollectionOfSamples.erstellen() {
 
     createAufgabenFolge("erstellen") {
 
         createIntro(
                 """Commits erstellen""",
                 """
-                Hier geht es darum, ...
 
                 ## Tipps
                 
@@ -28,14 +27,12 @@ fun CollectionOfSamples.commitsErstellen() {
                 bearbeitet zu werden. 
 
             """
-        )
-
-
-        createRepo {
-            createFileAndCommit("hallo-welt") { content = "Hallo Welt" }
-            createFileAndCommit("hello-world") { content = "Hello world!" }
+        ) {
+            createRepo {
+                createFileAndCommit("hallo-welt") { content = "Hallo Welt" }
+                createFileAndCommit("hello-world") { content = "Hello world!" }
+            }
         }
-
 
         inRepo {
 

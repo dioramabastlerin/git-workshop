@@ -4,44 +4,7 @@ import impl.CollectionOfSamples
 
 fun CollectionOfSamples.repositorysZusammenfuehren() {
     createAufgabenFolge("repositorys-zusammenfuehren") {
-        createIntro(
-            """Kleine Repos zusammenführen""",
-            """
 
-                ## Infos
-                
-
-                ## Tipps
-                
-                  
-                ## Ausgangssituation
-
-            """
-        )
-
-
-        createRepo("backend.git", "--bare") { createClone("../backend") }
-        createRepo("ui.git", "--bare") { createClone("../ui") }
-
-        inRepo("backend") {
-            createDir("src") {
-                createFileAndCommit("Backend.java")
-            }
-            createDir("test") {
-                createFileAndCommit("BackendTest.java")
-            }
-            git("push")
-        }
-
-        inRepo("ui") {
-            createDir("src") {
-                createFileAndCommit("UI.java")
-            }
-            createDir("test") {
-                createFileAndCommit("UITest.java")
-            }
-            git("push")
-        }
 
         createIntro(
                 """Kleine Projekte zusammenfuehren""",
@@ -72,7 +35,30 @@ fun CollectionOfSamples.repositorysZusammenfuehren() {
                 sind bereits vorhanden.
  
             """
-        )
+        ) {
+            createRepo("backend.git", "--bare") { createClone("../backend") }
+            createRepo("ui.git", "--bare") { createClone("../ui") }
+
+            inRepo("backend") {
+                createDir("src") {
+                    createFileAndCommit("Backend.java")
+                }
+                createDir("test") {
+                    createFileAndCommit("BackendTest.java")
+                }
+                git("push")
+            }
+
+            inRepo("ui") {
+                createDir("src") {
+                    createFileAndCommit("UI.java")
+                }
+                createDir("test") {
+                    createFileAndCommit("UITest.java")
+                }
+                git("push")
+            }
+        }
 
         createAufgabe(
                 "Zusammenführen `git subtree`",

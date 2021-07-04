@@ -11,9 +11,9 @@ nav_exclude: true
 
 ## Workshops
 
-* [Git verstehen](workshop-git-verstehen.html){:target="_blank"} Kommandos, Konzepte und typische Workflows
-* [Git kompakt](workshop-git-kompakt.html){:target="_blank"} Das wichtigste in nur einem Tag
-* [Impulse für Git-Entwickler](workshop-git-impulsvortraege.html){:target="_blank"}  Interessantes für Entwickler, die bereits mit Git arbeiten.
+* [Git verstehen](presentation-git-verstehen.html){:target="_blank"} Kommandos, Konzepte und typische Workflows
+* [Git kompakt](presentation-git-kompakt.html){:target="_blank"} Das wichtigste in nur einem Tag
+* [Impulse für Git-Entwickler](presentation-git-impulsvortraege.html){:target="_blank"}  Interessantes für Entwickler, die bereits mit Git arbeiten.
 
 ## Material
 

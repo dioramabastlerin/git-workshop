@@ -79,15 +79,27 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
         val name2writer = mutableMapOf<String, BufferedWriter>()
         collectedLogs.forEach { (line, names) ->
             names.forEach { name ->
+                val type = when ("""aufgabe|loesung""".toRegex().find(name)?.value) {
+                    "aufgabe" -> "parent: Aufgaben\n"
+                    "loesung" -> "parent: Lösungen\n"
+                    else -> ""
+                }
+
                 name2writer.computeIfAbsent(name) { logName ->
+                    val title = """(aufgabe|loesung)\-(.*)\.md""".toRegex().matchEntire(name)?.groupValues?.get(2) ?: logName
                     BufferedWriter(FileWriter(File(rootDir, logName)))
-                        .also { it.write("""
-                            ---
-                            layout: page
-                            title: ${logName}
-                            ---
-                            
-                        """.trimIndent()) }
+                        .also {
+                            it.write(
+                                """
+                                    ---
+                                    layout: page
+                                    title: <code>${title}</code>
+                                    ${type}
+                                    ---
+                                    
+                                 """.trimIndent()
+                            )
+                        }
                 }.apply {
                     write(line)
                     write("\n")

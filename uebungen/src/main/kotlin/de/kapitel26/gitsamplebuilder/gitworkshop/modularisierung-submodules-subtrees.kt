@@ -2,29 +2,8 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.modules() {
-    createAufgabenFolge("modules") {
-
-        createRepo("mod-a.git", "--bare") { createClone("../mod-a") }
-        createRepo("mod-b.git", "--bare") { createClone("../mod-b") }
-
-        inRepo("mod-a") {
-            createFileAndCommit("anton")
-            git("push")
-        }
-
-        inRepo("mod-b") {
-            createFileAndCommit("berta")
-            git("push")
-        }
-
-        createRepo("subtrees") {
-            createFileAndCommit("README")
-        }
-
-        createRepo("submodules") {
-            createFileAndCommit("README")
-        }
+fun CollectionOfSamples.submodulesSubtrees() {
+    createAufgabenFolge("submodules-subtrees") {
 
         createIntro(
                 """Modularisierung mit Submodules und Subrepos""",
@@ -88,7 +67,29 @@ fun CollectionOfSamples.modules() {
                   
                   
             """
-        )
+        ) {
+            createRepo("mod-a.git", "--bare") { createClone("../mod-a") }
+            createRepo("mod-b.git", "--bare") { createClone("../mod-b") }
+
+            inRepo("mod-a") {
+                createFileAndCommit("anton")
+                git("push")
+            }
+
+            inRepo("mod-b") {
+                createFileAndCommit("berta")
+                git("push")
+            }
+
+            createRepo("subtrees") {
+                createFileAndCommit("README")
+            }
+
+            createRepo("submodules") {
+                createFileAndCommit("README")
+            }
+
+        }
 
         solutionCollector.collectedCommands.add("Subtrees" to { markdown("# Subtrees") })
 

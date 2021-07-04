@@ -2,7 +2,7 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.integrationOfChanges() {
+fun CollectionOfSamples.integrationVonAenderungen() {
     createAufgabenFolge("integration-von-aenderungen") {
 
         createIntro(
@@ -51,16 +51,15 @@ fun CollectionOfSamples.integrationOfChanges() {
                 Integrieren Sie die neuen Änderungen von Anja.
 
             """
-        )
+        ) {
+            createRepo("origin-for-merge-samples.git", "--bare") {
 
-        createRepo("origin-for-merge-samples.git", "--bare") {
+                createClone("../anjas-repo") {
+                    user("anja")
 
-            createClone("../anjas-repo") {
-                user("anja")
-
-                createFileAndCommit("README.md") { content = "Hallo Wolt!\n" }
-                createFileAndCommit("average.kts") {
-                    content = """
+                    createFileAndCommit("README.md") { content = "Hallo Wolt!\n" }
+                    createFileAndCommit("average.kts") {
+                        content = """
                     if(args.isEmpty())
                         throw RuntimeException("No arguments given!")
     
@@ -69,27 +68,29 @@ fun CollectionOfSamples.integrationOfChanges() {
                     println("The average is ${'$'}{s/args.size}")
                     
                 """.trimIndent()
+                    }
+                    git("push")
                 }
-                git("push")
-            }
 
-            createClone("../changes-in-different-files") {
-            }
+                createClone("../changes-in-different-files") {
+                }
 
-            createClone("../fast-forward") {
-            }
+                createClone("../fast-forward") {
+                }
 
-            createClone("../no-ff") {
-            }
+                createClone("../no-ff") {
+                }
 
-            createClone("../changes-in-same-files") {
-                inFile("average.kts") {
-                    replace("val s = ", "val summe = ")
-                    replace("{s/args.size}", replaceWith = "{summe/args.size}")
-                    commit("Refactoring: s in summe umbenennen")
+                createClone("../changes-in-same-files") {
+                    inFile("average.kts") {
+                        replace("val s = ", "val summe = ")
+                        replace("{s/args.size}", replaceWith = "{summe/args.size}")
+                        commit("Refactoring: s in summe umbenennen")
+                    }
                 }
             }
         }
+
 
         inRepo("anjas-repo") {
             inFile("average.kts") {

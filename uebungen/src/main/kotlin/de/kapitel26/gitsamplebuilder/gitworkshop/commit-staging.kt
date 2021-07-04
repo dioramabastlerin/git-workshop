@@ -28,12 +28,13 @@ fun CollectionOfSamples.staging() {
                 bearbeitet zu werden. 
 
             """
-        )
-
-
-        createRepo {
-            createFileAndCommit("demo") { content = "Fit\nist\ndoof.\n" }
+        ) {
+            createRepo {
+                createFileAndCommit("demo") { content = "Fit\nist\ndoof.\n" }
+            }
         }
+
+
 
 
         inRepo {
