@@ -39,7 +39,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;Created file foo on branch master by bstachmann. &quot;</b><br><br>[master (root-commit) 84890d5] Created file foo on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 foo<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;Created file foo on branch master by bstachmann. &quot;</b><br><br>[master (root-commit) b07f72d] Created file foo on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 foo<br><br></code></pre>
 
 
 
@@ -51,7 +51,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;Created file bar on branch master by bstachmann. &quot;</b><br><br>[master e54ac5a] Created file bar on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 bar<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;Created file bar on branch master by bstachmann. &quot;</b><br><br>[master 4c0af20] Created file bar on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 bar<br><br></code></pre>
 
 
 
@@ -67,7 +67,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`foo`: Feature anfangen. &quot;</b><br><br>[feature 76ff285] : Feature anfangen.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`foo`: Feature anfangen. &quot;</b><br><br>[feature 1da248d] : Feature anfangen.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
@@ -75,7 +75,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`foo`: Feature weitermachen. &quot;</b><br><br>[feature 7baffc3] : Feature weitermachen.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`foo`: Feature weitermachen. &quot;</b><br><br>[feature cc924e8] : Feature weitermachen.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
@@ -87,7 +87,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`bar`: Neuerung auf dem master &quot;</b><br><br>[master ca30042] : Neuerung auf dem master<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`bar`: Neuerung auf dem master &quot;</b><br><br>[master 04c5175] : Neuerung auf dem master<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
 
 
 

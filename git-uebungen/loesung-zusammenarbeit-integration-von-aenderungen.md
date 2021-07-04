@@ -14,7 +14,7 @@ Führe ein Pull durch.
 Lasse Dir Status und den Commit-Graphen zeigen.
 
 
-<pre><code>fast-forward $ <b>git pull</b><br><br>Updating 3b3aef3..ccc3283<br>Fast-forward<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>warning: Pulling without specifying how to reconcile divergent branches is<br>discouraged. You can squelch this message by running one of the following<br>commands sometime before your next pull:<br><br>  git config pull.rebase false  # merge (the default strategy)<br>  git config pull.rebase true   # rebase<br>  git config pull.ff only       # fast-forward only<br><br>You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>preference for all repositories. You can also pass --rebase, --no-rebase,<br>or --ff-only on the command line to override the configured default per<br>invocation.<br><br>From ../origin-for-merge-samples<br>   3b3aef3..ccc3283  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>fast-forward $ <b>git pull</b><br><br>Updating f0b8778..8742dc0<br>Fast-forward<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   f0b8778..8742dc0  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git signalisiert, dass ein Fast-Forward durchgeführt wurde.
@@ -22,7 +22,7 @@ Git signalisiert, dass ein Fast-Forward durchgeführt wurde.
 Der Graph zeigt, dass keine Verzweigung entstanden ist und kein Merge notwendig war.
 
 
-<pre><code>fast-forward $ <b>git log --graph --oneline --decorate</b><br><br>* ccc3283 (HEAD -&gt; master, origin/master, origin/HEAD) Verwende double Werte statt int<br>* 3b3aef3 Created file average.kts on branch master by anja.<br>* e343813 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>fast-forward $ <b>git log --graph --oneline --decorate</b><br><br>* 8742dc0 (HEAD -&gt; master, origin/master, origin/HEAD) Verwende double Werte statt int<br>* f0b8778 Created file average.kts on branch master by anja.<br>* 89ca32c Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 ## Lösung zu Schritt 2 - Merge erzwingen beim Pull
@@ -35,7 +35,7 @@ Führe ein Pull mit `--no-ff` durch.
 Lasse Dir Status und den Commit-Graphen zeigen.
 
 
-<pre><code>no-ff $ <b>git pull --no-ff</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>warning: Pulling without specifying how to reconcile divergent branches is<br>discouraged. You can squelch this message by running one of the following<br>commands sometime before your next pull:<br><br>  git config pull.rebase false  # merge (the default strategy)<br>  git config pull.rebase true   # rebase<br>  git config pull.ff only       # fast-forward only<br><br>You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>preference for all repositories. You can also pass --rebase, --no-rebase,<br>or --ff-only on the command line to override the configured default per<br>invocation.<br><br>From ../origin-for-merge-samples<br>   3b3aef3..ccc3283  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>no-ff $ <b>git pull --no-ff</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   f0b8778..8742dc0  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git signalisiert, dass kein Fast-Forward durchgeführt wurde.
@@ -43,7 +43,7 @@ Git signalisiert, dass kein Fast-Forward durchgeführt wurde.
 Der Graph zeigt, dass ein Merge enstanden ist.
 
 
-<pre><code>no-ff $ <b>git log --graph --oneline --decorate</b><br><br>*   15f5d99 (HEAD -&gt; master) Merge branch 'master' of ../origin-for-merge-samples<br>|\  <br>| * ccc3283 (origin/master, origin/HEAD) Verwende double Werte statt int<br>|/  <br>* 3b3aef3 Created file average.kts on branch master by anja.<br>* e343813 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>no-ff $ <b>git log --graph --oneline --decorate</b><br><br>*   f606fad (HEAD -&gt; master) Merge branch 'master' of ../origin-for-merge-samples<br>|\  <br>| * 8742dc0 (origin/master, origin/HEAD) Verwende double Werte statt int<br>|/  <br>* f0b8778 Created file average.kts on branch master by anja.<br>* 89ca32c Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 ## Lösung zu Schritt 3 - Integration bei Änderungen in verschiedenen Dateien
@@ -66,11 +66,11 @@ Der Graph zeigt, dass ein Merge enstanden ist.
 
 
 
-<pre><code>changes-in-different-files $ <b>git commit -am &quot;Commited file README.md on branch master by bstachmann &quot;</b><br><br>[master 69e1ac5] Commited file README.md on branch master by bstachmann<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git commit -am &quot;Commited file README.md on branch master by bstachmann &quot;</b><br><br>[master 5685ea2] Commited file README.md on branch master by bstachmann<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
-<pre><code>changes-in-different-files $ <b>git show</b><br><br>commit 69e1ac587a3bb05ba28de871c3283ae0cbb3f728<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:35:17 2021 +0200<br><br>    Commited file README.md on branch master by bstachmann<br><br>diff --git a/README.md b/README.md<br>index 8b6805c..28cf676 100644<br>--- a/README.md<br>+++ b/README.md<br>@@ -1 +1 @@<br>-Hallo Wolt!<br>+Hallo Welt!<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git show</b><br><br>commit 5685ea2bf18c8bfe80dbf5ee42891d1845f17950<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:51 2021 +0200<br><br>    Commited file README.md on branch master by bstachmann<br><br>diff --git a/README.md b/README.md<br>index 8b6805c..28cf676 100644<br>--- a/README.md<br>+++ b/README.md<br>@@ -1 +1 @@<br>-Hallo Wolt!<br>+Hallo Welt!<br><br></code></pre>
 
 
 
@@ -81,13 +81,13 @@ Diese Meldung zeigt, dass im `origin` Änderungen vorliegen,
 die wir noch nicht integriert haben.
 
 
-<pre><code>changes-in-different-files $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>warning: Pulling without specifying how to reconcile divergent branches is<br>discouraged. You can squelch this message by running one of the following<br>commands sometime before your next pull:<br><br>  git config pull.rebase false  # merge (the default strategy)<br>  git config pull.rebase true   # rebase<br>  git config pull.ff only       # fast-forward only<br><br>You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>preference for all repositories. You can also pass --rebase, --no-rebase,<br>or --ff-only on the command line to override the configured default per<br>invocation.<br><br>From ../origin-for-merge-samples<br>   3b3aef3..ccc3283  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   f0b8778..8742dc0  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
 
 
-<pre><code>changes-in-different-files $ <b>git log --oneline --graph</b><br><br>*   99b4b39 Merge branch 'master' of ../origin-for-merge-samples<br>|\  <br>| * ccc3283 Verwende double Werte statt int<br>* | 69e1ac5 Commited file README.md on branch master by bstachmann<br>|/  <br>* 3b3aef3 Created file average.kts on branch master by anja.<br>* e343813 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git log --oneline --graph</b><br><br>*   808d10f Merge branch 'master' of ../origin-for-merge-samples<br>|\  <br>| * 8742dc0 Verwende double Werte statt int<br>* | 5685ea2 Commited file README.md on branch master by bstachmann<br>|/  <br>* f0b8778 Created file average.kts on branch master by anja.<br>* 89ca32c Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 
@@ -95,13 +95,13 @@ Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
 
 
 
-<pre><code>changes-in-different-files $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 69e1ac587a3bb05ba28de871c3283ae0cbb3f728<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:35:17 2021 +0200<br><br>    Commited file README.md on branch master by bstachmann<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 5685ea2bf18c8bfe80dbf5ee42891d1845f17950<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:51 2021 +0200<br><br>    Commited file README.md on branch master by bstachmann<br><br></code></pre>
 
 
 Und jetzt können wir erneut ein Push versuchen.
 
 
-<pre><code>changes-in-different-files $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   ccc3283..99b4b39  master -&gt; master<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   8742dc0..808d10f  master -&gt; master<br><br></code></pre>
 
 
 ## Lösung zu Schritt 4 - Integration bei Änderungen in derselben Datei
@@ -117,11 +117,11 @@ den wir aulösen müssen.
 3. Lasse Dir den Status zeigen und löse den Konflikt.
 
 
-<pre><code>changes-in-same-files $ <b>git show</b><br><br>commit b4c30360118d4b0f451f16f1f55e32662ad569b5<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:35:17 2021 +0200<br><br>    Refactoring: s in summe umbenennen<br><br>diff --git a/average.kts b/average.kts<br>index 4cd02bf..7eb87f2 100644<br>--- a/average.kts<br>+++ b/average.kts<br>@@ -1,6 +1,6 @@<br> if(args.isEmpty())<br>     throw RuntimeException(&quot;No arguments given!&quot;)<br> <br>-val s = args.map{ it.toInt() }.sum()<br>+val summe = args.map{ it.toInt() }.sum()<br> <br>-println(&quot;The average is ${s/args.size}&quot;)<br>+println(&quot;The average is ${summe/args.size}&quot;)<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git show</b><br><br>commit 7af77045c2fc91c5f9862062671b54f079d2f2bc<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:50 2021 +0200<br><br>    Refactoring: s in summe umbenennen<br><br>diff --git a/average.kts b/average.kts<br>index 4cd02bf..7eb87f2 100644<br>--- a/average.kts<br>+++ b/average.kts<br>@@ -1,6 +1,6 @@<br> if(args.isEmpty())<br>     throw RuntimeException(&quot;No arguments given!&quot;)<br> <br>-val s = args.map{ it.toInt() }.sum()<br>+val summe = args.map{ it.toInt() }.sum()<br> <br>-println(&quot;The average is ${s/args.size}&quot;)<br>+println(&quot;The average is ${summe/args.size}&quot;)<br><br></code></pre>
 
 
 
-<pre><code>changes-in-same-files $ <b>git pull</b><br><br>Auto-merging average.kts<br>CONFLICT (content): Merge conflict in average.kts<br>Automatic merge failed; fix conflicts and then commit the result.<br>warning: Pulling without specifying how to reconcile divergent branches is<br>discouraged. You can squelch this message by running one of the following<br>commands sometime before your next pull:<br><br>  git config pull.rebase false  # merge (the default strategy)<br>  git config pull.rebase true   # rebase<br>  git config pull.ff only       # fast-forward only<br><br>You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>preference for all repositories. You can also pass --rebase, --no-rebase,<br>or --ff-only on the command line to override the configured default per<br>invocation.<br><br>From ../origin-for-merge-samples<br>   3b3aef3..99b4b39  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git pull</b><br><br>Auto-merging average.kts<br>CONFLICT (content): Merge conflict in average.kts<br>Automatic merge failed; fix conflicts and then commit the result.<br>From ../origin-for-merge-samples<br>   f0b8778..808d10f  master     -&gt; origin/master<br><br></code></pre>
 
 
 Wie erwartet, ist es zu einem Konflikt gekommen.
@@ -141,13 +141,13 @@ Nicht vergessen: Nach dem Bereinigen `git add` aufrufen.
 
 
 
-<pre><code>changes-in-same-files $ <b>git commit -m 'Änderungen von Anja integriert'</b><br><br>[master ff8a0b5] Änderungen von Anja integriert<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git commit -m 'Änderungen von Anja integriert'</b><br><br>[master 2b851d4] Änderungen von Anja integriert<br><br></code></pre>
 
 
 Und hier nochmal der entstandene Graph:
 
 
-<pre><code>changes-in-same-files $ <b>git log --graph --oneline</b><br><br>*   ff8a0b5 Änderungen von Anja integriert<br>|\  <br>| *   99b4b39 Merge branch 'master' of ../origin-for-merge-samples<br>| |\  <br>| | * ccc3283 Verwende double Werte statt int<br>| * | 69e1ac5 Commited file README.md on branch master by bstachmann<br>| |/  <br>* / b4c3036 Refactoring: s in summe umbenennen<br>|/  <br>* 3b3aef3 Created file average.kts on branch master by anja.<br>* e343813 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git log --graph --oneline</b><br><br>*   2b851d4 Änderungen von Anja integriert<br>|\  <br>| *   808d10f Merge branch 'master' of ../origin-for-merge-samples<br>| |\  <br>| | * 8742dc0 Verwende double Werte statt int<br>| * | 5685ea2 Commited file README.md on branch master by bstachmann<br>| |/  <br>* / 7af7704 Refactoring: s in summe umbenennen<br>|/  <br>* f0b8778 Created file average.kts on branch master by anja.<br>* 89ca32c Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-integration-von-aenderungen.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

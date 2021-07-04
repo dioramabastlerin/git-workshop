@@ -23,7 +23,7 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`foo`: Edit file foo at line 7 on branch feature-a by bstachmann. &quot;</b><br><br>[feature-a 82cf0d3] : Edit file foo at line 7 on branch feature-a by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`foo`: Edit file foo at line 7 on branch feature-a by bstachmann. &quot;</b><br><br>[feature-a 8cfbb3c] : Edit file foo at line 7 on branch feature-a by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
@@ -35,11 +35,11 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch master by bstachmann. &quot;</b><br><br>[master 8bef0ea] : Edit file bar at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch master by bstachmann. &quot;</b><br><br>[master e5ff504] : Edit file bar at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 82cf0d3 (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>| * 8bef0ea (HEAD -&gt; master) : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* 3fd70b3 (origin/master) Initial edit before cloning<br>* 7fcb5d6 Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 8cfbb3c (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>| * e5ff504 (HEAD -&gt; master) : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* a496446 (origin/master) Initial edit before cloning<br>* b4a4d44 Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 2 - Branch mergen
@@ -52,7 +52,7 @@ zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   a444e65 (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * 82cf0d3 (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>* | 8bef0ea : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* 3fd70b3 (origin/master) Initial edit before cloning<br>* 7fcb5d6 Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   c1d2187 (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * 8cfbb3c (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>* | e5ff504 : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* a496446 (origin/master) Initial edit before cloning<br>* b4a4d44 Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 3 - Merge analysieren
@@ -62,11 +62,11 @@ Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
 Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
-<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 8bef0ea6d624e2e33b687ddf32f8023668511cde<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:35:18 2021 +0200<br><br>    : Edit file bar at line 3 on branch master by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit e5ff50456654cad6b386427c92f4c4207eabf8dc<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:51 2021 +0200<br><br>    : Edit file bar at line 3 on branch master by bstachmann.<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log HEAD^1..HEAD^2</b><br><br>commit 82cf0d36d12c43b3f60a2117a25e06490471b12e<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:35:18 2021 +0200<br><br>    : Edit file foo at line 7 on branch feature-a by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git log HEAD^1..HEAD^2</b><br><br>commit 8cfbb3caaa3f94a4084bbcbbaae286ad3b7a8bed<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:51 2021 +0200<br><br>    : Edit file foo at line 7 on branch feature-a by bstachmann.<br><br></code></pre>
 
 
 
