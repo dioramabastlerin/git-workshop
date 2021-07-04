@@ -2,6 +2,7 @@
 layout: page
 title: "Datenschutz"
 description: "Datenschutz"
+nav_order: 90
 ---
 
 ## Datenschutzerklärung
