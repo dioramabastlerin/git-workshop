@@ -55,13 +55,13 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 
 
 
-<pre><code>myrepo $ <b>git commit -m 'Hallo Welt!'</b><br><br>[master (root-commit) fcc7316] Hallo Welt!<br> 1 file changed, 1 insertion(+)<br> create mode 100644 hallo<br><br></code></pre>
+<pre><code>myrepo $ <b>git commit -m 'Hallo Welt!'</b><br><br>[master (root-commit) 3d1b62c] Hallo Welt!<br> 1 file changed, 1 insertion(+)<br> create mode 100644 hallo<br><br></code></pre>
 
 
 Glückwunsch: Sieh sehen Ihr erstes Commit in Ihrem ersten Git-Repository!
 
 
-<pre><code>myrepo $ <b>git log</b><br><br>commit fcc7316cba2e95b02deb46555482d85ad9f73cc9<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:47 2021 +0200<br><br>    Hallo Welt!<br><br></code></pre>
+<pre><code>myrepo $ <b>git log</b><br><br>commit 3d1b62c91522b6468e7dd072632c7c0ad6c0429a<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:10 2021 +0200<br><br>    Hallo Welt!<br><br></code></pre>
 
 
 

@@ -58,11 +58,11 @@ Integrieren Sie die neuen Änderungen von Anja.
 
 
 
-<pre><code>anjas-repo $ <b>git commit -am &quot;Verwende double Werte statt int &quot;</b><br><br>[master 8742dc0] Verwende double Werte statt int<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>anjas-repo $ <b>git commit -am &quot;Verwende double Werte statt int &quot;</b><br><br>[master 1c69453] Verwende double Werte statt int<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
-<pre><code>anjas-repo $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   f0b8778..8742dc0  master -&gt; master<br><br></code></pre>
+<pre><code>anjas-repo $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   bdffb18..1c69453  master -&gt; master<br><br></code></pre>
 
 
 

@@ -18,7 +18,7 @@ Erstelle einen Sparse-Klon von `repo` mit dem Namen `myrepo`,
 
 
 
-<pre><code>myrepo $ <b>ls -lR</b><br><br>.:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 14:40 README.md<br><br></code></pre>
+<pre><code>myrepo $ <b>ls -lR</b><br><br>.:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 15:53 README.md<br><br></code></pre>
 
 
 
@@ -48,7 +48,7 @@ Validiere, dass `component-a` jetzt da ist.
 
 
 
-<pre><code>myrepo $ <b>ls -lR</b><br><br>.:<br>total 8<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 14:40 component-a<br>-rw-rw-r-- 1 bjoern bjoern  181 Jul  4 14:40 README.md<br><br>./component-a:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 14:40 foo<br><br></code></pre>
+<pre><code>myrepo $ <b>ls -lR</b><br><br>.:<br>total 8<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 15:53 component-a<br>-rw-rw-r-- 1 bjoern bjoern  181 Jul  4 15:53 README.md<br><br>./component-a:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 15:53 foo<br><br></code></pre>
 
 
 
@@ -73,7 +73,7 @@ Validiere, dass `component-a` jetzt da ist.
 
 
 
-<pre><code>myrepo $ <b>ls -lR</b><br><br>.:<br>total 12<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 14:40 component-a<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 14:40 component-b<br>-rw-rw-r-- 1 bjoern bjoern  181 Jul  4 14:40 README.md<br><br>./component-a:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 14:40 foo<br><br>./component-b:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 14:40 bar<br><br></code></pre>
+<pre><code>myrepo $ <b>ls -lR</b><br><br>.:<br>total 12<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 15:53 component-a<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 15:53 component-b<br>-rw-rw-r-- 1 bjoern bjoern  181 Jul  4 15:53 README.md<br><br>./component-a:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 15:53 foo<br><br>./component-b:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 15:53 bar<br><br></code></pre>
 
 
 
@@ -106,7 +106,7 @@ und mache ein Checkout. Nutze die `--cone`-Option.
 
 
 
-<pre><code>myclone $ <b>ls -lR</b><br><br>.:<br>total 8<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 14:40 component-a<br>-rw-rw-r-- 1 bjoern bjoern  181 Jul  4 14:40 README.md<br><br>./component-a:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 14:40 foo<br><br></code></pre>
+<pre><code>myclone $ <b>ls -lR</b><br><br>.:<br>total 8<br>drwxrwxr-x 2 bjoern bjoern 4096 Jul  4 15:53 component-a<br>-rw-rw-r-- 1 bjoern bjoern  181 Jul  4 15:53 README.md<br><br>./component-a:<br>total 4<br>-rw-rw-r-- 1 bjoern bjoern 181 Jul  4 15:53 foo<br><br></code></pre>
 
 
 

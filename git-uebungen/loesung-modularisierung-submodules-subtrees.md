@@ -42,15 +42,15 @@ Sieh Dir das übertragene Commit an.
 
 
 
-<pre><code>mod-b $ <b>git commit -am &quot;`berta`: Edit file berta at line 7 on branch master by bstachmann. &quot;</b><br><br>[master 514c54c] : Edit file berta at line 7 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: berta: command not found<br><br></code></pre>
+<pre><code>mod-b $ <b>git commit -am &quot;`berta`: Edit file berta at line 7 on branch master by bstachmann. &quot;</b><br><br>[master c919d03] : Edit file berta at line 7 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: berta: command not found<br><br></code></pre>
 
 
 
-<pre><code>mod-b $ <b>git show --stat </b><br><br>commit 514c54c9da598eb16391c225b908d6742d29161d<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:53 2021 +0200<br><br>    : Edit file berta at line 7 on branch master by bstachmann.<br><br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>mod-b $ <b>git show --stat </b><br><br>commit c919d0380b7f020568f1c7fcb6ec38b836ffa2f7<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:14 2021 +0200<br><br>    : Edit file berta at line 7 on branch master by bstachmann.<br><br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
-<pre><code>mod-b $ <b>git push</b><br><br>To ../mod-b.git<br>   83afffb..514c54c  master -&gt; master<br><br></code></pre>
+<pre><code>mod-b $ <b>git push</b><br><br>To ../mod-b.git<br>   076dce5..c919d03  master -&gt; master<br><br></code></pre>
 
 
 
@@ -66,7 +66,7 @@ Sieh Dir das übertragene Commit an.
 
 
 
-<pre><code>subtrees $ <b>git show --stat </b><br><br>commit 7a8eb9e00b9ceb07fc21adc055a0db01ad81df06<br>Merge: 21bda08 514c54c<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:53 2021 +0200<br><br>    Merge commit '514c54c9da598eb16391c225b908d6742d29161d'<br><br> mod-b/berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>subtrees $ <b>git show --stat </b><br><br>commit 16291147f09e1d6152a465c12539da098411009c<br>Merge: ad40b28 c919d03<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:14 2021 +0200<br><br>    Merge commit 'c919d0380b7f020568f1c7fcb6ec38b836ffa2f7'<br><br> mod-b/berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
@@ -88,11 +88,11 @@ Sieh Dir das übertragene Commit in `mod-a.git` an.
 
 
 
-<pre><code>subtrees $ <b>git commit -am &quot;`mod-a/anton`: Edit file mod-a/anton at line 3 on branch master by bstachmann. &quot;</b><br><br>[master 6abb42e] : Edit file mod-a/anton at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: mod-a/anton: Permission denied<br><br></code></pre>
+<pre><code>subtrees $ <b>git commit -am &quot;`mod-a/anton`: Edit file mod-a/anton at line 3 on branch master by bstachmann. &quot;</b><br><br>[master 510a1ac] : Edit file mod-a/anton at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: mod-a/anton: Permission denied<br><br></code></pre>
 
 
 
-<pre><code>subtrees $ <b>git subtree push --prefix=mod-a ../mod-a.git master</b><br><br>git push using:  ../mod-a.git master<br>1/8 (0) [0]<br>2/8 (0) [0]<br>3/8 (0) [0]<br>3/8 (1) [1]<br>3/8 (1) [2]<br>4/8 (1) [2]<br>5/8 (2) [2]<br>5/8 (3) [3]<br>6/8 (3) [3]<br>7/8 (4) [3]<br>7/8 (5) [4]<br>8/8 (5) [4]<br>To ../mod-a.git<br>   c66d310..3448cc7  3448cc7b98202df60c8e3e990d8415c2feb08fc3 -&gt; master<br><br></code></pre>
+<pre><code>subtrees $ <b>git subtree push --prefix=mod-a ../mod-a.git master</b><br><br>git push using:  ../mod-a.git master<br>1/8 (0) [0]<br>2/8 (0) [0]<br>3/8 (0) [0]<br>3/8 (1) [1]<br>3/8 (1) [2]<br>4/8 (1) [2]<br>5/8 (2) [2]<br>5/8 (3) [3]<br>6/8 (3) [3]<br>7/8 (4) [3]<br>7/8 (5) [4]<br>8/8 (5) [4]<br>To ../mod-a.git<br>   7614290..8e4e69e  8e4e69e5dacab15abfb057da3343c2f1cc29c022 -&gt; master<br><br></code></pre>
 
 
 
@@ -104,7 +104,7 @@ Sieh Dir das übertragene Commit in `mod-a.git` an.
 
 
 
-<pre><code>mod-a.git $ <b>git show --stat </b><br><br>commit 3448cc7b98202df60c8e3e990d8415c2feb08fc3<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:53 2021 +0200<br><br>    : Edit file mod-a/anton at line 3 on branch master by bstachmann.<br><br> anton | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>mod-a.git $ <b>git show --stat </b><br><br>commit 8e4e69e5dacab15abfb057da3343c2f1cc29c022<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:14 2021 +0200<br><br>    : Edit file mod-a/anton at line 3 on branch master by bstachmann.<br><br> anton | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
@@ -134,7 +134,7 @@ Man sieht, dass die Einbettungen als normale Dateien und Verzeichnisse im `HEAD`
 Im Commit-Graphen sieht man, woher die Daten kommen.
 
 
-<pre><code>mysubtrees $ <b>git log --graph --oneline --stat</b><br><br>* 6abb42e : Edit file mod-a/anton at line 3 on branch master by bstachmann.<br>|  mod-a/anton | 2 +-<br>|  1 file changed, 1 insertion(+), 1 deletion(-)<br>*   7a8eb9e Merge commit '514c54c9da598eb16391c225b908d6742d29161d'<br>|\  <br>| * 514c54c : Edit file berta at line 7 on branch master by bstachmann.<br>| |  berta | 2 +-<br>| |  1 file changed, 1 insertion(+), 1 deletion(-)<br>* | 21bda08 Add 'mod-b/' from commit '83afffb66102fcba990d486ae7bdb69215c07b38'<br>|\| <br>| * 83afffb Created file berta on branch master by bstachmann.<br>|    berta | 12 ++++++++++++<br>|    1 file changed, 12 insertions(+)<br>*   f43845e Add 'mod-a/' from commit 'c66d31003b40a5fe82c188cc70cd90ed6cb28027'<br>|\  <br>| * c66d310 Created file anton on branch master by bstachmann.<br>|    anton | 12 ++++++++++++<br>|    1 file changed, 12 insertions(+)<br>* a87d5ac Created file README on branch master by bstachmann.<br>   README | 12 ++++++++++++<br>   1 file changed, 12 insertions(+)<br><br></code></pre>
+<pre><code>mysubtrees $ <b>git log --graph --oneline --stat</b><br><br>* 510a1ac : Edit file mod-a/anton at line 3 on branch master by bstachmann.<br>|  mod-a/anton | 2 +-<br>|  1 file changed, 1 insertion(+), 1 deletion(-)<br>*   1629114 Merge commit 'c919d0380b7f020568f1c7fcb6ec38b836ffa2f7'<br>|\  <br>| * c919d03 : Edit file berta at line 7 on branch master by bstachmann.<br>| |  berta | 2 +-<br>| |  1 file changed, 1 insertion(+), 1 deletion(-)<br>* | ad40b28 Add 'mod-b/' from commit '076dce5d881e3cfa5e2a13445e163f9fb3a16f69'<br>|\| <br>| * 076dce5 Created file berta on branch master by bstachmann.<br>|    berta | 12 ++++++++++++<br>|    1 file changed, 12 insertions(+)<br>*   eb5875b Add 'mod-a/' from commit '76142901946cc41d5645a99433e60c637a30b016'<br>|\  <br>| * 7614290 Created file anton on branch master by bstachmann.<br>|    anton | 12 ++++++++++++<br>|    1 file changed, 12 insertions(+)<br>* 52a915d Created file README on branch master by bstachmann.<br>   README | 12 ++++++++++++<br>   1 file changed, 12 insertions(+)<br><br></code></pre>
 
 
 
@@ -162,7 +162,7 @@ Untersuche dann die entstandene Verzeichnisstruktur.
 Man sieht, dass die Module als eigenständige Git-Repositorys mit separatem `.git`-Verzeichnis eingebettet wurden.
 
 
-<pre><code>submodules $ <b>ls -lah mod-a mod-b</b><br><br>mod-a:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 14:40 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 14:40 ..<br>-rw-rw-r-- 1 bjoern bjoern  254 Jul  4 14:40 anton<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 14:40 .git<br><br>mod-b:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 14:40 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 14:40 ..<br>-rw-rw-r-- 1 bjoern bjoern  248 Jul  4 14:40 berta<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 14:40 .git<br><br></code></pre>
+<pre><code>submodules $ <b>ls -lah mod-a mod-b</b><br><br>mod-a:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 15:53 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 15:53 ..<br>-rw-rw-r-- 1 bjoern bjoern  254 Jul  4 15:53 anton<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 15:53 .git<br><br>mod-b:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 15:53 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 15:53 ..<br>-rw-rw-r-- 1 bjoern bjoern  248 Jul  4 15:53 berta<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 15:53 .git<br><br></code></pre>
 
 
 Achtung! Die submodule wurden hinzugefügt, aber es fehlt noch ein Commit.
@@ -172,7 +172,7 @@ Achtung! Die submodule wurden hinzugefügt, aber es fehlt noch ein Commit.
 
 
 
-<pre><code>submodules $ <b>git commit -m 'add mod-a and mod-b'</b><br><br>[master 549d66a] add mod-a and mod-b<br> 3 files changed, 8 insertions(+)<br> create mode 100644 .gitmodules<br> create mode 160000 mod-a<br> create mode 160000 mod-b<br><br></code></pre>
+<pre><code>submodules $ <b>git commit -m 'add mod-a and mod-b'</b><br><br>[master e31d326] add mod-a and mod-b<br> 3 files changed, 8 insertions(+)<br> create mode 100644 .gitmodules<br> create mode 160000 mod-a<br> create mode 160000 mod-b<br><br></code></pre>
 
 
 ## Lösung zu Schritt 8 - Subtree: Änderung aus einem Modul übernehmen
@@ -191,15 +191,15 @@ Sieh Dir das übertragene Commit an.
 
 
 
-<pre><code>mod-b $ <b>git commit -am &quot;`berta`: Edit file berta at line 8 on branch master by bstachmann. &quot;</b><br><br>[master 0d85341] : Edit file berta at line 8 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: berta: command not found<br><br></code></pre>
+<pre><code>mod-b $ <b>git commit -am &quot;`berta`: Edit file berta at line 8 on branch master by bstachmann. &quot;</b><br><br>[master 8595aef] : Edit file berta at line 8 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: berta: command not found<br><br></code></pre>
 
 
 
-<pre><code>mod-b $ <b>git show --stat </b><br><br>commit 0d853418fad59f47c057083e3d1cb801bd8ec412<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:54 2021 +0200<br><br>    : Edit file berta at line 8 on branch master by bstachmann.<br><br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>mod-b $ <b>git show --stat </b><br><br>commit 8595aef9ec13570a1d903b410059f53fcdc9eba5<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:15 2021 +0200<br><br>    : Edit file berta at line 8 on branch master by bstachmann.<br><br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
-<pre><code>mod-b $ <b>git push</b><br><br>To ../mod-b.git<br>   514c54c..0d85341  master -&gt; master<br><br></code></pre>
+<pre><code>mod-b $ <b>git push</b><br><br>To ../mod-b.git<br>   c919d03..8595aef  master -&gt; master<br><br></code></pre>
 
 
 
@@ -215,7 +215,7 @@ Sieh Dir das übertragene Commit an.
 
 
 
-<pre><code>mod-b $ <b>git pull</b><br><br>Updating 514c54c..0d85341<br>Fast-forward<br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From /home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-b<br>   514c54c..0d85341  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>mod-b $ <b>git pull</b><br><br>Updating c919d03..8595aef<br>Fast-forward<br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From /home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-b<br>   c919d03..8595aef  master     -&gt; origin/master<br><br></code></pre>
 
 
 
@@ -227,7 +227,7 @@ Sieh Dir das übertragene Commit an.
 
 
 
-<pre><code>submodules $ <b>git commit -am 'updated mod-b'</b><br><br>[master 3190895] updated mod-b<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>submodules $ <b>git commit -am 'updated mod-b'</b><br><br>[master 44d14e3] updated mod-b<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
@@ -253,11 +253,11 @@ Sieh Dir das übertragene Commit in `mod-a.git` an.
 
 
 
-<pre><code>mod-a $ <b>git commit -am &quot;`anton`: Edit file anton at line 5 on branch master by bstachmann. &quot;</b><br><br>[master 3e880f9] : Edit file anton at line 5 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: anton: command not found<br><br></code></pre>
+<pre><code>mod-a $ <b>git commit -am &quot;`anton`: Edit file anton at line 5 on branch master by bstachmann. &quot;</b><br><br>[master bd0e744] : Edit file anton at line 5 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: anton: command not found<br><br></code></pre>
 
 
 
-<pre><code>mod-a $ <b>git push</b><br><br>To /home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-a.git<br>   3448cc7..3e880f9  master -&gt; master<br><br></code></pre>
+<pre><code>mod-a $ <b>git push</b><br><br>To /home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-a.git<br>   8e4e69e..bd0e744  master -&gt; master<br><br></code></pre>
 
 
 
@@ -271,7 +271,7 @@ Nicht vergessen: Änderungen am im übergeordenten Repository committen.
 
 
 
-<pre><code>submodules $ <b>git commit -m 'new version of mod-a'</b><br><br>[master 4f9a460] new version of mod-a<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>submodules $ <b>git commit -m 'new version of mod-a'</b><br><br>[master 28c8c0f] new version of mod-a<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
@@ -283,7 +283,7 @@ Nicht vergessen: Änderungen am im übergeordenten Repository committen.
 
 
 
-<pre><code>mod-a.git $ <b>git show --stat </b><br><br>commit 3e880f9f79e3e18c4467455c8f44ae0db00ffd9b<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 14:40:54 2021 +0200<br><br>    : Edit file anton at line 5 on branch master by bstachmann.<br><br> anton | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>mod-a.git $ <b>git show --stat </b><br><br>commit bd0e744f56c8f0f3cc3fb4c7fafd1c3e2b94b4f9<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:15 2021 +0200<br><br>    : Edit file anton at line 5 on branch master by bstachmann.<br><br> anton | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
@@ -307,17 +307,17 @@ Vergiß nicht, ein `submodule update` auszuführen.
 Die Modulverzeichnisse sind da aber noch leer:
 
 
-<pre><code>mysubmodules $ <b>ls -lah mod-a mod-b</b><br><br>mod-a:<br>total 8,0K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 14:40 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 14:40 ..<br><br>mod-b:<br>total 8,0K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 14:40 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 14:40 ..<br><br></code></pre>
+<pre><code>mysubmodules $ <b>ls -lah mod-a mod-b</b><br><br>mod-a:<br>total 8,0K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 15:53 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 15:53 ..<br><br>mod-b:<br>total 8,0K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 15:53 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 15:53 ..<br><br></code></pre>
 
 
 Jetzt holen wir die Module:
 
 
-<pre><code>mysubmodules $ <b>git submodule update --init</b><br><br>Submodule path 'mod-a': checked out '3e880f9f79e3e18c4467455c8f44ae0db00ffd9b'<br>Submodule path 'mod-b': checked out '0d853418fad59f47c057083e3d1cb801bd8ec412'<br>Submodule 'mod-a' (/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-a.git) registered for path 'mod-a'<br>Submodule 'mod-b' (/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-b.git) registered for path 'mod-b'<br>Cloning into '/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mysubmodules/mod-a'...<br>done.<br>Cloning into '/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mysubmodules/mod-b'...<br>done.<br><br></code></pre>
+<pre><code>mysubmodules $ <b>git submodule update --init</b><br><br>Submodule path 'mod-a': checked out 'bd0e744f56c8f0f3cc3fb4c7fafd1c3e2b94b4f9'<br>Submodule path 'mod-b': checked out '8595aef9ec13570a1d903b410059f53fcdc9eba5'<br>Submodule 'mod-a' (/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-a.git) registered for path 'mod-a'<br>Submodule 'mod-b' (/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mod-b.git) registered for path 'mod-b'<br>Cloning into '/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mysubmodules/mod-a'...<br>done.<br>Cloning into '/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules-subtrees/mysubmodules/mod-b'...<br>done.<br><br></code></pre>
 
 
 
-<pre><code>mysubmodules $ <b>ls -lah mod-a mod-b</b><br><br>mod-a:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 14:40 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 14:40 ..<br>-rw-rw-r-- 1 bjoern bjoern  321 Jul  4 14:40 anton<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 14:40 .git<br><br>mod-b:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 14:40 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 14:40 ..<br>-rw-rw-r-- 1 bjoern bjoern  315 Jul  4 14:40 berta<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 14:40 .git<br><br></code></pre>
+<pre><code>mysubmodules $ <b>ls -lah mod-a mod-b</b><br><br>mod-a:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 15:53 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 15:53 ..<br>-rw-rw-r-- 1 bjoern bjoern  321 Jul  4 15:53 anton<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 15:53 .git<br><br>mod-b:<br>total 16K<br>drwxrwxr-x 2 bjoern bjoern 4,0K Jul  4 15:53 .<br>drwxrwxr-x 5 bjoern bjoern 4,0K Jul  4 15:53 ..<br>-rw-rw-r-- 1 bjoern bjoern  315 Jul  4 15:53 berta<br>-rw-rw-r-- 1 bjoern bjoern   30 Jul  4 15:53 .git<br><br></code></pre>
 
 
 
