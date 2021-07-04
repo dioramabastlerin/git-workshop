@@ -5,14 +5,36 @@ import impl.CollectionOfSamples
 fun CollectionOfSamples.branching() {
     createAufgabenFolge("branching") {
 
-        createRepo("blessed.git", "--bare") {
-            createClone("../repo")
+        createIntro(
+            """Branching""",
+            """
+
+               
+                ## Infos
+                
+                * `git branch` 
+
+                ## Tipps
+                
+                * `git branch -vv`
+                  
+                ## Ausgangssituation
+
+            """
+        ) {
+            createRepo("blessed.git", "--bare") {
+                createClone("../repo")
+            }
+
+            inRepo {
+                createFileAndCommit("foo", "Initial edit before cloning")
+                createFileAndCommit("bar", "Initial edit before cloning")
+                git("push")
+            }
+
         }
 
         inRepo {
-            createFileAndCommit("foo", "Initial edit before cloning")
-            createFileAndCommit("bar", "Initial edit before cloning")
-            git("push")
 
             createAufgabe(
                     "Branch erstellen",

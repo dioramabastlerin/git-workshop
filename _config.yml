@@ -58,6 +58,7 @@ plugins:
 
 exclude:
   - uebungen/
+  - build/
 
 optional_front_matter:
   remove_originals: false

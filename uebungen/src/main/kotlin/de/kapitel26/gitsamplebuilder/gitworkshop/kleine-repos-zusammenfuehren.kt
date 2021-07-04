@@ -4,6 +4,21 @@ import impl.CollectionOfSamples
 
 fun CollectionOfSamples.repositorysZusammenfuehren() {
     createAufgabenFolge("repositorys-zusammenfuehren") {
+        createIntro(
+            """Kleine Repos zusammenführen""",
+            """
+
+                ## Infos
+                
+
+                ## Tipps
+                
+                  
+                ## Ausgangssituation
+
+            """
+        )
+
 
         createRepo("backend.git", "--bare") { createClone("../backend") }
         createRepo("ui.git", "--bare") { createClone("../ui") }

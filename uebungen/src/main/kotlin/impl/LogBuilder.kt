@@ -158,5 +158,11 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
             mutableSetOf()
     }
 
+    fun suppressLogging(commands: () -> Unit) {
+        val tmpCollectors = activeCollectors
+        activeCollectors = mutableSetOf()
+        commands()
+        activeCollectors = tmpCollectors
+    }
 
 }

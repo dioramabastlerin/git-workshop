@@ -39,6 +39,10 @@ abstract class AbstractDir<T>(
         log.stopLoggingTo(name)
     }
 
+    @Suppress("UNCHECKED_CAST")
+    fun supressLogging(commands: T.() -> Unit)
+        = log.suppressLogging() { (this as T).commands() }
+
     fun writeDocs() = log.writeDocs(rootDir)
 
 }

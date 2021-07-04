@@ -2,8 +2,11 @@ package impl
 
 import java.io.File
 
-class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
-    : AbstractDir<CollectionOfSamples>(rootDir, log = LogBuilder(options, rootDir), solutionCollector = SolutionCollector()) {
+class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractDir<CollectionOfSamples>(
+    rootDir,
+    log = LogBuilder(options, rootDir),
+    solutionCollector = SolutionCollector()
+) {
 
     var aufgabenNamen: MutableList<String> = mutableListOf()
     var thema: String? = null
@@ -19,27 +22,26 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
         aufgabenNamen.add(fullName)
 
         createSample("loesungen/$fullName") {
-            logTo(markdownFilename()) {
-                markdown(navigationLinks(fullName))
-            }
+            markdown(navigationLinks(fullName))
 
             inDir(".") {
-                commands()
+                logTo("aufgabe-$fullName.md") {
+                    commands()
+                }
             }
             writeDocs()
 
             executeProcess("cp", "-a", rootDir.absolutePath, "../../aufgaben/")
 
-            applyLoesungen(navigationLinks(fullName))
+            applyLoesungen(navigationLinks(fullName), fullName)
             writeDocs()
         }
 
-
         reset()
 
-        logTo("index.md") {
+        logTo("ueberblick.md") {
             aufgabenNamen.forEach { name ->
-                markdown(" * [$name](aufgaben/$name/index.html) [Lösung](loesungen/$name/loesung.html)")
+                markdown(" * [$name](loesungen/$fullName/aufgabe-$fullName.html) [Lösung](loesungen/$fullName/loesung-$fullName.html)")
             }
         }
         writeDocs()
@@ -59,7 +61,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions)
 }
 
 fun navigationLinks(fullName: String): String {
-    return "[Aufgabe](../../aufgaben/$fullName/index.html)" +
-            " [Lösung](../../loesungen/$fullName/loesung.html)" +
+    return "[Aufgabe](../../aufgaben/$fullName/aufgabe-$fullName.html)" +
+            " [Lösung](../../loesungen/$fullName/loesung-$fullName.html)" +
             " [Überblick](../../index.html)"
 }

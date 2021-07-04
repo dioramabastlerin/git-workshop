@@ -121,11 +121,9 @@ abstract class AbstractWorkingDir<T>(
 
     @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
-        logTo(markdownFilename()) {
-            markdown("# Übung - $title")
-            markdown(description)
-            setup()
-        }
+        markdown("# Übung - $title")
+        markdown(description)
+        supressLogging(setup)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -138,13 +136,9 @@ abstract class AbstractWorkingDir<T>(
                 }
         )
         val pathInUebungsverzeichnis = Paths.get(rootDir.parentFile.parentFile.canonicalPath).relativize(Paths.get(rootDir.canonicalPath))
-        logTo(markdownFilename()) {
             markdown("## " + header)
-            logTo(markdownFilename()) {
-                markdown("Starte im Verzeichnis `aufgaben/${pathInUebungsverzeichnis}`.")
-                markdown(description)
-            }
-        }
+            markdown("Starte im Verzeichnis `aufgaben/${pathInUebungsverzeichnis}`.")
+            markdown(description)
     }
 
     fun editAndCommit(fileName: String, line: Int, message: String = "Edit file $fileName at line $line on branch ${currentBranch()} by ${currentUser()}.") = editAndCommit(fileName, line..line, message)
@@ -161,7 +155,8 @@ abstract class AbstractWorkingDir<T>(
         git { commit(fileName, message) }
     }
 
-    fun markdownFilename() = "index.md"
+//    fun aufgabenFilename(name: String) = "aufgabe-${name.toLowerCase()}.md"
+    fun aufgabenFilename(name: String) = "index.md"
 
     private fun formatNr(nr: Int): String = "%02d".format(nr)
 
@@ -180,8 +175,8 @@ abstract class AbstractWorkingDir<T>(
                     .readLines()
                     .single()
 
-    fun applyLoesungen(navigationLinks: String) =
-            logTo("loesung.md") {
+    fun applyLoesungen(navigationLinks: String, name: String) =
+            logTo("loesung-${name}.md") {
                 markdown(navigationLinks)
                 solutionCollector.collectedCommands.forEach { (header, command) ->
                     markdown("## Lösung zu $header")
