@@ -41,7 +41,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractD
 
         logTo("ueberblick.md") {
             aufgabenNamen.forEach { name ->
-                markdown(" * [$name](loesungen/$fullName/aufgabe-$fullName.html) [Lösung](loesungen/$fullName/loesung-$fullName.html)")
+                markdown(" * [$name](loesungen/$name/aufgabe-$name.html) [Lösung](loesungen/$name/loesung-$name.html)")
             }
         }
         writeDocs()
