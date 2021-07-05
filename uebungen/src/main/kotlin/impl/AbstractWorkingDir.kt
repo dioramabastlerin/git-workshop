@@ -198,7 +198,8 @@ abstract class AbstractWorkingDir<T>(
                 markdown("## Lösung zu $header")
                 command()
             }
-            markdown("[Zur Aufgabe](aufgabe-$fullName.md){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
+            markdown("[Zur Aufgabe](aufgabe-$fullName.html){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
+            markdown("[Zum Überblick](../../ueberblick.html){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
         }
 }
 
