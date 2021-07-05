@@ -66,5 +66,7 @@ Benenne die Datei `hello-world` in `renamed-world` um.
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-commits-erstellen.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-commits-erstellen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

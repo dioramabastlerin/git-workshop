@@ -10,7 +10,7 @@ Hole die beiden neuen Commits vom `origin`-Repository,
 ohne den lokalen `master` zu verändern.
 
 
-<pre><code>mein-klon $ <b>git fetch</b><br><br>From ../blessed<br>   0d5a51c..f507b2f  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>mein-klon $ <b>git fetch</b><br><br>From ../blessed<br>   39b2e80..2b21b91  master     -&gt; origin/master<br><br></code></pre>
 
 
 Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.
@@ -35,7 +35,7 @@ Der Status zeigt, dass es im Origin-Repo
 die wir noch nicht integriert haben.
 
 
-<pre><code>mein-klon $ <b>git log master..origin/master</b><br><br>commit f507b2f8af7c7678ced9ae5deda2f30b9bed3e6f<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:13 2021 +0200<br><br>    : Second edit after cloning<br><br>commit bb5fa59749ac408663ecef0a8a85e298c5db4a2a<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:13 2021 +0200<br><br>    : First edit after cloning<br><br></code></pre>
+<pre><code>mein-klon $ <b>git log master..origin/master</b><br><br>commit 2b21b91d4bf05ed0dc1ce76d6700532e7c8e3c0c<br>Author: bstachmann &lt;egal&gt;<br>Date:   Mon Jul 5 23:09:23 2021 +0200<br><br>    : Second edit after cloning<br><br>commit 227be7809b30a73bbcf4d292204919919324dc69<br>Author: bstachmann &lt;egal&gt;<br>Date:   Mon Jul 5 23:09:23 2021 +0200<br><br>    : First edit after cloning<br><br></code></pre>
 
 
 Die `..`-Notation zeigt genau jene Commits,
@@ -53,8 +53,10 @@ in den lokalen `master`.
 
 
 
-<pre><code>mein-klon $ <b>git log --graph --oneline</b><br><br>*   4a4c56b Merge branch 'master' of ../blessed<br>|\  <br>| * f507b2f : Second edit after cloning<br>| * bb5fa59 : First edit after cloning<br>* | c2d54fc : My local edit<br>|/  <br>* 0d5a51c Initial edit before cloning<br>* 0c21ab8 Initial edit before cloning<br><br></code></pre>
+<pre><code>mein-klon $ <b>git log --graph --oneline</b><br><br>*   207c8c0 Merge branch 'master' of ../blessed<br>|\  <br>| * 2b21b91 : Second edit after cloning<br>| * 227be78 : First edit after cloning<br>* | 2610748 : My local edit<br>|/  <br>* 39b2e80 Initial edit before cloning<br>* 5f22900 Initial edit before cloning<br><br></code></pre>
 
 
-[Zur Aufgabe](aufgabe-zusammenarbeit-push-fetch-pull.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Aufgabe](aufgabe-zusammenarbeit-push-fetch-pull.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

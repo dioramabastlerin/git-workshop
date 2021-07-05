@@ -147,5 +147,7 @@ Klone `submodules` zu `mysubmodules`.
 Untersuche die Verzeichnisstruktur.
 Vergiß nicht, ein `submodule update` auszuführen.
 
-[Zur Lösung](loesung-modularisierung-submodules-subtrees.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-modularisierung-submodules-subtrees.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

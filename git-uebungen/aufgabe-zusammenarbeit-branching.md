@@ -50,5 +50,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-zusammenarbeit-branching.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-zusammenarbeit-branching.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

@@ -45,5 +45,7 @@ Starte im Verzeichnis `aufgaben/repository-klonen`.
 
 Erstelle ein Commit und zeige dann den Status.
 
-[Zur Lösung](loesung-repository-klonen.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-repository-klonen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

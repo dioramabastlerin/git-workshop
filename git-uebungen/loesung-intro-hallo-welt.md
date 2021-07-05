@@ -55,18 +55,20 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 
 
 
-<pre><code>myrepo $ <b>git commit -m 'Hallo Welt!'</b><br><br>[master (root-commit) 3d1b62c] Hallo Welt!<br> 1 file changed, 1 insertion(+)<br> create mode 100644 hallo<br><br></code></pre>
+<pre><code>myrepo $ <b>git commit -m 'Hallo Welt!'</b><br><br>[master (root-commit) a446e75] Hallo Welt!<br> 1 file changed, 1 insertion(+)<br> create mode 100644 hallo<br><br></code></pre>
 
 
 Glückwunsch: Sieh sehen Ihr erstes Commit in Ihrem ersten Git-Repository!
 
 
-<pre><code>myrepo $ <b>git log</b><br><br>commit 3d1b62c91522b6468e7dd072632c7c0ad6c0429a<br>Author: bstachmann &lt;egal&gt;<br>Date:   Sun Jul 4 15:53:10 2021 +0200<br><br>    Hallo Welt!<br><br></code></pre>
+<pre><code>myrepo $ <b>git log</b><br><br>commit a446e7579f95c42d2bb0ca9e1406307547c078a6<br>Author: bstachmann &lt;egal&gt;<br>Date:   Mon Jul 5 23:09:20 2021 +0200<br><br>    Hallo Welt!<br><br></code></pre>
 
 
 
 <pre><code>myrepo $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Aufgabe](aufgabe-intro-hallo-welt.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Aufgabe](aufgabe-intro-hallo-welt.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

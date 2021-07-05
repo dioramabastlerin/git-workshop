@@ -57,5 +57,7 @@ Starte im Verzeichnis `aufgaben/repository-sparse-checkout`.
 Klone `myrepo`, schränke auf `component-a` ein
 und mache ein Checkout. Nutze die `--cone`-Option.
 
-[Zur Lösung](loesung-repository-sparse-checkout.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-repository-sparse-checkout.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

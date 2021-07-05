@@ -51,5 +51,7 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
     $ git commit -m 'Hallo Welt!'
     $ git log
 
-[Zur Lösung](loesung-intro-hallo-welt.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-intro-hallo-welt.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

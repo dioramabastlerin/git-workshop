@@ -70,5 +70,7 @@ Zeige jetzt den Commit-Graphen über alle Branches an.
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-repository-untersuchen.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-repository-untersuchen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

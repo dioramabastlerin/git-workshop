@@ -61,5 +61,7 @@ Nach dem zurücknehmen ist der Stage-Bereich wieder leer.
 <pre><code>repo $ <b>git diff --staged</b><br><br><br></code></pre>
 
 
-[Zur Aufgabe](aufgabe-commits-staging.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Aufgabe](aufgabe-commits-staging.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

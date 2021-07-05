@@ -43,5 +43,7 @@ in den lokalen `master`.
 <pre><code>mein-klon $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-zusammenarbeit-push-fetch-pull.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-zusammenarbeit-push-fetch-pull.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

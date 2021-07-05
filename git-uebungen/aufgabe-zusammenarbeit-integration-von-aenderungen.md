@@ -50,26 +50,6 @@ Integrieren Sie die neuen Änderungen von Anja.
 
 
 
-<pre><code>$ <b>cd anjas-repo</b><br><br><br></code></pre>
-
-
-
-<pre><code>anjas-repo $ <b># Edit average.kts replacing { it.toInt() } with { it.toDouble() }</b><br><br><br></code></pre>
-
-
-
-<pre><code>anjas-repo $ <b>git commit -am &quot;Verwende double Werte statt int &quot;</b><br><br>[master 1c69453] Verwende double Werte statt int<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
-
-
-
-<pre><code>anjas-repo $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   bdffb18..1c69453  master -&gt; master<br><br></code></pre>
-
-
-
-<pre><code>anjas-repo $ <b>cd ..</b><br><br><br></code></pre>
-
-
-
 <pre><code>$ <b>cd fast-forward</b><br><br><br></code></pre>
 
 
@@ -154,5 +134,7 @@ den wir aulösen müssen.
 <pre><code>changes-in-same-files $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-zusammenarbeit-integration-von-aenderungen.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-zusammenarbeit-integration-von-aenderungen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

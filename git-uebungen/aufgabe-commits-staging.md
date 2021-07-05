@@ -50,5 +50,7 @@ Zurücknehmen eines Stagings.
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-commits-staging.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-commits-staging.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

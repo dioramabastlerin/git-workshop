@@ -98,5 +98,7 @@ Starte im Verzeichnis `aufgaben/my-apollo`.
 <pre><code>my-apollo $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Lösung](loesung-zusammenarbeit-push-rejected.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-zusammenarbeit-push-rejected.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

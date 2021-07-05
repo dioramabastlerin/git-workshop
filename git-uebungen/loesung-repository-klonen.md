@@ -24,7 +24,7 @@ von dem geklont wurde.
 
 
 
-<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>368119b Created file bar on branch master by bstachmann.<br>ae9249b Created file foo on branch master by bstachmann.<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>91f1a71 Created file bar on branch master by bstachmann.<br>a47ff63 Created file foo on branch master by bstachmann.<br><br></code></pre>
 
 
 
@@ -48,7 +48,7 @@ Erstelle ein Commit und zeige dann den Status.
 
 
 
-<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bstachmann. &quot;</b><br><br>[master bbde892] : Edit file foo at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bstachmann. &quot;</b><br><br>[master a495aaf] : Edit file foo at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
@@ -59,5 +59,7 @@ Erstelle ein Commit und zeige dann den Status.
 <pre><code>myfirstclone $ <b>cd ..</b><br><br><br></code></pre>
 
 
-[Zur Aufgabe](aufgabe-repository-klonen.md){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Aufgabe](aufgabe-repository-klonen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+
+[Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 
