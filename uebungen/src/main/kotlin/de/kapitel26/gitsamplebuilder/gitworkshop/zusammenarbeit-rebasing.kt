@@ -6,8 +6,8 @@ fun CollectionOfSamples.rebasing() {
     createAufgabenFolge("rebasing") {
 
         createIntro(
-                """Rebasing""",
-                """
+            """Rebasing""",
+            """
 
                 
                 Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
@@ -24,27 +24,27 @@ fun CollectionOfSamples.rebasing() {
                 ## Ausgangssituation
 
             """
-        )
+        ) {
+            createRepo {
 
-        createRepo {
+                createFileAndCommit("foo")
+                createFileAndCommit("bar")
 
-            createFileAndCommit("foo")
-            createFileAndCommit("bar")
+                startBranch("feature") {
+                    editAndCommit("foo", 3, "Feature anfangen.")
+                    editAndCommit("foo", 5, "Feature weitermachen.")
+                }
 
-            startBranch("feature") {
-                editAndCommit("foo", 3, "Feature anfangen.")
-                editAndCommit("foo", 5, "Feature weitermachen.")
+                editAndCommit("bar", 1, "Neuerung auf dem master")
+
+                git("checkout feature")
             }
-
-            editAndCommit("bar", 1, "Neuerung auf dem master")
-
-            git("checkout feature")
         }
 
         inRepo {
             createAufgabe(
-                    "Feature-Branch per Rebase aktualiseren.",
-                    """
+                "Feature-Branch per Rebase aktualiseren.",
+                """
                     Auf dem master gibt es Neuerungen.
                     
                     Lasse Dir den Commit-Graphen über alle Branches zeigen.
