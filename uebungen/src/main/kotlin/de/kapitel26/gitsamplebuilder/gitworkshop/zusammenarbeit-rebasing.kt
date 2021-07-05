@@ -39,7 +39,9 @@ fun CollectionOfSamples.rebasing() {
             editAndCommit("bar", 1, "Neuerung auf dem master")
 
             git("checkout feature")
+        }
 
+        inRepo {
             createAufgabe(
                     "Feature-Branch per Rebase aktualiseren.",
                     """

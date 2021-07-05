@@ -89,15 +89,13 @@ fun CollectionOfSamples.integrationVonAenderungen() {
                     }
                 }
             }
-        }
-
-
-        inRepo("anjas-repo") {
-            inFile("average.kts") {
-                replace("{ it.toInt() }", "{ it.toDouble() }")
-                commit("Verwende double Werte statt int")
+            inRepo("anjas-repo") {
+                inFile("average.kts") {
+                    replace("{ it.toInt() }", "{ it.toDouble() }")
+                    commit("Verwende double Werte statt int")
+                }
+                git("push")
             }
-            git("push")
         }
 
         inRepo("fast-forward") {
