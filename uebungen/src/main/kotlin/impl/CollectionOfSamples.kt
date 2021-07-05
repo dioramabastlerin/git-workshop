@@ -27,7 +27,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractD
                 logTo("aufgabe-$fullName.md") {
                     commands()
                     markdown("[Zur Lösung](loesung-$fullName.html){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
-                    markdown("[Zum Überblick](../../ueberblick.html){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
+                    markdown("[Zum Überblick](../../ueberblick.html){:style=\"visibility: hidden\"}")
                 }
             }
             writeDocs()

@@ -199,7 +199,7 @@ abstract class AbstractWorkingDir<T>(
                 command()
             }
             markdown("[Zur Aufgabe](aufgabe-$fullName.html){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
-            markdown("[Zum Überblick](../../ueberblick.html){:style=\"position: fixed; right: 10px; top:60px\" .btn .btn-purple}")
+            markdown("[Zum Überblick](../../ueberblick.html){:style=\"visibility: hidden\"}")
         }
 }
 
