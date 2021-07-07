@@ -7,7 +7,7 @@ fun CollectionOfSamples.sparseCeckout
     createAufgabenFolge("sparse-checkout") {
 
         createIntro(
-            """Sparce Checkout""",
+            """Sparse Checkout""",
             """
 
                 ## Tipps
