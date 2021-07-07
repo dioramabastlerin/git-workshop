@@ -199,20 +199,6 @@ Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
 ---
 
-### Übung: Commits erstellen
+### Übung
 
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
-
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-commits-erstellen/index.html 
-    $ cd aufgaben/<angegebenes Startverzeichnis>
-
-Folgen Sie dann den weiteren Anweisungen.
-
-
-
+<h2><a href="git-uebungen/aufgabe-commits-erstellen.html" target="_blank">Commits erstellen<a></h2>
