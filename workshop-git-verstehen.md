@@ -16,29 +16,32 @@ nav_order: 10
 
 ## Inhaltsüberblick
 
- * Intro. Was ist Git?\
+ * Intro. **Was ist Git?**\
    Über Herkunft, Entstehung und vor allem die 
 Vorteile von Git
- * Repository\
+ * **Repository**\
    Was genau ist ein Git-Repo? Was enthält es und was nicht?
- * Konzepte: Dezentralität und Revision-Hashes
-  Das Git-Log
- * Commits\
+ * **Konzepte**\
+   Dezentralität und Revision-Hashes\
+   Das Git-Log
+ * **Commits**\
    Erstellen von Commits\
    diff: Sehen, was sich geändert hat.
- * Klone und Remotes\
+ * **Klone und Remotes**\
    Das Klonen\
    Umgang mit Remote-Repositories
- * Push & Pull\
+ * **Push & Pull**\
    Austausch von Commits per Push und Pull\
    GitHub Pull-Requests (oder GitLab Merge-Requests)
- * Merges\
+ * **Merges**\
    Auflösen von Mergekonflikten\
    Strategien zum Umgang mit und zur Vermeidung von Merge-Konflikten
- * Branches\
+ * **Branches**\
    Branching in Git
- * Workflows\ 
+ * **Workflows**\
    Trunk Based Workflow\
    Feature Based Workflow
- * Rebasing
- * Modularisierung (modules, subtrees)
+ * **Rebasing**
+ * **Modularisierung** \
+   Submodules\
+   Subtrees
