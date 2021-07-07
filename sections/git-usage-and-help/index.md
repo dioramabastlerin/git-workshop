@@ -51,3 +51,10 @@
 
 [Git Starter Kit](../../git-starter-kit.html)
 
+
+---
+
+### Übung
+
+<h2><a href="git-uebungen/aufgabe-intro-hallo-welt.html" target="_blank">Hallo Welt!<a></h2>
+

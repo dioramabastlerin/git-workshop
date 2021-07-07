@@ -40,5 +40,13 @@ Setzt Workspace auf den Stage-Stand zurück:
     git restore <file>
 
 
+---
+
+
+### Übung
+
+<h2><a href="git-uebungen/aufgabe-commits-staging.html" target="_blank">Staging<a></h2>
+
+
 
 

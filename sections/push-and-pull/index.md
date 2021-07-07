@@ -104,24 +104,13 @@ git pull
  1. Änderungen im aktuellen Branch übernehmen \
     (`git merge`, nächstes Kapitel).
 
+
+
 ---
 
+### Übung
 
-### Übung: Push, Fetch und Pull
-
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit Kommando `start` auf Windows,
-`xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
-
-
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-klone-push-fetch-und-pull/index.html
-    $ cd aufgaben/<angegebenes Startverzeichnis>
-
-Folgen Sie dann den weiteren Anweisungen.
+<h2><a href="git-uebungen/aufgabe-zusammenarbeit-push-fetch-pull.html" target="_blank">Übung push, fetch und pull<a></h2>
 
 
 ---
@@ -159,17 +148,9 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 ---
 
 
-### Übung: Push rejected!
+### Übung
 
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit Kommando `start` auf Windows,
-`xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
+<h2><a href="git-uebungen/aufgabe-zusammenarbeit-push-rejected.html" target="_blank">Push rejected!<a></h2>
 
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-klone-push-rejected/index.html
-    $ cd aufgaben/<angegebenes Startverzeichnis>
 
-Folgen Sie dann den weiteren Anweisungen.
+

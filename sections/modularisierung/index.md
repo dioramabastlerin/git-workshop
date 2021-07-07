@@ -26,20 +26,19 @@
 [Vortrag zur Modularisierung mit Submodules](https://kapitel26.github.io/assets/2010-10-20-submodules-subtrees-lehmanns/Lehmannsvortrag.pdf)
 
 
+
 ---
 
-### Übung: Module
+### Übung
 
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-aufgaben/XX-module-modules/index.html
+<h2><a href="git-uebungen/aufgabe-modularisierung-submodules-subtrees.html" target="_blank">Submodules und Subtrees<a></h2>
 
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-module-modules/index.html
-    $ cd aufgaben/<angegebenes Startverzeichnis>
 
-Folgen Sie dann den weiteren Anweisungen.
+---
+
+### Übung
+
+<h2><a href="git-uebungen/aufgabe-modularisierung-repositorys-zusammenfuehren.html" target="_blank">Repositorys zusammenführen<a></h2>
+
 
 

@@ -74,22 +74,16 @@ Ohne Parameter: Upstream Branch.
 
  * theirs vs. ours
 
+
 ---
 
-### Übung: Rebasing
 
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
+### Übung
 
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start xdg-open aufgaben/XX-rebasing-rebasing/index.html
-    $ cd aufgaben/<angegebenes Startverzeichnis>
+<h2><a href="git-uebungen/aufgabe-zusammenarbeit-rebasing.html" target="_blank">Rebasing<a></h2>
 
-Folgen Sie dann den weiteren Anweisungen.
+
+
 
 
 ---

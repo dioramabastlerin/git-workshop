@@ -140,22 +140,12 @@ $ git clone https://<server>/<pfad>/git-training-protocol.git
  * Tipp: `--reference` (Schneller klonen bei großen Repos)
 
 
+
 ---
 
-### Übung: Klonen
+### Übung
 
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
-
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-klone-klonen/index.html
-    $ cd aufgaben/<angegebenes Startverzeichnis>
-
-Folgen Sie dann den weiteren Anweisungen.
+<h2><a href="git-uebungen/aufgabe-repository-klonen.html" target="_blank">Klonen<a></h2>
 
 ---
 
@@ -207,4 +197,13 @@ git show origin/master        # origin nach letztem Synch
     $ git log origin/master..master   # ahead
     $ git log master..origin/master   # behind
 ```
+
+
+---
+
+### Demo
+
+<h2><a href="git-uebungen/aufgabe-repository-sparse-checkout.html" target="_blank">Sparse Checkout<a></h2>
+
+
 

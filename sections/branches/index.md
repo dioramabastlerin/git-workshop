@@ -118,19 +118,12 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
 [Aufräumen von Branches](https://kapitel26.github.io/git/2014/03/31/alte-branches-archivieren.rb.html)
 [Mirroring](https://kapitel26.github.io/git/2014/04/04/branches-aufrauemen.rb.html)
 
+
 ---
 
-### Übung: Branching
+### Übung
 
-Starten sie im *Übungsverzeichnis* (wo sie das Zip-Archiv mit den
-Übungen entpackt haben).
-Öffnen sie die Anleitung im *Browser* (mit dem Kommando `start` auf
-Windows, `xdg-open` auf Ubuntu,`open` auf MacOs).
-**Achtung!** Es ist wichtig, die Übungen im *angegebenen
-Startverzeichnis* zu beginnen. Achten Sie auf die Beschreibung:
+<h2><a href="git-uebungen/aufgabe-zusammenarbeit-branching.html" target="_blank">Branches<a></h2>
 
-    $ cd git-uebungen-<Zeitstempel z. B. 202005252000>
-    $ start aufgaben/XX-branching-branching/index.html
-    $ cd aufgaben/<angegebenes Startverzeichnis>
 
-Folgen Sie dann den weiteren Anweisungen.
+
