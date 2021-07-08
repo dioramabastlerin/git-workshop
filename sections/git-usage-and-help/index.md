@@ -55,12 +55,14 @@
 
 ## Editor einrichten
 
-   $ git config --global core.editor vim
-   $ git config --global core.editor nano
-   $ git config --global core.editor notepad 
-   $ git config --global core.editor "atom --wait"
-   $ git config --global core.editor "\"c:\Program Files\Sublime Text 3\subl.exe\" -w -n"
-   $ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+```bash
+$ git config --global core.editor vim
+$ git config --global core.editor nano
+$ git config --global core.editor notepad 
+$ git config --global core.editor "atom --wait"
+$ git config --global core.editor "\"c:\Program Files\Sublime Text 3\subl.exe\" -w -n"
+$ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+```
 
 
 ---
