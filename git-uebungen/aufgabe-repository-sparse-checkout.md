@@ -4,7 +4,7 @@ title: <code>repository-sparse-checkout</code>
 parent: Aufgaben
 
 ---
-# Übung - Sparce Checkout
+# Übung - Sparse Checkout
 
 
 ## Tipps

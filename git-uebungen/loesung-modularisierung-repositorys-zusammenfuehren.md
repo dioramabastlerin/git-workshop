@@ -31,7 +31,7 @@ Wir erzeugen ein erstes Commmit, damit der `subtree`-Befehl ausgeführt werden k
 
 
 
-<pre><code>application $ <b>git commit -am &quot;Created file README on branch master by bstachmann. &quot;</b><br><br>[master (root-commit) adcb082] Created file README on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 README<br><br></code></pre>
+<pre><code>application $ <b>git commit -am &quot;Created file README on branch master by bstachmann. &quot;</b><br><br>[master (root-commit) de0cfa2] Created file README on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 README<br><br></code></pre>
 
 
 Dann fügen wir die Repos mit `subtree` hinzu:
@@ -51,7 +51,7 @@ Man sieht ui und backend wurden mitsamt Historie zusammengeführt:
 
 
 
-<pre><code>application $ <b>git log --oneline --graph</b><br><br>*   9307f9e Add 'ui/' from commit 'f9c5ce5ca5ff24fc4e01a16c8e4650f642ffda43'<br>|\  <br>| * f9c5ce5 Created file UITest.java on branch master by bstachmann.<br>| * 64db1b8 Created file UI.java on branch master by bstachmann.<br>*   4ed29d4 Add 'backend/' from commit '339c0b746f4cd71635b042abce43d8ee516adce4'<br>|\  <br>| * 339c0b7 Created file BackendTest.java on branch master by bstachmann.<br>| * 45edf5d Created file Backend.java on branch master by bstachmann.<br>* adcb082 Created file README on branch master by bstachmann.<br><br></code></pre>
+<pre><code>application $ <b>git log --oneline --graph</b><br><br>*   7e7745a Add 'ui/' from commit '794c388ff4b7f44636ec50c1459229d75019a511'<br>|\  <br>| * 794c388 Created file UITest.java on branch master by bstachmann.<br>| * d8eee95 Created file UI.java on branch master by bstachmann.<br>*   f91e783 Add 'backend/' from commit 'a6feb77a96341862a7a7ad6a2c0e9f44e379d7d7'<br>|\  <br>| * a6feb77 Created file BackendTest.java on branch master by bstachmann.<br>| * eae3a96 Created file Backend.java on branch master by bstachmann.<br>* de0cfa2 Created file README on branch master by bstachmann.<br><br></code></pre>
 
 
 
@@ -83,7 +83,7 @@ Backend-Dateien in Unterverzeichnis verschieben:
 
 
 
-<pre><code>gesamt $ <b>git commit -m 'backend-Verzeichnis angelegt'</b><br><br>[master 835c355] backend-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; backend/src}/Backend.java (100%)<br> rename {test =&gt; backend/test}/BackendTest.java (100%)<br><br></code></pre>
+<pre><code>gesamt $ <b>git commit -m 'backend-Verzeichnis angelegt'</b><br><br>[master 5c3d761] backend-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; backend/src}/Backend.java (100%)<br> rename {test =&gt; backend/test}/BackendTest.java (100%)<br><br></code></pre>
 
 
 Inhalt des UI-Repository in einen lokalen Branch `uimaster` holen:
@@ -111,7 +111,7 @@ UI-Dateien in Unterverzeichnis verschieben:
 
 
 
-<pre><code>gesamt $ <b>git commit -m 'ui-Verzeichnis angelegt'</b><br><br>[uimaster 1146ac0] ui-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; ui/src}/UI.java (100%)<br> rename {test =&gt; ui/test}/UITest.java (100%)<br><br></code></pre>
+<pre><code>gesamt $ <b>git commit -m 'ui-Verzeichnis angelegt'</b><br><br>[uimaster 7610220] ui-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; ui/src}/UI.java (100%)<br> rename {test =&gt; ui/test}/UITest.java (100%)<br><br></code></pre>
 
 
 `uimaster` integrieren:
@@ -131,7 +131,7 @@ Man sieht ui und backend wurden mitsamt Historie zusammengeführt:
 
 
 
-<pre><code>gesamt $ <b>git log --oneline --graph</b><br><br>*   1afc6ba Merge branch 'uimaster'<br>|\  <br>| * 1146ac0 ui-Verzeichnis angelegt<br>| * f9c5ce5 Created file UITest.java on branch master by bstachmann.<br>| * 64db1b8 Created file UI.java on branch master by bstachmann.<br>* 835c355 backend-Verzeichnis angelegt<br>* 339c0b7 Created file BackendTest.java on branch master by bstachmann.<br>* 45edf5d Created file Backend.java on branch master by bstachmann.<br><br></code></pre>
+<pre><code>gesamt $ <b>git log --oneline --graph</b><br><br>*   418f72f Merge branch 'uimaster'<br>|\  <br>| * 7610220 ui-Verzeichnis angelegt<br>| * 794c388 Created file UITest.java on branch master by bstachmann.<br>| * d8eee95 Created file UI.java on branch master by bstachmann.<br>* 5c3d761 backend-Verzeichnis angelegt<br>* a6feb77 Created file BackendTest.java on branch master by bstachmann.<br>* eae3a96 Created file Backend.java on branch master by bstachmann.<br><br></code></pre>
 
 
 

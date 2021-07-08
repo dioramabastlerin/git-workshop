@@ -55,9 +55,9 @@ Starte im Verzeichnis `aufgaben/repo`.
 
 Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
 
-Gebe den Inhalt der Datei `bar` in diese Version aus.
+Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
 
-Hole diese Version in den Workspace, um sie näher zu untersuchen.
+Hole die (ganze) vorige Version in den Workspace, um sie näher zu untersuchen.
 
 ## Schritt 5 - Branches und Tags
 
