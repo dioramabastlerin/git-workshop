@@ -51,6 +51,15 @@
 
 [Git Starter Kit](../../git-starter-kit.html)
 
+---
+
+## Editor einrichten
+
+   $ git config --global core.editor vim
+   $ git config --global core.editor nano
+   $ git config --global core.editor notepad 
+   $ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
 
 ---
 
