@@ -10,8 +10,9 @@ fun main() {
 
         thema("beispiel") {
 
-            halloWelt()
-            repositoryUntersuchen()
+            //halloWelt()
+            lfs()
+            // repositoryUntersuchen()
             // commitsErstellen()
             // staging()
             // cloning()

@@ -14,7 +14,7 @@ Bearbeite die Datei `frontend.java` und erstelle (mindestens) ein Commit mit den
 
 
 
-<pre><code>my-apollo $ <b>git commit -am &quot;`frontend.java`: Edit file frontend.java at line 1 on branch master by bstachmann. &quot;</b><br><br>[master d14df62] : Edit file frontend.java at line 1 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: frontend.java: command not found<br><br></code></pre>
+<pre><code>my-apollo $ <b>git commit -am &quot;`frontend.java`: Edit file frontend.java at line 1 on branch master by bstachmann. &quot;</b><br><br>[master 2170f24] : Edit file frontend.java at line 1 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: frontend.java: command not found<br><br></code></pre>
 
 
 Und jetzt noch eben prüfen, ob `working tree clean` ist.
@@ -47,7 +47,7 @@ und lasse Dir die Änderungen von *Anja* zeigen.
 `fetch` holt die Daten, ohne den Workspace oder Deine lokalen Branches zu verändern.
 
 
-<pre><code>my-apollo $ <b>git fetch</b><br><br>From ../blessed-apollo<br>   0055ddf..f087956  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>my-apollo $ <b>git fetch</b><br><br>From ../blessed-apollo<br>   e2455eb..b6fa961  master     -&gt; origin/master<br><br></code></pre>
 
 
 Die Ausgabe zeigt, dass neue Commit für den `origin/master` geholt wurden
@@ -55,7 +55,7 @@ Die Ausgabe zeigt, dass neue Commit für den `origin/master` geholt wurden
 Die `..`-Notation zeigt, welche Commits hinzugekommen sind:
 
 
-<pre><code>my-apollo $ <b>git log --oneline master..origin/master</b><br><br>f087956 : Edit file backend.java at line 5 on branch master by anja.<br>fc19251 : Edit file backend.java at line 1 on branch master by anja.<br><br></code></pre>
+<pre><code>my-apollo $ <b>git log --oneline master..origin/master</b><br><br>b6fa961 : Edit file backend.java at line 5 on branch master by anja.<br>ce79c58 : Edit file backend.java at line 1 on branch master by anja.<br><br></code></pre>
 
 
 Das normale (symmetrische) Diff zeig alle Unterschiede. 
@@ -87,7 +87,7 @@ Man sieht, dass ein neues Commit entstanden ist,
 welches die Stränge zusammenführt.
 
 
-<pre><code>my-apollo $ <b>git log --graph --oneline</b><br><br>*   74204f4 Merge branch 'master' of ../blessed-apollo<br>|\  <br>| * f087956 : Edit file backend.java at line 5 on branch master by anja.<br>| * fc19251 : Edit file backend.java at line 1 on branch master by anja.<br>* | d14df62 : Edit file frontend.java at line 1 on branch master by bstachmann.<br>|/  <br>* 0055ddf Created file frontend.java on branch master by anja.<br>* 8c60dc2 Created file backend.java on branch master by anja.<br><br></code></pre>
+<pre><code>my-apollo $ <b>git log --graph --oneline</b><br><br>*   1480f25 Merge branch 'master' of ../blessed-apollo<br>|\  <br>| * b6fa961 : Edit file backend.java at line 5 on branch master by anja.<br>| * ce79c58 : Edit file backend.java at line 1 on branch master by anja.<br>* | 2170f24 : Edit file frontend.java at line 1 on branch master by bstachmann.<br>|/  <br>* e2455eb Created file frontend.java on branch master by anja.<br>* 66cea9b Created file backend.java on branch master by anja.<br><br></code></pre>
 
 
 #### Achtung: Beim `pull` kann es Merge-Konflikte geben ...
@@ -100,7 +100,7 @@ Das Auflösen von Merge-Konflikten ist Thema eines folgenden Kapitels.
                     
 
 
-<pre><code>my-apollo $ <b>git push</b><br><br>To ../blessed-apollo.git<br>   f087956..74204f4  master -&gt; master<br><br></code></pre>
+<pre><code>my-apollo $ <b>git push</b><br><br>To ../blessed-apollo.git<br>   b6fa961..1480f25  master -&gt; master<br><br></code></pre>
 
 
 Und siehe da: Jetzt klappt's.
