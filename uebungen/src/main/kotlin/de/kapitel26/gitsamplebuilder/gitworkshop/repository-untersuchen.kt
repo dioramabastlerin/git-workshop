@@ -98,7 +98,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                     
                     Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
                     
-                    Hole diese Version in den Workspace, um sie näher zu untersuchen.
+                    Hole die (ganze) vorige Version in den Workspace, um sie näher zu untersuchen.
                 """
             ) {
                 markdown("\n\nDiese Dateien gab es in `HEAD~1`:")
