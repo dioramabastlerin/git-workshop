@@ -11,9 +11,10 @@ nav_exclude: true
 
 ## Workshops
 
-{% for p in site.pages %}
+{% assign sorted = site.pages | sort: 'nav_order' %}
+{% for p in sorted %}
     {% if p.layout == "workshop" %}
-* [{{ p.title }}](/git-workshop{{ p.url }})
+* [{{ p.title }}](/git-workshop{{ p.url }}) - {{ p.description }}
   {% endif %} 
 {% endfor %}
   
