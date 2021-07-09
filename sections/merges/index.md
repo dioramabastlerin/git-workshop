@@ -63,7 +63,7 @@ Aus dem Merge entsteht idR. ein Commit:
  * Commit hat 2 Parents (mind.)
  * 3-Wege-Merge
    * Alle Änderungen seit dem Common-Ancestor werden zusammengeführt
-   * Textabschnitte (Hunks) werden hinzugefügt, geändert oder gelöschtt.
+   * Textabschnitte (Hunks) werden hinzugefügt, geändert oder gelöscht.
    * Keinerlei Garantie, dass Änderungen zusammenpassen!
  * Das Merge Commit kann frei bearbeitet werden (`--no-commit`, dann manuelles commit)
 
