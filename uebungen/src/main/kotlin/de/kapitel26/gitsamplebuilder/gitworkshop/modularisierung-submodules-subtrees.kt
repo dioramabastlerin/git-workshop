@@ -170,6 +170,7 @@ fun CollectionOfSamples.submodulesSubtrees() {
             }
         }
 
+        // TODO das bringt die Nummerierung durcheinander!
         solutionCollector.collectedCommands.add("Submodules" to { markdown("# Submodules") })
 
 
