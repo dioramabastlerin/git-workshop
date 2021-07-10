@@ -1,32 +1,10 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Git Starter Kit</title>
-
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="revealjs/css/reveal.css">
-    <link rel="stylesheet" href="revealjs/css/theme/simple.css" id="theme">
-    <link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
-
-</head>
-
-<body>
-
-<div class="reveal" style="overflow: scroll">
-        <div id="content"></div>
-</div>
-
-<script src="jquery/jquery-3.3.1.min.js"></script>
-<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="revealjs/plugin/markdown/marked.js"></script>
-<script>
-
-    const m = `
+---
+layout: page
+title: Git Starter Kit
+description: Git-Befehle, die in den Übungen verwendet werden.
+nav_order: 90
+---
 # Git Starter Kit
-
-neue ziele
 
 ## Repository untersuchen
 
@@ -126,14 +104,3 @@ Schreibabkürzung für andere Repositorys.
      git log HEAD^2..
 
 
-`;
-
-
-    document.getElementById('content').innerHTML
-        = marked(m);
-//        = marked(document.getElementById('markdown').innerHTML);
-  </script>
-
-
-</body>
-</html>
