@@ -1,145 +1,65 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-
-	<title>Workshop: Git verstehen</title>
-
-	<meta name="description" content="Einstieg in das Arbeiten mit Git">
-	<meta name="author" content="René Preißel und Bjørn Stachmann">
-
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-	<link rel="stylesheet" href="revealjs/css/reveal.css">
-	<!--<link rel="stylesheet" href="revealjs/css/theme/night.css" id="theme">-->
-	<!--<link rel="stylesheet" href="revealjs/css/theme/moon.css" id="theme">-->
-	<!--<link rel="stylesheet" href="revealjs/css/theme/white.css" id="theme">-->
-	<!--<link rel="stylesheet" href="revealjs/css/theme/sky.css" id="theme">-->
-
-	<!--<link rel="stylesheet" href="revealjs/css/theme/simple.css" id="theme">-->
-	<link rel="stylesheet" href="css/theme/offline.css" id="theme">
-
-	<!--<link rel="stylesheet" href="revealjs/css/theme/league.css" id="theme">-->
-
-	<!-- Theme ucomsed for syntax highlighting of code -->
-	<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
-
-	<!-- Printing and PDF exports -->
-	<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-	<!--[if lt IE 9]>
-	<script src="revealjs/lib/js/html5shiv.js"></script>
-	<![endif]-->
-</head>
-
-<body>
-
-<div class="reveal">
-
-	<!-- Any section element inside of this container is displayed as a slide -->
-	<div class="slides">
-		<section>
-			<section data-markdown="sections/workshop-git-verstehen/title.md"></section>
-			<section data-markdown="sections/workshop-git-buch/index.md"></section>
-			<section data-markdown="sections/schedule/2-days-0830-1700-0830-1600.md"></section>
-			<section data-markdown="sections/content-overview/2-days-standard.md"></section>
-			<section data-markdown="sections/workshop-git-license/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/was-ist-git.md"></section>
-			<section data-markdown="sections/about-git/index.md"></section>
-			<section data-markdown="sections/git-usage-and-help/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/repository.md"></section>
-			<section data-markdown="sections/repository/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/commits.md"></section>
-			<section data-markdown="sections/commits-erstellen/index.md"></section>
-			<section data-markdown="sections/anatomie-eines-commits/index.md"></section>
-			<section data-markdown="sections/staging/index.md"></section>
-			<section data-markdown="sections/tags/index.md"></section>
-			<section data-markdown="sections/oops/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/remotes.md"></section>
-			<section data-markdown="sections/remotes/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/push-pull.md"></section>
-			<section data-markdown="sections/push-and-pull/index.md"></section>
-			<section data-markdown="sections/pull-requests/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/merges.md"></section>
-			<section data-markdown="sections/merges/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/section-headers/branches.md"></section>
-			<section data-markdown="sections/branches/index.md"></section>
-			<section data-markdown="sections/remote-branches/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/workflows/index.md"></section>
-			<section data-markdown="sections/workflow-auf-dem-master-entwickeln/index.md"></section>
-			<section data-markdown="sections/workflow-feature-branching/index.md"></section>
-			<section data-markdown="sections/workflow-continuous-delivery/index.md"></section>
-			<section data-markdown="sections/workflow-periodic-releases/index.md"></section>
-			<section data-markdown="sections/workflow-multiple-releases/index.md"></section>
-			<section data-markdown><textarea data-template>### [To Branch or Not to Branch](https://kapitel26.github.io/slides/2019-10-27-to-branch-or-not-to-branch/)</textarea></section>
-			<section data-markdown="sections/pull-requests/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/rebasing/index.md"></section>
-			<section data-markdown="sections/interactive-rebasing/index.md"></section>
-		</section>
-		<section>
-			<section data-markdown="sections/modularisierung/index.md"></section>
-			<section data-markdown="sections/large-repos/index.md"></section>
-		</section>
-
-	</div>
-</div>
-
-<script src="revealjs/lib/js/head.min.js"></script>
-<script src="revealjs/js/reveal.js"></script>
-
-<script>
-
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-				enableRelativePathsInExternalMarkdown: true,
-
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'revealjs/plugin/search/search.js', async: true },
-					{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'revealjs/plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-
-</body>
-</html>
+---
+layout: revealjs
+title: Git Verstehen
+description: Alles was man braucht, um als Entwickler im Team mit Git arbeiten zu können.
+---
+<section>
+	<section data-markdown="sections/workshop-git-verstehen/title.md"></section>
+	<section data-markdown="sections/workshop-git-buch/index.md"></section>
+	<section data-markdown="sections/schedule/2-days-0830-1700-0830-1600.md"></section>
+	<section data-markdown="sections/content-overview/2-days-standard.md"></section>
+	<section data-markdown="sections/workshop-git-license/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/was-ist-git.md"></section>
+	<section data-markdown="sections/about-git/index.md"></section>
+	<section data-markdown="sections/git-usage-and-help/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/repository.md"></section>
+	<section data-markdown="sections/repository/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/commits.md"></section>
+	<section data-markdown="sections/commits-erstellen/index.md"></section>
+	<section data-markdown="sections/anatomie-eines-commits/index.md"></section>
+	<section data-markdown="sections/staging/index.md"></section>
+	<section data-markdown="sections/tags/index.md"></section>
+	<section data-markdown="sections/oops/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/remotes.md"></section>
+	<section data-markdown="sections/remotes/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/push-pull.md"></section>
+	<section data-markdown="sections/push-and-pull/index.md"></section>
+	<section data-markdown="sections/pull-requests/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/merges.md"></section>
+	<section data-markdown="sections/merges/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/section-headers/branches.md"></section>
+	<section data-markdown="sections/branches/index.md"></section>
+	<section data-markdown="sections/remote-branches/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/workflows/index.md"></section>
+	<section data-markdown="sections/workflow-auf-dem-master-entwickeln/index.md"></section>
+	<section data-markdown="sections/workflow-feature-branching/index.md"></section>
+	<section data-markdown="sections/workflow-continuous-delivery/index.md"></section>
+	<section data-markdown="sections/workflow-periodic-releases/index.md"></section>
+	<section data-markdown="sections/workflow-multiple-releases/index.md"></section>
+	<section data-markdown><textarea data-template>### [To Branch or Not to Branch](https://kapitel26.github.io/slides/2019-10-27-to-branch-or-not-to-branch/)</textarea></section>
+	<section data-markdown="sections/pull-requests/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/rebasing/index.md"></section>
+	<section data-markdown="sections/interactive-rebasing/index.md"></section>
+</section>
+<section>
+	<section data-markdown="sections/modularisierung/index.md"></section>
+	<section data-markdown="sections/large-repos/index.md"></section>
+</section>

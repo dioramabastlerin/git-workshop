@@ -1,8 +1,7 @@
 ---
 layout: workshop
 title: Git Verstehen
-description: >
-   Alles was man braucht, um als Entwickler im Team mit Git arbeiten zu können.
+description: Alles was man braucht, um als Entwickler im Team mit Git arbeiten zu können.
 id: git-verstehen
 nav_order: 10
 ---
