@@ -11,7 +11,7 @@ fun main() {
         thema("beispiel") {
 
             //halloWelt()
-            lfs()
+            rebasingSandbox()
             // repositoryUntersuchen()
             // commitsErstellen()
             // staging()

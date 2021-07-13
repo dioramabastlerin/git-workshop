@@ -84,7 +84,7 @@ abstract class AbstractWorkingDir<T>(
         if (p.exitValue() !in expectedExits)
             throw CommandLineException(
                 p,
-                "Failed with exit code ${p.exitValue()}: $command" +
+                "Failed with exit code ${p.exitValue()}: $command (not in ${expectedExits.joinToString(", ")})" +
                         " and message: \n${p.errorStream.readLines().joinToString("\n")}" +
                         "\n and output: \n${p.inputStream.readLines().joinToString("\n")}" +
                         "\n."
@@ -160,6 +160,17 @@ abstract class AbstractWorkingDir<T>(
         inFile(fileName) { edit(lines, message) }
         git { commit(fileName, "`$fileName`: $message") }
     }
+
+    fun editAndCommit(
+        fileName: String,
+        commitMesssage: String = "Edited file $fileName on branch ${currentBranch()} by ${currentUser()}.",
+        commands: File.() -> Unit = {}
+    ) {
+        inFile(fileName, commands)
+        git("""add $fileName""")
+        git { commit(fileName, commitMesssage ) }
+    }
+
 
     fun createFileAndCommit(
         fileName: String,
