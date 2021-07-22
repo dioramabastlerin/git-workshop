@@ -1,8 +1,8 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - before: bundle install
-    init: echo server # runs during prebuild
-    command: ./run-server.sh
+  - before: echo before
+    init: echo bundle && bundle install # runs during prebuild
+    command: echo serve && ./run-server.sh
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
