@@ -3,7 +3,7 @@ image:
 
 tasks:
   - before: echo before
-    init: echo bundle && bundle install # runs during prebuild
+#    init: echo bundle && bundle install # runs during prebuild
     command: echo serve && ./run-server.sh
 
 ports:
