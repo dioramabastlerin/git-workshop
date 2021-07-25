@@ -4,6 +4,7 @@ version = "0.1-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.4.10"
+    id("application")
 }
 
 allprojects {
@@ -47,4 +48,8 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClassName = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsamplesKt"
 }
