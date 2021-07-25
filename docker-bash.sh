@@ -1,0 +1,1 @@
+docker run -it gitpod-dockerfile-test bash
