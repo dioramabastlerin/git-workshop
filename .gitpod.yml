@@ -3,9 +3,10 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - init: ./run-server.sh 
   - init: uebungen/gradlew -p uebungen run && cd uebungen/build/git-uebungen/aufgaben && ll
-  - command: ./run-server.sh 
-  - command: gp preview http://localhost:4000/git-workshop/
+  - command: gp preview http://localhost:4000/git-workshop/ && exit
+
 
 ports:
   - port: 4000
