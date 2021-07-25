@@ -9,6 +9,7 @@ tasks:
 
 ports:
   - port: 4000
+    onOpen: ignore
 
 vscode:
   extensions:
