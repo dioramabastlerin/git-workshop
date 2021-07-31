@@ -1,0 +1,1 @@
+"If it's a bug somebody relies on, it's not a bug, it's a feature." - L. Torvalds
