@@ -61,7 +61,8 @@ exclude:
   - uebungen/
   - build/
   - revealjs/css/theme/README.md
-
+  - .gradle
+  
 optional_front_matter:
   remove_originals: false
   enabled: false
