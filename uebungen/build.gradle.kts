@@ -13,7 +13,7 @@ allprojects {
         mavenCentral()
         jcenter()
         maven("https://kotlin.bintray.com/kotlinx")
-        maven("http://dl.bintray.com/jetbrains/markdown")
+        maven("https://dl.bintray.com/jetbrains/markdown")
     }
 
     apply(plugin = "org.jetbrains.kotlin.jvm")

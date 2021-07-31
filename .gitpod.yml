@@ -3,7 +3,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: uebungen/gradlew -p uebungen run && cd uebungen/build/git-uebungen/aufgaben && ll
+  - init: gradle run && cd uebungen/build/git-uebungen/aufgaben && ll
   - command: ./run-server.sh &
 
 ports:
