@@ -60,3 +60,10 @@ task("sandbox", JavaExec::class) {
     main = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsandboxKt"
     classpath = sourceSets["main"].runtimeClasspath
 }
+
+task("distUebungenToSite", JavaExec::class) {
+    group = "Distribution"
+    description = "Deploy markdown files for exercises, to website dir."
+    main = "de.kapitel26.gitsamplebuilder.BuildAndDeployUebungenToWebsiteKt"
+    classpath = sourceSets["main"].runtimeClasspath
+}
