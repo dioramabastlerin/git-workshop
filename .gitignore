@@ -3,3 +3,4 @@
 _site/
 sandbox.md
 build/
+.gradle/
