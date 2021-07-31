@@ -53,3 +53,10 @@ repositories {
 application {
     mainClassName = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsamplesKt"
 }
+
+task("sandbox", JavaExec::class) {
+    group = "Application"
+    description = "Run sandbox samples from gitworkshopsandbox.kt."
+    main = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsandboxKt"
+    classpath = sourceSets["main"].runtimeClasspath
+}
