@@ -39,7 +39,7 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
     $ git log
 
 
-<pre><code>$ <b>git init myrepo </b><br><br>Initialized empty Git repository in /home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/intro-hallo-welt/myrepo/.git/<br><br></code></pre>
+<pre><code>$ <b>git init myrepo </b><br><br>Initialized empty Git repository in /workspace/git-workshop/uebungen/build/git-uebungen/loesungen/intro-hallo-welt/myrepo/.git/<br>hint: Using 'master' as the name for the initial branch. This default branch name<br>hint: is subject to change. To configure the initial branch name to use in all<br>hint: of your new repositories, which will suppress this warning, call:<br>hint: <br>hint: 	git config --global init.defaultBranch &lt;name&gt;<br>hint: <br>hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and<br>hint: 'development'. The just-created branch can be renamed via this command:<br>hint: <br>hint: 	git branch -m &lt;name&gt;<br><br></code></pre>
 
 
 
@@ -55,13 +55,13 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 
 
 
-<pre><code>myrepo $ <b>git commit -m 'Hallo Welt!'</b><br><br>[master (root-commit) 1303b2d] Hallo Welt!<br> 1 file changed, 1 insertion(+)<br> create mode 100644 hallo<br><br></code></pre>
+<pre><code>myrepo $ <b>git commit -m 'Hallo Welt!'</b><br><br>[master (root-commit) 5897051] Hallo Welt!<br> 1 file changed, 1 insertion(+)<br> create mode 100644 hallo<br><br></code></pre>
 
 
 Glückwunsch: Sieh sehen Ihr erstes Commit in Ihrem ersten Git-Repository!
 
 
-<pre><code>myrepo $ <b>git log</b><br><br>commit 1303b2dbb4149d66b10035e74b6d7f4b9b930c8d<br>Author: bstachmann &lt;egal&gt;<br>Date:   Thu Jul 8 20:41:15 2021 +0200<br><br>    Hallo Welt!<br><br></code></pre>
+<pre><code>myrepo $ <b>git log</b><br><br>commit 58970514b65f7aeb940337a00230271fb62b5e7d<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Hallo Welt!<br><br></code></pre>
 
 
 

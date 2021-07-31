@@ -24,11 +24,11 @@ von dem geklont wurde.
 
 
 
-<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>3be622c Created file bar on branch master by bstachmann.<br>630be16 Created file foo on branch master by bstachmann.<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>5e1d065 Created file bar on branch master by bstachmann.<br>975033a Created file foo on branch master by bstachmann.<br><br></code></pre>
 
 
 
-<pre><code>myfirstclone $ <b>git remote -v</b><br><br>origin	/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (fetch)<br>origin	/home/bjoern/work/projekte/git-workshop/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (push)<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git remote -v</b><br><br>origin	/workspace/git-workshop/uebungen/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (fetch)<br>origin	/workspace/git-workshop/uebungen/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (push)<br><br></code></pre>
 
 
 
@@ -48,7 +48,7 @@ Erstelle ein Commit und zeige dann den Status.
 
 
 
-<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bstachmann. &quot;</b><br><br>[master 56a51c8] : Edit file foo at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bstachmann. &quot;</b><br><br>[master 4cfc695] : Edit file foo at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 

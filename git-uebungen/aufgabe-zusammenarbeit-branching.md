@@ -27,8 +27,9 @@ parent: Aufgaben
 
 Starte im Verzeichnis `aufgaben/repo`.
 
-Erstelle einen Branch `feature-a` und bearbeite die Datei `foo`.
-Wechsle zurück auf den `master` und bearbeite dort `bar`.
+Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
+und erstelle ein Commit.
+Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
 ## Schritt 2 - Branch mergen
