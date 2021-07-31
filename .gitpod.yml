@@ -4,7 +4,6 @@ image:
 
 tasks:
   - init: uebungen/gradlew -p uebungen run && cd uebungen/build/git-uebungen/aufgaben && ll
-  - command: gp preview http://localhost:4000/git-workshop/ && exit
   - command: ./run-server.sh &
 
 ports:
