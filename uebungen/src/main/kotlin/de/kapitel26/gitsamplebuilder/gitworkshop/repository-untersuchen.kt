@@ -60,7 +60,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
         """
             ) {
 
-                bash("ls -hal")
+                bash("ls -hal --time-style=+\"\"")
 
                 markdown(
                     """
@@ -107,7 +107,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 git("show HEAD~1:foo/bar")
                 markdown("\n\nUnd jetzt holen wir genau diese Version in den Workspace:")
                 git("checkout HEAD~1")
-                bash("ls -Rl")
+                bash("ls -Rl --time-style=+\"\"")
             }
 
             createAufgabe(
