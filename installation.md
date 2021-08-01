@@ -54,3 +54,12 @@ Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
     $ unzip build.zip -d build
     $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
 
+## In der Cloud arbeiten (Gitpod IDE)
+
+**Voraussetzung**: Wenn sie einen Account bei [*GitHub*](https://github.com), [*GitLab*](https://gitlab.com) oder [*BitBucket*](https://bitbucket.com) haben (oder einrichten), können sie auch in der Cloud (auf [Gitpod](https://gitpod.io)) arbeiten.
+
+[**Git-Workshop auf Gitpod öffnen**](https://gitpod.io#https://github.com/bstachmann/git-workshop)
+
+Nach dem Öffnen, müssen Sie sich ggf. anmelden, und  Zugriffsrechte für die Gitpod-App gewähren.
+
+
