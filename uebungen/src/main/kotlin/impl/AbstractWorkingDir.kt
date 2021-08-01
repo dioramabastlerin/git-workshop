@@ -73,8 +73,14 @@ abstract class AbstractWorkingDir<T>(
         processBuilder.directory(rootDir)
         processBuilder.redirectOutput(stdoutRedirect)
         processBuilder.redirectError(errorRedirect)
-        processBuilder.environment()["GIT_COMMITTER_DATE"] = "2021-07-29T00:00:00"
+
         processBuilder.environment()["GIT_AUTHOR_DATE"] = "2021-07-29T00:00:00"
+        processBuilder.environment()["GIT_COMMITTER_DATE"] = "2021-07-29T00:00:00"
+
+        processBuilder.environment()["GIT_AUTHOR_NAME"] = "bjoern"
+        processBuilder.environment()["GIT_AUTHOR_EMAIL"] = "kapitel26blog@gmail.com"
+        processBuilder.environment()["GIT_COMMITTER_NAME"] = "bjoern"
+        processBuilder.environment()["GIT_COMMITTER_EMAIL"] = "kapitel26blog@gmail.com"
 
         val process = processBuilder.start()
         process.waitFor()
