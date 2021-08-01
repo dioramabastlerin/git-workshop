@@ -7,9 +7,8 @@ import java.lang.ProcessBuilder.Redirect.PIPE
 
 fun main() {
     println("Start building")
-    buildGitUebungen()
 
-    val zipFile = File("uebungen.zip")
+    val zipFile = File("build.zip")
 
     if(zipFile.exists()) {
         println("Deleting old zip")
@@ -17,8 +16,8 @@ fun main() {
     }
 
     println("Zipping")
-    val processBuilder = ProcessBuilder("zip", "-r", zipFile.absolutePath.toString(), ".")
-    processBuilder.directory(File("build/git-uebungen"))
+    val processBuilder = ProcessBuilder("zip", "-r", zipFile.absolutePath.toString(), "git-uebungen")
+    processBuilder.directory(File("build"))
     processBuilder.redirectOutput(INHERIT)
     processBuilder.redirectError(INHERIT)
     val process = processBuilder.start()

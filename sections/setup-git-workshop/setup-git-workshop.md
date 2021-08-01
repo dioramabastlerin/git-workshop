@@ -37,7 +37,7 @@ Tipp für Windows-User: Mit  `start .` könnt ihr zusätzlich ein File-Exporer-F
 
 ### 4. Übungen herunterladen und entpacken
 
-Die Übungen könnt ihr als ZIP-File (https://bstachmann.github.io/git-workshop/git-uebungen.zip) herunterladen, in das oben gennante Verzeichnis legen und dort entpacken. Es sollte dann ein Ordner `git-uebungen` mit Unterordner für `aufgaben` und `loesungen` vorliegen:
+Die Übungen könnt ihr als ZIP-File (https://bstachmann.github.io/git-workshop/work.zip) herunterladen, in das oben gennante Verzeichnis legen und dort entpacken. Es sollte dann ein Ordner `git-uebungen` mit Unterordner für `aufgaben` und `loesungen` vorliegen:
 
     $ ls -1 git-uebungen
     aufgaben

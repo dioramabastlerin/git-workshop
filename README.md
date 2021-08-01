@@ -1,5 +1,11 @@
 # Git Workshop Material
 
+
+## Übungen entpacken
+
+    $ unzip build.zip -d build
+    $ cd build/git-uebungen/aufgaben
+    
 ## Editing
 
 ### Presentation und Website

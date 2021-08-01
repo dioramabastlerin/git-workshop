@@ -4,7 +4,7 @@ image:
 
 tasks:
   - name: Übungen
-    init: gradle run distuebungenMarkdown && cd uebungen/build/git-uebungen/aufgaben && code index.html && ls -1
+    init: gradle run distuebungenMarkdown && cd build/git-uebungen/aufgaben && code index.html && ls
   - name: Webserver on port 4000
     init: ./run-server.sh
 
