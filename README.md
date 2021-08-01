@@ -4,7 +4,10 @@
 
 ### Presentation und Website
 
-Hosted on GitHub Pages as [https://bstachmann.github.io/git-workshop/](https://bstachmann.github.io/git-workshop/). Just push to update.
+Hosted on GitHub Pages as https://bstachmann.github.io/git-workshop/. Just push to update.
+
+Preview on http://localhost:4000/git-workshop/ by using [GitPod local Companion](https://www.gitpod.io/blog/local-app) as proxy.
+
 
 ### Exercies
 

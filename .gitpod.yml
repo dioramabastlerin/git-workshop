@@ -3,8 +3,10 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: gradle uebungen:run && cd uebungen/build/git-uebungen/aufgaben && ll
-  - command: ./run-server.sh &
+  - name: Übungen
+    init: gradle uebungen:run && cd uebungen/build/git-uebungen/aufgaben && ls -1
+  - name: Webserver on port 4000
+    command: ./run-server.sh & && && echo "Run GitPod local companion then open http://localhost:4000"
 
 ports:
   - port: 4000
