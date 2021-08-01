@@ -3,6 +3,9 @@ plugins {
     id("application")
 }
 
+apply(plugin = "application")
+
+
 allprojects {
 
     repositories {
@@ -13,7 +16,6 @@ allprojects {
     }
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
-    apply(plugin = "application")
 
     tasks.withType<Test> {
         useJUnitPlatform()
@@ -28,5 +30,39 @@ allprojects {
         implementation(kotlin("stdlib"))
     }
     
+}
+
+dependencies {
+    implementation(project(":uebungen"))
+}
+
+
+application {
+    mainClassName = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsamplesKt"
+}
+
+task("distUebungenMarkdown", JavaExec::class) {
+    group = "Distribution"
+    description = "Deploy markdown files for exercises, to website dir."
+    dependsOn("run")
+
+    main = "de.kapitel26.gitsamplebuilder.BuildAndDeployUebungenToWebsiteKt"
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
+task("distUebungenZip", JavaExec::class) {
+    group = "Distribution"/* \ */
+    description = "Create a new zip file."
+    dependsOn("run")
+
+    main = "de.kapitel26.gitsamplebuilder.BuildAndDeployUebungenToZipKt"
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
+task("sandbox", JavaExec::class) {
+    group = "Application"
+    description = "Run sandbox samples from gitworkshopsandbox.kt."
+    main = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsandboxKt"
+    classpath = sourceSets["main"].runtimeClasspath
 }
 
