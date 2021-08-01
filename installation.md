@@ -24,7 +24,7 @@ Zunächst einmal brauchen wir natürlich Git. Installiert es (https://git-scm.co
 Gebt Folgendes ein:
 
     $ git version
-    git version 2.27.0
+    git version 2.30.1
 
 Falls Git bei Euch eine andere Versionsnummer ausgibt, kein Problem: Hauptsache Git ist da.
 
