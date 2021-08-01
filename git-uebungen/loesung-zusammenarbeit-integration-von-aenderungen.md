@@ -66,11 +66,11 @@ Der Graph zeigt, dass ein Merge enstanden ist.
 
 
 
-<pre><code>changes-in-different-files $ <b>git commit -am &quot;Commited file README.md on branch master by dioramabastlerin &quot;</b><br><br>[master 3e6254f] Commited file README.md on branch master by dioramabastlerin<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git commit -am &quot;Commited file README.md on branch master by bstachmann &quot;</b><br><br>[master 44ef898] Commited file README.md on branch master by bstachmann<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 
-<pre><code>changes-in-different-files $ <b>git show</b><br><br>commit 3e6254f2ffd856220bf6f9c9c3bf6b781587c2d3<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Commited file README.md on branch master by dioramabastlerin<br><br>diff --git a/README.md b/README.md<br>index 8b6805c..28cf676 100644<br>--- a/README.md<br>+++ b/README.md<br>@@ -1 +1 @@<br>-Hallo Wolt!<br>+Hallo Welt!<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git show</b><br><br>commit 44ef898f5631ff8d1a6d0f4159bb9413737fa5bc<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Commited file README.md on branch master by bstachmann<br><br>diff --git a/README.md b/README.md<br>index 8b6805c..28cf676 100644<br>--- a/README.md<br>+++ b/README.md<br>@@ -1 +1 @@<br>-Hallo Wolt!<br>+Hallo Welt!<br><br></code></pre>
 
 
 
@@ -87,7 +87,7 @@ die wir noch nicht integriert haben.
 Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
 
 
-<pre><code>changes-in-different-files $ <b>git log --oneline --graph</b><br><br>*   a5c694e Merge branch 'master' of ../origin-for-merge-samples<br>|\  <br>| * 12bfe04 Verwende double Werte statt int<br>* | 3e6254f Commited file README.md on branch master by dioramabastlerin<br>|/  <br>* 60e4443 Created file average.kts on branch master by anja.<br>* 2eea5f6 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git log --oneline --graph</b><br><br>*   0003961 Merge branch 'master' of ../origin-for-merge-samples<br>|\  <br>| * 12bfe04 Verwende double Werte statt int<br>* | 44ef898 Commited file README.md on branch master by bstachmann<br>|/  <br>* 60e4443 Created file average.kts on branch master by anja.<br>* 2eea5f6 Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 
@@ -95,13 +95,13 @@ Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
 
 
 
-<pre><code>changes-in-different-files $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 3e6254f2ffd856220bf6f9c9c3bf6b781587c2d3<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Commited file README.md on branch master by dioramabastlerin<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 44ef898f5631ff8d1a6d0f4159bb9413737fa5bc<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Commited file README.md on branch master by bstachmann<br><br></code></pre>
 
 
 Und jetzt können wir erneut ein Push versuchen.
 
 
-<pre><code>changes-in-different-files $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   12bfe04..a5c694e  master -&gt; master<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git push</b><br><br>To ../origin-for-merge-samples.git<br>   12bfe04..0003961  master -&gt; master<br><br></code></pre>
 
 
 ## Lösung zu Schritt 4 - Integration bei Änderungen in derselben Datei
@@ -121,7 +121,7 @@ den wir aulösen müssen.
 
 
 
-<pre><code>changes-in-same-files $ <b>git pull</b><br><br>Auto-merging average.kts<br>CONFLICT (content): Merge conflict in average.kts<br>Automatic merge failed; fix conflicts and then commit the result.<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br>From ../origin-for-merge-samples<br>   60e4443..a5c694e  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git pull</b><br><br>Auto-merging average.kts<br>CONFLICT (content): Merge conflict in average.kts<br>Automatic merge failed; fix conflicts and then commit the result.<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br>From ../origin-for-merge-samples<br>   60e4443..0003961  master     -&gt; origin/master<br><br></code></pre>
 
 
 Wie erwartet, ist es zu einem Konflikt gekommen.
@@ -141,13 +141,13 @@ Nicht vergessen: Nach dem Bereinigen `git add` aufrufen.
 
 
 
-<pre><code>changes-in-same-files $ <b>git commit -m 'Änderungen von Anja integriert'</b><br><br>[master 298042a] Änderungen von Anja integriert<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git commit -m 'Änderungen von Anja integriert'</b><br><br>[master 88ca4df] Änderungen von Anja integriert<br><br></code></pre>
 
 
 Und hier nochmal der entstandene Graph:
 
 
-<pre><code>changes-in-same-files $ <b>git log --graph --oneline</b><br><br>*   298042a Änderungen von Anja integriert<br>|\  <br>| *   a5c694e Merge branch 'master' of ../origin-for-merge-samples<br>| |\  <br>| | * 12bfe04 Verwende double Werte statt int<br>| * | 3e6254f Commited file README.md on branch master by dioramabastlerin<br>| |/  <br>* / 86c7660 Refactoring: s in summe umbenennen<br>|/  <br>* 60e4443 Created file average.kts on branch master by anja.<br>* 2eea5f6 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git log --graph --oneline</b><br><br>*   88ca4df Änderungen von Anja integriert<br>|\  <br>| *   0003961 Merge branch 'master' of ../origin-for-merge-samples<br>| |\  <br>| | * 12bfe04 Verwende double Werte statt int<br>| * | 44ef898 Commited file README.md on branch master by bstachmann<br>| |/  <br>* / 86c7660 Refactoring: s in summe umbenennen<br>|/  <br>* 60e4443 Created file average.kts on branch master by anja.<br>* 2eea5f6 Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-integration-von-aenderungen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

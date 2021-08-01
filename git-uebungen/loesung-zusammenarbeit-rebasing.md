@@ -15,7 +15,7 @@ Aktualisiere Deinen Feature-Branch.
 Lasse Dir den Commit-Graphen über alle Branches zeigen.
 
 
-<pre><code>repo $ <b>git log --graph --all --decorate --oneline</b><br><br>* 2789c43 (HEAD -&gt; feature) : Feature weitermachen.<br>* ac17a32 : Feature anfangen.<br>| * 7879504 (master) : Neuerung auf dem master<br>|/  <br>* a3f18c6 Created file bar on branch master by dioramabastlerin.<br>* baddef6 Created file foo on branch master by dioramabastlerin.<br><br></code></pre>
+<pre><code>repo $ <b>git log --graph --all --decorate --oneline</b><br><br>* b55b40b (HEAD -&gt; feature) : Feature weitermachen.<br>* 160e61a : Feature anfangen.<br>| * e7d9c22 (master) : Neuerung auf dem master<br>|/  <br>* 684e919 Created file bar on branch master by bstachmann.<br>* d8650f1 Created file foo on branch master by bstachmann.<br><br></code></pre>
 
 
 
@@ -23,7 +23,7 @@ Lasse Dir den Commit-Graphen über alle Branches zeigen.
 
 
 
-<pre><code>repo $ <b>git log --graph --all --decorate --oneline</b><br><br>* 1d729e8 (HEAD -&gt; feature) : Feature weitermachen.<br>* 45af9ce : Feature anfangen.<br>* 7879504 (master) : Neuerung auf dem master<br>* a3f18c6 Created file bar on branch master by dioramabastlerin.<br>* baddef6 Created file foo on branch master by dioramabastlerin.<br><br></code></pre>
+<pre><code>repo $ <b>git log --graph --all --decorate --oneline</b><br><br>* 9d05f69 (HEAD -&gt; feature) : Feature weitermachen.<br>* aacf5b7 : Feature anfangen.<br>* e7d9c22 (master) : Neuerung auf dem master<br>* 684e919 Created file bar on branch master by bstachmann.<br>* d8650f1 Created file foo on branch master by bstachmann.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-rebasing.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

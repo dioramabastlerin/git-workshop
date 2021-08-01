@@ -31,7 +31,7 @@ Wir erzeugen ein erstes Commmit, damit der `subtree`-Befehl ausgeführt werden k
 
 
 
-<pre><code>application $ <b>git commit -am &quot;Created file README on branch master by dioramabastlerin. &quot;</b><br><br>[master (root-commit) 4152492] Created file README on branch master by dioramabastlerin.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 README<br><br></code></pre>
+<pre><code>application $ <b>git commit -am &quot;Created file README on branch master by bstachmann. &quot;</b><br><br>[master (root-commit) 29363b8] Created file README on branch master by bstachmann.<br> 1 file changed, 12 insertions(+)<br> create mode 100644 README<br><br></code></pre>
 
 
 Dann fügen wir die Repos mit `subtree` hinzu:
@@ -51,7 +51,7 @@ Man sieht ui und backend wurden mitsamt Historie zusammengeführt:
 
 
 
-<pre><code>application $ <b>git log --oneline --graph</b><br><br>*   56d9307 Add 'ui/' from commit 'a8956c64c24564f323066f6a426928265ce61555'<br>|\  <br>| * a8956c6 Created file UITest.java on branch master by dioramabastlerin.<br>| * fd615bf Created file UI.java on branch master by dioramabastlerin.<br>*   ed0ae5f Add 'backend/' from commit 'd14d068b9dad62ab404ed909aa8b447c510b9b90'<br>|\  <br>| * d14d068 Created file BackendTest.java on branch master by dioramabastlerin.<br>| * 8503405 Created file Backend.java on branch master by dioramabastlerin.<br>* 4152492 Created file README on branch master by dioramabastlerin.<br><br></code></pre>
+<pre><code>application $ <b>git log --oneline --graph</b><br><br>*   608b560 Add 'ui/' from commit '55a52a8efd5f78d14d6e2ee07efc998c44ccf0e4'<br>|\  <br>| * 55a52a8 Created file UITest.java on branch master by bstachmann.<br>| * 17c40bc Created file UI.java on branch master by bstachmann.<br>*   6797edd Add 'backend/' from commit '36e250e57101711119a587ec6b7a612f97f892f3'<br>|\  <br>| * 36e250e Created file BackendTest.java on branch master by bstachmann.<br>| * 2e72ce4 Created file Backend.java on branch master by bstachmann.<br>* 29363b8 Created file README on branch master by bstachmann.<br><br></code></pre>
 
 
 
@@ -83,7 +83,7 @@ Backend-Dateien in Unterverzeichnis verschieben:
 
 
 
-<pre><code>gesamt $ <b>git commit -m 'backend-Verzeichnis angelegt'</b><br><br>[master ccf2aa1] backend-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; backend/src}/Backend.java (100%)<br> rename {test =&gt; backend/test}/BackendTest.java (100%)<br><br></code></pre>
+<pre><code>gesamt $ <b>git commit -m 'backend-Verzeichnis angelegt'</b><br><br>[master 30d70e0] backend-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; backend/src}/Backend.java (100%)<br> rename {test =&gt; backend/test}/BackendTest.java (100%)<br><br></code></pre>
 
 
 Inhalt des UI-Repository in einen lokalen Branch `uimaster` holen:
@@ -111,7 +111,7 @@ UI-Dateien in Unterverzeichnis verschieben:
 
 
 
-<pre><code>gesamt $ <b>git commit -m 'ui-Verzeichnis angelegt'</b><br><br>[uimaster 88da57e] ui-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; ui/src}/UI.java (100%)<br> rename {test =&gt; ui/test}/UITest.java (100%)<br><br></code></pre>
+<pre><code>gesamt $ <b>git commit -m 'ui-Verzeichnis angelegt'</b><br><br>[uimaster ea420e3] ui-Verzeichnis angelegt<br> 2 files changed, 0 insertions(+), 0 deletions(-)<br> rename {src =&gt; ui/src}/UI.java (100%)<br> rename {test =&gt; ui/test}/UITest.java (100%)<br><br></code></pre>
 
 
 `uimaster` integrieren:
@@ -131,7 +131,7 @@ Man sieht ui und backend wurden mitsamt Historie zusammengeführt:
 
 
 
-<pre><code>gesamt $ <b>git log --oneline --graph</b><br><br>*   8ba494d Merge branch 'uimaster'<br>|\  <br>| * 88da57e ui-Verzeichnis angelegt<br>| * a8956c6 Created file UITest.java on branch master by dioramabastlerin.<br>| * fd615bf Created file UI.java on branch master by dioramabastlerin.<br>* ccf2aa1 backend-Verzeichnis angelegt<br>* d14d068 Created file BackendTest.java on branch master by dioramabastlerin.<br>* 8503405 Created file Backend.java on branch master by dioramabastlerin.<br><br></code></pre>
+<pre><code>gesamt $ <b>git log --oneline --graph</b><br><br>*   3715c64 Merge branch 'uimaster'<br>|\  <br>| * ea420e3 ui-Verzeichnis angelegt<br>| * 55a52a8 Created file UITest.java on branch master by bstachmann.<br>| * 17c40bc Created file UI.java on branch master by bstachmann.<br>* 30d70e0 backend-Verzeichnis angelegt<br>* 36e250e Created file BackendTest.java on branch master by bstachmann.<br>* 2e72ce4 Created file Backend.java on branch master by bstachmann.<br><br></code></pre>
 
 
 
