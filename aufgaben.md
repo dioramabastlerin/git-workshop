@@ -8,4 +8,4 @@ permalink: /aufgaben
 
 # Aufgaben 
 
- * [Download `uebungen.zip`](uebungen.zip)
+[**Vorbereitung**](installation)
