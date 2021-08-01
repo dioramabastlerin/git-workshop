@@ -4,9 +4,12 @@ image:
 
 tasks:
   - name: Übungen
-    init: gradle run distuebungenMarkdown && cd build/git-uebungen/aufgaben && code index.html && ls
+    init: gradle run distuebungenMarkdown && cd build/git-uebungen/aufgaben && ls
   - name: Webserver on port 4000
     init: ./run-server.sh
+  - name: Preview on 4000
+    init: gp preview http://localhost:4000/git-workshop && exit
+
 
 ports:
   - port: 4000
