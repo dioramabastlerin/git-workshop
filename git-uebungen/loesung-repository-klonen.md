@@ -28,7 +28,7 @@ von dem geklont wurde.
 
 
 
-<pre><code>myfirstclone $ <b>git remote -v</b><br><br>origin	/workspace/git-workshop/uebungen/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (fetch)<br>origin	/workspace/git-workshop/uebungen/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (push)<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git remote -v</b><br><br>origin	/workspace/git-workshop/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (fetch)<br>origin	/workspace/git-workshop/build/git-uebungen/loesungen/repository-klonen/myfirstrepo (push)<br><br></code></pre>
 
 
 

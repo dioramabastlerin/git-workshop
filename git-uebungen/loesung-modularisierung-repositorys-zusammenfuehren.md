@@ -13,7 +13,7 @@ parent: Lösungen
 4. Untersuche Verzeichnissstruktur und Commit-Graphen
 
 
-<pre><code>$ <b>git init application </b><br><br>Initialized empty Git repository in /workspace/git-workshop/uebungen/build/git-uebungen/loesungen/modularisierung-repositorys-zusammenfuehren/application/.git/<br>hint: Using 'master' as the name for the initial branch. This default branch name<br>hint: is subject to change. To configure the initial branch name to use in all<br>hint: of your new repositories, which will suppress this warning, call:<br>hint: <br>hint: 	git config --global init.defaultBranch &lt;name&gt;<br>hint: <br>hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and<br>hint: 'development'. The just-created branch can be renamed via this command:<br>hint: <br>hint: 	git branch -m &lt;name&gt;<br><br></code></pre>
+<pre><code>$ <b>git init application </b><br><br>Initialized empty Git repository in /workspace/git-workshop/build/git-uebungen/loesungen/modularisierung-repositorys-zusammenfuehren/application/.git/<br>hint: Using 'master' as the name for the initial branch. This default branch name<br>hint: is subject to change. To configure the initial branch name to use in all<br>hint: of your new repositories, which will suppress this warning, call:<br>hint: <br>hint: 	git config --global init.defaultBranch &lt;name&gt;<br>hint: <br>hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and<br>hint: 'development'. The just-created branch can be renamed via this command:<br>hint: <br>hint: 	git branch -m &lt;name&gt;<br><br></code></pre>
 
 
 
