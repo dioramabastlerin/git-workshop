@@ -9,7 +9,7 @@ parent: Lösungen
 Untersuche das Projektverzeichnis.
 
 
-<pre><code>repo $ <b>ls -hal --time-style=+&quot;&quot;</b><br><br>total 24K<br>drwxr-xr-x 4 gitpod gitpod 4.0K  .<br>drwxr-xr-x 3 gitpod gitpod 4.0K  ..<br>drwxr-xr-x 2 gitpod gitpod 4.0K  foo<br>drwxr-xr-x 8 gitpod gitpod 4.0K  .git<br>-rw-r--r-- 1 gitpod gitpod  253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod  181  und-tschuess<br><br></code></pre>
+<pre><code>repo $ <b>ls -hal --time-style=+&quot;&quot;</b><br><br>total 24K<br>drwxr-xr-x 4 gitpod gitpod 4.0K  .<br>drwxr-xr-x 3 gitpod gitpod 4.0K  ..<br>drwxr-xr-x 2 gitpod gitpod 4.0K  foo<br>drwxr-xr-x 8 gitpod gitpod 4.0K  .git<br>-rw-r--r-- 1 gitpod gitpod  259  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod  181  und-tschuess<br><br></code></pre>
 
 
 Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
@@ -21,7 +21,7 @@ Sieh Dir die Commits an und lasse dabei Informationen
 zu Branches und Tags mit anzeigen.
 
 
-<pre><code>repo $ <b>git log --oneline --decorate</b><br><br>269bced (HEAD -&gt; master) Created file und-tschuess on branch master by bstachmann.<br>a467fcd (tag: release1.1) : Edit file bar at line 5 on branch master by bstachmann.<br>f040f6e (some-old-branch) : Edit file bar at line 1 on branch master by bstachmann.<br>93bde20 : Edit file hallo-welt at line 3 on branch master by bstachmann.<br>77ae281 (tag: release1.0) Created file bar on branch master by bstachmann.<br>e8eb5bd Created file hallo-welt on branch master by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline --decorate</b><br><br>61ee9af (HEAD -&gt; master) Created file und-tschuess on branch master by dioramabastlerin.<br>a4dd25e (tag: release1.1) : Edit file bar at line 5 on branch master by dioramabastlerin.<br>f960728 (some-old-branch) : Edit file bar at line 1 on branch master by dioramabastlerin.<br>804126e : Edit file hallo-welt at line 3 on branch master by dioramabastlerin.<br>6c2e749 (tag: release1.0) Created file bar on branch master by dioramabastlerin.<br>b5184b3 Created file hallo-welt on branch master by dioramabastlerin.<br><br></code></pre>
 
 
 ## Lösung zu Schritt 3 - Einzelne Commits untersuchen
@@ -33,14 +33,14 @@ und zur Vorgängerversion des Releases 1.0
 Hier die aktuelle Version `HEAD`:
 
 
-<pre><code>repo $ <b>git show</b><br><br>commit 269bcedc85e0ad2d6b2d2f33f6474f8ec938b8ce<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Created file und-tschuess on branch master by bstachmann.<br><br>diff --git a/und-tschuess b/und-tschuess<br>new file mode 100644<br>index 0000000..36fe753<br>--- /dev/null<br>+++ b/und-tschuess<br>@@ -0,0 +1,12 @@<br>+line 0 created<br>+line 1 created<br>+line 2 created<br>+line 3 created<br>+line 4 created<br>+line 5 created<br>+line 6 created<br>+line 7 created<br>+line 8 created<br>+line 9 created<br>+line 10 created<br>+line 11 created<br>\ No newline at end of file<br><br></code></pre>
+<pre><code>repo $ <b>git show</b><br><br>commit 61ee9afe2a4bbb3b6cc390e1b9bd55e30fee70b6<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Created file und-tschuess on branch master by dioramabastlerin.<br><br>diff --git a/und-tschuess b/und-tschuess<br>new file mode 100644<br>index 0000000..36fe753<br>--- /dev/null<br>+++ b/und-tschuess<br>@@ -0,0 +1,12 @@<br>+line 0 created<br>+line 1 created<br>+line 2 created<br>+line 3 created<br>+line 4 created<br>+line 5 created<br>+line 6 created<br>+line 7 created<br>+line 8 created<br>+line 9 created<br>+line 10 created<br>+line 11 created<br>\ No newline at end of file<br><br></code></pre>
 
 
 
 Und hier kommt die 1.0:
 
 
-<pre><code>repo $ <b>git show release1.0~1</b><br><br>commit e8eb5bd20affe28c5bee4f9ba089d449a382eae2<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Created file hallo-welt on branch master by bstachmann.<br><br>diff --git a/hallo-welt b/hallo-welt<br>new file mode 100644<br>index 0000000..36fe753<br>--- /dev/null<br>+++ b/hallo-welt<br>@@ -0,0 +1,12 @@<br>+line 0 created<br>+line 1 created<br>+line 2 created<br>+line 3 created<br>+line 4 created<br>+line 5 created<br>+line 6 created<br>+line 7 created<br>+line 8 created<br>+line 9 created<br>+line 10 created<br>+line 11 created<br>\ No newline at end of file<br><br></code></pre>
+<pre><code>repo $ <b>git show release1.0~1</b><br><br>commit b5184b361c0a58d933d9bcb1a8678e47c5f86015<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    Created file hallo-welt on branch master by dioramabastlerin.<br><br>diff --git a/hallo-welt b/hallo-welt<br>new file mode 100644<br>index 0000000..36fe753<br>--- /dev/null<br>+++ b/hallo-welt<br>@@ -0,0 +1,12 @@<br>+line 0 created<br>+line 1 created<br>+line 2 created<br>+line 3 created<br>+line 4 created<br>+line 5 created<br>+line 6 created<br>+line 7 created<br>+line 8 created<br>+line 9 created<br>+line 10 created<br>+line 11 created<br>\ No newline at end of file<br><br></code></pre>
 
 
 ## Lösung zu Schritt 4 - Inhalte vergangener Versionen untersuchen
@@ -55,25 +55,25 @@ Hole die (ganze) vorige Version in den Workspace, um sie näher zu untersuchen.
 Diese Dateien gab es in `HEAD~1`:
 
 
-<pre><code>repo $ <b>git ls-tree -r HEAD~1</b><br><br>100644 blob dfc51d5ad35532e30efa54be6e19387dfcc8fcca	foo/bar<br>100644 blob d0895cfdcf547856535fe3ac92a6632311cabb98	hallo-welt<br><br></code></pre>
+<pre><code>repo $ <b>git ls-tree -r HEAD~1</b><br><br>100644 blob d04bbd8e23c95380e4a0dfd3b356de7ee95af193	foo/bar<br>100644 blob 3049adca9e3c9c21f026f1e884f1cc8f2933023b	hallo-welt<br><br></code></pre>
 
 
 
 Und hier der Inhalt von `bar`:
 
 
-<pre><code>repo $ <b>git show HEAD~1:foo/bar</b><br><br>line 0 created<br>line 1 Edit file bar at line 1 on branch master by bstachmann. / line 1 created<br>line 2 created<br>line 3 created<br>line 4 created<br>line 5 Edit file bar at line 5 on branch master by bstachmann. / line 5 created<br>line 6 created<br>line 7 created<br>line 8 created<br>line 9 created<br>line 10 created<br>line 11 created<br><br></code></pre>
+<pre><code>repo $ <b>git show HEAD~1:foo/bar</b><br><br>line 0 created<br>line 1 Edit file bar at line 1 on branch master by dioramabastlerin. / line 1 created<br>line 2 created<br>line 3 created<br>line 4 created<br>line 5 Edit file bar at line 5 on branch master by dioramabastlerin. / line 5 created<br>line 6 created<br>line 7 created<br>line 8 created<br>line 9 created<br>line 10 created<br>line 11 created<br><br></code></pre>
 
 
 
 Und jetzt holen wir genau diese Version in den Workspace:
 
 
-<pre><code>repo $ <b>git checkout HEAD~1</b><br><br>Note: switching to 'HEAD~1'.<br><br>You are in 'detached HEAD' state. You can look around, make experimental<br>changes and commit them, and you can discard any commits you make in this<br>state without impacting any branches by switching back to a branch.<br><br>If you want to create a new branch to retain commits you create, you may<br>do so (now or later) by using -c with the switch command. Example:<br><br>  git switch -c &lt;new-branch-name&gt;<br><br>Or undo this operation with:<br><br>  git switch -<br><br>Turn off this advice by setting config variable advice.detachedHead to false<br><br>HEAD is now at a467fcd : Edit file bar at line 5 on branch master by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git checkout HEAD~1</b><br><br>Note: switching to 'HEAD~1'.<br><br>You are in 'detached HEAD' state. You can look around, make experimental<br>changes and commit them, and you can discard any commits you make in this<br>state without impacting any branches by switching back to a branch.<br><br>If you want to create a new branch to retain commits you create, you may<br>do so (now or later) by using -c with the switch command. Example:<br><br>  git switch -c &lt;new-branch-name&gt;<br><br>Or undo this operation with:<br><br>  git switch -<br><br>Turn off this advice by setting config variable advice.detachedHead to false<br><br>HEAD is now at a4dd25e : Edit file bar at line 5 on branch master by dioramabastlerin.<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>ls -Rl --time-style=+&quot;&quot;</b><br><br>.:<br>total 8<br>drwxr-xr-x 2 gitpod gitpod 4096  foo<br>-rw-r--r-- 1 gitpod gitpod  253  hallo-welt<br><br>./foo:<br>total 4<br>-rw-r--r-- 1 gitpod gitpod 311  bar<br><br></code></pre>
+<pre><code>repo $ <b>ls -Rl --time-style=+&quot;&quot;</b><br><br>.:<br>total 8<br>drwxr-xr-x 2 gitpod gitpod 4096  foo<br>-rw-r--r-- 1 gitpod gitpod  259  hallo-welt<br><br>./foo:<br>total 4<br>-rw-r--r-- 1 gitpod gitpod 323  bar<br><br></code></pre>
 
 
 ## Lösung zu Schritt 5 - Branches und Tags
@@ -82,7 +82,7 @@ Zeige die Branches und Tags an.
 Zeige jetzt den Commit-Graphen über alle Branches an.
 
 
-<pre><code>repo $ <b>git branch -vv</b><br><br>* (HEAD detached at a467fcd) a467fcd : Edit file bar at line 5 on branch master by bstachmann.<br>  feature-a                  73e6c85 : Edit file bar at line 7 on branch feature-a by bstachmann.<br>  master                     269bced Created file und-tschuess on branch master by bstachmann.<br>  some-old-branch            f040f6e : Edit file bar at line 1 on branch master by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git branch -vv</b><br><br>* (HEAD detached at a4dd25e) a4dd25e : Edit file bar at line 5 on branch master by dioramabastlerin.<br>  feature-a                  b5c4408 : Edit file bar at line 7 on branch feature-a by dioramabastlerin.<br>  master                     61ee9af Created file und-tschuess on branch master by dioramabastlerin.<br>  some-old-branch            f960728 : Edit file bar at line 1 on branch master by dioramabastlerin.<br><br></code></pre>
 
 
 
@@ -92,7 +92,7 @@ Zeige jetzt den Commit-Graphen über alle Branches an.
 Im Commit-Graphen sieht man, wo die Branches und Tag stehen:
 
 
-<pre><code>repo $ <b>git log --decorate --oneline --graph --all</b><br><br>* 73e6c85 (feature-a) : Edit file bar at line 7 on branch feature-a by bstachmann.<br>| * 269bced (master) Created file und-tschuess on branch master by bstachmann.<br>| * a467fcd (HEAD, tag: release1.1) : Edit file bar at line 5 on branch master by bstachmann.<br>| * f040f6e (some-old-branch) : Edit file bar at line 1 on branch master by bstachmann.<br>|/  <br>* 93bde20 : Edit file hallo-welt at line 3 on branch master by bstachmann.<br>* 77ae281 (tag: release1.0) Created file bar on branch master by bstachmann.<br>* e8eb5bd Created file hallo-welt on branch master by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git log --decorate --oneline --graph --all</b><br><br>* b5c4408 (feature-a) : Edit file bar at line 7 on branch feature-a by dioramabastlerin.<br>| * 61ee9af (master) Created file und-tschuess on branch master by dioramabastlerin.<br>| * a4dd25e (HEAD, tag: release1.1) : Edit file bar at line 5 on branch master by dioramabastlerin.<br>| * f960728 (some-old-branch) : Edit file bar at line 1 on branch master by dioramabastlerin.<br>|/  <br>* 804126e : Edit file hallo-welt at line 3 on branch master by dioramabastlerin.<br>* 6c2e749 (tag: release1.0) Created file bar on branch master by dioramabastlerin.<br>* b5184b3 Created file hallo-welt on branch master by dioramabastlerin.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-repository-untersuchen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

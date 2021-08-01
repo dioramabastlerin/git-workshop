@@ -10,7 +10,7 @@ Hole die beiden neuen Commits vom `origin`-Repository,
 ohne den lokalen `master` zu verändern.
 
 
-<pre><code>mein-klon $ <b>git fetch</b><br><br>From ../blessed<br>   14acc6c..259881a  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>mein-klon $ <b>git fetch</b><br><br>From ../blessed<br>   6014eb9..0b4e6c2  master     -&gt; origin/master<br><br></code></pre>
 
 
 Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.
@@ -35,7 +35,7 @@ Der Status zeigt, dass es im Origin-Repo
 die wir noch nicht integriert haben.
 
 
-<pre><code>mein-klon $ <b>git log master..origin/master</b><br><br>commit 259881ace4decd437d3947f80980159f8a49a223<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Second edit after cloning<br><br>commit bb346646c525cb02944adab8ab618947fbeb74bc<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : First edit after cloning<br><br></code></pre>
+<pre><code>mein-klon $ <b>git log master..origin/master</b><br><br>commit 0b4e6c2d582e300fd5ebc1cbe17e7a3f6641f02c<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Second edit after cloning<br><br>commit 47ce9cff6da38bc51b508a0d9b238d4d3da1da9e<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : First edit after cloning<br><br></code></pre>
 
 
 Die `..`-Notation zeigt genau jene Commits,
@@ -53,7 +53,7 @@ in den lokalen `master`.
 
 
 
-<pre><code>mein-klon $ <b>git log --graph --oneline</b><br><br>*   760efc1 Merge branch 'master' of ../blessed<br>|\  <br>| * 259881a : Second edit after cloning<br>| * bb34664 : First edit after cloning<br>* | e76b4b2 : My local edit<br>|/  <br>* 14acc6c Initial edit before cloning<br>* da83726 Initial edit before cloning<br><br></code></pre>
+<pre><code>mein-klon $ <b>git log --graph --oneline</b><br><br>*   534d2cb Merge branch 'master' of ../blessed<br>|\  <br>| * 0b4e6c2 : Second edit after cloning<br>| * 47ce9cf : First edit after cloning<br>* | 4554415 : My local edit<br>|/  <br>* 6014eb9 Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-push-fetch-pull.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

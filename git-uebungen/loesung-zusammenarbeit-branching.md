@@ -20,11 +20,11 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b># Edit file foo at line 7 on branch feature-a by bstachmann.</b><br><br><br></code></pre>
+<pre><code>repo $ <b># Edit file foo at line 7 on branch feature-a by dioramabastlerin.</b><br><br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`foo`: Edit file foo at line 7 on branch feature-a by bstachmann. &quot;</b><br><br>[feature-a c3b2700] : Edit file foo at line 7 on branch feature-a by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`foo`: Edit file foo at line 7 on branch feature-a by dioramabastlerin. &quot;</b><br><br>[feature-a 44bf976] : Edit file foo at line 7 on branch feature-a by dioramabastlerin.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
@@ -32,15 +32,15 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b># Edit file bar at line 3 on branch master by bstachmann.</b><br><br><br></code></pre>
+<pre><code>repo $ <b># Edit file bar at line 3 on branch master by dioramabastlerin.</b><br><br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch master by bstachmann. &quot;</b><br><br>[master a692a55] : Edit file bar at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch master by dioramabastlerin. &quot;</b><br><br>[master 0dbed99] : Edit file bar at line 3 on branch master by dioramabastlerin.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* c3b2700 (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>| * a692a55 (HEAD -&gt; master) : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* 14acc6c (origin/master) Initial edit before cloning<br>* da83726 Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 44bf976 (feature-a) : Edit file foo at line 7 on branch feature-a by dioramabastlerin.<br>| * 0dbed99 (HEAD -&gt; master) : Edit file bar at line 3 on branch master by dioramabastlerin.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 2 - Branch mergen
@@ -53,7 +53,7 @@ zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   aaba153 (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * c3b2700 (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>* | a692a55 : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* 14acc6c (origin/master) Initial edit before cloning<br>* da83726 Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   619bb9c (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * 44bf976 (feature-a) : Edit file foo at line 7 on branch feature-a by dioramabastlerin.<br>* | 0dbed99 : Edit file bar at line 3 on branch master by dioramabastlerin.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 3 - Merge analysieren
@@ -63,19 +63,19 @@ Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
 Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
-<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit a692a555f5a0bd4ff7f713cd954e9e323fdb9df8<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch master by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 0dbed9976f12acae724d9859658ea99d6c32ce7f<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch master by dioramabastlerin.<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log HEAD^1..HEAD^2</b><br><br>commit c3b2700756116052c539174e18621e13da3dc11d<br>Author: bstachmann &lt;bstachmann@yahoo.de&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file foo at line 7 on branch feature-a by bstachmann.<br><br></code></pre>
+<pre><code>repo $ <b>git log HEAD^1..HEAD^2</b><br><br>commit 44bf976c37c8c97be42680cda8cbf1fa09161ecf<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file foo at line 7 on branch feature-a by dioramabastlerin.<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..01cfa77 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch master by bstachmann. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
+<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..c409821 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch master by dioramabastlerin. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git diff HEAD^1...HEAD^2</b><br><br>diff --git a/foo b/foo<br>index 36fe753..50c9a7f 100644<br>--- a/foo<br>+++ b/foo<br>@@ -5,7 +5,7 @@ line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br>-line 7 created<br>+line 7 Edit file foo at line 7 on branch feature-a by bstachmann. / line 7 created<br> line 8 created<br> line 9 created<br> line 10 created<br><br></code></pre>
+<pre><code>repo $ <b>git diff HEAD^1...HEAD^2</b><br><br>diff --git a/foo b/foo<br>index 36fe753..46089ea 100644<br>--- a/foo<br>+++ b/foo<br>@@ -5,7 +5,7 @@ line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br>-line 7 created<br>+line 7 Edit file foo at line 7 on branch feature-a by dioramabastlerin. / line 7 created<br> line 8 created<br> line 9 created<br> line 10 created<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-branching.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
