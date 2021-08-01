@@ -4,7 +4,7 @@ image:
 
 tasks:
   - name: Übungen
-    init: gradle uebungen:run && cd uebungen/build/git-uebungen/aufgaben && ls -1
+    init: gradle run distuebungenMarkdown && cd uebungen/build/git-uebungen/aufgaben && code index.html && ls -1
   - name: Webserver on port 4000
     command: ./run-server.sh & && echo "Run GitPod local companion then open http://localhost:4000"
 
