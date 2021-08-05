@@ -48,15 +48,15 @@ Zunächst werden Name und Email konfiguriert:
     
 #### Fallback
 
-Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht klappt, kann die Übung aus einem Zip-Archiver entpackt werden. Dieses erhalten Sie als [Download](https://github.com/bstachmann/git-workshop/archive/refs/heads/main.zip) oder es wird über die Seminarorganisation bereit gestellt.
+Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht klappt, kann die Übung aus einem Zip-Archiver entpackt werden. Dieses erhalten Sie als [Download build.zip](https://github.com/bstachmann/git-workshop/raw/main/build.zip) oder es wird über die Seminarorganisation bereit gestellt.
 
+    $ mkdir git-workshop
+    $ cd git-workshop
     $ pwd
  
 `pwd` zeigt ihnen, in welchem Verzeichnis die Git-Bash aktiv ist. Kopieren Sie die Zip-Datei dorthin.
+Kopieren Sie jetzt die Zip-Date in dieses Verzeichnis.
 
-    $ unzip git-workshop-main.zip
-    $ cd git-workshop-main
- 
 ### Übungen entpacken
 
 Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
