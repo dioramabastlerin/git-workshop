@@ -52,9 +52,10 @@ Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht k
 
     $ mkdir git-workshop
     $ cd git-workshop
-    $ pwd
+    $ pwd                       # Linux, MacOs: zeigt ihnen, in welchem Verzeichnis die Git-Bash aktiv ist
+    $ pwd -W                    # Windows: Zeigt den Pfad in Windows Syntax
  
-`pwd` zeigt ihnen, in welchem Verzeichnis die Git-Bash aktiv ist. Kopieren Sie die Datei `build.zip` in dieses Verzeichnis.
+Kopieren Sie die Datei `build.zip` in dieses Verzeichnis.
 
 ### Übungen entpacken
 
