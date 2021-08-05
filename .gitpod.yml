@@ -3,13 +3,12 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Übungen
-    init: gradle run distuebungenMarkdown
-    command: cd build/git-uebungen/aufgaben && ls
   - name: Webserver on port 4000
     init: ./run-build.sh
     command: ./run-server.sh
-
+  - name: Übungen
+    init: gradle run distuebungenMarkdown
+    command: cd build/git-uebungen/aufgaben && ls
 
 ports:
   - port: 4000
