@@ -41,18 +41,29 @@ Zunächst werden Name und Email konfiguriert:
     $ git config --global core.editor notepad
 
 
-### Workshop-Repository holen
-
+### Workshop-Repository klonen
 
     $ git clone https://github.com/bstachmann/git-workshop.git
     $ cd git-workshop
+    
+#### (Fallback)
 
+Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht klappt, kann die Übung aus einem Zip-Archiver entpackt werden. Dieses erhalten Sie als [Download](https://github.com/bstachmann/git-workshop/archive/refs/heads/main.zip) oder es wird über die Seminarorganisation bereit gestellt.
+
+    $ pwd
+ 
+`pwd` zeigt ihnen, in welchem Verzeichnis die Git-Bash aktiv ist. Kopieren Sie die Zip-Datei dorthin.
+
+    $ unzip git-workshop-main.zip
+    $ cd git-workshop-main
+ 
 ### Übungen entpacken
 
 Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
 
     $ unzip build.zip -d build
     $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
+    
 
 ## In der Cloud arbeiten (Gitpod IDE)
 
