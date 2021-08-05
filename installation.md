@@ -46,7 +46,7 @@ Zunächst werden Name und Email konfiguriert:
     $ git clone https://github.com/bstachmann/git-workshop.git
     $ cd git-workshop
     
-#### (Fallback)
+#### *Fallback*, fals das Klonen nicht klappt.
 
 Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht klappt, kann die Übung aus einem Zip-Archiver entpackt werden. Dieses erhalten Sie als [Download](https://github.com/bstachmann/git-workshop/archive/refs/heads/main.zip) oder es wird über die Seminarorganisation bereit gestellt.
 
