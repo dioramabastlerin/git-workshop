@@ -48,7 +48,7 @@ Zunächst werden Name und Email konfiguriert:
     
 #### Fallback
 
-Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht klappt, kann die Übung aus einem Zip-Archive entpackt werden. Dieses erhalten Sie als [Download build.zip](https://github.com/bstachmann/git-workshop/raw/main/build.zip) oder es wird über die Seminarorganisation bereit gestellt.
+Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht klappt, kann die Übung aus einem Zip-Archiv entpackt werden. Dieses erhalten Sie als [Download build.zip](https://github.com/bstachmann/git-workshop/raw/main/build.zip) oder es wird über die Seminarorganisation bereit gestellt.
 
     $ mkdir git-workshop
     $ cd git-workshop
