@@ -4,6 +4,8 @@ USER gitpod
 
 RUN brew install kotlin 
 
+RUN echo test
+
 # Temporarily reset ~/.rvmrc
 RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
 
