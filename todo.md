@@ -7,3 +7,5 @@
      aber einige Git-Befehle mögen keine \es
   * Config und setup Übung in Intro-Block einbauen
   * evtl. Blog-Post zu file-Annotations oder file-Properties
+  * übung heiss push fetch pull, obwohl nur pull und fetch gemacht wird
+  * SVG-Beispiel zu push rejected um Pull ergänzen.
