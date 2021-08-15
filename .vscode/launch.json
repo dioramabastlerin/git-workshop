@@ -7,17 +7,9 @@
         {
             "type": "kotlin",
             "request": "launch",
-            "name": "Kotlin Launch",
-            "projectRoot": "${workspaceFolder}",
-            "mainClass": "path.to.your.MainClassKt"
-        },
-
-        {
-            "type": "kotlin",
-            "request": "launch",
             "name": "Übungen Progress Monitor",
-            "projectRoot": "${workspaceFolder}/uebungen",
-            "mainClass": "de.kapitel26.gitsamplebuilder.gitworkshop.UebungenProgressServerKt"
+            "projectRoot": "${workspaceFolder}",
+            "mainClass": "de.kapitel26.gitsamplebuilder.UebungenProgressServerKt"
         }
     ]
 }

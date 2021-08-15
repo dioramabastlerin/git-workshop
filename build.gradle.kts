@@ -31,13 +31,6 @@ allprojects {
     dependencies {
         implementation(kotlin("script-runtime"))
         implementation(kotlin("stdlib"))
-
-        implementation("io.ktor:ktor-server-core:$ktorVersion")
-        implementation("io.ktor:ktor-server-netty:$ktorVersion")
-        implementation("io.ktor:ktor-client-json:$ktorVersion")
-        implementation("io.ktor:ktor-client-jackson:$ktorVersion")
-        implementation("io.ktor:ktor-jackson:$ktorVersion")
-        implementation("io.ktor:ktor-html-builder:$ktorVersion")    
     }
 
 }
@@ -73,6 +66,13 @@ task("sandbox", JavaExec::class) {
     group = "Application"
     description = "Run sandbox samples from gitworkshopsandbox.kt."
     main = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsandboxKt"
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
+task("progress", JavaExec::class) {
+    group = "Application"
+    description = "Run sandbox samples from gitworkshopsandbox.kt."
+    main = "de.kapitel26.gitsamplebuilder.UebungenProgressServerKt"
     classpath = sourceSets["main"].runtimeClasspath
 }
 
