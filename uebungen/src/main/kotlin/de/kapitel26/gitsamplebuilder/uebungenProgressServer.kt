@@ -13,11 +13,10 @@ import kotlinx.html.*
 
 fun main() {
     println("Starting the progress monitor!")
-    val server = embeddedServer(Netty, port = 8080) {
-        htmlModule()
-    }
-
-    server.start(wait = true)
+    val adminServer = embeddedServer(Netty, port = 8040) { adminModule() }
+    adminServer.start(wait = false)
+    val participantsServer = embeddedServer(Netty, port = 8080) { htmlModule() }
+    participantsServer.start(wait = true)
 }
 
 val participants = mutableMapOf<String, Int>()
@@ -44,6 +43,19 @@ fun Application.htmlModule() {
                 body {
                     p { text("Du bist registriert als $alias") }
                     h3 { text("Debug") }
+                    
+                }
+            }
+        }
+    }
+}
+
+fun Application.adminModule() {
+    routing {
+        get("/") {
+            call.respondHtml {
+                body {
+                    h1 { text("Git Workshop - Progress Monitor") }
                     p { text("map: $participants")}
                 }
             }
