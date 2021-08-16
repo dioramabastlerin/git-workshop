@@ -34,5 +34,4 @@ github:
 vscode:
   extensions:
     - richardwillis.vscode-gradle
-    - mathiasfrohlich.kotlin
     - fwcd.kotlin
