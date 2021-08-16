@@ -9,7 +9,8 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.html.respondHtml
 import kotlinx.html.*
-
+import com.fasterxml.jackson.module.kotlin.*  
+import java.io.File
 
 fun main() {
     println("Starting the progress monitor!")
@@ -22,6 +23,12 @@ fun main() {
 val participants = mutableMapOf<String, Int>()
 
 fun Application.htmlModule() {
+
+    val s: String = File("build/git-uebungen/aufgaben.json").readText()
+    val mapper = jacksonObjectMapper()  // keep around and re-use
+    val myList: List<Pair<String, List<String>>> = mapper.readValue(s)
+    myList.forEach { println("${it.first} ${it.second.size}") }
+
     routing {
         get("/") {
             call.respondHtml {
