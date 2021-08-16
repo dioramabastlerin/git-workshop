@@ -44,5 +44,7 @@ abstract class AbstractDir<T>(
         = log.suppressLogging() { (this as T).commands() }
 
     fun writeDocs() = log.writeDocs(rootDir)
+    
+    fun write(name: String, content: String) = log.write(rootDir, name, content)
 
 }

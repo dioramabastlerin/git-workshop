@@ -153,6 +153,9 @@ class LogBuilder(val options: LogBuilderOptions = LogBuilderOptions(), val gitSa
         return html
     }
 
+    fun write(rootDir: File, name: String, content: String) =
+        File(rootDir, name).writeText(content)
+    
     fun of(name: String) =
         collectedLogs
             .filter { (_, ns) -> ns.contains(name) }

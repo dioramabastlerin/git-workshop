@@ -1,6 +1,8 @@
 package impl
 
 import java.io.File
+import io.ktor.client.features.json.JacksonSerializer
+import com.fasterxml.jackson.databind.ObjectMapper
 
 class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractDir<CollectionOfSamples>(
     rootDir,
@@ -46,6 +48,8 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractD
             }
         }
         writeDocs()
+        
+        write("aufgaben.json",ObjectMapper().writeValueAsString(solutionCollector.aufgabenUndSchritte))
     }
 
     fun createSample(sampleName: String, commands: (Dir.() -> Unit)? = null) {

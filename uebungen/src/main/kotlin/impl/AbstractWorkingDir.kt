@@ -133,6 +133,7 @@ abstract class AbstractWorkingDir<T>(
 
     @Suppress("UNCHECKED_CAST")
     fun createIntro(title: String, description: String = "", setup: T.() -> Unit = {}) {
+        solutionCollector.registerAufgabe(title)
         markdown("# Übung - $title")
         markdown(description)
         supressLogging(setup)
@@ -141,6 +142,7 @@ abstract class AbstractWorkingDir<T>(
     @Suppress("UNCHECKED_CAST")
     fun createAufgabe(title: String, description: String = "", solution: T.() -> Unit = {}) {
         val header = "Schritt ${solutionCollector.collectedCommands.size + 1} - $title"
+        solutionCollector.registerSchritt(header)
         solutionCollector.collectedCommands.add(
             header to {
                 markdown(description)
