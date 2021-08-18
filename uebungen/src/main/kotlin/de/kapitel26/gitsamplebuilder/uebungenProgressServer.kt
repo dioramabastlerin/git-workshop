@@ -11,6 +11,7 @@ import io.ktor.html.respondHtml
 import kotlinx.html.*
 import com.fasterxml.jackson.module.kotlin.*  
 import java.io.File
+import kotlin.text.toIntOrNull
 
 fun main() {
     println("Starting the progress monitor!")
@@ -20,14 +21,18 @@ fun main() {
     participantsServer.start(wait = true)
 }
 
-val participants = mutableMapOf<String, Int>()
+val participants = mutableMapOf<Int, String>()
+val aufgaben = readAufgaben()
+var aktuelleAufgabe = aufgaben.first()
+
+fun readAufgaben() : List<Pair<String, List<String>>> {
+    val s: String = File("build/git-uebungen/aufgaben.json").readText()
+    val mapper = jacksonObjectMapper()
+    return mapper.readValue(s)
+}
 
 fun Application.htmlModule() {
 
-    val s: String = File("build/git-uebungen/aufgaben.json").readText()
-    val mapper = jacksonObjectMapper()  // keep around and re-use
-    val myList: List<Pair<String, List<String>>> = mapper.readValue(s)
-    myList.forEach { println("${it.first} ${it.second.size}") }
 
     routing {
         get("/") {
@@ -37,6 +42,7 @@ fun Application.htmlModule() {
                     form(action = "/register", method = FormMethod.get) {
                         label { text("Dein Name/Alias:") }
                         input(name = "alias") {value = "torfnase"}
+                    
                     }
                 }
             }
@@ -44,14 +50,27 @@ fun Application.htmlModule() {
 
         get("/register") {
             val alias = call.parameters["alias"]
+            val id = "participant/$alias".hashCode()
             if(alias is String)
-                participants[alias] = 42
+                participants[id] = alias
             call.respondHtml() { 
                 body {
                     p { text("Du bist registriert als $alias") }
-                    h3 { text("Debug") }
-                    
+                    h3 { text("Debug") } 
+                    a( href="/progress?id=$id" ) { text("Hierhin") }                   
                 }
+            }
+        }
+
+        get("/progress") {
+            call.respondHtml() { 
+                body {
+                    val id = call.parameters["id"]?.toIntOrNull() ?: throw Exception()
+                    h2 { text("Hallo ${participants[id]}!") }
+                    h2 { text("Aufgabe ${aktuelleAufgabe.first}" ) }
+                    aktuelleAufgabe.second.forEach { p { text(it) } }
+                }
+                
             }
         }
     }
@@ -60,10 +79,31 @@ fun Application.htmlModule() {
 fun Application.adminModule() {
     routing {
         get("/") {
+            val selected = call.parameters["select"] ?: "?"
+            aktuelleAufgabe = aufgaben.find { it.first == selected } ?: aufgaben.first()
             call.respondHtml {
                 body {
                     h1 { text("Git Workshop - Progress Monitor") }
                     p { text("map: $participants")}
+                    h2 { text("Aktuelle Aufgabe") }
+                    form(action = "/", method = FormMethod.get) {
+                        aufgaben.map { it.first }
+                            .forEach {
+                                input(name = "select") {  
+                                    value= it
+                                    type = InputType.radio
+                                    checked = it == aktuelleAufgabe.first
+                                    onChange = "this.form.submit()"
+                                    text(it)
+                                }
+                                br {}
+                                // <input type="radio" id="html" name="fav_language" value="HTML">
+                                // <label for="html">HTML</label><br>
+                                
+                            }
+                            //input() { type = InputType.submit }
+                    }
+
                 }
             }
         }
