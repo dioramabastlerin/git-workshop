@@ -27,21 +27,29 @@ data class Progress(
     val participants: Map<String,String>
 )
 
+val progressFile = File("build/git-uebungen/progress.json")
+
 val mapper = jacksonObjectMapper()
 
 var state : Progress = 
-    readAufgaben().let { aufgaben ->
-        println(aufgaben)
-        Progress(   
-            aufgaben,
-            aufgaben.first(),
-            emptyMap()
-        )    
+    if(progressFile.exists()) {
+        println("Restoring state from file")
+        mapper.readValue(progressFile)
+    } else {
+        println("Fresh startup")
+        readAufgaben().let { aufgaben ->
+            Progress(   
+                aufgaben,
+                aufgaben.first(),
+                emptyMap()
+            )    
+        }    
     }
 
     
 fun update(newState: Progress) {
     state = newState
+    mapper.writerWithDefaultPrettyPrinter().writeValue(progressFile, newState)
 }
 
 fun readAufgaben() : List<Pair<String, List<String>>> {
@@ -99,8 +107,13 @@ fun Application.adminModule() {
             call.respondHtml {
                 body {
                     h1 { text("Git Workshop - Progress Monitor") }
-                    p { text("map: $state.participants")}
                     h2 { text("Aktuelle Aufgabe") }
+                    state.aktuelleAufgabe.also { (aufgabe, schritte) ->
+                        schritte.forEach {
+                            p { +"AA $aufgabe/$it" } 
+                        }
+                    }
+                    h2 { text("Aufgaben") }
                     form(action = "/", method = FormMethod.get) {
                         state.aufgaben.map { it.first }
                             .forEach {
@@ -112,13 +125,15 @@ fun Application.adminModule() {
                                     text(it)
                                 }
                                 br {}
-                                // <input type="radio" id="html" name="fav_language" value="HTML">
-                                // <label for="html">HTML</label><br>
-                                
                             }
-                            //input() { type = InputType.submit }
                     }
-
+                    h2 { text("Teilnehmer")}
+                    p{
+                        state.participants.forEach { (userId, alias) ->
+                            + "$alias /?id=$userId"
+                            br {}
+                       }   
+                    }
                 }
             }
         }
