@@ -12,16 +12,16 @@ import kotlinx.html.*
 import com.fasterxml.jackson.module.kotlin.*  
 import java.io.File
 import kotlin.text.toIntOrNull
+import kotlin.math.abs
 
 fun main() {
-    println("Starting the progress monitor!")
     val adminServer = embeddedServer(Netty, port = 8040) { adminModule() }
+    val participantsServer = embeddedServer(Netty, port = 8080) { participantsModule() }
     adminServer.start(wait = false)
-    val participantsServer = embeddedServer(Netty, port = 8080) { htmlModule() }
     participantsServer.start(wait = true)
 }
 
-val participants = mutableMapOf<Int, String>()
+val participants = mutableMapOf<String, String>()
 val aufgaben = readAufgaben()
 var aktuelleAufgabe = aufgaben.first()
 
@@ -31,47 +31,45 @@ fun readAufgaben() : List<Pair<String, List<String>>> {
     return mapper.readValue(s)
 }
 
-fun Application.htmlModule() {
+fun Application.participantsModule() {
 
 
     routing {
         get("/") {
             call.respondHtml {
+                val userId = call.parameters["id"]
+
                 body {
                     h1 { text("Git Workshop - Progress Monitor") }
-                    form(action = "/register", method = FormMethod.get) {
-                        label { text("Dein Name/Alias:") }
-                        input(name = "alias") {value = "torfnase"}
-                    
+                    if(userId == null) {
+                        form(action = "/register", method = FormMethod.get) {
+                            label { text("Dein Name/Alias:") }
+                            input(name = "newAlias") {value = "torfnase"}
+                        }
+                    } else {
+                        h2 { text("Hallo ${participants[userId]}!") }
+                        h2 { text("Aufgabe ${aktuelleAufgabe.first}" ) }
+                        aktuelleAufgabe.second.forEach { p { text(it) } }        
                     }
                 }
             }
         }
 
         get("/register") {
-            val alias = call.parameters["alias"]
-            val id = "participant/$alias".hashCode()
-            if(alias is String)
-                participants[id] = alias
-            call.respondHtml() { 
-                body {
-                    p { text("Du bist registriert als $alias") }
-                    h3 { text("Debug") } 
-                    a( href="/progress?id=$id" ) { text("Hierhin") }                   
-                }
-            }
-        }
-
-        get("/progress") {
-            call.respondHtml() { 
-                body {
-                    val id = call.parameters["id"]?.toIntOrNull() ?: throw Exception()
-                    h2 { text("Hallo ${participants[id]}!") }
-                    h2 { text("Aufgabe ${aktuelleAufgabe.first}" ) }
-                    aktuelleAufgabe.second.forEach { p { text(it) } }
-                }
-                
-            }
+            call.respondHtml {
+                val newAlias = call.parameters["newAlias"] ?: throw Exception("Missing parameter newAlias")
+                val newUserId = abs("participant/$newAlias".hashCode()).toString()
+                    if( participants[newUserId] == null) {
+                        participants[newUserId] = newAlias
+                        head {
+                            meta(content = "0; url=/?id=$newUserId") { httpEquiv="refresh"}
+                        }
+                    } else {
+                        body {
+                            p { +"Alias $newAlias ist bereits vergeben."}
+                        }
+                    }
+           }
         }
     }
 }
