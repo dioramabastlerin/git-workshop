@@ -74,7 +74,7 @@ Wir lassen uns die Commits zeigen.
     330fd73 Fix missing git before command
     ...
 ```
-Erkenntnis: Das von uns geklonte Repositor enthält die ganze Historie ders Projekts.
+Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie ders Projekts.
 
 ---
 
