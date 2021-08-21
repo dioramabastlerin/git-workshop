@@ -34,8 +34,52 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             createRepo {
                 createFileAndCommit("hallo-welt")
                 createDir("foo") {
-                    createFileAndCommit("bar")
+                    createFileAndCommit("bar") {
+                        edit(1, content = "Eine wirklich ziemlich lange Zeile in der Datei 'bar'")
+                    }
+                    createFileAndCommit("vorher", "Beginne mit leerer Datei") {
+                        content = ""
+                    }
+                    editAndCommit("vorher", "Ergänze zwei zeilen") {
+                        edit(0, content = "Diese Zeilen wurden also ganz am Anfang geschrieben.")
+                        edit(1, content = "Und das ist wohl doch sehr lange her. Wie man sieht.")
+                    }
                 }
+
+                git("mv foo/vorher nachher")
+                git("commit -m 'Benenne die Datei im'")
+
+                editAndCommit("nachher", "Ergänze eine Zeile") {
+                    edit(2, content = "Nach der Umbenennung")
+                }
+
+                editAndCommit("nachher", "Kopiere eine Zeile aus 'bar'") {
+                    edit(3, content = "Eine wirklich ziemlich lange Zeile in der Datei 'bar'")
+                }
+
+                createFileAndCommit("restaurant") {
+                    content = "Eine sehr lange Zeile aus 'restaurant', die verschoben wird."
+                }
+
+                inFile("restaurant") {
+                    content = ""
+                }
+                inFile("nachher") {
+                    edit(4, content = "Eine sehr lange Zeile aus 'restaurant', die verschoben wird.")
+                    edit(5, content = "Und eine, die nichts damit zu tun hat.")
+                }
+                git("commit -am 'Verschiebe eine  Zeile'")
+                editAndCommit("nachher", "Noch ein paar neue Zeilen") {
+                    edit(6, content = "Eine ebenfalls recht lange Zeile, die demnächst auch verschoben werden soll.")
+                    edit(7, content = "dazwischen.")
+                    edit(8, content = "Ende")                    
+                }
+                editAndCommit("nachher", "Eine Zeile verschieben") {
+                    edit(6, content = "dazwischen.")
+                    edit(7, content = "Eine ebenfalls recht lange Zeile, die demnächst auch verschoben werden soll.")
+                    edit(8, content = "Ende")                    
+                }
+
                 git("tag release1.0")
                 editAndCommit("hallo-welt", 3)
                 inDir("foo") {
@@ -55,6 +99,28 @@ fun CollectionOfSamples.repositoryUntersuchen() {
 
         inRepo {
             createAufgabe(
+                "Herkunft von Zeilen ermitteln", """
+                    Mit `blame` kann man herausfinden, wann und von wem Zeilen
+                    zuletzt bearbeitet wurden.
+                    Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
+                    `--show-numbers` zeigt die vorherigen Zeilennummern.
+                    Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
+                    und Verschiebungen aus anderen Dateien gefunden.
+                    **Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
+                """
+            ) {
+                markdown("Man sieht, dass das auch über Umbenennungen hinweg geht:")
+                git("blame nachher -s -w")
+                markdown("Die Zeilennummern zeigen, dass Zeilen verschoben wurden:")
+                git("blame nachher -s -w -M --show-number")
+                markdown("Hier sieht eine Verschiebung aus der Datei `restaurant`.")
+                git("blame nachher -s -w -M -C")
+                markdown("Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.")
+                git("blame nachher -s -w -M -C -C -C")
+            }    
+ 
+
+            createAufgabe(
                 "Verzeichnisstruktur", """
                     Untersuche das Projektverzeichnis.
         """
@@ -70,6 +136,9 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 )
             }
 
+ 
+
+
 
             createAufgabe(
                 "Commits ansehen", """
@@ -79,6 +148,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             ) {
                 git("log --oneline --decorate")
             }
+
 
             createAufgabe(
                 "Einzelne Commits untersuchen", """
@@ -121,6 +191,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 markdown("Im Commit-Graphen sieht man, wo die Branches und Tag stehen:")
                 git("log --decorate --oneline --graph --all")
             }
-        }
+
+       }
     }
 }

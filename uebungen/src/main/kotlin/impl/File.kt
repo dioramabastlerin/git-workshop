@@ -12,18 +12,22 @@ class File(val location: java.io.File, val log: LogBuilder, val solutionCollecto
     fun createSampleFileContent(): String =
             (0..11).joinToString("\n") { "line $it created" }
 
-    fun edit(line: Int, message: String = "Edit file ${location.name}") = edit(line..line, message)
+    fun edit(line: Int, message: String = "Edit file ${location.name}", content: String? = null) = edit(line..line, message, content)
 
-    fun edit(linesToEdit: IntRange, message: String = "edited") {
+    fun edit(linesToEdit: IntRange, message: String = "edited", content: String? = null) {
         location
                 .apply { log.editFile(dirName(), message) }
                 .readLines()
-                .mapIndexed { index, s ->
-                    if (index in linesToEdit)
-                        "line $index $message / $s"
-                    else
-                        s
-                }
+                .let { lines ->
+                    (0..maxOf(linesToEdit.endInclusive, lines.size-1)).map { index ->
+                        if (index in linesToEdit)
+                            content ?: "line $index $message / ${lines[index]}"
+                        else if(index <  lines.size)
+                            lines[index]
+                        else
+                           "line $index $message"
+                    }
+                 }
                 .joinToString("\n")
                 .also { location.writeText(it) }
     }

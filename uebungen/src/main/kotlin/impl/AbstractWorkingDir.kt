@@ -29,14 +29,14 @@ abstract class AbstractWorkingDir<T>(
 
     fun createFile(name: String, content: String? = null, commands: File.() -> Unit = {}) =
         File(java.io.File(rootDir, name).absoluteFile, log, solutionCollector)
-            .apply { if (location.exists()) throw IllegalStateException("File $this is not expected to exist!") }
+            .apply { if (location.exists()) throw IllegalStateException("File $location is not expected to exist!") }
             .apply { log.createFile(name, currentDirname()) }
             .apply { location.writeText(content ?: createSampleFileContent()) }
             .apply(commands)
 
     fun inFile(name: String = "file", commands: File.() -> Unit = {}) =
         File(java.io.File(rootDir, name), log, solutionCollector)
-            .apply { if (!location.exists()) throw IllegalStateException("File $this is expected to exist!") }
+            .apply { if (!location.exists()) throw IllegalStateException("File $location is expected to exist!") }
             .run(commands)
 
     fun git(commands: GitContext<T>.() -> Unit = {}) =
