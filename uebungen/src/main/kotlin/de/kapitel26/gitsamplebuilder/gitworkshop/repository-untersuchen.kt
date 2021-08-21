@@ -98,27 +98,6 @@ fun CollectionOfSamples.repositoryUntersuchen() {
         }
 
         inRepo {
-            createAufgabe(
-                "Herkunft von Zeilen ermitteln", """
-                    Mit `blame` kann man herausfinden, wann und von wem Zeilen
-                    zuletzt bearbeitet wurden.
-                    Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
-                    `--show-numbers` zeigt die vorherigen Zeilennummern.
-                    Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
-                    und Verschiebungen aus anderen Dateien gefunden.
-                    **Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
-                """
-            ) {
-                markdown("Man sieht, dass das auch über Umbenennungen hinweg geht:")
-                git("blame nachher -s -w")
-                markdown("Die Zeilennummern zeigen, dass Zeilen verschoben wurden:")
-                git("blame nachher -s -w -M --show-number")
-                markdown("Hier sieht eine Verschiebung aus der Datei `restaurant`.")
-                git("blame nachher -s -w -M -C")
-                markdown("Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.")
-                git("blame nachher -s -w -M -C -C -C")
-            }    
- 
 
             createAufgabe(
                 "Verzeichnisstruktur", """
@@ -192,6 +171,26 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 git("log --decorate --oneline --graph --all")
             }
 
+            createAufgabe(
+                "Herkunft von Zeilen ermitteln", """
+                    Mit `blame` kann man herausfinden, wann und von wem Zeilen
+                    zuletzt bearbeitet wurden.
+                    Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
+                    `--show-numbers` zeigt die vorherigen Zeilennummern.
+                    Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
+                    und Verschiebungen aus anderen Dateien gefunden.
+                    **Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
+                """
+            ) {
+                markdown("Man sieht, dass das auch über Umbenennungen hinweg geht:")
+                git("blame nachher -s -w")
+                markdown("Die Zeilennummern zeigen, dass Zeilen verschoben wurden:")
+                git("blame nachher -s -w -M --show-number")
+                markdown("Hier sieht eine Verschiebung aus der Datei `restaurant`.")
+                git("blame nachher -s -w -M -C")
+                markdown("Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.")
+                git("blame nachher -s -w -M -C -C -C")
+            }    
        }
     }
 }

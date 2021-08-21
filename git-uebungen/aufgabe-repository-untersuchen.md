@@ -66,6 +66,18 @@ Starte im Verzeichnis `aufgaben/repo`.
 Zeige die Branches und Tags an.
 Zeige jetzt den Commit-Graphen über alle Branches an.
 
+## Schritt 6 - Herkunft von Zeilen ermitteln
+
+Starte im Verzeichnis `aufgaben/repo`.
+
+Mit `blame` kann man herausfinden, wann und von wem Zeilen
+zuletzt bearbeitet wurden.
+Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
+`--show-numbers` zeigt die vorherigen Zeilennummern.
+Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
+und Verschiebungen aus anderen Dateien gefunden.
+**Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
+
 
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
 
