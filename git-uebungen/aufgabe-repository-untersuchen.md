@@ -20,7 +20,7 @@ Hier geht es darum, herauszufinden, was in einem Repository enthalten ist.
   von `A` nach `B` hinzukommen. 
 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
-  - `-w` erkennt Zeilen wieder,auch wenn Whitespacing verändert wurde.
+  - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
   - `--show-numbers` zeigt vorherige Zeilennummern.
   - `-C` ermittelt Kopien/Verschiebungen aus Dateien im selben  Commit, in dem die Zeile bearbeitet wurde,
     `-C -C -C` sogar aus beliebigen Dateien.

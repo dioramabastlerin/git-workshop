@@ -238,6 +238,22 @@ Der diff-Befehl kann die Dateien (Trees) beliebiger Commits vergleichen.
     git difftool HEAD~4 HEAD
 ```
 
+
+---
+
+### `git blame`: Wer war's?
+
+Zeigt, für jede Zeile, in welchem Commit diese zuletzt bearbeitet wurde.
+
+```
+38da02ef foo (bjoern 2021-04-02 14:54:30 +0000 1) Erste Zeile
+9bb1b769 foo (bjoern 2021-07-29 17:03:01 +0000 2) Zeile zwei
+21c9ad44 foo (bjoern 2021-07-29 17:15:19 +0000 3) Schluss
+```
+
+ * `-M -C -C -C` Zeigt bei kopierten/verschobenen Zeilen aus anderen Dateien das "Ursprungscommit". 
+ * `-w` erkennt Zeilen trotz Whitespace-Änderungen wieder.
+
 ---
 
 ## Branches, Tags und HEAD

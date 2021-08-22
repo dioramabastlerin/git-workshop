@@ -9,18 +9,18 @@ parent: Lösungen
 Untersuche das Projektverzeichnis.
 
 
-<pre><code>repo $ <b>ls -a -1</b><br><br>.<br>..<br>foo<br>.git<br>hallo-welt<br>nachher<br>restaurant<br>und-tschuess<br><br></code></pre>
+<pre><code>repo $ <b>ls -1AF</b><br><br>foo/<br>.git/<br>hallo-welt<br>nachher<br>restaurant<br>und-tschuess<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>ls -1 foo</b><br><br>bar<br><br></code></pre>
+<pre><code>repo $ <b>ls -1AF foo</b><br><br>bar<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>ls -1 .git</b><br><br>branches<br>COMMIT_EDITMSG<br>config<br>description<br>HEAD<br>hooks<br>index<br>info<br>logs<br>objects<br>refs<br><br></code></pre>
+<pre><code>repo $ <b>ls -1AF .git</b><br><br>branches/<br>COMMIT_EDITMSG<br>config<br>description<br>HEAD<br>hooks/<br>index<br>info/<br>logs/<br>objects/<br>refs/<br><br></code></pre>
 
 
-Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
+Man sieht: Das Projekt enthält einige Dateien, ein Unterverzeichnis
 und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
 
 ## Lösung zu Schritt 2 - Commits ansehen

@@ -23,7 +23,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                   von `A` nach `B` hinzukommen. 
                 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
                   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
-                  - `-w` erkennt Zeilen wieder,auch wenn Whitespacing verändert wurde.
+                  - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
                   - `--show-numbers` zeigt vorherige Zeilennummern.
                   - `-C` ermittelt Kopien/Verschiebungen aus Dateien im selben  Commit, in dem die Zeile bearbeitet wurde,
                     `-C -C -C` sogar aus beliebigen Dateien.
@@ -111,20 +111,15 @@ fun CollectionOfSamples.repositoryUntersuchen() {
         """
             ) {
 
-                bash("ls -a -1")
-                bash("ls -1 foo")
-                bash("ls -1 .git")
+                bash("ls -1AF")
+                bash("ls -1AF foo")
+                bash("ls -1AF .git")
 
-                markdown(
-                    """
-                Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
-                und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
-            """.trimIndent()
-                )
+                markdown("""
+                    Man sieht: Das Projekt enthält einige Dateien, ein Unterverzeichnis
+                    und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
+                """.trimIndent())
             }
-
- 
-
 
 
             createAufgabe(
