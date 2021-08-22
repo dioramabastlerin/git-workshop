@@ -9,7 +9,15 @@ parent: Lösungen
 Untersuche das Projektverzeichnis.
 
 
-<pre><code>repo $ <b>ls -hal --time-style=+&quot;&quot;</b><br><br>total 12K<br>drwxr-xr-x 4 gitpod gitpod 100  .<br>drwxr-xr-x 3 gitpod gitpod 102  ..<br>drwxr-xr-x 2 gitpod gitpod  17  foo<br>drwxr-xr-x 8 gitpod gitpod 166  .git<br>-rw-r--r-- 1 gitpod gitpod 253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod 375  nachher<br>-rw-r--r-- 1 gitpod gitpod   0  restaurant<br>-rw-r--r-- 1 gitpod gitpod 181  und-tschuess<br><br></code></pre>
+<pre><code>repo $ <b>ls -a -1</b><br><br>.<br>..<br>foo<br>.git<br>hallo-welt<br>nachher<br>restaurant<br>und-tschuess<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>ls -1 foo</b><br><br>bar<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>ls -1 .git</b><br><br>branches<br>COMMIT_EDITMSG<br>config<br>description<br>HEAD<br>hooks<br>index<br>info<br>logs<br>objects<br>refs<br><br></code></pre>
 
 
 Man sieht: Das Projekt enthält eine Datei, ein normales Unterverzeichnis
@@ -97,37 +105,35 @@ Im Commit-Graphen sieht man, wo die Branches und Tag stehen:
 
 ## Lösung zu Schritt 6 - Herkunft von Zeilen ermitteln
 
-Mit `blame` kann man herausfinden, wann und von wem Zeilen
-zuletzt bearbeitet wurden.
-Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
-`--show-numbers` zeigt die vorherigen Zeilennummern.
-Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
-und Verschiebungen aus anderen Dateien gefunden.
-**Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
+Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
 
-Man sieht, dass das auch über Umbenennungen hinweg geht:
+* Für jede Zeile zeigen, in welchem Commit sie zuletzt bearbeitet wurde.
+* Innerhalb der Datei wurden Zeilen verschoben. Welche?
+* Es wurden auch Zeilen aus anderen Dateien verschoben und kopiert. Welche?
 
 
 <pre><code>repo $ <b>git blame nachher -s -w</b><br><br>38da02ef foo/vorher 1) Diese Zeilen wurden also ganz am Anfang geschrieben.<br>38da02ef foo/vorher 2) Und das ist wohl doch sehr lange her. Wie man sieht.<br>9bb1b769 nachher    3) Nach der Umbenennung<br>21c9ad44 nachher    4) Eine wirklich ziemlich lange Zeile in der Datei 'bar'<br>b66301f8 nachher    5) Eine sehr lange Zeile aus 'restaurant', die verschoben wird.<br>b66301f8 nachher    6) Und eine, die nichts damit zu tun hat.<br>54721bb3 nachher    7) dazwischen.<br>3d5c9ebd nachher    8) Eine ebenfalls recht lange Zeile, die demnächst auch verschoben werden soll.<br>54721bb3 nachher    9) Ende<br><br></code></pre>
 
 
-Die Zeilennummern zeigen, dass Zeilen verschoben wurden:
+Man sieht, in welchem Commit die Zeilen zuletzt bearbeitet wurden, auch über Umbenennungen hinweg.
 
 
 <pre><code>repo $ <b>git blame nachher -s -w -M --show-number</b><br><br>38da02ef foo/vorher 1 1) Diese Zeilen wurden also ganz am Anfang geschrieben.<br>38da02ef foo/vorher 2 2) Und das ist wohl doch sehr lange her. Wie man sieht.<br>9bb1b769 nachher    3 3) Nach der Umbenennung<br>21c9ad44 nachher    4 4) Eine wirklich ziemlich lange Zeile in der Datei 'bar'<br>b66301f8 nachher    5 5) Eine sehr lange Zeile aus 'restaurant', die verschoben wird.<br>b66301f8 nachher    6 6) Und eine, die nichts damit zu tun hat.<br>54721bb3 nachher    8 7) dazwischen.<br>54721bb3 nachher    7 8) Eine ebenfalls recht lange Zeile, die demnächst auch verschoben werden soll.<br>54721bb3 nachher    9 9) Ende<br><br></code></pre>
 
 
-Hier sieht eine Verschiebung aus der Datei `restaurant`.
+Die Zeilennummern zeigen, welche Zeilen verschoben wurden.
 
 
 <pre><code>repo $ <b>git blame nachher -s -w -M -C</b><br><br>38da02ef foo/vorher 1) Diese Zeilen wurden also ganz am Anfang geschrieben.<br>38da02ef foo/vorher 2) Und das ist wohl doch sehr lange her. Wie man sieht.<br>9bb1b769 nachher    3) Nach der Umbenennung<br>21c9ad44 nachher    4) Eine wirklich ziemlich lange Zeile in der Datei 'bar'<br>bb416400 restaurant 5) Eine sehr lange Zeile aus 'restaurant', die verschoben wird.<br>b66301f8 nachher    6) Und eine, die nichts damit zu tun hat.<br>54721bb3 nachher    7) dazwischen.<br>54721bb3 nachher    8) Eine ebenfalls recht lange Zeile, die demnächst auch verschoben werden soll.<br>54721bb3 nachher    9) Ende<br><br></code></pre>
 
 
-Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.
+Hier sieht eine Verschiebung aus der Datei `restaurant`.
 
 
 <pre><code>repo $ <b>git blame nachher -s -w -M -C -C -C</b><br><br>38da02ef foo/vorher 1) Diese Zeilen wurden also ganz am Anfang geschrieben.<br>38da02ef foo/vorher 2) Und das ist wohl doch sehr lange her. Wie man sieht.<br>9bb1b769 nachher    3) Nach der Umbenennung<br>bdf76fab foo/bar    4) Eine wirklich ziemlich lange Zeile in der Datei 'bar'<br>bb416400 restaurant 5) Eine sehr lange Zeile aus 'restaurant', die verschoben wird.<br>b66301f8 nachher    6) Und eine, die nichts damit zu tun hat.<br>54721bb3 nachher    7) dazwischen.<br>54721bb3 nachher    8) Eine ebenfalls recht lange Zeile, die demnächst auch verschoben werden soll.<br>54721bb3 nachher    9) Ende<br><br></code></pre>
 
+
+Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.
 
 [Zur Aufgabe](aufgabe-repository-untersuchen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
 

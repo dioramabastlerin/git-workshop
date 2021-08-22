@@ -21,7 +21,13 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 * `git branch` und `git tag` listen vorhande Branches und Tags auf.
                 * Mit `A..B` Adressiert man Commit, die auf dem Weg
                   von `A` nach `B` hinzukommen. 
-
+                * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
+                  - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
+                  - `-w` erkennt Zeilen wieder,auch wenn Whitespacing verändert wurde.
+                  - `--show-numbers` zeigt vorherige Zeilennummern.
+                  - `-C` ermittelt Kopien/Verschiebungen aus Dateien im selben  Commit, in dem die Zeile bearbeitet wurde,
+                    `-C -C -C` sogar aus beliebigen Dateien.
+                   
                 # Setup
     
                 Im Verzeichnis `repo` wartet ein Git-Projekt darauf,
@@ -105,7 +111,9 @@ fun CollectionOfSamples.repositoryUntersuchen() {
         """
             ) {
 
-                bash("ls -hal --time-style=+\"\"")
+                bash("ls -a -1")
+                bash("ls -1 foo")
+                bash("ls -1 .git")
 
                 markdown(
                     """
@@ -173,23 +181,21 @@ fun CollectionOfSamples.repositoryUntersuchen() {
 
             createAufgabe(
                 "Herkunft von Zeilen ermitteln", """
-                    Mit `blame` kann man herausfinden, wann und von wem Zeilen
-                    zuletzt bearbeitet wurden.
-                    Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
-                    `--show-numbers` zeigt die vorherigen Zeilennummern.
-                    Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
-                    und Verschiebungen aus anderen Dateien gefunden.
-                    **Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
+                    Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
+
+                    * Für jede Zeile zeigen, in welchem Commit sie zuletzt bearbeitet wurde.
+                    * Innerhalb der Datei wurden Zeilen verschoben. Welche?
+                    * Es wurden auch Zeilen aus anderen Dateien verschoben und kopiert. Welche?
                 """
             ) {
-                markdown("Man sieht, dass das auch über Umbenennungen hinweg geht:")
                 git("blame nachher -s -w")
-                markdown("Die Zeilennummern zeigen, dass Zeilen verschoben wurden:")
+                markdown("Man sieht, in welchem Commit die Zeilen zuletzt bearbeitet wurden, auch über Umbenennungen hinweg.")
                 git("blame nachher -s -w -M --show-number")
-                markdown("Hier sieht eine Verschiebung aus der Datei `restaurant`.")
+                markdown("Die Zeilennummern zeigen, welche Zeilen verschoben wurden.")
                 git("blame nachher -s -w -M -C")
-                markdown("Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.")
+                markdown("Hier sieht eine Verschiebung aus der Datei `restaurant`.")
                 git("blame nachher -s -w -M -C -C -C")
+                markdown("Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.")
             }    
        }
     }

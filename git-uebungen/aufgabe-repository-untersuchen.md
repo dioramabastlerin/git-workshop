@@ -18,7 +18,13 @@ Hier geht es darum, herauszufinden, was in einem Repository enthalten ist.
 * `git branch` und `git tag` listen vorhande Branches und Tags auf.
 * Mit `A..B` Adressiert man Commit, die auf dem Weg
   von `A` nach `B` hinzukommen. 
-
+* Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
+  - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
+  - `-w` erkennt Zeilen wieder,auch wenn Whitespacing verändert wurde.
+  - `--show-numbers` zeigt vorherige Zeilennummern.
+  - `-C` ermittelt Kopien/Verschiebungen aus Dateien im selben  Commit, in dem die Zeile bearbeitet wurde,
+    `-C -C -C` sogar aus beliebigen Dateien.
+   
 # Setup
 
 Im Verzeichnis `repo` wartet ein Git-Projekt darauf,
@@ -70,13 +76,11 @@ Zeige jetzt den Commit-Graphen über alle Branches an.
 
 Starte im Verzeichnis `aufgaben/repo`.
 
-Mit `blame` kann man herausfinden, wann und von wem Zeilen
-zuletzt bearbeitet wurden.
-Mit `-M` werden Verschiebungen innerhalb einer Datei erkannt, 
-`--show-numbers` zeigt die vorherigen Zeilennummern.
-Mit `-C` (kann mehrfach angegeben werden), werden auch Kopien
-und Verschiebungen aus anderen Dateien gefunden.
-**Tipp:**  Oft ist es sinnvoll `-w` anzugeben, um Whitespace zu ignorieren.
+Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
+
+* Für jede Zeile zeigen, in welchem Commit sie zuletzt bearbeitet wurde.
+* Innerhalb der Datei wurden Zeilen verschoben. Welche?
+* Es wurden auch Zeilen aus anderen Dateien verschoben und kopiert. Welche?
 
 
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
