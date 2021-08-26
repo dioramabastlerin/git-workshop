@@ -22,3 +22,11 @@ Exercises can be found in `build/git-uebungen`.
  * `gradle run` to rebuild the exercises
  * `gradle distUebungenMarkdown` to update descriptions for the website. Commit and push.
  * `gradle distUebungenZip` to update descriptions for the website. Commit and push.
+
+ ### Progress Server
+
+ A little web app to track progress on the exercises.
+
+  * `gradle progress` to run
+  * admin UI on port 8040
+  * user UI on port 8080
