@@ -1,3 +1,4 @@
+#!/bin/bash
 bundle exec jekyll serve -H localhost &
 sleep 5
 

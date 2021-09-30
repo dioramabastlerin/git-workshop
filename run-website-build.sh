@@ -1,1 +1,2 @@
-bundle exec jekyll build -H localhost 
+#!/bin/bash
+bundle exec jekyll build
