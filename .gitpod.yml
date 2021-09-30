@@ -4,7 +4,7 @@ image:
 
 tasks:
   - name: Webserver on port 4000
-    init: ./run-build.sh
+    init: ./run-website-build.sh
     command: ./run-server.sh
   - name: Übungen
     init: gradle run distuebungenMarkdown
