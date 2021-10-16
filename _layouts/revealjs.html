@@ -15,7 +15,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="revealjs/css/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
 	<!--<link rel="stylesheet" href="revealjs/css/theme/night.css" id="theme">-->
 	<!--<link rel="stylesheet" href="revealjs/css/theme/moon.css" id="theme">-->
 	<!--<link rel="stylesheet" href="revealjs/css/theme/white.css" id="theme">-->
@@ -27,16 +27,16 @@
 	<!--<link rel="stylesheet" href="revealjs/css/theme/league.css" id="theme">-->
 
 	<!-- Theme ucomsed for syntax highlighting of code -->
-	<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+	<!-- <link rel="stylesheet" href="revealjs/lib/css/zenburn.css"> -->
 
 	<!-- Printing and PDF exports -->
-	<script>
+	<!-- <script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+		</script> -->
 
 	<!--[if lt IE 9]>
 	<script src="revealjs/lib/js/html5shiv.js"></script>
@@ -52,33 +52,52 @@
 	</div>
 </div>
 
-<script src="revealjs/lib/js/head.min.js"></script>
-<script src="revealjs/js/reveal.js"></script>
+<script src="revealjs/dist/reveal.js"></script>
+
+<script src="revealjs/plugin/markdown/markdown.js"></script>
+<script src="revealjs/plugin/highlight/highlight.js"></script>
+<script src="revealjs/plugin/notes/notes.js"></script>
+<script src="revealjs/plugin/zoom/zoom.js"></script>
 
 <script>
+		const marked = new RevealMarkdown().marked;
+		const myrenderer = new marked.Renderer();
+		//const oldImage = myrenderer.image
+		// ${oldImage(href,title,text)}
+		myrenderer.image = function (href, title, text) { return `<p>href=${href}</p>`;  };
+					
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
 
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// enableRelativePathsInExternalMarkdown: true,
 
-				enableRelativePathsInExternalMarkdown: true,
+			markdown: {
+				// renderer: new marked.Renderer()
+				renderer: myrenderer
+			},
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'revealjs/plugin/search/search.js', async: true },
-					{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'revealjs/plugin/notes/notes.js', async: true }
-				]
-			});
+
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			// dependencies: [
+			// 	{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			// 	{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			// 	{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			// 	{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			// 	{ src: 'revealjs/plugin/search/search.js', async: true },
+			// 	{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
+			// 	{ src: 'revealjs/plugin/notes/notes.js', async: true }
+			// ]
+		});
+
 
 		</script>
 
