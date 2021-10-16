@@ -54,18 +54,15 @@
 
 <script src="revealjs/dist/reveal.js"></script>
 
-<script src="revealjs/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="mymarkdown/plugin.js"></script>
 <script src="revealjs/plugin/highlight/highlight.js"></script>
 <script src="revealjs/plugin/notes/notes.js"></script>
 <script src="revealjs/plugin/zoom/zoom.js"></script>
 
 <script>
-		const marked = new RevealMarkdown().marked;
-		const myrenderer = new marked.Renderer();
-		//const oldImage = myrenderer.image
-		// ${oldImage(href,title,text)}
-		myrenderer.image = function (href, title, text) { return `<p>href=${href}</p>`;  };
-					
+
+
 		// More info https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
 			controls: true,
@@ -75,27 +72,8 @@
 
 			transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-			// enableRelativePathsInExternalMarkdown: true,
+			plugins: [ MyMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 
-			markdown: {
-				// renderer: new marked.Renderer()
-				renderer: myrenderer
-			},
-
-
-			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
-
-
-			// More info https://github.com/hakimel/reveal.js#dependencies
-			// dependencies: [
-			// 	{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			// 	{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			// 	{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			// 	{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-			// 	{ src: 'revealjs/plugin/search/search.js', async: true },
-			// 	{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
-			// 	{ src: 'revealjs/plugin/notes/notes.js', async: true }
-			// ]
 		});
 
 
