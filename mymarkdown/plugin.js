@@ -129,9 +129,6 @@ const MyMarkdown = () => {
 	 */
 	function slidify( markdown, options ) {
 
-		console.log("HUalp");
-		console.log(options);
-
 		options = getSlidifyOptions( options );
 
 		var separatorRegex = new RegExp( options.separator + ( options.verticalSeparator ? '|' + options.verticalSeparator : '' ), 'mg' ),
@@ -177,6 +174,7 @@ const MyMarkdown = () => {
 
 		var markdownSections = '';
 
+		var sourcePathSectionParam =  options.sourcePath ? ' source-path="' + options.sourcePath + '"' : '';
 		var markedSectionParam =  options.markedBaseUrl ? ' marked-base-url="' + options.markedBaseUrl + '"' : '';
 
 		// flatten the hierarchical stack, and insert <section data-markdown> tags
@@ -186,13 +184,13 @@ const MyMarkdown = () => {
 				markdownSections += '<section '+ options.attributes +'>';
 
 				sectionStack[i].forEach( function( child ) {
-					markdownSections += '<section' + markedSectionParam + ' data-markdown>' + createMarkdownSlide( child, options ) + '</section>';
+					markdownSections += '<section' + markedSectionParam + sourcePathSectionParam + ' data-markdown>' + createMarkdownSlide( child, options ) + '</section>';
 				} );
 
 				markdownSections += '</section>';
 			}
 			else {
-				markdownSections += '<section '+ options.attributes + markedSectionParam + ' data-markdown>' + createMarkdownSlide( sectionStack[i], options ) + '</section>';
+				markdownSections += '<section '+ options.attributes + markedSectionParam + sourcePathSectionParam + ' data-markdown>' + createMarkdownSlide( sectionStack[i], options ) + '</section>';
 			}
 		}
 
@@ -221,19 +219,18 @@ const MyMarkdown = () => {
 						function(  args ) {
 							var xhr = args.xhr;
 							var url = args.url;
-							console.log(`XHR ${xhr} url=${url}`);
 							section.outerHTML = slidify( xhr.responseText, {
 								separator: section.getAttribute( 'data-separator' ),
 								verticalSeparator: section.getAttribute( 'data-separator-vertical' ),
 								notesSeparator: section.getAttribute( 'data-separator-notes' ),
 								attributes: getForwardedAttributes( section ),
+								sourcePath: url,
 								markedBaseUrl: (url ? url.replace(LAST_ELEMENT_OF_URL, '') : null)
 							});
 						},
 
 						// Failed to load markdown
 						function( xhr, url ) {
-							console.log(`BB ${url}`);
 							section.outerHTML = '<section data-state="alert">' +
 								'ERROR: The attempt to fetch ' + url + ' failed with HTTP status ' + xhr.status + '.' +
 								'Check your browser\'s JavaScript console for more details.' +
@@ -391,9 +388,14 @@ const MyMarkdown = () => {
 			var notes = section.querySelector( 'aside.notes' );
 			var markdown = getMarkdownFromSlide( section );
 
-			console.log(`>>>> ${section.getAttribute("marked-base-url")}`);
+			console.log(`SP ${section.getAttribute("source-path")}`);
 
-			section.innerHTML = marked( markdown, { baseUrl: section.getAttribute("marked-base-url") } );
+			section.innerHTML = 
+				marked( markdown, { baseUrl: section.getAttribute("marked-base-url") } )
+				+ `\n<p  style="position:absolute;bottom:0px;right:0px;">`
+				+ `\nedit on <a href="https://github.dev/bstachmann/git-workshop/blob/main/${section.getAttribute("source-path")}" target="_blank"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub"></a>`
+				+ `\n</p>`
+			;
 			addAttributes( 	section, section, null, section.getAttribute( 'data-element-attributes' ) ||
 							section.parentNode.getAttribute( 'data-element-attributes' ) ||
 							DEFAULT_ELEMENT_ATTRIBUTES_SEPARATOR,
