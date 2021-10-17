@@ -1,2 +1,2 @@
 #!/bin/bash
-bundle exec jekyll serve -H localhost 
+bundle exec jekyll serve -H localhost &

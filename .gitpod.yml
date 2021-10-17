@@ -3,16 +3,17 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Build exerxise files and website and run server
-    init: gradle run distuebungenMarkdown && ./run-website-build.sh
+  - name: Build exerxise files 
+    init: gradle run distuebungenMarkdown
+
+  - name: Build website
+    init: ./run-website-build.sh
+
   - name: Webserver on 4000
-    command: ./run-server.sh
-  - name: Open preview in extra window  
-    command: gp preview --external $(gp url 4000)/git-workshop/
-  - name: Open exercises view  
-    command: gp preview  $(gp url 4000)/git-workshop/aufgaben/
+    init: ./run-server.sh
+
   - name: Übungen
-    command: mkdir -p build/git-uebungen/aufgaben; cd build/git-uebungen/aufgaben && ls
+    command: gp preview $(gp url 4000)/git-workshop/aufgaben/ && mkdir -p build/git-uebungen/aufgaben; cd build/git-uebungen/aufgaben && ls
 
 ports:
   - port: 4000
