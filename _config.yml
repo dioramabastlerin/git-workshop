@@ -29,7 +29,7 @@ github_username:  bstachmann
 
 
 # Build settings
-remote_theme: pmarsceill/just-the-docs
+remote_theme: bstachmann/just-the-docs
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
