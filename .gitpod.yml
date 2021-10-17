@@ -10,10 +10,13 @@ tasks:
     init: ./run-website-build.sh
 
   - name: Webserver on 4000
-    init: ./run-server.sh
+    command: ./run-server.sh
+
+  - name: Preview
+    command: gp preview $(gp url 4000)/git-workshop/aufgaben/ 
 
   - name: Übungen
-    command: gp preview $(gp url 4000)/git-workshop/aufgaben/ && mkdir -p build/git-uebungen/aufgaben; cd build/git-uebungen/aufgaben && ls
+    command: mkdir -p build/git-uebungen/aufgaben && cd build/git-uebungen/aufgaben && ls
 
 ports:
   - port: 4000
