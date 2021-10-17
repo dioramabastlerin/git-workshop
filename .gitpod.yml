@@ -35,3 +35,4 @@ vscode:
   extensions:
     - richardwillis.vscode-gradle
     - fwcd.kotlin
+    - eamodio.gitlens
