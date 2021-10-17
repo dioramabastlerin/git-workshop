@@ -3,10 +3,10 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Build exerxise files and website
-    init: gradle run distuebungenMarkdown && ./run-website-build.sh && exit
+  - name: Build exerxise files and website and run server
+    init: gradle run distuebungenMarkdown && ./run-website-build.sh
   - name: Webserver on 4000
-    init: ./run-server.sh
+    command: ./run-server.sh
   - name: Open preview in extra window  
     command: gp preview --external $(gp url 4000)/git-workshop/
   - name: Open exercises view  
