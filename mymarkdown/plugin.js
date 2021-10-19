@@ -388,13 +388,14 @@ const MyMarkdown = () => {
 			var notes = section.querySelector( 'aside.notes' );
 			var markdown = getMarkdownFromSlide( section );
 
-			console.log(`SP ${section.getAttribute("source-path")}`);
-
 			section.innerHTML = 
 				marked( markdown, { baseUrl: section.getAttribute("marked-base-url") } )
-				+ `\n<p  style="position:absolute;bottom:0px;right:0px;">`
-				+ `\nedit on <a href="https://github.dev/bstachmann/git-workshop/blob/main/${section.getAttribute("source-path")}" target="_blank"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub"></a>`
-				+ `\n</p>`
+				+ `\n<div style="position:absolute;bottom:-40px;right:0px;font-size: 12px;">`
+				+ `<a href="https://github.dev/bstachmann/git-workshop/blob/main/${section.getAttribute("source-path")}" target="_blank">GitHub dev</a>`
+				+ ` / <a href="https://github.com/bstachmann/git-workshop/blob/main/${section.getAttribute("source-path")}" target="_blank">GitHub classic</a>`
+				+ ` / <a href="https://gitpod.io#https://github.com/bstachmann/git-workshop/blob/main/${section.getAttribute("source-path")}" target="_blank">GitPod</a>`
+				+ ` / <a href="https://bitbucket.org/bstachmann/git-workshop/src/main/${section.getAttribute("source-path")}?mode=edit" target="_blank">BitBucket</a>`
+				+ `</div>`
 			;
 			addAttributes( 	section, section, null, section.getAttribute( 'data-element-attributes' ) ||
 							section.parentNode.getAttribute( 'data-element-attributes' ) ||
