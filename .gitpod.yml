@@ -10,7 +10,7 @@ tasks:
     init: ./run-website-build.sh
 
   - name: Launch Progress server 
-    command: progress
+    command: gradle progress
 
   - name: Webserver on 4000
     command: ./run-server.sh
