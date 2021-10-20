@@ -10,6 +10,10 @@
   * evtl. Blog-Post zu file-Annotations oder file-Properties
   * übung heiss push fetch pull, obwohl nur pull und fetch gemacht wird
   * SVG-Beispiel zu push rejected um Pull ergänzen.
+  * Kommandpromt für Demos kürzen
+    
+      export PS1="\e[0;34m \W  $ \e[m"
+
 
 
    ## Notizen
