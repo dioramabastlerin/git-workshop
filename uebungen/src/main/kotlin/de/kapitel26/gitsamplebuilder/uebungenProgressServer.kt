@@ -2,15 +2,20 @@ package de.kapitel26.gitsamplebuilder
 
 import com.fasterxml.jackson.module.kotlin.*
 import io.ktor.application.Application
+import io.ktor.application.ApplicationCall
 import io.ktor.application.call
+import io.ktor.application.install
 import io.ktor.html.respondHtml
 import io.ktor.routing.get
 import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import io.ktor.sessions.*
+import io.ktor.response.respondRedirect
 import java.io.File
 import kotlin.math.abs
 import kotlinx.html.*
+import kotlin.coroutines.*
 
 fun main() {
     val adminServer = embeddedServer(Netty, port = 8040) { adminModule() }
@@ -25,6 +30,8 @@ data class Progress(
         val participants: Map<String, String>,
         val achievements: Map<String, Set<String>>
 )
+
+data class UserSession(val userId: String)
 
 val progressFile = File("build/git-uebungen/progress.json")
 
@@ -52,10 +59,15 @@ fun readAufgaben(): List<Pair<String, List<String>>> {
 }
 
 fun Application.participantsModule() {
+    install(Sessions) {
+        cookie<UserSession>("user_session")
+    }
+
     routing {
         get("/") {
             call.respondHtml {
-                val userId = call.parameters["id"]
+                val sessions: UserSession? = call.sessions.get()
+                val userId = call.parameters["id"] ?: sessions?.userId
                 val toggleSid = call.parameters["toggle"]
                 if (toggleSid != null && userId != null) {
                     val olda: Set<String> = state.achievements[toggleSid] ?: emptySet()
@@ -99,18 +111,18 @@ fun Application.participantsModule() {
         }
 
         get("/register") {
-            call.respondHtml {
-                val newAlias =
-                        call.parameters["newAlias"] ?: throw Exception("Missing parameter newAlias")
-                val newUserId = abs("participant/$newAlias".hashCode()).toString()
-                if (state.participants[newUserId] == null) {
-                    update(state.copy(participants = state.participants + (newUserId to newAlias)))
-
-                    head { meta(content = "0; url=/?id=$newUserId") { httpEquiv = "refresh" } }
-                } else {
+            val newAlias = call.parameters["newAlias"] ?: throw Exception("Missing parameter newAlias")
+            val newUserId = abs("participant/$newAlias".hashCode()).toString()
+            if (state.participants[newUserId] == null) {
+                update(state.copy(participants = state.participants + (newUserId to newAlias)))
+                call.sessions.set(UserSession(newUserId))
+                call.respondRedirect("/")
+            } else {
+                call.respondHtml {
                     body { p { +"Alias $newAlias ist bereits vergeben." } }
                 }
             }
+
         }
     }
 }
