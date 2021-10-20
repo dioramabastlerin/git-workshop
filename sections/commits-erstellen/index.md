@@ -166,10 +166,12 @@ Die Option `--follow` am `log`-Befehl forciert die *rename detection*.
 
 ### Commit - Verschieben von Dateien
 
+```
    mv hallo hello       
    git add .
    git commit -m "hallo -> hello"
-   
+```
+
 Die Historie von `hello`:
 
    git log --follow -- hello
