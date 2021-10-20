@@ -1,5 +1,6 @@
  * übung zu subtrees und submodules trennen.
  * Setup-Hinweise in Übungsaufgaben
+   - bessere Anleitung, evtl. Video zum setup
    - Aufgaben funktionieren 1:1 nur wenn man Git-Bash verwendet
      Bei Dateinamen am besten / verwenden statt \
    - Git Windows CMD (Git CMD) sind Details anders
@@ -13,10 +14,3 @@
 
    ## Notizen
 
-  Gitpod mit Datei öffnen
-  
-  https://gitpod.io/#https://github.com/bstachmann/git-workshop/blob/main/presentation-git-verstehen.html
-
-   markdown: {
-    smartypants: true
-  }
