@@ -154,7 +154,7 @@ fun Application.adminModule() {
                     h2 { text("Teilnehmer") }
                     p {
                         state.participants.forEach { (userId, alias) ->
-                            +"$alias /?id=$userId"
+                            a(href="/?id=$userId") { +"$alias $userId" }
                             br {}
                         }
                     }
