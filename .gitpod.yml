@@ -3,16 +3,12 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Build exerxise files 
+  - name: Build exercise files and progress server
     init: gradle run distuebungenMarkdown
-
-  - name: Build website
-    init: ./run-website-build.sh
-
-  - name: Launch Progress server 
     command: gradle progress
 
-  - name: Webserver on 4000
+  - name: Build website & Webserver on 4000
+    init: ./run-website-build.sh
     command: ./run-server.sh
 
   - name: Preview
@@ -25,7 +21,7 @@ ports:
   - port: 4000
     onOpen: ignore
   - port: 8040
-    onOpen: open-preview
+    onOpen: open-browser
   - port: 8080
     onOpen: open-browser
     visibility: public
