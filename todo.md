@@ -14,6 +14,8 @@
     
       export PS1="\e[0;34m \W  $ \e[m"
 
+   * Am Anfang der Übungen den Hauptfad anzeigen, nicht nur das unterverzeichnis   
+
 
 
    ## Notizen
