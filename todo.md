@@ -1,4 +1,4 @@
- * übung zu subtrees und submodules trennen.
+ * Übung zu subtrees und submodules trennen.
  * Setup-Hinweise in Übungsaufgaben
    - Aufgaben funktionieren 1:1 nur wenn man Git-Bash verwendet
      Bei Dateinamen am besten / verwenden statt \
