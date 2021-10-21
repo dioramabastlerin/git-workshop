@@ -68,22 +68,19 @@ fun Application.participantsModule() {
             call.respondHtml {
                 val sessions: UserSession? = call.sessions.get()
                 val userId = call.parameters["id"] ?: sessions?.userId
-                val toggleSid = call.parameters["toggle"]
-                if (toggleSid != null && userId != null) {
-                    val olda: Set<String> = state.achievements[toggleSid] ?: emptySet()
-                    update(
-                            if (olda.contains(userId)) {
-                                state.copy(
-                                        achievements =
-                                                state.achievements + (toggleSid to (olda - userId))
-                                )
-                            } else {
-                                state.copy(
-                                        achievements =
-                                                state.achievements + (toggleSid to (olda + userId))
-                                )
-                            }
-                    )
+                val sid = call.parameters["sid"]
+                val completed = call.parameters["completed"].toBoolean()
+                if (sid != null && userId != null) {
+                    val olda: Set<String> = state.achievements[sid] ?: emptySet()
+                    val newa = if(completed) olda + userId else olda -userId
+                    update(state.copy(achievements = state.achievements + (sid to newa)))
+                }
+
+                head { 
+                    meta() { 
+                        httpEquiv="refresh"
+                        content="3" 
+                    }
                 }
 
                 body {
@@ -98,11 +95,11 @@ fun Application.participantsModule() {
                         h2 { text("Aufgabe ${state.aktuelleAufgabe.first}") }
                         state.aktuelleAufgabe.second.forEach { schritt ->
                             p {
-                                val sid =
-                                        abs((state.aktuelleAufgabe.first to schritt).hashCode())
+                                val schrittSid = abs((state.aktuelleAufgabe.first to schritt).hashCode())
                                                 .toString()
                                 text(schritt)
-                                a(href = "/?id=$userId&toggle=$sid") { +(if(state.achievements[sid]?.contains(userId) ?: false) " erledigt" else " offen"  ) }
+                                val isCompleted = state.achievements[schrittSid]?.contains(userId) ?: false
+                                a(href = "/?id=$userId&sid=$schrittSid&completed=${!isCompleted}") { +(if(isCompleted) " erledigt" else " offen"  ) }
                             }
                         }
                     }
@@ -138,6 +135,13 @@ fun Application.adminModule() {
                     )
             )
             call.respondHtml {
+                head { 
+                    meta() { 
+                        httpEquiv="refresh"
+                        content="3" 
+                    }
+                }
+
                 body {
                     h1 { text("Git Workshop - Progress Monitor") }
                     h2 { text("Aktuelle Aufgabe") }
