@@ -24,7 +24,8 @@ fun CollectionOfSamples.staging() {
                 * `git restore --staged <file>` nimmt ein Staging zurück.
                 * `git restore <file>` stellt eine Datei im Workspace wieder her.
                    **Achtung**: Die lokale Änderungen werden dabei überschreiben!
-                
+                   - mit `-s <revision>` kann man bestimmen, welche Version wiederhergestellt wird.
+                * `git clean -df`: Räumt nicht versionierte Daten und Verzeichnisse ab.
 
                 # Setup
     
@@ -34,6 +35,32 @@ fun CollectionOfSamples.staging() {
             """
         ) {
             createRepo {
+                createDir("ufer") { 
+                    createDir("west") {
+                        createFile("👨‍🌾")
+                        createFile("🥬")
+                        createFile("🐐")
+                        createFile("🐺")
+                    }
+                    createDir("ost")
+                }
+                git("add ufer")
+                git("commit -m'Starte spiel'")
+                inDir("ufer") {
+                    listOf(
+                        "west/🐐 west/👨‍🌾 ost/",
+                        "ost/👨‍🌾 west/",
+                        "west/🐺 west/👨‍🌾 ost/",
+                        "ost/🐐 ost/👨‍🌾 west/",
+                        "west/🥬 west/👨‍🌾 ost/",
+                        "ost/👨‍🌾 west/",
+                        "west/🐐 west/👨‍🌾 ost/"
+                    ).forEachIndexed { i, s ->
+                        git(" mv $s")
+                        git("commit -am 'Zug ${i+1}'")    
+                    }
+                }
+
                 createFileAndCommit("demo") { content = "Fit\nist\ndoof.\n" }
             }
         }
@@ -74,7 +101,7 @@ fun CollectionOfSamples.staging() {
 
             createAufgabe(
                     "Restore - Staging zurücknehmen", """
-                    Die letzte Änderung soll nicht in das nächste Commit übernommen werden,
+                    Die letzte Änderung soll doch noch nicht in das nächste Commit übernommen werden,
                     nehme sie zurück. 
              """) {
                 git("restore --staged demo")
@@ -86,14 +113,33 @@ fun CollectionOfSamples.staging() {
 
             createAufgabe(
                     "Restore - Datei wiederherstellen", """
-                    Die letzte Änderung soll nicht in das nächste Commit übernommen werden,
-                    nehme sie zurück. 
+                    Die letzte Änderung soll ganz verworfen werden. 
              """) {
                 git("restore demo")
                 git("status")
                 git("diff")
                 git("diff --staged")
-                markdown("Jetz sind die Änderungen ganz weg.")
+                markdown("Jetzt sind die Änderungen ganz weg.")
+            }
+
+            createAufgabe(
+                    "⭐ Restore - Zurückholen älterer Datei- und Verzeichnisversionen", """
+                    Im Folder `ufer` wurde ein Spiel gespielt.
+                    Stelle die Spielstände nach, 
+                    indem Du `restore` auf das `ufer`-Verzeichnis anwendest.
+                    
+                    Tipp: `ls ufer/*` zeigt die Verzeichnisse des Spiels.
+                    
+                    Tipp: Beim `restore` werden unversionierte Dateien nicht abgeräumt.
+                    Man kann sie mit dem `clean`-Befehl abräumen.
+             """) {
+                git("log --oneline -- ufer/")
+                (1..8).forEach { i ->
+                    markdown("Zug $i")
+                    git("clean -df")
+                    git("restore -s HEAD~${9-i} ufer")
+                    bash("ls ufer/*")               
+                }
             }
         }
     }

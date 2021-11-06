@@ -21,7 +21,8 @@ registriert werden, z.B. mit `add`
 * `git restore --staged <file>` nimmt ein Staging zurück.
 * `git restore <file>` stellt eine Datei im Workspace wieder her.
    **Achtung**: Die lokale Änderungen werden dabei überschreiben!
-
+   - mit `-s <revision>` kann man bestimmen, welche Version wiederhergestellt wird.
+* `git clean -df`: Räumt nicht versionierte Daten und Verzeichnisse ab.
 
 # Setup
 
@@ -48,15 +49,27 @@ für Workspace und Stage zeigen.
 
 Starte im Verzeichnis `aufgaben/repo`.
 
-Die letzte Änderung soll nicht in das nächste Commit übernommen werden,
+Die letzte Änderung soll doch noch nicht in das nächste Commit übernommen werden,
 nehme sie zurück. 
 
 ## Schritt 3 - Restore - Datei wiederherstellen
 
 Starte im Verzeichnis `aufgaben/repo`.
 
-Die letzte Änderung soll nicht in das nächste Commit übernommen werden,
-nehme sie zurück. 
+Die letzte Änderung soll ganz verworfen werden. 
+
+## Schritt 4 - ⭐ Restore - Zurückholen älterer Datei- und Verzeichnisversionen
+
+Starte im Verzeichnis `aufgaben/repo`.
+
+Im Folder `ufer` wurde ein Spiel gespielt.
+Stelle die Spielstände nach, 
+indem Du `restore` auf das `ufer`-Verzeichnis anwendest.
+
+Tipp: `ls ufer/*` zeigt die Verzeichnisse des Spiels.
+
+Tipp: Beim `restore` werden unversionierte Dateien nicht abgeräumt.
+Man kann sie mit dem `clean`-Befehl abräumen.
 
 
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
