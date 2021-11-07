@@ -23,24 +23,24 @@ Was die Kommandos genau tun, erfahren Sie im Verlauf des Seminars.
     damit die Beispiele funktionieren.
 
 
-## Schritt 1 - Hilfe
+<!--UEB-Hallo Git!--><h2>Schritt 1 - Hilfe</h2>
 
-Starte im Verzeichnis `aufgaben/intro-hallo-welt`.
+Starte im Verze{}ichnis `aufgaben/intro-hallo-welt`.
 
 Lassen Sie sich die Hilfeseite zum `log`-Befehl ausgeben.
 
-## Schritt 2 - Setup
+<!--UEB-Hallo Git!--><h2>Schritt 2 - Setup</h2>
 
-Starte im Verzeichnis `aufgaben/intro-hallo-welt`.
+Starte im Verze{}ichnis `aufgaben/intro-hallo-welt`.
 
 Konfigurieren Sie Benutzername und Email:
 
     $ git config --global user.name mein-name
     $ git config --global user.email meine-email
 
-## Schritt 3 - Das erste Repos
+<!--UEB-Hallo Git!--><h2>Schritt 3 - Das erste Repos</h2>
 
-Starte im Verzeichnis `aufgaben/intro-hallo-welt`.
+Starte im Verze{}ichnis `aufgaben/intro-hallo-welt`.
 
 Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 

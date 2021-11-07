@@ -34,9 +34,9 @@ bearbeitet zu werden.
 <pre><code>$ <b>cd repo</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Staging
+<!--UEB-Staging--><h2>Schritt 1 - Staging</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Ersetze in der Datei `demo`,
 `Fit` durch `Git`.
@@ -45,22 +45,22 @@ Ersetze dann `doof` durch `toll`.
 Lasse dir den Status und die Diffs
 für Workspace und Stage zeigen.
 
-## Schritt 2 - Restore - Staging zurücknehmen
+<!--UEB-Staging--><h2>Schritt 2 - Restore - Staging zurücknehmen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Die letzte Änderung soll doch noch nicht in das nächste Commit übernommen werden,
 nehme sie zurück. 
 
-## Schritt 3 - Restore - Datei wiederherstellen
+<!--UEB-Staging--><h2>Schritt 3 - Restore - Datei wiederherstellen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Die letzte Änderung soll ganz verworfen werden. 
 
-## Schritt 4 - ⭐ Restore - Zurückholen älterer Datei- und Verzeichnisversionen
+<!--UEB-Staging--><h2>Schritt 4 - ⭐ Restore - Zurückholen älterer Datei- und Verzeichnisversionen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Im Folder `ufer` wurde ein Spiel gespielt.
 Stelle die Spielstände nach, 

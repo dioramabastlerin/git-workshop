@@ -23,25 +23,25 @@ parent: Aufgaben
 <pre><code>$ <b>cd repo</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Branch erstellen
+<!--UEB-Branching--><h2>Schritt 1 - Branch erstellen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
 Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
-## Schritt 2 - Branch mergen
+<!--UEB-Branching--><h2>Schritt 2 - Branch mergen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Merge `feature-a` auf den `master`und
 zeige den Commit-Graphen.
 
-## Schritt 3 - Merge analysieren
+<!--UEB-Branching--><h2>Schritt 3 - Merge analysieren</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
