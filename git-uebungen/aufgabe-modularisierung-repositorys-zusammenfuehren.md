@@ -32,9 +32,9 @@ Zwei Repositorys
 sind bereits vorhanden.
 
 
-## Schritt 1 - Zusammenführen `git subtree`
+<!--UEB-Kleine Projekte zusammenfuehren--><h2>Schritt 1 - Zusammenführen `git subtree`</h2>
 
-Starte im Verzeichnis `aufgaben/modularisierung-repositorys-zusammenfuehren`.
+Starte im Verze{}ichnis `aufgaben/modularisierung-repositorys-zusammenfuehren`.
 
 
 1. Erstelle ein Repo `application` mit einem Commit.
@@ -42,9 +42,9 @@ Starte im Verzeichnis `aufgaben/modularisierung-repositorys-zusammenfuehren`.
 3. Füge `ui.git` in einem Unterverzeichnis `ui` hinzu.
 4. Untersuche Verzeichnissstruktur und Commit-Graphen
 
-## Schritt 2 - Zusammenführen mit `fetch`, `mv` und `merge`
+<!--UEB-Kleine Projekte zusammenfuehren--><h2>Schritt 2 - Zusammenführen mit `fetch`, `mv` und `merge`</h2>
 
-Starte im Verzeichnis `aufgaben/modularisierung-repositorys-zusammenfuehren`.
+Starte im Verze{}ichnis `aufgaben/modularisierung-repositorys-zusammenfuehren`.
 
 UI und Backend sollen in einem neuen Klon `gesamt` zusammengeführt werden.
 Folge den Anweisungen im Kapitel *"Kleine Projekte zusammenführen"*.

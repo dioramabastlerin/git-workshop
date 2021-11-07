@@ -53,9 +53,9 @@ Integrieren Sie die neuen Änderungen von Anja.
 <pre><code>$ <b>cd fast-forward</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Fast-Forward beim Pull
+<!--UEB-Integration von Änderungen--><h2>Schritt 1 - Fast-Forward beim Pull</h2>
 
-Starte im Verzeichnis `aufgaben/fast-forward`.
+Starte im Verze{}ichnis `aufgaben/fast-forward`.
 
 Im einfachste Fall haben wir selber gar nichts gemacht,
 und wollen nur die Änderungen von Anja übernehmen.
@@ -72,9 +72,9 @@ Lasse Dir Status und den Commit-Graphen zeigen.
 <pre><code>$ <b>cd no-ff</b><br><br><br></code></pre>
 
 
-## Schritt 2 - Merge erzwingen beim Pull
+<!--UEB-Integration von Änderungen--><h2>Schritt 2 - Merge erzwingen beim Pull</h2>
 
-Starte im Verzeichnis `aufgaben/no-ff`.
+Starte im Verze{}ichnis `aufgaben/no-ff`.
 
 Auch dieses haben wir nichtnichts gemacht,
 und wollen nur die Änderungen von Anja übernehmen.
@@ -91,9 +91,9 @@ Lasse Dir Status und den Commit-Graphen zeigen.
 <pre><code>$ <b>cd changes-in-different-files</b><br><br><br></code></pre>
 
 
-## Schritt 3 - Integration bei Änderungen in verschiedenen Dateien
+<!--UEB-Integration von Änderungen--><h2>Schritt 3 - Integration bei Änderungen in verschiedenen Dateien</h2>
 
-Starte im Verzeichnis `aufgaben/changes-in-different-files`.
+Starte im Verze{}ichnis `aufgaben/changes-in-different-files`.
 
 1. Bearbeite die Datei `README.md`.
    - Erstelle ein Commit dazu.
@@ -116,9 +116,9 @@ Starte im Verzeichnis `aufgaben/changes-in-different-files`.
 <pre><code>$ <b>cd changes-in-same-files</b><br><br><br></code></pre>
 
 
-## Schritt 4 - Integration bei Änderungen in derselben Datei
+<!--UEB-Integration von Änderungen--><h2>Schritt 4 - Integration bei Änderungen in derselben Datei</h2>
 
-Starte im Verzeichnis `aufgaben/changes-in-same-files`.
+Starte im Verze{}ichnis `aufgaben/changes-in-same-files`.
 
 In diesem Fall bearbeiten wir dieselbe Datei,
 die auch Anja bearbeitet hat.

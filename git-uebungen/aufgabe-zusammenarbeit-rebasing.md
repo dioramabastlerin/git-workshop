@@ -26,9 +26,9 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 <pre><code>$ <b>cd repo</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Feature-Branch per Rebase aktualiseren.
+<!--UEB-Rebasing--><h2>Schritt 1 - Feature-Branch per Rebase aktualiseren.</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Auf dem master gibt es Neuerungen.
 

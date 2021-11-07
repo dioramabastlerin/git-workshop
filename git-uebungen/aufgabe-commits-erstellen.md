@@ -28,37 +28,37 @@ bearbeitet zu werden.
 <pre><code>$ <b>cd repo</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Commit - mit Staging
+<!--UEB-Commits erstellen--><h2>Schritt 1 - Commit - mit Staging</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Bearbeite die Datei `hallo-welt`,
 füge sie mit `git add` zum Index hinzu (Staging)
 und erstelle ein Commit mit diesen Änderungen.
 
-## Schritt 2 - Commit - automatisches Staging
+<!--UEB-Commits erstellen--><h2>Schritt 2 - Commit - automatisches Staging</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Bearbeite die Datei `hallo-welt` erneut
 und erstelle wieder ein Commit,
 dieses mal mal aber mit `-a`.
 
-## Schritt 3 - Commit - neue Datei
+<!--UEB-Commits erstellen--><h2>Schritt 3 - Commit - neue Datei</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Erstelle `new-world` und bestätige sie mit einem Commit.
 
-## Schritt 4 - Commit - Datei löschen
+<!--UEB-Commits erstellen--><h2>Schritt 4 - Commit - Datei löschen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Lösche `hallo-welt` und bestätige dies per Commit.
 
-## Schritt 5 - Commit - Datei verschieben/umbenennen
+<!--UEB-Commits erstellen--><h2>Schritt 5 - Commit - Datei verschieben/umbenennen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Benenne die Datei `hello-world` in `renamed-world` um.
 

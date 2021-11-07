@@ -24,24 +24,24 @@ Es enthält zwei Commits.
    - `myfirstrepo/` Bereits vorhandenes Repository.
   
 
-## Schritt 1 - Klon durchführen
+<!--UEB-Klonen von Repositorys--><h2>Schritt 1 - Klon durchführen</h2>
 
-Starte im Verzeichnis `aufgaben/repository-klonen`.
+Starte im Verze{}ichnis `aufgaben/repository-klonen`.
 
 Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`.
 
-## Schritt 2 - Klon untersuchen
+<!--UEB-Klonen von Repositorys--><h2>Schritt 2 - Klon untersuchen</h2>
 
-Starte im Verzeichnis `aufgaben/repository-klonen`.
+Starte im Verze{}ichnis `aufgaben/repository-klonen`.
 
 Schaue die Commits and und
 zeige den Origin des Klons `myfirstclone`.
 `origin` steht in der Regel für jenes Repository,
 von dem geklont wurde.
 
-## Schritt 3 - Im Klon arbeiten
+<!--UEB-Klonen von Repositorys--><h2>Schritt 3 - Im Klon arbeiten</h2>
 
-Starte im Verzeichnis `aufgaben/repository-klonen`.
+Starte im Verze{}ichnis `aufgaben/repository-klonen`.
 
 Erstelle ein Commit und zeige dann den Status.
 

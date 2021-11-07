@@ -58,22 +58,22 @@ wirst Du einen *Push Reject* erfahren.
 <pre><code>$ <b>cd my-apollo</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Lokal Commit(s) erstellen
+<!--UEB-Umgang mit "Push Reject"--><h2>Schritt 1 - Lokal Commit(s) erstellen</h2>
 
-Starte im Verzeichnis `aufgaben/my-apollo`.
+Starte im Verze{}ichnis `aufgaben/my-apollo`.
 
 Bearbeite die Datei `frontend.java` und erstelle (mindestens) ein Commit mit den Änderungen.
 Überprüfe danach mit `git status`, ob der Workspace sauber ist.
 
-## Schritt 2 - Push versuchen
+<!--UEB-Umgang mit "Push Reject"--><h2>Schritt 2 - Push versuchen</h2>
 
-Starte im Verzeichnis `aufgaben/my-apollo`.
+Starte im Verze{}ichnis `aufgaben/my-apollo`.
 
 Versuche jetzt Deine Änderungen zu pushen.
 
-## Schritt 3 - (optional) Problem analysieren
+<!--UEB-Umgang mit "Push Reject"--><h2>Schritt 3 - (optional) Problem analysieren</h2>
 
-Starte im Verzeichnis `aufgaben/my-apollo`.
+Starte im Verze{}ichnis `aufgaben/my-apollo`.
 
 Hole zunächt die Änderungen, ohne zu integrieren (`fetch`),
 und lasse Dir die Änderungen von *Anja* zeigen.
@@ -82,15 +82,15 @@ und lasse Dir die Änderungen von *Anja* zeigen.
  * Welche Unterschiede gibt es zweichen deiner und Anjas Version (symmetrisches `diff`)?
  * Welche Änderungen hat Anja gemacht (asymmetrisches `diff`)?
 
-## Schritt 4 - Fremde Änderungen integrieren
+<!--UEB-Umgang mit "Push Reject"--><h2>Schritt 4 - Fremde Änderungen integrieren</h2>
 
-Starte im Verzeichnis `aufgaben/my-apollo`.
+Starte im Verze{}ichnis `aufgaben/my-apollo`.
 
 Integriere die Änderungen mit Pull und sieh Dir dann den Commit-Graphen an.
 
-## Schritt 5 - Erneut pushen
+<!--UEB-Umgang mit "Push Reject"--><h2>Schritt 5 - Erneut pushen</h2>
 
-Starte im Verzeichnis `aufgaben/my-apollo`.
+Starte im Verze{}ichnis `aufgaben/my-apollo`.
 
                     
 

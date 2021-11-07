@@ -35,29 +35,29 @@ untersucht zu werden.
 <pre><code>$ <b>cd repo</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Verzeichnisstruktur
+<!--UEB-Repository untersuchen--><h2>Schritt 1 - Verzeichnisstruktur</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Untersuche das Projektverzeichnis.
 
-## Schritt 2 - Commits ansehen
+<!--UEB-Repository untersuchen--><h2>Schritt 2 - Commits ansehen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Sieh Dir die Commits an und lasse dabei Informationen 
 zu Branches und Tags mit anzeigen.
 
-## Schritt 3 - Einzelne Commits untersuchen
+<!--UEB-Repository untersuchen--><h2>Schritt 3 - Einzelne Commits untersuchen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Zeige Details zur aktuellen Version,
 und zur Vorgängerversion des Releases 1.0
 
-## Schritt 4 - Inhalte vergangener Versionen untersuchen
+<!--UEB-Repository untersuchen--><h2>Schritt 4 - Inhalte vergangener Versionen untersuchen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
 
@@ -65,16 +65,16 @@ Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
 
 Hole die (ganze) vorige Version in den Workspace, um sie näher zu untersuchen.
 
-## Schritt 5 - Branches und Tags
+<!--UEB-Repository untersuchen--><h2>Schritt 5 - Branches und Tags</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Zeige die Branches und Tags an.
 Zeige jetzt den Commit-Graphen über alle Branches an.
 
-## Schritt 6 - Herkunft von Zeilen ermitteln
+<!--UEB-Repository untersuchen--><h2>Schritt 6 - Herkunft von Zeilen ermitteln</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verze{}ichnis `aufgaben/repo`.
 
 Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
 

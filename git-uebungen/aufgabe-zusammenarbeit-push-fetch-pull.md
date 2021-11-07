@@ -16,25 +16,25 @@ parent: Aufgaben
 <pre><code>$ <b>cd mein-klon</b><br><br><br></code></pre>
 
 
-## Schritt 1 - Änderungen holen
+<!--UEB-Push, fetch und pull--><h2>Schritt 1 - Änderungen holen</h2>
 
-Starte im Verzeichnis `aufgaben/mein-klon`.
+Starte im Verze{}ichnis `aufgaben/mein-klon`.
 
 Hole die beiden neuen Commits vom `origin`-Repository,
 ohne den lokalen `master` zu verändern.
 
-## Schritt 2 - Änderungen untersuchen
+<!--UEB-Push, fetch und pull--><h2>Schritt 2 - Änderungen untersuchen</h2>
 
-Starte im Verzeichnis `aufgaben/mein-klon`.
+Starte im Verze{}ichnis `aufgaben/mein-klon`.
 
 Lasse dir den Status zeigen,
 und untersuche dann,
 welche Commits im `master` des `origin`-Repository vorhanden sind,
 welche im lokalen `master` noch nicht integriert wurden..
 
-## Schritt 3 - Änderungen integrieren
+<!--UEB-Push, fetch und pull--><h2>Schritt 3 - Änderungen integrieren</h2>
 
-Starte im Verzeichnis `aufgaben/mein-klon`.
+Starte im Verze{}ichnis `aufgaben/mein-klon`.
 
 Integriere die neuesten Commits vom `origin`-Repository
 in den lokalen `master`.
