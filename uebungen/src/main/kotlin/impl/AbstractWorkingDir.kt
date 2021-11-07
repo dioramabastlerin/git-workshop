@@ -151,8 +151,8 @@ abstract class AbstractWorkingDir<T>(
         )
         val pathInUebungsverzeichnis =
             Paths.get(rootDir.parentFile.parentFile.canonicalPath).relativize(Paths.get(rootDir.canonicalPath))
-        markdown("## " + header)
-        markdown("Starte im Verzeichnis `aufgaben/${pathInUebungsverzeichnis}`.")
+        markdown("<!--UEB-${solutionCollector.aufgabenName()}--><h2>${header}</h2>")
+        markdown("Starte im Verze{}ichnis `aufgaben/${pathInUebungsverzeichnis}`.")
         markdown(description)
     }
 

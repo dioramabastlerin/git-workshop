@@ -13,6 +13,8 @@ class SolutionCollector {
         aufgabenUndSchritte.last().second.add(schritt) 
     }
 
+    fun aufgabenName() = aufgabenUndSchritte.last().first 
+
     fun reset() {
         collectedCommands.clear()
     }

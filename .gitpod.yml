@@ -11,9 +11,6 @@ tasks:
     init: ./run-website-build.sh
     command: ./run-server.sh
 
-  - name: Preview
-    command: gp preview $(gp url 4000)/git-workshop/aufgaben/ 
-
   - name: Übungen
     command: mkdir -p build/git-uebungen/aufgaben && cd build/git-uebungen/aufgaben && ls
 
@@ -21,7 +18,7 @@ ports:
   - port: 4000
     onOpen: ignore
   - port: 8040
-    onOpen: open-browser
+    onOpen: open-preview
   - port: 8080
     onOpen: open-browser
     visibility: public
