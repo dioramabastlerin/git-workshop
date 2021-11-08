@@ -71,7 +71,7 @@ Diese sollen
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 2 - Module als Subtree einbinden</h2>
 
-Starte im Verze{}ichnis `aufgaben/subtrees`.
+Starte im Verzeichnis `aufgaben/subtrees`.
 
 Binde die Module `mod-a.git` und `mod-b.git`
 per `subtree add` ein.
@@ -83,7 +83,7 @@ Untersuche dann die entstandene Verzeichnisstruktur.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 3 - Änderung aus einem Modul übernehmen</h2>
 
-Starte im Verze{}ichnis `aufgaben/modularisierung-submodules-subtrees`.
+Starte im Verzeichnis `aufgaben/modularisierung-submodules-subtrees`.
 
 Gehe in das Repo `mod-b` ändere die Datei `berta`, committe und pushe.
 Sie Dir das entstandene Commit an (`show --stat`)
@@ -92,7 +92,7 @@ Sieh Dir das übertragene Commit an.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 4 - Änderung in ein Modul übertragen</h2>
 
-Starte im Verze{}ichnis `aufgaben/modularisierung-submodules-subtrees`.
+Starte im Verzeichnis `aufgaben/modularisierung-submodules-subtrees`.
 
 Gehe in `subtrees` ändere `mod-a/anton` und committe.
 Übertrage die Änderung per `subtree push` nach `mod-a.git`.
@@ -100,7 +100,7 @@ Sieh Dir das übertragene Commit in `mod-a.git` an.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 5 - Übergeordnetes Repo klonen</h2>
 
-Starte im Verze{}ichnis `aufgaben/modularisierung-submodules-subtrees`.
+Starte im Verzeichnis `aufgaben/modularisierung-submodules-subtrees`.
 
 Klone `subtrees` zu `mysubtrees`.
 Untersuche die `HEAD` Verzeichnisstruktur,
@@ -112,7 +112,7 @@ und den Commit-graphen.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 7 - Module als Submodule einbinden</h2>
 
-Starte im Verze{}ichnis `aufgaben/submodules`.
+Starte im Verzeichnis `aufgaben/submodules`.
 
 Binde die Module `mod-a.git` und `mod-b.git`
 per `submodule add` ein.
@@ -124,7 +124,7 @@ Untersuche dann die entstandene Verzeichnisstruktur.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 8 - Subtree: Änderung aus einem Modul übernehmen</h2>
 
-Starte im Verze{}ichnis `aufgaben/modularisierung-submodules-subtrees`.
+Starte im Verzeichnis `aufgaben/modularisierung-submodules-subtrees`.
 
 Gehe in das Repo `mod-b` ändere die Datei `berta`, committe und pushe.
 Sie Dir das entstandene Commit an (`show --stat`)
@@ -133,7 +133,7 @@ Sieh Dir das übertragene Commit an.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 9 - Änderung in ein Modul übertragen</h2>
 
-Starte im Verze{}ichnis `aufgaben/modularisierung-submodules-subtrees`.
+Starte im Verzeichnis `aufgaben/modularisierung-submodules-subtrees`.
 
 Gehe in `subtrees/mod-a` ändere `anton` und committe.
 Übertrage die Änderung per `push` nach `mod-a.git`.
@@ -141,7 +141,7 @@ Sieh Dir das übertragene Commit in `mod-a.git` an.
 
 <!--UEB-Modularisierung mit Submodules und Subrepos--><h2>Schritt 10 - Übergeordnetes Repo klonen</h2>
 
-Starte im Verze{}ichnis `aufgaben/modularisierung-submodules-subtrees`.
+Starte im Verzeichnis `aufgaben/modularisierung-submodules-subtrees`.
 
 Klone `submodules` zu `mysubmodules`.
 Untersuche die Verzeichnisstruktur.

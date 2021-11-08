@@ -36,7 +36,7 @@ bearbeitet zu werden.
 
 <!--UEB-Staging--><h2>Schritt 1 - Staging</h2>
 
-Starte im Verze{}ichnis `aufgaben/repo`.
+Starte im Verzeichnis `aufgaben/repo`.
 
 Ersetze in der Datei `demo`,
 `Fit` durch `Git`.
@@ -47,20 +47,20 @@ für Workspace und Stage zeigen.
 
 <!--UEB-Staging--><h2>Schritt 2 - Restore - Staging zurücknehmen</h2>
 
-Starte im Verze{}ichnis `aufgaben/repo`.
+Starte im Verzeichnis `aufgaben/repo`.
 
 Die letzte Änderung soll doch noch nicht in das nächste Commit übernommen werden,
 nehme sie zurück. 
 
 <!--UEB-Staging--><h2>Schritt 3 - Restore - Datei wiederherstellen</h2>
 
-Starte im Verze{}ichnis `aufgaben/repo`.
+Starte im Verzeichnis `aufgaben/repo`.
 
 Die letzte Änderung soll ganz verworfen werden. 
 
 <!--UEB-Staging--><h2>Schritt 4 - ⭐ Restore - Zurückholen älterer Datei- und Verzeichnisversionen</h2>
 
-Starte im Verze{}ichnis `aufgaben/repo`.
+Starte im Verzeichnis `aufgaben/repo`.
 
 Im Folder `ufer` wurde ein Spiel gespielt.
 Stelle die Spielstände nach, 

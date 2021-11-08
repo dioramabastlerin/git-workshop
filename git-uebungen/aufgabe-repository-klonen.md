@@ -26,13 +26,13 @@ Es enthält zwei Commits.
 
 <!--UEB-Klonen von Repositorys--><h2>Schritt 1 - Klon durchführen</h2>
 
-Starte im Verze{}ichnis `aufgaben/repository-klonen`.
+Starte im Verzeichnis `aufgaben/repository-klonen`.
 
 Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`.
 
 <!--UEB-Klonen von Repositorys--><h2>Schritt 2 - Klon untersuchen</h2>
 
-Starte im Verze{}ichnis `aufgaben/repository-klonen`.
+Starte im Verzeichnis `aufgaben/repository-klonen`.
 
 Schaue die Commits and und
 zeige den Origin des Klons `myfirstclone`.
@@ -41,7 +41,7 @@ von dem geklont wurde.
 
 <!--UEB-Klonen von Repositorys--><h2>Schritt 3 - Im Klon arbeiten</h2>
 
-Starte im Verze{}ichnis `aufgaben/repository-klonen`.
+Starte im Verzeichnis `aufgaben/repository-klonen`.
 
 Erstelle ein Commit und zeige dann den Status.
 
