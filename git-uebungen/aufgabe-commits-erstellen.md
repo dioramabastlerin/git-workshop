@@ -17,6 +17,8 @@ parent: Aufgaben
 * `git commit -a` Regsitriert alle Änderungen an bereits in Git versionierten 
   Dateien im Staging-Bereich, so dass man sich den separaten
   `add`-Aufruf sparen kann.
+* `git log --follow -- <file-name>`
+   Zeigt die Historie einer Datei auch über Umbenennungen hinweg.
 
 # Setup
 
@@ -50,7 +52,7 @@ Starte im Verze{}ichnis `aufgaben/repo`.
 
 Erstelle `new-world` und bestätige sie mit einem Commit.
 
-<!--UEB-Commits erstellen--><h2>Schritt 4 - Commit - Datei löschen</h2>
+<!--UEB-Commits erstellen--><h2>Schritt 4 - ⭐ Commit - Datei löschen</h2>
 
 Starte im Verze{}ichnis `aufgaben/repo`.
 
@@ -61,6 +63,13 @@ Lösche `hallo-welt` und bestätige dies per Commit.
 Starte im Verze{}ichnis `aufgaben/repo`.
 
 Benenne die Datei `hello-world` in `renamed-world` um.
+
+<!--UEB-Commits erstellen--><h2>Schritt 6 - ⭐ Rename detection</h2>
+
+Starte im Verze{}ichnis `aufgaben/repo`.
+
+Benenne die Datei `datei1` in `datei2` mit `git mv` um. 
+Sorge dafür, dass die *Rename Detection* dies nicht erkennt.
 
 
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>

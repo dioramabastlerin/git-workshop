@@ -20,6 +20,8 @@ fun CollectionOfSamples.erstellen() {
                 * `git commit -a` Regsitriert alle Änderungen an bereits in Git versionierten 
                   Dateien im Staging-Bereich, so dass man sich den separaten
                   `add`-Aufruf sparen kann.
+                * `git log --follow -- <file-name>`
+                   Zeigt die Historie einer Datei auch über Umbenennungen hinweg.
 
                 # Setup
     
@@ -31,6 +33,7 @@ fun CollectionOfSamples.erstellen() {
             createRepo {
                 createFileAndCommit("hallo-welt") { content = "Hallo Welt" }
                 createFileAndCommit("hello-world") { content = "Hello world!" }
+                createFileAndCommit("datei1")
             }
         }
 
@@ -72,12 +75,12 @@ fun CollectionOfSamples.erstellen() {
             }
 
             createAufgabe(
-                    "Commit - Datei löschen", """
+                    "⭐ Commit - Datei löschen", """
                     Lösche `hallo-welt` und bestätige dies per Commit.
              """) {
 
                 bash("rm hallo-welt")
-                git("commit -am 'Neue Datei'")
+                git("commit -am 'Datei löschen'")
             }
 
             createAufgabe(
@@ -87,10 +90,23 @@ fun CollectionOfSamples.erstellen() {
 
                 bash("mv hello-world renamed-world")
                 git("add .")
-                git("commit -m 'Neue Datei'")
+                git("commit -m 'Umbenennen'")
                 markdown("Anmerkung: Wenn wir `git mv`  statt `mv` genutzt" +
                         " hätten, dann wäre das separate `git add` nicht nötig gewesen.")
+                git("log --follow --oneline -- renamed-world")
             }
+
+            createAufgabe(
+                    "⭐ Rename detection", """
+                    Benenne die Datei `datei1` in `datei2` mit `git mv` um. 
+                    Sorge dafür, dass die *Rename Detection* dies nicht erkennt.
+             """) {
+
+                git("mv datei1 datei2")
+                inFile("datei2") { content = "Dieser Inhalt hat nichts mit dem vorigen Inhalt zu tun." }
+                git("commit -am 'Böse umbenennen'")
+                git("log --follow --oneline -- datei2")
+            }        
         }
     }
 }
