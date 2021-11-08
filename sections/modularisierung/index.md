@@ -31,7 +31,14 @@
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-modularisierung-submodules-subtrees.html" target="_blank">Submodules und Subtrees<a></h2>
+<h2><a href="git-uebungen/aufgabe-modularisierung-submodules.html" target="_blank">Submodules<a></h2>
+
+
+---
+
+### Übung
+
+<h2><a href="git-uebungen/aufgabe-modularisierung-subtrees.html" target="_blank">Subtrees<a></h2>
 
 
 ---

@@ -2,11 +2,11 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.submodulesSubtrees() {
-    createAufgabenFolge("submodules-subtrees") {
+fun CollectionOfSamples.submodules() {
+    createAufgabenFolge("submodules") {
 
         createIntro(
-                """Modularisierung mit Submodules und Subrepos""",
+                """Modularisierung mit Submodules""",
                 """
 
                 Es geht darum, wie man in Git ein übergreifendes
@@ -14,30 +14,14 @@ fun CollectionOfSamples.submodulesSubtrees() {
                 anderen Repository einbettet.
                 
                 Git bietet dazu zwei unterschiedliche Ansätze:
-                `git submodule` und `git subtree`.
+                Eine davon ist `git submodule`.
                 Wir werden hier beide für folgende Anwendungsfälle erprobe:
                 
-                * Module als Subtree einbinden
+                * Module als Submodule einbinden
                 * Änderung aus einem Modul übernehmen
                 * Änderung in ein Modul übertragen
                 * Übergeordnetes Repo klonen
                 
-                ### Submodules
-                
-                Bei diesem Ansatz werden Git-Repositorys geschachtelt,
-                d. h. in dem Zielverzeichnis wo das Modul eingebettet werden
-                wird das das andere Repository geklont.
-                Das übergeordnete Repository merkt sich dabei nur
-                die Adresse (URL) des anderen Repositorys,
-                das Zielverzeichnis und den Commit-Hash,
-                der ausgecheckt werden soll.
-                
-                 * `submodule add  <Quellrepository> <Zielverzeichnis>`:
-                    Zum initialen Einbetten.
-                    **Achtung!** Bei Submodules müssen Änderungen durch ein `git commit` bestätigt werden!
-                 * `submodule update --init <Zielverzeicnis>`:
-                    Zum Holen der der Submodule.
-
                 ### Subtrees
                 
                 Bei diesem Ansatz werden Commits aus dem aus dem untergeordeten
@@ -90,89 +74,6 @@ fun CollectionOfSamples.submodulesSubtrees() {
             }
 
         }
-
-        solutionCollector.collectedCommands.add("Subtrees" to { markdown("# Subtrees") })
-
-
-        inRepo("subtrees") {
-            createAufgabe(
-                    "Module als Subtree einbinden",
-                    """
-                    Binde die Module `mod-a.git` und `mod-b.git`
-                    per `subtree add` ein.
-                    Untersuche dann die entstandene Verzeichnisstruktur.
-                    """
-            ) {
-                git("subtree add --prefix=mod-a ../mod-a.git master")
-                git("subtree add --prefix=mod-b ../mod-b.git master")
-                git("ls-tree -r HEAD")
-            }
-        }
-
-        createAufgabe(
-                "Änderung aus einem Modul übernehmen",
-                """
-                    Gehe in das Repo `mod-b` ändere die Datei `berta`, committe und pushe.
-                    Sie Dir das entstandene Commit an (`show --stat`)
-                    Gehe in das Repo `subtrees` und hole die Änderungen per `subtree pull` ab.
-                    Sieh Dir das übertragene Commit an.
-                    """
-        ) {
-            inRepo("mod-b") {
-                editAndCommit("berta", 7)
-                git("show --stat ")
-                git("push")
-            }
-
-            inRepo("subtrees") {
-                git("subtree pull --prefix=mod-b ../mod-b.git master")
-                git("show --stat ")
-            }
-        }
-
-        createAufgabe(
-                "Änderung in ein Modul übertragen",
-                """
-                    Gehe in `subtrees` ändere `mod-a/anton` und committe.
-                    Übertrage die Änderung per `subtree push` nach `mod-a.git`.
-                    Sieh Dir das übertragene Commit in `mod-a.git` an.
-                    """
-        ) {
-            inRepo("subtrees") {
-
-                editAndCommit("mod-a/anton", 3)
-                git("subtree push --prefix=mod-a ../mod-a.git master")
-            }
-
-            inRepo("mod-a.git") {
-                git("show --stat ")
-            }
-        }
-
-        createAufgabe(
-                "Übergeordnetes Repo klonen",
-                """
-                    Klone `subtrees` zu `mysubtrees`.
-                    Untersuche die `HEAD` Verzeichnisstruktur,
-                    und den Commit-graphen.
-                    """
-        ) {
-            git("clone subtrees mysubtrees")
-
-            inRepo("mysubtrees") {
-                markdown("Man sieht, dass die Einbettungen" +
-                        " als normale Dateien und Verzeichnisse" +
-                        " im `HEAD`-Tree erscheinen")
-                git("ls-tree -r HEAD .")
-                markdown("Im Commit-Graphen sieht man," +
-                        " woher die Daten kommen.")
-                git("log --graph --oneline --stat")
-            }
-        }
-
-        // TODO das bringt die Nummerierung durcheinander!
-        solutionCollector.collectedCommands.add("Submodules" to { markdown("# Submodules") })
-
 
         inRepo("submodules") {
             createAufgabe(
@@ -260,7 +161,5 @@ fun CollectionOfSamples.submodulesSubtrees() {
                 bash("ls -1 mod-a mod-b")
             }
         }
-
-
     }
 }

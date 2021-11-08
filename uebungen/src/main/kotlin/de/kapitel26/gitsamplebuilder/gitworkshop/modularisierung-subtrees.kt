@@ -2,11 +2,11 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.submodulesSubtrees() {
-    createAufgabenFolge("submodules-subtrees") {
+fun CollectionOfSamples.subtrees() {
+    createAufgabenFolge("subtrees") {
 
         createIntro(
-                """Modularisierung mit Submodules und Subrepos""",
+                """Modularisierung mit Subtrees""",
                 """
 
                 Es geht darum, wie man in Git ein übergreifendes
@@ -14,7 +14,7 @@ fun CollectionOfSamples.submodulesSubtrees() {
                 anderen Repository einbettet.
                 
                 Git bietet dazu zwei unterschiedliche Ansätze:
-                `git submodule` und `git subtree`.
+                Einer ist `git subtree`.
                 Wir werden hier beide für folgende Anwendungsfälle erprobe:
                 
                 * Module als Subtree einbinden
@@ -22,22 +22,6 @@ fun CollectionOfSamples.submodulesSubtrees() {
                 * Änderung in ein Modul übertragen
                 * Übergeordnetes Repo klonen
                 
-                ### Submodules
-                
-                Bei diesem Ansatz werden Git-Repositorys geschachtelt,
-                d. h. in dem Zielverzeichnis wo das Modul eingebettet werden
-                wird das das andere Repository geklont.
-                Das übergeordnete Repository merkt sich dabei nur
-                die Adresse (URL) des anderen Repositorys,
-                das Zielverzeichnis und den Commit-Hash,
-                der ausgecheckt werden soll.
-                
-                 * `submodule add  <Quellrepository> <Zielverzeichnis>`:
-                    Zum initialen Einbetten.
-                    **Achtung!** Bei Submodules müssen Änderungen durch ein `git commit` bestätigt werden!
-                 * `submodule update --init <Zielverzeicnis>`:
-                    Zum Holen der der Submodule.
-
                 ### Subtrees
                 
                 Bei diesem Ansatz werden Commits aus dem aus dem untergeordeten
@@ -84,15 +68,7 @@ fun CollectionOfSamples.submodulesSubtrees() {
             createRepo("subtrees") {
                 createFileAndCommit("README")
             }
-
-            createRepo("submodules") {
-                createFileAndCommit("README")
-            }
-
         }
-
-        solutionCollector.collectedCommands.add("Subtrees" to { markdown("# Subtrees") })
-
 
         inRepo("subtrees") {
             createAufgabe(
@@ -169,98 +145,5 @@ fun CollectionOfSamples.submodulesSubtrees() {
                 git("log --graph --oneline --stat")
             }
         }
-
-        // TODO das bringt die Nummerierung durcheinander!
-        solutionCollector.collectedCommands.add("Submodules" to { markdown("# Submodules") })
-
-
-        inRepo("submodules") {
-            createAufgabe(
-                    "Module als Submodule einbinden",
-                    """
-                    Binde die Module `mod-a.git` und `mod-b.git`
-                    per `submodule add` ein.
-                    Untersuche dann die entstandene Verzeichnisstruktur.
-                    """
-            ) {
-                git("submodule add  ../mod-a.git mod-a")
-                git("submodule add  ../mod-b.git mod-b")
-                markdown("Man sieht, dass die Module als eigenständige" +
-                        " Git-Repositorys mit separatem `.git`-Verzeichnis" +
-                        " eingebettet wurden.")
-                bash("ls -1 mod-a mod-b")
-                markdown("Achtung! Die submodule wurden hinzugefügt, aber es fehlt noch ein Commit.")
-                git("status")
-                git("commit -m 'add mod-a and mod-b'")
-            }
-        }
-
-        createAufgabe(
-                "Subtree: Änderung aus einem Modul übernehmen",
-                """
-                    Gehe in das Repo `mod-b` ändere die Datei `berta`, committe und pushe.
-                    Sie Dir das entstandene Commit an (`show --stat`)
-                    Gehe in das Repo `submodules/mod-b` und hole die Änderungen per `pull` ab.
-                    Sieh Dir das übertragene Commit an.
-                    """
-        ) {
-            inRepo("mod-b") {
-                editAndCommit("berta", 8)
-                git("show --stat ")
-                git("push")
-            }
-
-            inRepo("submodules") {
-                inRepo("mod-b") {
-                    git("pull")
-                }
-                git("add mod-b")
-                git("commit -am 'updated mod-b'")
-            }
-        }
-
-        createAufgabe(
-                "Änderung in ein Modul übertragen",
-                """
-                    Gehe in `subtrees/mod-a` ändere `anton` und committe.
-                    Übertrage die Änderung per `push` nach `mod-a.git`.
-                    Sieh Dir das übertragene Commit in `mod-a.git` an.
-                    """
-        ) {
-            inRepo("submodules") {
-                inRepo("mod-a") {
-                    editAndCommit("anton", 5)
-                    git("push")
-                }
-                markdown("Nicht vergessen: Änderungen am im übergeordenten Repository committen.")
-                git("add mod-a")
-                git("commit -m 'new version of mod-a'")
-            }
-
-            inRepo("mod-a.git") {
-                git("show --stat ")
-            }
-        }
-
-        createAufgabe(
-                "Übergeordnetes Repo klonen",
-                """
-                    Klone `submodules` zu `mysubmodules`.
-                    Untersuche die Verzeichnisstruktur.
-                    Vergiß nicht, ein `submodule update` auszuführen.
-                    """
-        ) {
-            git("clone submodules mysubmodules")
-
-            inRepo("mysubmodules") {
-                markdown("Die Modulverzeichnisse sind da aber noch leer:")
-                bash("ls -1 mod-a mod-b")
-                markdown("Jetzt holen wir die Module:")
-                git("submodule update --init")
-                bash("ls -1 mod-a mod-b")
-            }
-        }
-
-
     }
 }

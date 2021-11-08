@@ -36,7 +36,8 @@ fun buildGitUebungen() {
 
         // Modules
         thema("Modularisierung") {
-            submodulesSubtrees()
+            submodules()
+            subtrees()
             repositorysZusammenfuehren()
             //lfs()
         }
