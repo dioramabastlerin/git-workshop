@@ -175,7 +175,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
             }
 
             createAufgabe(
-                "Herkunft von Zeilen ermitteln", """
+                "⭐ Herkunft von Zeilen ermitteln", """
                     Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
 
                     * Für jede Zeile zeigen, in welchem Commit sie zuletzt bearbeitet wurde.

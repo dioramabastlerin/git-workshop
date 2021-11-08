@@ -72,7 +72,7 @@ Starte im Verzeichnis `aufgaben/repo`.
 Zeige die Branches und Tags an.
 Zeige jetzt den Commit-Graphen über alle Branches an.
 
-<!--UEB-Repository untersuchen--><h2>Schritt 6 - Herkunft von Zeilen ermitteln</h2>
+<!--UEB-Repository untersuchen--><h2>Schritt 6 - ⭐ Herkunft von Zeilen ermitteln</h2>
 
 Starte im Verzeichnis `aufgaben/repo`.
 

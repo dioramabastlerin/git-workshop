@@ -103,7 +103,7 @@ Im Commit-Graphen sieht man, wo die Branches und Tag stehen:
 <pre><code>repo $ <b>git log --decorate --oneline --graph --all</b><br><br>* 215f901 (feature-a) : Edit file bar at line 7 on branch feature-a by bstachmann.<br>| * da35f72 (master) Created file und-tschuess on branch master by bstachmann.<br>| * e639565 (HEAD, tag: release1.1) : Edit file bar at line 5 on branch master by bstachmann.<br>| * a15459c (some-old-branch) : Edit file bar at line 1 on branch master by bstachmann.<br>|/  <br>* 1614349 : Edit file hallo-welt at line 3 on branch master by bstachmann.<br>* 3d5c9eb (tag: release1.0) Eine Zeile verschieben<br>* 54721bb Noch ein paar neue Zeilen<br>* b66301f Verschiebe eine  Zeile<br>* bb41640 Created file restaurant on branch master by bstachmann.<br>* 21c9ad4 Kopiere eine Zeile aus 'bar'<br>* 9bb1b76 Ergänze eine Zeile<br>* 4df93c0 Benenne die Datei im<br>* 38da02e Ergänze zwei zeilen<br>* 6f1bef1 Beginne mit leerer Datei<br>* bdf76fa Created file bar on branch master by bstachmann.<br>* 37c3833 Created file hallo-welt on branch master by bstachmann.<br><br></code></pre>
 
 
-## Lösung zu Schritt 6 - Herkunft von Zeilen ermitteln
+## Lösung zu Schritt 6 - ⭐ Herkunft von Zeilen ermitteln
 
 Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
 
