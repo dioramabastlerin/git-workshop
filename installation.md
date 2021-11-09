@@ -61,7 +61,7 @@ Kopieren Sie die Datei `build.zip` in dieses Verzeichnis.
 
 Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
 
-    $ unzip build.zip -d build
+    $ unzip build.zip
     $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
     
 

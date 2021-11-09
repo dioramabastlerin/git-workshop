@@ -16,8 +16,8 @@ fun main() {
     }
 
     println("Zipping")
-    val processBuilder = ProcessBuilder("zip", "-r", zipFile.absolutePath.toString(), "git-uebungen")
-    processBuilder.directory(File("build"))
+    val processBuilder = ProcessBuilder("zip", "-r", zipFile.absolutePath.toString(), "build/git-uebungen")
+    processBuilder.directory(File("."))
     processBuilder.redirectOutput(INHERIT)
     processBuilder.redirectError(INHERIT)
     val process = processBuilder.start()
