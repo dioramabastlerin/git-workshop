@@ -367,7 +367,9 @@ ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnv
     git tag
 
     # Workspace
-    git checkout
+    git switch
+    git restore
+    (git checkout)
 ```
 
 

@@ -36,3 +36,6 @@ Exercises can be found in `build/git-uebungen`.
   * `gradle progress` to run
   * admin UI on port 8040
   * user UI on port 8080
+
+
+### Anmerkung
