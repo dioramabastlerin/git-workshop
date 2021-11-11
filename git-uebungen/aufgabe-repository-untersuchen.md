@@ -35,27 +35,27 @@ untersucht zu werden.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 1 - Verzeichnisstruktur</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Untersuche das Projektverzeichnis.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 2 - Commits ansehen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Sieh Dir die Commits an und lasse dabei Informationen 
 zu Branches und Tags mit anzeigen.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 3 - Einzelne Commits untersuchen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Zeige Details zur aktuellen Version,
 und zur Vorgängerversion des Releases 1.0
 
 <!--UEB-Repository untersuchen--><h2>Schritt 4 - Inhalte vergangener Versionen untersuchen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
 
@@ -65,14 +65,14 @@ Hole die (ganze) vorige Version in den Workspace, um sie näher zu untersuchen.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 5 - Branches und Tags</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Zeige die Branches und Tags an.
 Zeige jetzt den Commit-Graphen über alle Branches an.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 6 - ⭐ Herkunft von Zeilen ermitteln</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
 

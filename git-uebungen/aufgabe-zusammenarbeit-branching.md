@@ -25,7 +25,7 @@ parent: Aufgaben
 
 <!--UEB-Branching--><h2>Schritt 1 - Branch erstellen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
@@ -34,14 +34,14 @@ Zeige den Commit-Graphen.
 
 <!--UEB-Branching--><h2>Schritt 2 - Branch mergen</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Merge `feature-a` auf den `master`und
 zeige den Commit-Graphen.
 
 <!--UEB-Branching--><h2>Schritt 3 - Merge analysieren</h2>
 
-Starte im Verzeichnis `aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
 
 Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
