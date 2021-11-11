@@ -1,4 +1,7 @@
  * switch/restore  in repository-untersuchen und in slides
+ * Progress server -> "bin dabei" links, den man setzt wenn man startet
+ * übungsgenerator: Pfad zum übungsrepo vollständig anzeigen, z.B. build/git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull
+ * Tipps zum push-fetch-pull (umbenennen nach push-fetch)
  * Setup-Hinweise in Übungsaufgaben
    - bessere Anleitung, evtl. Video zum setup
    - Aufgaben funktionieren 1:1 nur wenn man Git-Bash verwendet
