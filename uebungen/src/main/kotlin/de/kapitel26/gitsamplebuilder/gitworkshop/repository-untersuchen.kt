@@ -19,8 +19,6 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 * Mit `~` Adressiert man Vorgänger eines Commits, 
                   z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
                 * `git branch` und `git tag` listen vorhande Branches und Tags auf.
-                * Mit `A..B` Adressiert man Commit, die auf dem Weg
-                  von `A` nach `B` hinzukommen. 
                 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
                   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
                   - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
