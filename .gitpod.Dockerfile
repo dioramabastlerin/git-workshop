@@ -18,7 +18,7 @@ RUN bash -lc "bundle install"
 # Set the ~/.rvmrc back
 RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
 
-RUN echo PS1='\[\e[0;34m\]\]\W\[\e[0m\] $ ' >> /home/gitpod/.bashrc
+RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] $ '" >> /home/gitpod/.bashrc
 
 WORKDIR /home/gitpod
 
