@@ -12,7 +12,7 @@ Was ist ein Git-Repository? Und wie findet man heraus, was darin enthalten ist?
 * Klon
 * Commits und Revision-Hashes
 * Das Log
-* Checkout, Branches und Refs
+* Switch, Checkout, Branches und Refs
 
 
 
