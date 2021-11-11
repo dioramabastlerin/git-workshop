@@ -1,4 +1,4 @@
- * übung zu subtrees und submodules trennen.
+ * switch/restore  in repository-untersuchen und in slides
  * Setup-Hinweise in Übungsaufgaben
    - bessere Anleitung, evtl. Video zum setup
    - Aufgaben funktionieren 1:1 nur wenn man Git-Bash verwendet
