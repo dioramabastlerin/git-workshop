@@ -32,7 +32,7 @@ bearbeitet zu werden.
 
 <!--UEB-Commits erstellen--><h2>Schritt 1 - Commit - mit Staging</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/commits-erstellen/repo`.
 
 Bearbeite die Datei `hallo-welt`,
 füge sie mit `git add` zum Index hinzu (Staging)
@@ -40,7 +40,7 @@ und erstelle ein Commit mit diesen Änderungen.
 
 <!--UEB-Commits erstellen--><h2>Schritt 2 - Commit - automatisches Staging</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/commits-erstellen/repo`.
 
 Bearbeite die Datei `hallo-welt` erneut
 und erstelle wieder ein Commit,
@@ -48,25 +48,25 @@ dieses mal mal aber mit `-a`.
 
 <!--UEB-Commits erstellen--><h2>Schritt 3 - Commit - neue Datei</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/commits-erstellen/repo`.
 
 Erstelle `new-world` und bestätige sie mit einem Commit.
 
 <!--UEB-Commits erstellen--><h2>Schritt 4 - ⭐ Commit - Datei löschen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/commits-erstellen/repo`.
 
 Lösche `hallo-welt` und bestätige dies per Commit.
 
 <!--UEB-Commits erstellen--><h2>Schritt 5 - Commit - Datei verschieben/umbenennen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/commits-erstellen/repo`.
 
 Benenne die Datei `hello-world` in `renamed-world` um.
 
 <!--UEB-Commits erstellen--><h2>Schritt 6 - ⭐ Rename detection</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/commits-erstellen/repo`.
 
 Benenne die Datei `datei1` in `datei2` mit `git mv` um. 
 Sorge dafür, dass die *Rename Detection* dies nicht erkennt.

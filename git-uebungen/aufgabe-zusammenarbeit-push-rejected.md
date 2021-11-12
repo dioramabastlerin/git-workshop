@@ -27,7 +27,7 @@ was man damit machen möchte.
 
  * `git push`: Überträgt Commits zum `origin`.
  * `git fetch`: Holt Commit, ändert aber Workspace und lokalen Branch nicht
- * `git pull`: Hold und **integriert** Commits.
+ * `git pull`: Holt und **integriert** Commits.
  * `git log A..B` zeigt "was B gemacht hat".\
     Oder etwas genauer: Jenes Commits aus der Historie von `B`, 
     die noch nicht in `A` enthalten sind.
@@ -60,20 +60,20 @@ wirst Du einen *Push Reject* erfahren.
 
 <!--UEB-Umgang mit "Push Reject"--><h2>Schritt 1 - Lokal Commit(s) erstellen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/my-apollo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-push-rejected/my-apollo`.
 
 Bearbeite die Datei `frontend.java` und erstelle (mindestens) ein Commit mit den Änderungen.
 Überprüfe danach mit `git status`, ob der Workspace sauber ist.
 
 <!--UEB-Umgang mit "Push Reject"--><h2>Schritt 2 - Push versuchen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/my-apollo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-push-rejected/my-apollo`.
 
 Versuche jetzt Deine Änderungen zu pushen.
 
 <!--UEB-Umgang mit "Push Reject"--><h2>Schritt 3 - (optional) Problem analysieren</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/my-apollo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-push-rejected/my-apollo`.
 
 Hole zunächt die Änderungen, ohne zu integrieren (`fetch`),
 und lasse Dir die Änderungen von *Anja* zeigen.
@@ -84,13 +84,13 @@ und lasse Dir die Änderungen von *Anja* zeigen.
 
 <!--UEB-Umgang mit "Push Reject"--><h2>Schritt 4 - Fremde Änderungen integrieren</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/my-apollo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-push-rejected/my-apollo`.
 
 Integriere die Änderungen mit Pull und sieh Dir dann den Commit-Graphen an.
 
 <!--UEB-Umgang mit "Push Reject"--><h2>Schritt 5 - Erneut pushen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/my-apollo`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-push-rejected/my-apollo`.
 
                     
 

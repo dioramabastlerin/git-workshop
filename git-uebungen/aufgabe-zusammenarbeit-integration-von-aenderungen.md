@@ -55,7 +55,7 @@ Integrieren Sie die neuen Änderungen von Anja.
 
 <!--UEB-Integration von Änderungen--><h2>Schritt 1 - Fast-Forward beim Pull</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/fast-forward`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-integration-von-aenderungen/fast-forward`.
 
 Im einfachste Fall haben wir selber gar nichts gemacht,
 und wollen nur die Änderungen von Anja übernehmen.
@@ -74,7 +74,7 @@ Lasse Dir Status und den Commit-Graphen zeigen.
 
 <!--UEB-Integration von Änderungen--><h2>Schritt 2 - Merge erzwingen beim Pull</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/no-ff`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-integration-von-aenderungen/no-ff`.
 
 Auch dieses haben wir nichtnichts gemacht,
 und wollen nur die Änderungen von Anja übernehmen.
@@ -93,7 +93,7 @@ Lasse Dir Status und den Commit-Graphen zeigen.
 
 <!--UEB-Integration von Änderungen--><h2>Schritt 3 - Integration bei Änderungen in verschiedenen Dateien</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/changes-in-different-files`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-integration-von-aenderungen/changes-in-different-files`.
 
 1. Bearbeite die Datei `README.md`.
    - Erstelle ein Commit dazu.
@@ -118,7 +118,7 @@ Starte im Verzeichnis `build/git-uebungen/aufgaben/changes-in-different-files`.
 
 <!--UEB-Integration von Änderungen--><h2>Schritt 4 - Integration bei Änderungen in derselben Datei</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/changes-in-same-files`.
+Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-integration-von-aenderungen/changes-in-same-files`.
 
 In diesem Fall bearbeiten wir dieselbe Datei,
 die auch Anja bearbeitet hat.
