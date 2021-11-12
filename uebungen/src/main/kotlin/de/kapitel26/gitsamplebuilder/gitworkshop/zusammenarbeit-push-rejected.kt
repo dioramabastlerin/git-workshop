@@ -37,7 +37,7 @@ fun CollectionOfSamples.pushRejected() {
                 
                  * `git push`: Überträgt Commits zum `origin`.
                  * `git fetch`: Holt Commit, ändert aber Workspace und lokalen Branch nicht
-                 * `git pull`: Hold und **integriert** Commits.
+                 * `git pull`: Holt und **integriert** Commits.
                  * `git log A..B` zeigt "was B gemacht hat".\
                     Oder etwas genauer: Jenes Commits aus der Historie von `B`, 
                     die noch nicht in `A` enthalten sind.
