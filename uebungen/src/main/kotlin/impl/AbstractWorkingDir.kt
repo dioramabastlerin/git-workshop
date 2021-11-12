@@ -151,7 +151,8 @@ abstract class AbstractWorkingDir<T>(
         )
         
         val pathInUebungsverzeichnis = 
-            """.*(build/git-uebungen/.*)""".toRegex().matchEntire(rootDir.canonicalPath)?.group(1) ?: "<unknown>"
+
+            """.*(build/git-uebungen/.*)""".toRegex().matchEntire(rootDir.canonicalPath)?.groups?.get(0)?.value ?: "<unknown>"
         markdown("<!--UEB-${solutionCollector.aufgabenName()}--><h2>${header}</h2>")
         markdown("Starte im Verzeichnis `build/git-uebungen/aufgaben/${pathInUebungsverzeichnis}`.")
         markdown(description)
