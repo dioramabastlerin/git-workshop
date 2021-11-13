@@ -16,7 +16,10 @@ fun CollectionOfSamples.branching() {
 
                 ## Tipps
                 
-                * `git branch -vv`
+                * `git switch -c <name>` erzeugt einen neuen Branch und aktiviert 
+                  diesen sogleich.
+                * `git branch -vv` zeigt Details zu den lokalen Branches
+                * `git switch <name>` wechselt den aktiven Branch
                   
                 ## Ausgangssituation
 
@@ -65,7 +68,7 @@ fun CollectionOfSamples.branching() {
             }
 
             createAufgabe(
-                    "Merge analysieren",
+                    "⭐ Merge analysieren",
                     """
                     Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
                     Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.

@@ -12,11 +12,7 @@ Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
 
-<pre><code>repo $ <b>git branch feature-a HEAD</b><br><br><br></code></pre>
-
-
-
-<pre><code>repo $ <b>git checkout feature-a</b><br><br>Switched to branch 'feature-a'<br><br></code></pre>
+<pre><code>repo $ <b>git switch -c feature-a HEAD</b><br><br>Switched to a new branch 'feature-a'<br><br></code></pre>
 
 
 
@@ -28,7 +24,7 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git checkout master</b><br><br>Your branch is up to date with 'origin/master'.<br>Switched to branch 'master'<br><br></code></pre>
+<pre><code>repo $ <b>git switch master</b><br><br>Your branch is up to date with 'origin/master'.<br>Switched to branch 'master'<br><br></code></pre>
 
 
 
@@ -56,7 +52,7 @@ zeige den Commit-Graphen.
 <pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   d7d746c (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * d9a39af (feature-a) : Edit file foo at line 7 on branch feature-a by bstachmann.<br>* | 8e64110 : Edit file bar at line 3 on branch master by bstachmann.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
-## Lösung zu Schritt 3 - Merge analysieren
+## Lösung zu Schritt 3 - ⭐ Merge analysieren
 
 Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.

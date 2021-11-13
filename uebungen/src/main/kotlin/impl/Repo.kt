@@ -16,8 +16,10 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
     val name: String get() = rootDir.name
 
     fun startBranch(branchName: String, startingAt: String = "HEAD", function: () -> Unit) {
-        git("branch $branchName $startingAt")
-        onBranch(branchName, function)
+        val previousBranch = currentBranch()
+        git("switch -c $branchName $startingAt")
+        function()
+        git("switch $previousBranch")    
     }
 
     fun onBranch(branchName: String, function: () -> Unit) {
@@ -25,9 +27,9 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
         if (previousBranch == branchName) {
             function()
         } else {
-            git("checkout $branchName")
+            git("switch $branchName")
             function()
-            git("checkout $previousBranch")
+            git("switch $previousBranch")
 
         }
     }

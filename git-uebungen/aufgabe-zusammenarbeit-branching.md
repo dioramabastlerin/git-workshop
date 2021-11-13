@@ -14,7 +14,10 @@ parent: Aufgaben
 
 ## Tipps
 
-* `git branch -vv`
+* `git switch -c <name>` erzeugt einen neuen Branch und aktiviert 
+  diesen sogleich.
+* `git branch -vv` zeigt Details zu den lokalen Branches
+* `git switch <name>` wechselt den aktiven Branch
   
 ## Ausgangssituation
 
@@ -39,7 +42,7 @@ Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-branching/rep
 Merge `feature-a` auf den `master`und
 zeige den Commit-Graphen.
 
-<!--UEB-Branching--><h2>Schritt 3 - Merge analysieren</h2>
+<!--UEB-Branching--><h2>Schritt 3 - ⭐ Merge analysieren</h2>
 
 Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-branching/repo`.
 
