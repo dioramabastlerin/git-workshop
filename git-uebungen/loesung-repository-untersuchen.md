@@ -81,7 +81,7 @@ Und jetzt holen wir genau diese Version in den Workspace:
 
 
 
-<pre><code>repo $ <b>ls -Rl --time-style=+&quot;&quot;</b><br><br>.:<br>total 8<br>drwxr-xr-x 2 gitpod gitpod  25  foo<br>-rw-r--r-- 1 gitpod gitpod 253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod 375  nachher<br>-rw-r--r-- 1 gitpod gitpod   0  restaurant<br><br>./foo:<br>total 4<br>-rw-r--r-- 1 gitpod gitpod 350  bar<br><br></code></pre>
+<pre><code>repo $ <b>ls -Rl --time-style=+&quot;&quot;</b><br><br>.:<br>total 8<br>drwxr-xr-x 2 gitpod gitpod  17  foo<br>-rw-r--r-- 1 gitpod gitpod 253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod 375  nachher<br>-rw-r--r-- 1 gitpod gitpod   0  restaurant<br><br>./foo:<br>total 4<br>-rw-r--r-- 1 gitpod gitpod 350  bar<br><br></code></pre>
 
 
 ## Lösung zu Schritt 5 - Branches und Tags

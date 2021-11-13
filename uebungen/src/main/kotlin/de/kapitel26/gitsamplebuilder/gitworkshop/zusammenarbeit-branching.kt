@@ -19,6 +19,7 @@ fun CollectionOfSamples.branching() {
                 * `git switch -c <name>` erzeugt einen neuen Branch und aktiviert 
                   diesen sogleich.
                 * `git branch -vv` zeigt Details zu den lokalen Branches
+                * `git branch -r -vv` zeigt Details zu den Remote-Branches
                 * `git switch <name>` wechselt den aktiven Branch
                   
                 ## Ausgangssituation
@@ -33,8 +34,22 @@ fun CollectionOfSamples.branching() {
                 createFileAndCommit("foo", "Initial edit before cloning")
                 createFileAndCommit("bar", "Initial edit before cloning")
                 git("push")
+
             }
 
+            inRepo("blessed.git") {
+                createClone("../other") {
+                    startBranch("feature-x") {
+                        createFileAndCommit("datei-x")
+                        editAndCommit("datei-x",3)
+                        git("push origin feature-x")
+                    }
+                    startBranch("feature-y") {
+                        createFileAndCommit("datei-y")
+                        git("push origin feature-y")
+                    }
+                }
+            }
         }
 
         inRepo {
@@ -81,7 +96,31 @@ fun CollectionOfSamples.branching() {
                 git("diff HEAD^1...HEAD^2")
             }
 
+            createAufgabe(
+                    "⭐ Merge analysieren",
+                    """
+                    Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+                    Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
+                    Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
+                    """
+            ) {
+                git("log HEAD^2..HEAD^1")
+                git("log HEAD^1..HEAD^2")
+                git("diff HEAD^2...HEAD^1")
+                git("diff HEAD^1...HEAD^2")
+            }
 
+            createAufgabe(
+                    "Remote Branches untersuchen",
+                    """
+                    """
+            ) {
+                git("branch -r -vv")
+                git("fetch")
+                git("branch -r -vv")
+                git("log --oneline ..origin/feature-x")
+                git("log --oneline ..origin/feature-y")
+            }
         }
     }
 }

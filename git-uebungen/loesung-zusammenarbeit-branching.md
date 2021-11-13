@@ -74,6 +74,52 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 <pre><code>repo $ <b>git diff HEAD^1...HEAD^2</b><br><br>diff --git a/foo b/foo<br>index 36fe753..50c9a7f 100644<br>--- a/foo<br>+++ b/foo<br>@@ -5,7 +5,7 @@ line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br>-line 7 created<br>+line 7 Edit file foo at line 7 on branch feature-a by bstachmann. / line 7 created<br> line 8 created<br> line 9 created<br> line 10 created<br><br></code></pre>
 
 
+## Lösung zu Schritt 4 - ⭐ Merge analysieren
+
+Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
+Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
+
+
+<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit 8e64110288f6d044c424d80556c9f206eb35d119<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch master by bstachmann.<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git log HEAD^1..HEAD^2</b><br><br>commit d9a39af3ddf15d64c9d29a9b760607d3f244f851<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file foo at line 7 on branch feature-a by bstachmann.<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..01cfa77 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch master by bstachmann. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git diff HEAD^1...HEAD^2</b><br><br>diff --git a/foo b/foo<br>index 36fe753..50c9a7f 100644<br>--- a/foo<br>+++ b/foo<br>@@ -5,7 +5,7 @@ line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br>-line 7 created<br>+line 7 Edit file foo at line 7 on branch feature-a by bstachmann. / line 7 created<br> line 8 created<br> line 9 created<br> line 10 created<br><br></code></pre>
+
+
+## Lösung zu Schritt 5 - Remote Branches untersuchen
+
+
+
+
+<pre><code>repo $ <b>git branch -r -vv</b><br><br>  origin/master 6014eb9 Initial edit before cloning<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git fetch</b><br><br>From ../blessed<br> * [new branch]      feature-x  -&gt; origin/feature-x<br> * [new branch]      feature-y  -&gt; origin/feature-y<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git branch -r -vv</b><br><br>  origin/feature-x c570576 : Edit file datei-x at line 3 on branch feature-x by bstachmann.<br>  origin/feature-y da0cc77 Created file datei-y on branch feature-y by bstachmann.<br>  origin/master    6014eb9 Initial edit before cloning<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git log --oneline ..origin/feature-x</b><br><br>c570576 : Edit file datei-x at line 3 on branch feature-x by bstachmann.<br>dbe8a3d Created file datei-x on branch feature-x by bstachmann.<br><br></code></pre>
+
+
+
+<pre><code>repo $ <b>git log --oneline ..origin/feature-y</b><br><br>da0cc77 Created file datei-y on branch feature-y by bstachmann.<br><br></code></pre>
+
+
 [Zur Aufgabe](aufgabe-zusammenarbeit-branching.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
 
 [Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
