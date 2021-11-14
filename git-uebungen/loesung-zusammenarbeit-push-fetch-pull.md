@@ -49,7 +49,7 @@ Integriere die neuesten Commits vom `origin`-Repository
 in den lokalen `master`.
 
 
-<pre><code>mein-klon $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> foo | 4 ++--<br> 1 file changed, 2 insertions(+), 2 deletions(-)<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br><br></code></pre>
+<pre><code>mein-klon $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> foo | 4 ++--<br> 1 file changed, 2 insertions(+), 2 deletions(-)<br><br></code></pre>
 
 
 

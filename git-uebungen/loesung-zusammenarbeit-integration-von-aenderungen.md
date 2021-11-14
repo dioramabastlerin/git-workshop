@@ -14,7 +14,7 @@ Führe ein Pull durch.
 Lasse Dir Status und den Commit-Graphen zeigen.
 
 
-<pre><code>fast-forward $ <b>git pull</b><br><br>Updating 60e4443..12bfe04<br>Fast-forward<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>fast-forward $ <b>git pull</b><br><br>Updating 60e4443..12bfe04<br>Fast-forward<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git signalisiert, dass ein Fast-Forward durchgeführt wurde.
@@ -81,7 +81,7 @@ Diese Meldung zeigt, dass im `origin` Änderungen vorliegen,
 die wir noch nicht integriert haben.
 
 
-<pre><code>changes-in-different-files $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
@@ -121,7 +121,7 @@ den wir aulösen müssen.
 
 
 
-<pre><code>changes-in-same-files $ <b>git pull</b><br><br>Auto-merging average.kts<br>CONFLICT (content): Merge conflict in average.kts<br>Automatic merge failed; fix conflicts and then commit the result.<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br>From ../origin-for-merge-samples<br>   60e4443..0003961  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git pull</b><br><br>Auto-merging average.kts<br>CONFLICT (content): Merge conflict in average.kts<br>Automatic merge failed; fix conflicts and then commit the result.<br>From ../origin-for-merge-samples<br>   60e4443..0003961  master     -&gt; origin/master<br><br></code></pre>
 
 
 Wie erwartet, ist es zu einem Konflikt gekommen.

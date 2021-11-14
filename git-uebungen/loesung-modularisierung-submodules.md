@@ -74,7 +74,7 @@ Sieh Dir das übertragene Commit an.
 
 
 
-<pre><code>mod-b $ <b>git pull</b><br><br>Updating f350e1e..b38653c<br>Fast-forward<br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>hint: Pulling without specifying how to reconcile divergent branches is<br>hint: discouraged. You can squelch this message by running one of the following<br>hint: commands sometime before your next pull:<br>hint: <br>hint:   git config pull.rebase false  # merge (the default strategy)<br>hint:   git config pull.rebase true   # rebase<br>hint:   git config pull.ff only       # fast-forward only<br>hint: <br>hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default<br>hint: preference for all repositories. You can also pass --rebase, --no-rebase,<br>hint: or --ff-only on the command line to override the configured default per<br>hint: invocation.<br>From /workspace/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules/mod-b<br>   f350e1e..b38653c  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>mod-b $ <b>git pull</b><br><br>Updating f350e1e..b38653c<br>Fast-forward<br> berta | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From /workspace/git-workshop/build/git-uebungen/loesungen/modularisierung-submodules/mod-b<br>   f350e1e..b38653c  master     -&gt; origin/master<br><br></code></pre>
 
 
 
