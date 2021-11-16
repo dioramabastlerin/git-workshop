@@ -8,6 +8,8 @@ Erstellt lokale Kopie eines Git-Repositorys in einem lokalen Verzeichnis,z.B.
     $ git clone https://github.com/bstachmann/git-workshop.git
 ```    
 
+## Klon
+
 Eine solche Kopie nennt man einen **Klon**.
 
 ---
@@ -37,7 +39,7 @@ Zwei Dinge sind aufgetaucht:
 
  1. Das **Repository**
 
-    (es liegt in `.git`)
+    (es liegt in `.git` im obersten Verzeichnis des Projekts)
 
  1. Der **Workspace**
 
@@ -45,24 +47,44 @@ Zwei Dinge sind aufgetaucht:
 
 ---
 
-### Der Workspace
-
-umfasst alle Dateien und Verzeichnisse des Projekts
-
----
-
 ### Repository
 
-Damit Git **dezentral** (unabhängig vom Server) arbeiten kann,
-enthält es eine Datenbank
-mit der **gesamten Historie** eines Projekts.
+Eine Datenbank über die **Historie** des Projekts
 
- * alle Versionen aller Dateien
- * Metadaten: Autor, Zeitpunkt
- * Branches: Ermöglichen parallele Entwicklungsstränge
- * Markierte Versionen, genannt Tags
+### Commits 
+
+Auch **Revisions** oder **Versionen** genannt
+
+ * Snapshots über alle Daten des Projekts
+ * **+** Autor, Zeitpunkt, Beschreibungen
+
 
 ---
+
+### Der Workspace
+
+umfasst alle Dateien und Verzeichnisse des Projekts.
+
+Sonderfall: Repositorys ohne Workspace nennt man *bare Repositorys*.
+
+
+---
+
+## Historie untersuchen
+
+ * `git log`: Auflisung von Commits
+ * `git branch`: Listet Branche
+ * `git tag: Listet Tags (bennante Versionen)
+ * `git show`: Details zu *einem* Commit
+ * `git ls-tree`: Listet Verzeichnisstruktur eines Commits
+
+---
+
+## `git log` 
+
+ * `--oneline`:
+ * `--graph`: 
+
 
 ### Übung
 
@@ -81,32 +103,11 @@ Wir lassen uns die Commits zeigen.
 ```
 Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie ders Projekts.
 
----
-
-## Klone
-
----
-
-Das lokale Repository ist eine Kopie des Projekts mit der gesamten Historie, genannt **Klon**.
-
----
-
-Warum enthält\
-das geklonte Repository\
-die ganze Historie des Projekts?
-
----
-
- * In jedem Klon wird unabhängig gearbeit.
- * Fast alle Befehle arbeiten lokal (und damit schnell).
- * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
- * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
 ---
 
 
 ## Commits und Revision-Hashes
-
 
 ---
 

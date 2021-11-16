@@ -89,6 +89,11 @@ Ein Workspace wird mit dem `HEAD`-Stand initialisiert.
 $ git clone https://<server>/<pfad>/git-training-protocol.git
 ```
 
+---
+
+Warum enthält\
+das geklonte Repository\
+die ganze Historie des Projekts?
 
 ---
 

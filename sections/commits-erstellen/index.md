@@ -20,6 +20,14 @@
 
 ---
 
+
+ * In jedem Klon wird unabhängig gearbeit.
+ * Fast alle Befehle arbeiten lokal (und damit schnell).
+ * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
+ * Oft erfolgt der Austausch über ein *Blessed Repository*.
+
+
+---
 ### Der Workspace
 
 umfasst alle Dateien und Verzeichnisse des Projekts
