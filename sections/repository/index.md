@@ -1,14 +1,27 @@
-## Repository und Workspace
+---
+
+## Der `clone`-Befehl
+
+Erstellt lokale Kopie eines Git-Repositorys in einem lokalen Verzeichnis,z.B. 
+
+```bash
+    $ git clone https://github.com/bstachmann/git-workshop.git
+```    
+
+Eine solche Kopie nennt man einen **Klon**.
 
 ---
 
-### Übung/Demo
+### Demo
 
-Wir untersuchen ein Repository. Der `clone`-Befehl bringt es auf unseren Rechner.
+Wir untersuchen ein Repository. 
+
 ```bash
-    $ git clone <server-url>/git-workshop.git
+    $ git clone https://github.com/bstachmann/git-workshop.git
+
     $ cd git-workshop
-    $ ls -lah
+
+    $ ll
     ...
     drwxrwxr-x   3 bjoern bjoern 4,0K Aug  9 19:54 css
     drwxrwxr-x   2 bjoern bjoern 4,0K Jun 24 18:20 debugging
@@ -35,14 +48,6 @@ Zwei Dinge sind aufgetaucht:
 ### Der Workspace
 
 umfasst alle Dateien und Verzeichnisse des Projekts
-
- * **versionierte Dateien**
-   Dateien, die in der aktuellsten Git-Revision des Projekts,
-   `HEAD` genannt, schon bekannt sind.
- * **unversionierte Dateien**
-   Neue Dateien, die Git "noch nicht kennt".
- * **ignorierte Dateien**
-   Die gar nicht versioniert werden sollen (Stichwort: `.gitignore`)
 
 ---
 
@@ -121,6 +126,21 @@ in Form von *Commits*. Jedes Commit wiederum hat
 bezeichnet das aktuelle Commit,/
 ist bei vielen Befehlen Default-Wert\
 und kann oft weggelassen werden.
+
+
+---
+
+
+### Begriff: `HEAD`
+
+`HEAD` bezeichnet die vorige Version.
+
+(von vorigem `commit`, oder `checkout`)
+
+```bash
+git show HEAD
+```
+
 
 ---
 

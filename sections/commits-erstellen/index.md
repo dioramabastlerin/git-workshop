@@ -20,15 +20,18 @@
 
 ---
 
-### Begriff: `HEAD`
+### Der Workspace
 
-`HEAD` bezeichnet die vorige Version.
+umfasst alle Dateien und Verzeichnisse des Projekts
 
-(von vorigem `commit`, oder `checkout`)
+ * **versionierte Dateien**
+   Dateien, die in der aktuellsten Git-Revision des Projekts,
+   `HEAD` genannt, schon bekannt sind.
+ * **unversionierte Dateien**
+   Neue Dateien, die Git "noch nicht kennt".
+ * **ignorierte Dateien**
+   Die gar nicht versioniert werden sollen (Stichwort: `.gitignore`)
 
-```bash
-git show HEAD
-```
 
 ---
 
