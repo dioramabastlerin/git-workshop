@@ -1,4 +1,3 @@
----
 
 ## Der `clone`-Befehl
 
@@ -45,7 +44,11 @@ Zwei Dinge sind aufgetaucht:
 
    (alle anderen Dateien und Verzeichnisse, die nicht in `.git` liegen)
 
+Sonderfall: Repositorys ohne Workspace nennt man *bare Repositorys*.
+
+
 ---
+
 
 ### Repository
 
@@ -58,19 +61,19 @@ Auch **Revisions** oder **Versionen** genannt
  * Snapshots über alle Daten des Projekts
  * **+** Autor, Zeitpunkt, Beschreibungen
 
+ ### `HEAD`
+
+bezeichnet das aktuelle Commit 
+und ist Urprung der Dateien im Workspace.
+
+`HEAD` ist bei vielen Befehlen Default-Wert\
+und darf weggelassen werden.
+
 
 ---
 
-### Der Workspace
 
-umfasst alle Dateien und Verzeichnisse des Projekts.
-
-Sonderfall: Repositorys ohne Workspace nennt man *bare Repositorys*.
-
-
----
-
-## Historie untersuchen
+## Repository untersuchen
 
  * `git log`: Auflisung von Commits
  * `git branch`: Listet Branche
@@ -78,33 +81,65 @@ Sonderfall: Repositorys ohne Workspace nennt man *bare Repositorys*.
  * `git show`: Details zu *einem* Commit
  * `git ls-tree`: Listet Verzeichnisstruktur eines Commits
 
+
 ---
+
+### Demo: `git log`
+
+```bash
+    $ git log --all --graph --oneline
+
+    * 215f901 (feature-a) : Edit file bar
+    | * da35f72 (HEAD -> master) Created file und-tschuess 
+    | * e639565 (tag: release1.1) : Edit file bar 
+    | * a15459c (some-old-branch) : Edit file bar 
+    |/  
+    * 1614349 : Edit file hallo-welt 
+    ...
+```
+
+ * `HEAD` ist das aktive Commit.
+ * `main` ist der Name eines Branches.
+ * `release1.1` ist ein Tag (benannte Version)
+
+
+---
+
 
 ## `git log` 
 
- * `--oneline`:
- * `--graph`: 
+Zeigt die Historie des `HEAD`-Commits
 
-
-### Übung
-
-Wir lassen uns die Commits zeigen.
-```bash
-    $ git log --oneline
-
-    909af6d (HEAD -> master) Fix obsolete text on page
-    02d3329 fix typo in link
-    38efbcb Enable offline use
-    28e7071 Enable offline use
-    6721664 Overwork repository chapter
-    2ca78c1 Remove duplicated slides
-    330fd73 Fix missing git before command
-    ...
-```
-Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie ders Projekts.
+ * `--oneline`: Eine Zeile je Commit
+ * `--graph`: Graphische Darstellung
+ * `--all`: Historie aller Branches und Tags
 
 
 ---
+
+
+
+### Der Commit-Graph
+
+Das Log kann Verzweigungen enthalten und Zusammenführungen (Merges) enthalten,
+z. B. wenn mehrere Entwickler parallel gearbeitet haben.
+
+```
+* | 5c65d40 Notizen zur Wiederholung
+* | 040bb7d Zeitplan für early birds hinzugefügt
+|/  
+* b1fae20 Fixup
+* 4137535 Add some aufgaben
+* 8f900ba Refactor: Split git intro 
+*   351872f Merge branch 'master' 
+|\  
+| * c81fde8 Update index.en.md
+* | 9bf4c61 Add workshop: Git basics and best practices
+|/  
+* 5f58070 Modify link to edit files on github
+```
+
+
 
 
 ## Commits und Revision-Hashes
@@ -120,13 +155,6 @@ in Form von *Commits*. Jedes Commit wiederum hat
  * **Revision Hash** - die "Versionsnummer" von Git
    Prüfsumme über alle oben angegebenen Informationen.
 
----
-
-### `HEAD`
-
-bezeichnet das aktuelle Commit,/
-ist bei vielen Befehlen Default-Wert\
-und kann oft weggelassen werden.
 
 
 ---
@@ -206,28 +234,6 @@ Der Log-Befeht biete zahlreiche Optionen. Hier ein paar nützliche Beispiele:
 ```
 
 Tipp: Mit `~` kann man Vorfahren adressieren.
-
----
-
-### Der Commit-Graph
-
-Das Log kann Verzweigungen enthalten und Zusammenführungen (Merges) enthalten,
-z. B. wenn mehrere Entwickler parallel gearbeitet haben.
-
-```
-* | 5c65d40 Notizen zur Wiederholung
-* | 040bb7d Zeitplan für early birds hinzugefügt
-|/  
-* b1fae20 Fixup
-* 4137535 Add some aufgaben
-* 8f900ba Refactor: Split git intro 
-*   351872f Merge branch 'master' 
-|\  
-| * c81fde8 Update index.en.md
-* | 9bf4c61 Add workshop: Git basics and best practices
-|/  
-* 5f58070 Modify link to edit files on github
-```
 
 ---
 
