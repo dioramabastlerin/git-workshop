@@ -28,6 +28,10 @@ Wenn man eine Änderung, die in einer neuen Version gemacht wurde,
 auf eine ältere Version übertragen wird spricht man von einem Backport.
 Die kann man beispielsweise mit dem Cherry-Pick-Befehl machen.
 
+### Bare Repository
+
+Ein Klon ohne Workspace.
+
 ### ⭐ Branch
 
 Ist ein bennannter Strang zur parallelen Enwicklung, z.B. `main` oder `feature-a`.
@@ -83,16 +87,49 @@ Branch, der für die Entwicklung eines bestimmten Features vom Haupstrang abgezw
 
 ### fast-forward
 
-
+Wenn bei einem Merge der andere Branch neue Commits mitbringt,
+der aktuelle Branch aber nicht,
+erzeugt Git kein Merge-Commit,
+sondern setzt einfach den aktuellen Branchzeiger
+auf den den Stand des anderen Branches.
 
 ### Gitflow
+
+Populäres [Branching-Modell für Git](https://nvie.com/posts/a-successful-git-branching-model/)
+
 ### History
+
+Die History ist die Menge aller Vorgänger eines gegebenen Commits (z.B. des HEAD).
+Vorgänger sind Parents, Parents von Parents, etc. 
+
 ### Integrations-Branch
+
+Ein Integrationsbranch, ist ein Branch auf dem Änderungen anderer Branches
+per Merge integriert werden. 
+Auf einem Integrationsbranch wird nicht direkt entwickelt.
+
 ### ⭐ Head
+
+Das Head ist die aktuelle Revision eine Repositorys.
+Meist ist es das zuletzt erstellte oder das zuletzt ausgecheckte Commit.
+
 ### Index
+
+Im Index (auch Stage genannt) werden Änderungen für das nächste Commit gesammelt.
+
 ### ⭐ Klon
+
+Kopie eines Repositorys.
+
 ### ⭐ Merge
+
+Ein Commit in dem die Versionen von zwei (oder mehr)
+anderen Commits zusammengeführt werden.
+
 ### Merge-Request
+
+Synonym für Pull-Request
+
 ### Merge-Ketten
 ### ⭐ Log
 ### Origin
