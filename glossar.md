@@ -85,6 +85,11 @@ Anmerkung: Meist erfolgt der Austausch innerhalb von Teams indirekt über einen 
 
 Branch, der für die Entwicklung eines bestimmten Features vom Haupstrang abgezweigt wird.
 
+
+### Fetch
+
+TO DO
+
 ### fast-forward
 
 Wenn bei einem Merge der andere Branch neue Commits mitbringt,
@@ -131,20 +136,61 @@ anderen Commits zusammengeführt werden.
 Synonym für Pull-Request
 
 ### Merge-Ketten
+
+TO DO
+
 ### ⭐ Log
+
+Das Log stellt die Historie der Vorgängerversionen eines 
+(oder mehrerer) Commits dar.
+Das Log kann auf vielfältige Weise aufbereitet und gefiltert werden.
+
 ### Origin
-### Parent 
+
+Mit Origin bezeichnet man jenes Repository, von dem geklont wurde.
+
+### Parent
+
+Mit *Parent* bezeichnet man eine direkte Vorgängerversion eines Commits.
+Das erste Commit einer Historie hat keinen Parent.
+Merge-Commits können mehrere Parents haben.
+
 ### ⭐ Push
+
+Push übertragt die aktuelle Version auf einen Branch in einem anderen Klon.
+
 ### ⭐ Pull
+
+Pull füht zunächst einen Fetch durch
+und integriert dann Änderungen aus einem Branch des anderen Klons
+in den aktuellen Branch.
+Die Integration kann per Merge oder per Rebase erfolgen.
+
 ### ⭐ Pull-Request
+
+Mit einem Pull-Request bietet man dem Maintainer eines Repositorys Änderungen, die man ein einem Klon erstellt hat, zur Intgration an. 
+Hoster, wie z.B. GitHub, bieten komfortable User-Interfaces hierzu an.
+
 ### ⭐ Rebase
+
+Rebase integriert Änderungen, indem die hinzukommenden Commits
+ermittelt und dann auf dem aktuellen Branch neu erstellt werden.
+
 ### ⭐ Repository
-### ⭐ Revision-Hash 
+
+Ein Git-Repository archiviert die Entstehungsgeschichte einer 
+Software.
+Es enthält die Commitbeschreibungen, den Commit-Graphen, sowie alle Datei- und Verzeichnisstände, als auch Informationen über Branches und Tags.
+
+### ⭐ Revision-Hash
+
+
+
 ### Remote
 ### Remote Ref
 ### Rename Detection
 ### Ref
-### Upstream Branch  
+### Upstream-Branch  
 ### Staging
 ### Staging-Branch
 ### Stash
