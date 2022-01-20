@@ -184,10 +184,19 @@ Es enthält die Commitbeschreibungen, den Commit-Graphen, sowie alle Datei- und 
 
 ### ⭐ Revision-Hash
 
-
+Eindeutiger Identifier für Commits.
+Wird als SHA1-Hash über Inhalte und Metadaten des Commits gebildet.
 
 ### Remote
+
+Mit Remote bezeichnet man andere Klone des Repositorys mit denen man Daten per Push und Pull austauschen kann. Meist werden diese per SSH oder HTTPS adressiert,
+aber auch lokale Pfade sind zulässig.
+
+
 ### Remote Ref
+
+
+
 ### Rename Detection
 ### Ref
 ### Upstream-Branch  
