@@ -195,18 +195,48 @@ aber auch lokale Pfade sind zulässig.
 
 ### Remote Ref
 
+Remote Refs sind Stellvertreter für den Stand von Branches und Tags in anderer Klone, z. B, dem Origin.
 
-
-### Rename Detection
 ### Ref
-### Upstream-Branch  
+
+Ref ist ein Oberbegriff für Zeiger auf Commits. Branches und Tags sind Refs.
+
+### Upstream-Branch
+
+Ein lokaler Branch, z. B. `main`, kann per Konfiguration mit eine Branch in einem Remote verbunden werden, z.B. `origin/main`.
+Beim Checkout (oder Switch) wird diese Verknüpfung idR. automatisch erstellt.
+
 ### Staging
+
+Im sogenannten Index, werden Änderungen für das nächste Commit gesammelt.
+Dies nennt man Staging.
+
 ### Staging-Branch
+
+Wenn man Branches nutzt, um unterschiedliche Phasen der Entwicklung abzubilden, wie etwa `development`, `test` oder `main`, dann spricht man von Staging-Branches.
+
 ### Stash
 ### Submodule
+
+Ein Submodule ist ein Repo, dass als Unterverzeichnis in ein anderes eingebunden ist.
+
 ### Subtree
+
+Ein Subtree nennt man es, wenn der Inhalte eines Commits (Tree) in ein Unterverzeichnis eines anderen Repos kopiert wurde. 
+
+### Switch
+
+Switch nennt man das Wechseln auf einen anderen Branch.
+
 ### Tag
+
+Festgelegter Name für ein bestimmtes Commit, z.B. "v1.0.2". 
+
 ### Tree
+
+Mit Tree bezeichnet man eine hierarchische Struktur aus Dateien und Verzeichnissen.
+
 ### Trunk Based Development
+
 ### ⭐ Workspace
 ### zentral
