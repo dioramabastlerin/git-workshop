@@ -238,5 +238,9 @@ Mit Tree bezeichnet man eine hierarchische Struktur aus Dateien und Verzeichniss
 
 ### Trunk Based Development
 
+Entwicklungsmethode bei der alle Entwickler auf demselben Branch arbeiten und häufig integrieren.
+
 ### ⭐ Workspace
-### zentral
+
+Arbeitsbereich mit den Dateien und Verzeichnissen des Projekts.
+
