@@ -9,7 +9,7 @@
 ## Übungen frisch bauen lassen
 
     $ gradle run distuebungenMarkdown
-    $ cd build/git-uebungen/aufgaben
+    $ cd build/git-uebungen/aufgabenl
 
     
 ## Editing
