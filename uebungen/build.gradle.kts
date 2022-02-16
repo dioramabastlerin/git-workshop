@@ -1,7 +1,7 @@
 val ktorVersion: String by rootProject
 
 dependencies {
-    nn nimplementation("io.ktor:ktor-server-core:$ktorVersion")
+    implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-server-sessions:$ktorVersion")
     implementation("io.ktor:ktor-client-core:$ktorVersion")

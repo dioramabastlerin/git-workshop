@@ -6,7 +6,6 @@ parent: Aufgaben
 ---
 # Übung - Branching
 
-Tippe etwas
 
 
 ## Infos
