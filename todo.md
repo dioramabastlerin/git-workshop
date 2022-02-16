@@ -2,6 +2,8 @@
  * Progress server -> "bin dabei" links, den man setzt wenn man startet
  * übungsgenerator: Pfad zum übungsrepo vollständig anzeigen, z.B. build/git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull
  * Tipps zum push-fetch-pull (umbenennen nach push-fetch)
+ * übung zu subtrees und submodules trennen.
+ * Übung zu subtrees und submodules trennen.
  * Setup-Hinweise in Übungsaufgaben
    - bessere Anleitung, evtl. Video zum setup
    - Aufgaben funktionieren 1:1 nur wenn man Git-Bash verwendet
@@ -24,3 +26,13 @@
 
    ## Notizen
 
+<<<<<<< HEAD
+||||||| 6d722e5
+   markdown: {
+    smartypants: true
+  }
+=======
+   markdown: {
+    smartypants: true
+  }
+>>>>>>> 1030082ce695b6e591ecab6e9f682c39b3d9bce8
