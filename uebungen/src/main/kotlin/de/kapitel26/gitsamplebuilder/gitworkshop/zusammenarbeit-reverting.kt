@@ -133,7 +133,7 @@ fun CollectionOfSamples.reverting() {
                 git("merge feature")
 
                 git("log --oneline --graph")
-                git("log --oneline --follow -- from-feature")
+                git("log --oneline from-feature")
             }
         }
     }

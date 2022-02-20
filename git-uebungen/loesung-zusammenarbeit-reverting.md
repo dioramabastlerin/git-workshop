@@ -99,7 +99,7 @@ Tipp: Das Commit ist als `feature-merge` getagged.
 
 
 
-<pre><code>repo $ <b>git log --oneline --follow -- from-feature</b><br><br>fd2b608 Revert &quot;Revert &quot;Merge branch 'feature'&quot;&quot;<br>d557601 Revert &quot;umbenennen&quot;<br>5f55981 umbenennen<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline from-feature</b><br><br>0d09c64 : Weiterentwicklung<br>d3b0de7 Created file from-feature on branch feature by bstachmann.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-reverting.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
