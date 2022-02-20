@@ -8,7 +8,7 @@ fun CollectionOfSamples.reverting() {
         createIntro(
             """Reverting""",
             """
-                Git ermöglicht es, Änderungen, 
+                Git ermöglicht es Änderungen, 
                 die in einem früheren Commits gemacht wurden,
                 durch ein neues Commit wieder rückgängig zu machen.
                
