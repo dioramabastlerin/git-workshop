@@ -53,7 +53,7 @@ fun CollectionOfSamples.reverting() {
                 git("tag feature-merge")
 
                 onBranch("feature") {
-                    editAndCommit("from-feature",1), "Weiterentwicklung")
+                    editAndCommit("from-feature",1, message = "Weiterentwicklung")
                 }
 
                 createAufgabe(
@@ -73,7 +73,7 @@ fun CollectionOfSamples.reverting() {
                         "Merge-Commit rückgängig machen.",
                         """
                         In der Historie wurde ein Feature-Branch per Merge integriert.file . Mache dies änderung rückgängig.
-                        Tipp: Das Merge=Commit ist als `feature-merge` getagged. 
+                        Tipp: Das Merge-Commit ist als `feature-merge` getagged. 
                         Tipp: Am verschinden der Datei `from-feature` kann man den Erfolg erkennen.
                         """
                 ) {
@@ -107,8 +107,12 @@ fun CollectionOfSamples.reverting() {
                         Das Merge scheitert, weil Git Commits,
                         die schon in der Historie enthalten sind,
                         nicht erneut merged.
-                        Dies betrifft im Beispiel die Datei `from-feature`,
-                        die beim Revert entfernt wurde.
+                        Dies betrifft im Beispiel jenes Commit, 
+                        das die Datei `from-feature` erzeugt.
+                        Es ist in der Historie enthalten und
+                        in einem späteren Commit (Dem Revert) wurde die Datei gelöscht.
+                        Der Mergekonflikt meldet also, dass die Datei auf der einen
+                        Seite bearbeitet und auf der Anderen gelöscht wurde.
                     """)
                 }
 
@@ -122,7 +126,6 @@ fun CollectionOfSamples.reverting() {
                         Tipp: Das Commit ist als `feature-merge` getagged.
                         """
                 ) {
-                
                     git("revert merge-reverted")
                     git("merge feature")
 
