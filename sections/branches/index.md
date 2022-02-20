@@ -125,5 +125,6 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
 
 <h2><a href="git-uebungen/aufgabe-zusammenarbeit-branching.html" target="_blank">Branches<a></h2>
 
+<h2><a href="git-uebungen/aufgabe-zusammenarbeit-reverting.html" target="_blank">Reverting of Merges<a></h2>
 
 

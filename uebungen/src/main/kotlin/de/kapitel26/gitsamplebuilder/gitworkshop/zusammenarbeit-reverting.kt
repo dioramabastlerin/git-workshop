@@ -8,7 +8,8 @@ fun CollectionOfSamples.reverting() {
         createIntro(
             """Reverting""",
             """
-                Git ermöglicht es, Änderungen, die in früheren Commits gemacht wurden,
+                Git ermöglicht es, Änderungen, 
+                die in einem früheren Commits gemacht wurden,
                 durch ein neues Commit wieder rückgängig zu machen.
                
                 ## Infos
@@ -17,20 +18,33 @@ fun CollectionOfSamples.reverting() {
                   welches die Änderungen eines früheren Commmits wieder
                   rückgängig macht.
 
-                * `git revert -m 1 <merge-commit>` Bei einem Merge-Commit
+                * Bei einem Merge-Commit
                   muss man zusätzlich Angeben auf welchen Merge-Parent
-                  sich die Ermittlung der Änderungen beziehen soll.
+                  sich die Ermittlung der Änderungen beziehen soll:<br/>
+                  `git revert -m 1 <merge-commit>` 
 
                 * Bei weiter zurückliegenden Commits kann es zu Konflikten kommen
                   (weil betroffene Dateien in späteren Commits weiter bearbeitet wurden).
-                  Diese müssen dann wie Merge-Konflikte aufgelöst werden.  
+                  Diese müssen dann wie bei Merge-Konflikten aufgelöst werden.
+
+                ## Zum Beispielsetup
+                
+                Im Beispielrepository wurde eine Datei umbennant,
+                das entsprechende Commit ist mit `umbenennung` getagged.
+
+                Außerdem wurde ein Feature-Branch per Merge integriert.
+                Das Merge-Commit ist mit `feature-merge` getagged.
+
+                Beide Änderungen sollen zurückgenommen werden.
             """
         ) {
             createRepo {
                 createFileAndCommit("README.md")
+
                 startBranch("feature") {
                     createFileAndCommit("from-feature")
                 }
+
                 git("mv README.md liesmich")
                 git("commit -m 'umbenennen'")
                 git("tag umbenennung")
@@ -39,57 +53,72 @@ fun CollectionOfSamples.reverting() {
                 git("tag feature-merge")
 
                 onBranch("feature") {
-                    editAndCommit("from-feature",1)
+                    editAndCommit("from-feature",1), "Weiterentwicklung")
                 }
 
                 createAufgabe(
                         "Einzelnes Commit rückgängig machen.",
                         """
                         In der Historie wurde die Datei `README.md` in `liesmich`
-                        umbenannt. Mache dies änderung rückgängig.
+                        umbenannt. Mache diese Änderung rückgängig.
                         Tipp: Das Commit ist als `umbenennung` getagged.
                         """
                 ) {
                     bash("ls")
                     git("revert umbenennung")
                     bash("ls")
-                    
-                 
                 }
 
                 createAufgabe(
                         "Merge-Commit rückgängig machen.",
                         """
                         In der Historie wurde ein Feature-Branch per Merge integriert.file . Mache dies änderung rückgängig.
-                        Tipp: Das Commit ist als `feature-merge` getagged.
+                        Tipp: Das Merge=Commit ist als `feature-merge` getagged. 
+                        Tipp: Am verschinden der Datei `from-feature` kann man den Erfolg erkennen.
                         """
                 ) {
+                    bash("ls")
                     
                     git("revert -m 1 feature-merge")
+
+                    bash("ls")
                     git("tag merge-reverted")
-//                    editAndCommit("README",3)
-
-                    git("log --oneline --graph")
-
                 }
 
                 createAufgabe(
-                        "Der feature-Branch kann jetzt nicht erneut gemerged werden.",
+                        "Feature-Branch kaputt!?",
                         """
-                        TODO In der Historie wurde ein Feature-Branch per Merge integriert.file . Mache dies änderung rückgängig.
-                        Tipp: Das Commit ist als `feature-merge` getagged.
+                        Ein Revert wird oft genutzt, um ein Feature kurzfristig zurückzunehmen,
+                        z. B. wegen eine Produktionsproblems.
+                        Später möchte man den Feature-Branch korrigieren und dann erneut integrieren. 
+                        Das geht nicht so ohne weiteres.
+
+                        Im Beispiel hat der Branch `feature` eine Weiterentwicklung erfahren.
+                        Versuche ihn erneut zu Mergen.
+                        Untersuche die Fehlermeldung und den Commit-Graphen.
+                        Tipp: Das gescheiterte Merge kann mit `git merge --abort` abgebrochen werden.
                         """
                 ) {
                     
                     git("merge feature", acceptableExitCodes = setOf(1))
                     git("merge --abort")
-
+                    git("log --oneline --graph")
+                    markdown("""
+                        Das Merge scheitert, weil Git Commits,
+                        die schon in der Historie enthalten sind,
+                        nicht erneut merged.
+                        Dies betrifft im Beispiel die Datei `from-feature`,
+                        die beim Revert entfernt wurde.
+                    """)
                 }
 
                 createAufgabe(
                         "Merge-Revert wieder rückgängig machen.",
                         """
-                        TODO. In der Historie wurde ein Feature-Branch per Merge integriert.file . Mache dies änderung rückgängig.
+                        Der Trick ist, das Revert-Commit selbst zu reverten,
+                        dann sind jene Änderungen wieder da,
+                        auf denen die Weiterentwicklung des Features basiert.
+
                         Tipp: Das Commit ist als `feature-merge` getagged.
                         """
                 ) {
@@ -98,7 +127,7 @@ fun CollectionOfSamples.reverting() {
                     git("merge feature")
 
                     git("log --oneline --graph")
-                 
+                    git("log --oneline --follow -- from-feature")
                 }
 
             }
