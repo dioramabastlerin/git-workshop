@@ -59,6 +59,17 @@
 ---
 
 
+## Branches
+
+ * Branches zeigen auf Commits
+ * Wechseln zwischen Branches
+ * Remote Branches
+ * Upstream Branches
+
+
+---
+
+
 ## Merges
 
  * Wie enstehen Verzweigungen?
@@ -68,15 +79,16 @@
  * 3-Wege-Merge
  * UI: Merge-Tools
 
+
+
 ---
 
+## Rebasing
 
-## Branches
-
- * Branches zeigen auf Commits
- * Wechseln zwischen Branches
- * Remote Branches
- * Upstream Branches
+ * Was ist ein Rebase?
+ * Wie wende ich es an?
+ * Risiken und Nebenwirkungen
+ * Ausblick: Interactive Rebasing
 
 
 ---
@@ -90,15 +102,6 @@
  * Ausblick: To branch or not to branch?
  * Fortgeschrittene Workflows
 
-
----
-
-## Rebasing
-
- * Was ist ein Rebase?
- * Wie wende ich es an?
- * Risiken und Nebenwirkungen
- * Ausblick: Interactive Rebasing
 
 ---
 
