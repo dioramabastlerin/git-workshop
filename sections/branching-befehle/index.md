@@ -1,21 +1,19 @@
 
 
-# Konzepte & Werkzeuge
+# Werkzeugkasten
 
 ## für Workflows
 
 ---
 
 
-Branch
-======
+## Branch
 
  ![Branch Nachher](abb-branches-beispiel-nachher.png)
 
 ---
 
-Merge
-=====
+## Merge
 
 ![Branch Merge](abb-branches-beispiel-merge.png)
 
@@ -25,15 +23,13 @@ Merge
 
 ---
 
-Cherry-Pick (Vorher)
---------------------
+## Cherry-Pick (Vorher)
 
 ![Branch Nachher](abb-branches-beispiel-nachher.png)
 
 ---
 
-Cherry-Pick (Nachher)
---------------------
+## Cherry-Pick (Nachher)
 
  ![Rebase nachher](abb-branches-beispiel-cherry-pick.png)
 
@@ -42,16 +38,13 @@ Cherry-Pick (Nachher)
 
 ---
 
-
-Rebase (vorher)
---------------
+## Rebase (vorher)
 
   ![Rebase vorher](abb-branches-beispiel-rebase-vorher.png)
 
 ---
 
-Rebase (nachher)
----------------
+## Rebase (nachher)
 
   ![Rebase nachher](abb-branches-beispiel-rebase-nachher.png)
 
@@ -63,17 +56,15 @@ Rebase (nachher)
 ---
 
 
-   Achtung! -  Rebase verändert die Historie.
-   ------------------------------------------
+### Achtung! -  Rebase verändert die Historie.
 
-    * OK, für lokale Änderungen.
-    * OK, für Features-Branches in geschlossenen Teams.
-    * Nicht OK, sonst.
+* OK, für lokale Änderungen.
+* OK, für Features-Branches in geschlossenen Teams.
+* Nicht OK, sonst.
 
 ---
 
-History-Tree
-------------
+## History-Tree
 
 ![History-Tree](abb-1st-parent-history-0.png)
 
@@ -88,26 +79,18 @@ welche Integrationen das History-Tree zeigt.
 
 ---
 
-1st-Parents
------------
-
-![1st-Parent](abb-1st-parent-history-1.png)
-
----
-
 1st-Parent-History
 ------------------
 
 ![1st-Parent-History](abb-1st-parent-history-2.png)
 
----
-
 **1st-Parent** dient als Heuristik für Branch-Zugehörigkeit
 
 ---
 
-Konzepte und Werkzeuge
------------------------
+## Werkzeugkasten
+
+### für Workflows
 
  * Branch
  * Merge

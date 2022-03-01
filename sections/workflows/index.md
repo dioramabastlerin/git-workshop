@@ -12,8 +12,3 @@
  * Periodische Releases
  * Mehrere Release-Lines
 
-
----
-
-
-[Grundlagen: Branching-Modelle](https://kapitel26.github.io/slides/2015-11-09-branch-modelle-mit-git/)
