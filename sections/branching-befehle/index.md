@@ -92,8 +92,10 @@ welche Integrationen das History-Tree zeigt.
 
 ### für Workflows
 
- * Branch
- * Merge
- * Cherry-Pick
- * Rebase
- * 1st-Parent-History
+| Werkzeuge             |
+|-----------------------|
+| Branch                |
+| Merge                 |
+| Cherry-Pick           |
+| Rebase                |
+| 1st-Parent-History    |

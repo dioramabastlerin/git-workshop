@@ -130,3 +130,19 @@ z. B. durch Cherry-Pick.
 Entkoppelt Releases.
 
 Management erforderlich: Was wurde wo angewandt?
+
+---
+
+## Werkzeugkasten
+
+### für Workflows
+
+| Werkzeuge             | Patterns              |
+|-----------------------|-----------------------|
+| Branch                | Feature-Branch        |
+| Merge                 | Kollaborations-Branch |
+| Cherry-Pick           | Integrations-Branch   |
+| Rebase                | Pull-Request          |
+| 1st-Parent-History    | Staging-Branch        |
+|                       | Merge-Ketten          |
+|                       | Backporting           |
