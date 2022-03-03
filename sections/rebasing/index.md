@@ -95,6 +95,43 @@ Ohne Parameter: Upstream Branch.
 
 ### (Un-)sichtbarkeit von Integrationen
 
+
+---
+
+# Interactive Rebasing
+
+---
+
+Code-Reviews
+============
+
+Hat man nur ein Quality-Gate und geht sofort in Produktion, <BR>
+dann sind gute Code-Reviews wichtig.
+
+---
+
+#### Das Problem
+
+Bei Feature-Branches entstehen oft so viele Änderungen, dass das Review am Ende sehr komplex wird.
+
+
+#### Lösungsansatz
+
+Nicht "das Diff" am Ende des Branches reviewen<br/>
+sondern jedes Commit einzeln.
+
+---
+
+#### Das Problem dabei
+
+Zu viele Commits. Oft zu unstrukturiert.
+
+#### Lösung dazu
+
+*Interactive Rebasing* schafft eine lesbare Historie.
+
+
+
 ---
 
 

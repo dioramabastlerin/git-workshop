@@ -6,6 +6,54 @@ Branch-Modelle
 
 ---
 
+
+## Trunk-Based Development
+
+![Gitflow trunk](abb-branching-strategie-trunk.png)
+
+* Stabiler Master-Branch. Häufige Releases.
+
+---
+
+## Feature-Branching
+
+
+---
+
+## Release-Staging
+
+---
+
+
+## Multiple Releases
+
+---
+
+![Multiple](abb-release-produkte.png)
+
+---
+
+Multiple Releases mit Patterns
+------------------------------
+
+![Multiple](abb-release-produkte-patterns.png)
+
+---
+
+
+Continuous Delivery Modell
+--------------------------
+
+![CD](abb-release-continuous-delivery.png)
+
+ * Nur ein Quality Gate in Git.
+
+
+---
+
+
+---
+
 Gitflow
 -------
 
@@ -46,29 +94,6 @@ Gitflow: Merge-Kette
 
 ![Gitflow merge](abb-branching-strategie-gitflow-patterns-merge-kette.png)
 
----
-
-Trunk-Based
------------------------------
-
-![Gitflow trunk](abb-branching-strategie-trunk.png)
-
-* Stabiler Master-Branch. Häufige Releases.
-
----
-
-## Multiple Releases
-
----
-
-![Multiple](abb-release-produkte.png)
-
----
-
-Multiple Releases mit Patterns
-------------------------------
-
-![Multiple](abb-release-produkte-patterns.png)
 
 ---
 
@@ -80,46 +105,6 @@ Backports
 ![Backport](abb-release-produkte-backport.png)
 
  * Cherry-Pick zum Kopieren des Bugfix.
-
----
-
-
-Continuous Delivery Modell
---------------------------
-
-![CD](abb-release-continuous-delivery.png)
-
- * Nur ein Quality Gate in Git.
-
----
-
-Code-Reviews
-============
-
-Hat man nur ein Quality-Gate und geht sofort in Produktion, <BR>
-dann sind gute Code-Reviews wichtig.
-
----
-
-#### Das Problem
-
-Bei Feature-Branches entstehen oft so viele Änderungen, dass das Review am Ende sehr komplex wird.
-
-
-#### Lösungsansatz
-
-Nicht "das Diff" am Ende des Branches reviewen<br/>
-sondern jedes Commit einzeln.
-
----
-
-#### Das Problem dabei
-
-Zu viele Commits. Oft zu unstrukturiert.
-
-#### Lösung dazu
-
-*Interactive Rebasing* schafft eine lesbare Historie.
 
 ---
 
