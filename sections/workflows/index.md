@@ -5,10 +5,9 @@
 
 ## Lernziele
 
- * Patterns für Workflows \
-   Feature-Branch, Integrations-Branch, Pull-Request, Quality-Gate, Staging-Branch, Merge-Ketten
- * Feature-Branching
+ * Trunk-based Development
  * Continuous Delivery
- * Periodische Releases
- * Mehrere Release-Lines
-
+ * Feature Branching
+ * Release Staging
+ * Multiple Releases
+ * GitFlow
