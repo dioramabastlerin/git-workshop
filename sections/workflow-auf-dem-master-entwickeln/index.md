@@ -5,6 +5,7 @@ Mehrere Entwickler bearbeiten gemeinsam einen `master`-Branch.
 
 <!-- .slide: data-background-image="workflow-auf-dem-master-entwickeln/trunk-based.png" data-background-opacity="0.4" -->
 
+
 ---
 
 ### Pull = Fetch + Merge
@@ -34,3 +35,14 @@ Was wurde reingemerged?
 1. Änderungen senden
        git push
 1. Zurück zu Schritt 1.
+
+
+---
+
+
+## Trunk-Based Development
+
+![Gitflow trunk](abb-branching-strategie-trunk.png)
+
+* Stabiler Master-Branch. Häufige Releases.
+

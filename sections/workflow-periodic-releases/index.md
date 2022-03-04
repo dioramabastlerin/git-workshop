@@ -1,5 +1,8 @@
 # Workflow
-## Release durchführen
+
+## Release-Staging
+
+Releases vorbereiten.
 
 
 ---
