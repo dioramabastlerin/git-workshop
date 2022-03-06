@@ -4,7 +4,7 @@ image:
 
 tasks:
   - name: Build exercise files and progress server
-    init: gradle run distuebungenMarkdown
+    init: gradle build run distuebungenMarkdown
     command: gradle progress
 
   - name: Build website & Webserver on 4000
