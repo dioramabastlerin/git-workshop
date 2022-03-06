@@ -18,7 +18,7 @@ RUN echo test
 # Set the ~/.rvmrc back
 # RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
 
-RUN gem install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
+RUN gem install --user-install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
 
 
 RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc
