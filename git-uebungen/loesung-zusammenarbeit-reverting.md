@@ -33,7 +33,7 @@ Tipp: Am verschinden der Datei `from-feature` kann man den Erfolg erkennen.
 
 
 
-<pre><code>repo $ <b>git revert -m 1 feature-merge</b><br><br>Removing from-feature<br>[master 49f5ddb] Revert &quot;Merge branch 'feature'&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 12 deletions(-)<br> delete mode 100644 from-feature<br><br></code></pre>
+<pre><code>repo $ <b>git revert -m 1 feature-merge</b><br><br>[master 49f5ddb] Revert &quot;Merge branch 'feature'&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 12 deletions(-)<br> delete mode 100644 from-feature<br><br></code></pre>
 
 
 
@@ -57,7 +57,7 @@ Untersuche die Fehlermeldung und den Commit-Graphen.
 Tipp: Das gescheiterte Merge kann mit `git merge --abort` abgebrochen werden.
 
 
-<pre><code>repo $ <b>git merge feature</b><br><br>CONFLICT (modify/delete): from-feature deleted in HEAD and modified in feature. Version feature of from-feature left in tree.<br>Automatic merge failed; fix conflicts and then commit the result.<br><br></code></pre>
+<pre><code>repo $ <b>git merge feature</b><br><br>CONFLICT (modify/delete): from-feature deleted in HEAD and modified in feature.  Version feature of from-feature left in tree.<br>Automatic merge failed; fix conflicts and then commit the result.<br><br></code></pre>
 
 
 
@@ -91,7 +91,7 @@ Tipp: Das Commit ist als `feature-merge` getagged.
 
 
 
-<pre><code>repo $ <b>git merge feature</b><br><br>Merge made by the 'recursive' strategy.<br> from-feature | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>repo $ <b>git merge feature</b><br><br>Merge made by the 'ort' strategy.<br> from-feature | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 

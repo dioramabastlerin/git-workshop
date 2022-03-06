@@ -45,7 +45,7 @@ Merge `feature-a` auf den `master`und
 zeige den Commit-Graphen.
 
 
-<pre><code>repo $ <b>git merge feature-a</b><br><br>Merge made by the 'recursive' strategy.<br> foo | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>repo $ <b>git merge feature-a</b><br><br>Merge made by the 'ort' strategy.<br> foo | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 

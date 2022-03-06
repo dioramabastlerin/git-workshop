@@ -78,7 +78,7 @@ die Anja gemacht hat
 Integriere die Änderungen mit Pull und sieh Dir dann den Commit-Graphen an.
 
 
-<pre><code>my-apollo $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> backend.java | 4 ++--<br> 1 file changed, 2 insertions(+), 2 deletions(-)<br><br></code></pre>
+<pre><code>my-apollo $ <b>git pull</b><br><br>Merge made by the 'ort' strategy.<br> backend.java | 4 ++--<br> 1 file changed, 2 insertions(+), 2 deletions(-)<br><br></code></pre>
 
 
 Da *Anja* eine andere Datei (`backend.java`) bearbeitet hat als Du (`frontend.java`),
