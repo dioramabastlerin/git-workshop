@@ -6,22 +6,8 @@ RUN bash -lc gem install --user-install jekyll bundler minima jekyll-feed jekyll
 
 RUN brew install kotlin 
 
-# Temporarily reset ~/.rvmrc
-#RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
-
-# Do some ruby voodoo
-# COPY --chown=gitpod:gitpod Gemfile /tmp/
-# COPY --chown=gitpod:gitpod Gemfile.lock /tmp/
-# WORKDIR /tmp
-# RUN bash -lc "bundle install"
-
-# Set the ~/.rvmrc back
-# RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
-
-
-RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc
-
-RUN git config --global pull.rebase false \
+RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc \
+    && git config --global pull.rebase false \
     && git config --global merge.conflictStyle diff3
 
 WORKDIR /home/gitpod
