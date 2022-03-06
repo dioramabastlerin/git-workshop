@@ -9,7 +9,7 @@ RUN echo test
 # Temporarily reset ~/.rvmrc
 RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
 
-# Do somer ruby voodoo
+# Do some ruby voodoo
 COPY --chown=gitpod:gitpod Gemfile /tmp/
 COPY --chown=gitpod:gitpod Gemfile.lock /tmp/
 WORKDIR /tmp
@@ -20,7 +20,8 @@ RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
 
 RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc
 
-RUN git config --global pull.rebase false
+RUN git config --global pull.rebase false \
+    && git config --global merge.conflictStyle diff3
 
 WORKDIR /home/gitpod
 
