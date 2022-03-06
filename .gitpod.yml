@@ -17,6 +17,9 @@ tasks:
 ports:
   - port: 4000
     onOpen: ignore
+  - port: 8040
+    onOpen: open-preview
+    visibility: public
   - port: 8080
     onOpen: open-browser
     visibility: public
