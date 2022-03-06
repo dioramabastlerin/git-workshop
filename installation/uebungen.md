@@ -5,6 +5,15 @@ nav_order: 10
 parent: Installation
 ---
 
+Um die erste Übung beginnen zu können tun sie bitte Folgendes:
+
+### Übungen entpacken
+
+Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
+
+    $ unzip build.zip
+    $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
+    
 
 ### Git konfigurieren
 
@@ -22,16 +31,7 @@ Die folgenden Einstellungen, damit
 
     $ git config --global core.editor notepad
 
-Auf der Seite    
-
-
-### Übungen entpacken
-
-Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
-
-    $ unzip build.zip
-    $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
-    
+Tipp: Auf [dieser Seite](https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config) findet man Beispielkonfigurationen einige beliebte Editoren.
 
 
 
