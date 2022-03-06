@@ -2,7 +2,6 @@ FROM gitpod/workspace-full
 
 USER gitpod
 
-RUN gem install --user-install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
 
 RUN brew install kotlin 
 
@@ -21,7 +20,6 @@ RUN echo test
 # RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
 
 
-
 RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc
 
 RUN git config --global pull.rebase false \
@@ -29,5 +27,6 @@ RUN git config --global pull.rebase false \
 
 WORKDIR /home/gitpod
 
+RUN bash -lc gem install --user-install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
 
 
