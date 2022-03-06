@@ -2,10 +2,9 @@ FROM gitpod/workspace-full
 
 USER gitpod
 
+RUN bash -lc gem install --user-install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
 
 RUN brew install kotlin 
-
-RUN echo test
 
 # Temporarily reset ~/.rvmrc
 #RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
@@ -27,6 +26,5 @@ RUN git config --global pull.rebase false \
 
 WORKDIR /home/gitpod
 
-RUN bash -lc gem install --user-install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
 
 
