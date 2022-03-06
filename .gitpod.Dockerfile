@@ -7,7 +7,7 @@ RUN brew install kotlin
 RUN echo test
 
 # Temporarily reset ~/.rvmrc
-RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
+#RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
 
 # Do some ruby voodoo
 # COPY --chown=gitpod:gitpod Gemfile /tmp/
@@ -17,6 +17,9 @@ RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
 
 # Set the ~/.rvmrc back
 # RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
+
+RUN gem install jekyll bundler minima jekyll-feed jekyll-remote-theme just-the-docs jekyll-optional-front-matter jekyll-relative-links jekyll-default-layout ffi
+
 
 RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc
 
