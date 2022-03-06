@@ -10,13 +10,13 @@ RUN echo test
 RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
 
 # Do some ruby voodoo
-COPY --chown=gitpod:gitpod Gemfile /tmp/
-COPY --chown=gitpod:gitpod Gemfile.lock /tmp/
-WORKDIR /tmp
-RUN bash -lc "bundle install"
+# COPY --chown=gitpod:gitpod Gemfile /tmp/
+# COPY --chown=gitpod:gitpod Gemfile.lock /tmp/
+# WORKDIR /tmp
+# RUN bash -lc "bundle install"
 
 # Set the ~/.rvmrc back
-RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
+# RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
 
 RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc
 
