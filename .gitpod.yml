@@ -4,7 +4,7 @@ image:
 
 tasks:
   - name: Open README.md
-    command: code README.md
+    command: gp open README.md
 
   - name: Build exercise files and progress server
     init: gradle build run distuebungenMarkdown
