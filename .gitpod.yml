@@ -3,6 +3,9 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: Open README.md
+    command: code README.md
+
   - name: Build exercise files and progress server
     init: gradle build run distuebungenMarkdown
     command: gradle progress
@@ -17,11 +20,9 @@ tasks:
 ports:
   - port: 4000
     onOpen: ignore
-  - port: 8040
-    onOpen: open-preview
-    visibility: public
+
   - port: 8080
-    onOpen: open-browser
+    onOpen: open-preview
     visibility: public
 
 github:
@@ -47,3 +48,4 @@ vscode:
     - fwcd.kotlin
     - eamodio.gitlens
     - mhutchie.git-graph
+    - matt-rudge.auto-open-preview-panel
