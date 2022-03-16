@@ -140,6 +140,7 @@ z. B. wenn mehrere Entwickler parallel gearbeitet haben.
 ```
 
 
+---
 
 
 ## Commits und Revision-Hashes
@@ -283,30 +284,116 @@ Zeigt, für jede Zeile, in welchem Commit diese zuletzt bearbeitet wurde.
 
 ---
 
-## Branches, Tags und HEAD
+
+## Branches
+
+Branches repräsentieren unterschiedliche Stränge der Entwicklung, z. B. für
+
+ * parallele Entwicklung von Features
+ * Pflege von mehreren Release-Lines/Produktgenerationen
+
+
+Technisch: Branches sind bewegliche Zeiger auf Commits.
+
 
 ---
 
-### Ref - Ein Name für ein Commit
+Anzeigen, welche Branches es *lokal* gibt. 
 
-Ein *Ref* ist ein Zeiger auf ein Commit.
-Der Log-Befehl zeigt die Refs idR. mit an, d. h. `--decorate` kann weggelassen werden.
+`*` zeigt, welcher Branch gerade aktiv ist.
 
 ```bash
-git log --decorate --oneline
+$ git branch
+  feature-a
+* master
+```
+
+`-r` zeigt, welche Branches *Origin* hat.
+
+```bash
+$ git branch -r
+  origin/main
+  origin/feature-b
+```
+
+*Origin* ist das Repo von dem man geklont hat.
+
+---
+
+## Branch wechseln
+
+`switch` lädt den Stand eines Branches in den Workspace.
+
+```bash
+$ git switch feature-b
+Switched to branch 'feature-b'
+```
+
+Außerdem wird der Branch zum *aktiven Branch*.
+
+
+---
+
+
+## Tags
+
+Tags sind *eingefrorene* Stände des Projekts, z. B. 
+
+ * für Releases, z. B. `v1.0.2`, `v1.0.3`
+ * zur Kennzeichnung von Versionen,<br/> z. B. `itest-passed/2022-02-17`
+
+
+Technisch: Tags sind feste Zeiger auf Commits.
+
+
+---
+
+`tag` liste die Tags auf:
+
+```bash
+$ git tag
+release1.0
+release1.1
+```
+
+---
+
+
+### Begrif: Ref 
+
+*Ref* ist Oberbegriff für Branches, Tags und `HEAD`.
+
+Ein *Ref* ist ein Zeiger auf ein Commit.
+Der Log-Befehl zeigt die Refs an.
+
+```bash
+$ git log --oneline
 
 1d8425c (HEAD -> master, tag: testtag) Add content to commits chapter.
 bb00978 (origin/master) Add content to repository chapter.
 ```
 
+Die *Refs* sind in `.git/refs/` abgelegt.
+
+
 ---
 
-### Beispiele für Refs
+## Auf beliebige Versionen wechseln
 
- * `HEAD`
- * `master` (Branch)
- * `feature-a` (Branch)
- * `v1.0.0` (Branch)
+mit `--detach` kann `switch` kann nicht nur auf Branches, sondern auf beliebige Versionsstände wechseln.
+
+
+```bash
+$ git switch --detach 39a7fe
+$ git switch --detach v1.0.3
+$ git switch --detach HEAD
+$ git switch --detach HEAD~3
+```
+
+Allerdings gibt es dann natürlich keinen *aktiven Branch* (`detached head`). 
+
+
+---
 
 Mit der Option `--all` zeig `log` nicht nur die Historie des `HEAD`,
 sonder aller Tags und Branches.
@@ -317,21 +404,19 @@ sonder aller Tags und Branches.
 
 ---
 
-## Branches und Tags anzeigen
-
-```bash
-git branch
-
-git tag
-```
-
----
 
 ## Checkout
 
+`checkout` kann auf andere Versionen wechseln und/oder Inhalte von Dateien und Verzeichnisse wiederherstellen.
+
+In neuen Versione von Git gibt es dafür zwei separate Befehle:
+
+ * `switch` wechselt den ganzen Workspace und `HEAD` auf eine andere Version/Branch
+ * `restore` tauscht gezielt Inhalte von Dateien/Verzeichnissen aus.
+
 ---
 
-### Checkout
+### Checkout (deprecated)
  
 Commit -> Workspace
 

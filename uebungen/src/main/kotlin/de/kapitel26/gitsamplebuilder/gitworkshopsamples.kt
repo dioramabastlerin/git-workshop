@@ -31,6 +31,7 @@ fun buildGitUebungen() {
             pushRejected()
             integrationVonAenderungen()
             branching()
+            reverting()
             rebasing()
         }
 

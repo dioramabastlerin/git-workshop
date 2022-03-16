@@ -12,7 +12,8 @@ fun main() {
 
             // halloWelt()
             // rebasingSandbox()
-            repositoryUntersuchen()
+            //repositoryUntersuchen()
+            reverting()
             // commitsErstellen()
             // staging()
             // cloning()

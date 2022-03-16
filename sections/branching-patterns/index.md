@@ -1,14 +1,14 @@
 
 
-Patterns & Practices
-====================
+# Patterns 
+
+## für Workflows
+
 
 ---
 
 
-Feature-Branch
---------------
-
+## Feature-Branch
 
 ![Feature Branches](abb-feature-branches.png)
 
@@ -32,18 +32,27 @@ Wichtig: Verknüpfung mit Issue-Tracker
 ---
 
 
-### Auf einem Feature-Branch gemeinsam arbeiten
+## Kollaborations-Branch
+
+### Auf einem Branch zusammenarbeiten
 
 ![Rebase auf Feature-Branch](abb-rebase-auf-feature-branch.png)
 
-Für Feature-Branches wünscht man sich eine *lineare Historie*. Integration mit `pull --rebase`.
 
 ---
 
+## Kollaborations-Branch
 
-Integrations-Branch
--------------------
+### Auf einem Branch zusammenarbeiten
 
+ * Mehrere Entwickler, 1 Branch
+ * Push & Pull 
+ * Tipp: `pull --rebase` schafft *lineare Historie*.
+
+
+---
+
+## Integrations-Branch
 
 ![Integrations-Branch](abb-integrationsbranch.png)
 
@@ -61,8 +70,7 @@ Integrations-Branch
 ---
 
 
-Pull-Request
-------------
+## Pull-Request
 
 ![Pull-Request](abb-pull-request.png)
 
@@ -70,48 +78,71 @@ Pull-Request
 
 ---
 
+## Pull-Request
 
-### Quality-Gate beim Pull-Request
-
+ * separarierte Entwicklung
+ * Jemand anderes (Maintainer/Kollege) integriert
+ * Quality-Gate: Review, autom. Checks
+ * dokumentierte Integration
 
 ![Feature Branches](abb-jenkins-pull-requests-stash-config.png)
-
-(Beispiel aus Bitbucket Server, fka Atlassian Stash)
-
 
 ---
 
 
-Staging-Branches
-----------------
+## Staging-Branches
 
 ![Staging-Branches](abb-staging-branches.png)
 
 ---
 
 
-Staging-Branches
-----------------
+## Staging-Branches
 
-Jeder Staging-Branches entspricht einem Qualitätsniveau, z. B. `stable` ist getestet und kann jederzeit in Produktion gehen.
+Repräsentiert ein Qualitätsniveau, z. B.
+
+ * `develop`: Build-fähig, darf unfertige Features zeigen.
+ * `release`: Fertige Features, noch nicht abgenommen
+ * `master`: Abgenommene Version für Kunden
+
 
 ---
 
 
-Merge-Ketten
-------------
+## Merge-Ketten
 
 ![Merge-Ketten](abb-merge-ketten.png)
 
+Merge-Ketten gehen von älteren (upstream) Branches zu neueren Branches.
+
+Durch Merges werden alle Änderungen von einem Branch zum nächsten übertragen.
+
 ---
 
-Merge-Ketten
-------------
+## Backporting
 
-Merge-Ketten gehen von älteren Branches zu neueren Branches.
+In die andere Richtung,
+will man nicht alle Änderungen mitnehmen.
 
-Geht man in die andere Richtung, spricht man von **Backporting**.
+Selektive Übernahme einzelner Änderungen,
+z. B. durch Cherry-Pick.
 
-Notes:
+Entkoppelt Releases.
 
-Backporting erwähnen.
+Management erforderlich: Was wurde wo angewandt?
+
+---
+
+## Werkzeugkasten
+
+### für Workflows
+
+| Werkzeuge             | Patterns              |
+|-----------------------|-----------------------|
+| Branch                | Feature-Branch        |
+| Merge                 | Kollaborations-Branch |
+| Cherry-Pick           | Integrations-Branch   |
+| Rebase                | Pull-Request          |
+| 1st-Parent-History    | Staging-Branch        |
+|                       | Merge-Ketten          |
+|                       | Backporting           |

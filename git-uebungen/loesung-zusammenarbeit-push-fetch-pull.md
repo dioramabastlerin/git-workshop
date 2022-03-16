@@ -49,7 +49,7 @@ Integriere die neuesten Commits vom `origin`-Repository
 in den lokalen `master`.
 
 
-<pre><code>mein-klon $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> foo | 4 ++--<br> 1 file changed, 2 insertions(+), 2 deletions(-)<br><br></code></pre>
+<pre><code>mein-klon $ <b>git pull</b><br><br>Merge made by the 'ort' strategy.<br> foo | 4 ++--<br> 1 file changed, 2 insertions(+), 2 deletions(-)<br><br></code></pre>
 
 
 

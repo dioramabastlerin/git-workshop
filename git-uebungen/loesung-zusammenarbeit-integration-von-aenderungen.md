@@ -35,7 +35,7 @@ Führe ein Pull mit `--no-ff` durch.
 Lasse Dir Status und den Commit-Graphen zeigen.
 
 
-<pre><code>no-ff $ <b>git pull --no-ff</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>no-ff $ <b>git pull --no-ff</b><br><br>Merge made by the 'ort' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git signalisiert, dass kein Fast-Forward durchgeführt wurde.
@@ -81,7 +81,7 @@ Diese Meldung zeigt, dass im `origin` Änderungen vorliegen,
 die wir noch nicht integriert haben.
 
 
-<pre><code>changes-in-different-files $ <b>git pull</b><br><br>Merge made by the 'recursive' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
+<pre><code>changes-in-different-files $ <b>git pull</b><br><br>Merge made by the 'ort' strategy.<br> average.kts | 2 +-<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>From ../origin-for-merge-samples<br>   60e4443..12bfe04  master     -&gt; origin/master<br><br></code></pre>
 
 
 Git hat die Änderungen geholt und ein Merge-Commit erzeugt.
@@ -141,13 +141,13 @@ Nicht vergessen: Nach dem Bereinigen `git add` aufrufen.
 
 
 
-<pre><code>changes-in-same-files $ <b>git commit -m 'Änderungen von Anja integriert'</b><br><br>[master 88ca4df] Änderungen von Anja integriert<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git commit -m 'Änderungen von Anja integriert'</b><br><br>[master 0e538ef] Änderungen von Anja integriert<br><br></code></pre>
 
 
 Und hier nochmal der entstandene Graph:
 
 
-<pre><code>changes-in-same-files $ <b>git log --graph --oneline</b><br><br>*   88ca4df Änderungen von Anja integriert<br>|\  <br>| *   0003961 Merge branch 'master' of ../origin-for-merge-samples<br>| |\  <br>| | * 12bfe04 Verwende double Werte statt int<br>| * | 44ef898 Commited file README.md on branch master by bstachmann<br>| |/  <br>* / 86c7660 Refactoring: s in summe umbenennen<br>|/  <br>* 60e4443 Created file average.kts on branch master by anja.<br>* 2eea5f6 Created file README.md on branch master by anja.<br><br></code></pre>
+<pre><code>changes-in-same-files $ <b>git log --graph --oneline</b><br><br>*   0e538ef Änderungen von Anja integriert<br>|\  <br>| *   0003961 Merge branch 'master' of ../origin-for-merge-samples<br>| |\  <br>| | * 12bfe04 Verwende double Werte statt int<br>| * | 44ef898 Commited file README.md on branch master by bstachmann<br>| |/  <br>* / 86c7660 Refactoring: s in summe umbenennen<br>|/  <br>* 60e4443 Created file average.kts on branch master by anja.<br>* 2eea5f6 Created file README.md on branch master by anja.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-integration-von-aenderungen.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

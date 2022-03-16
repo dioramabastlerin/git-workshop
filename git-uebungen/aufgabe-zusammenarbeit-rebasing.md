@@ -28,7 +28,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 <!--UEB-Rebasing--><h2>Schritt 1 - Feature-Branch per Rebase aktualiseren.</h2>
 
-Starte im Verzeichnis `build/git-uebungen/loesungen/zusammenarbeit-rebasing/repo`.
+Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-rebasing/repo`.
 
 Auf dem master gibt es Neuerungen.
 

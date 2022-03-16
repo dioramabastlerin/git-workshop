@@ -3,5 +3,8 @@
     "scm.inputFontSize": 18,
     "terminal.integrated.fontSize": 16,
     "markdown.preview.fontSize": 16,
-    "editor.fontSize": 16
+    "editor.fontSize": 16,
+    "gitlens.plusFeatures.enabled": false,
+    "gitlens.showWhatsNewAfterUpgrades": false,
+    "gitlens.showWelcomeOnInstall": false
 }

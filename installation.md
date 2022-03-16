@@ -2,6 +2,7 @@
 layout: page
 title: Installation
 nav_order: 80
+has_children: true
 permalink: /installation
 ---
 
@@ -9,11 +10,9 @@ permalink: /installation
 
 Es ist eine gute Idee, die Arbeitsumgebung schon vor dem Workshop vorzubereiten, damit nicht so viel Zeit für Setup-Themen im Workshop verbraucht wird. Meldet Euch bei mir, falls ihr beim Einrichten auf Probleme stoßt. Aber: Keine Panik! Notfalls kriegen wir das auch noch am ersten Vormittag hin.
 
-## Auf dem eigenen Rechner arbeiten
-
 ### Git installieren
 
-Zunächst einmal brauchen wir natürlich Git. Installiert es (https://git-scm.com/downloads), oder lasst es installieren (falls euer Rechner fremdverwaltet ist). Falls ihr auf Windows installiert, wird der Installer Euch mehrfach Optionen zur Auswahl anbieten. Nehmt einfach die vorausgewählten Optionen, falls ihr keine besonderen Wünsche an die Installation habt.
+Zunächst einmal brauchen wir natürlich Git. [Installiert es](https://git-scm.com/downloads), oder lasst es installieren (falls euer Rechner fremdverwaltet ist). Falls ihr auf Windows installiert, wird der Installer Euch mehrfach Optionen zur Auswahl anbieten. Nehmt einfach die vorausgewählten Optionen, falls ihr keine besonderen Wünsche an die Installation habt.
 
 ### Bash-Shell öffnen
 
@@ -28,23 +27,18 @@ Gebt Folgendes ein:
 
 Falls Git bei Euch eine andere Versionsnummer ausgibt, kein Problem: Hauptsache Git ist da.
 
+Tipp: Sie können sich anzeihen lassen in welchem Verzeichnis die Bash arbeitet.
 
-### Git konfigurieren
+    $ pwd                       # Linux, MacOs: zeigt, in welchem Verzeichnis wir sind
+    $ pwd -W                    # Windows: Zeigt den Pfad in Windows Syntax
 
-Zunächst werden Name und Email konfiguriert:
-
-    $ git config --global user.name <mein-name>
-    $ git config --global user.email <meine-email>
-
-(Optional) Editor für Commit-Message etc. konfigurieren, hier z. B. `notepad`:
-
-    $ git config --global core.editor notepad
-
+Tipp: Arbeiten Sie, wenn möglich, auf einen lokalen Laufwerk. Auf Netzlaufwerken gibt es manchmal  Performance-Probleme. 
 
 ### Workshop-Repository klonen
 
     $ git clone https://github.com/bstachmann/git-workshop.git
     $ cd git-workshop
+
     
 #### Fallback
 
@@ -52,25 +46,6 @@ Falls das Klonen, z. B. wegen einer unternehmensinternen Firewall-Regel, nicht k
 
     $ mkdir git-workshop
     $ cd git-workshop
-    $ pwd                       # Linux, MacOs: zeigt, in welchem Verzeichnis die Git-Bash aktiv ist
-    $ pwd -W                    # Windows: Zeigt den Pfad in Windows Syntax
  
 Kopieren Sie die Datei `build.zip` in dieses Verzeichnis.
-
-### Übungen entpacken
-
-Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
-
-    $ unzip build.zip
-    $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
-    
-
-## In der Cloud arbeiten (Gitpod IDE)
-
-**Voraussetzung**: Wenn sie einen Account bei [*GitHub*](https://github.com), [*GitLab*](https://gitlab.com) oder [*BitBucket*](https://bitbucket.com) haben (oder einrichten), können sie auch in der Cloud (auf [Gitpod](https://gitpod.io)) arbeiten.
-
-[**Git-Workshop auf Gitpod öffnen**](https://gitpod.io#https://github.com/bstachmann/git-workshop)
-
-Nach dem Öffnen, müssen Sie sich ggf. anmelden, und  Zugriffsrechte für die Gitpod-App gewähren.
-
 

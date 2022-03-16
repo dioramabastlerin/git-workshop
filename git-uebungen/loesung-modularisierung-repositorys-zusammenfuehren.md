@@ -97,7 +97,7 @@ Inhalt des UI-Repository in einen lokalen Branch `uimaster` holen:
 
 
 
-<pre><code>gesamt $ <b>git checkout -b uimaster ui/master</b><br><br>Branch 'uimaster' set up to track remote branch 'master' from 'ui'.<br>Switched to a new branch 'uimaster'<br><br></code></pre>
+<pre><code>gesamt $ <b>git checkout -b uimaster ui/master</b><br><br>branch 'uimaster' set up to track 'ui/master'.<br>Switched to a new branch 'uimaster'<br><br></code></pre>
 
 
 UI-Dateien in Unterverzeichnis verschieben:
@@ -121,7 +121,7 @@ UI-Dateien in Unterverzeichnis verschieben:
 
 
 
-<pre><code>gesamt $ <b>git merge uimaster --allow-unrelated-histories</b><br><br>Merge made by the 'recursive' strategy.<br> ui/src/UI.java      | 12 ++++++++++++<br> ui/test/UITest.java | 12 ++++++++++++<br> 2 files changed, 24 insertions(+)<br> create mode 100644 ui/src/UI.java<br> create mode 100644 ui/test/UITest.java<br><br></code></pre>
+<pre><code>gesamt $ <b>git merge uimaster --allow-unrelated-histories</b><br><br>Merge made by the 'ort' strategy.<br> ui/src/UI.java      | 12 ++++++++++++<br> ui/test/UITest.java | 12 ++++++++++++<br> 2 files changed, 24 insertions(+)<br> create mode 100644 ui/src/UI.java<br> create mode 100644 ui/test/UITest.java<br><br></code></pre>
 
 
 Man sieht ui und backend wurden mitsamt Historie zusammengeführt:
