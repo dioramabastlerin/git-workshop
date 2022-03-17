@@ -30,9 +30,6 @@ Exercises can be found in `build/git-uebungen`.
 
  ### Progress Server
 
-
-asdfdsafsad
-
  A little web app to track progress on the exercises.
 
   * `gradle progress` to run
