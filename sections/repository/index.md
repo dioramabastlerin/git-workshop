@@ -395,15 +395,6 @@ Allerdings gibt es dann natürlich keinen *aktiven Branch* (`detached head`).
 
 ---
 
-Mit der Option `--all` zeig `log` nicht nur die Historie des `HEAD`,
-sonder aller Tags und Branches.
-
-```bash
-    git log --all --graph
-```
-
----
-
 
 ## Checkout
 
