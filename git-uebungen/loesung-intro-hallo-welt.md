@@ -27,7 +27,7 @@ Konfigurieren Sie Benutzername und Email:
 <pre><code>$ <b>git config --global user.email meine-email</b><br><br><br></code></pre>
 
 
-## Lösung zu Schritt 3 - Das erste Repos
+## Lösung zu Schritt 3 - Das erste Repo
 
 Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 
