@@ -138,7 +138,7 @@ fun CollectionOfSamples.staging() {
                     markdown("Zug $i")
                     git("clean -df")
                     git("restore -s HEAD~${9-i} ufer")
-                    bash("ls ufer/*")               
+                    ll("ufer/*")               
                 }
             }
         }

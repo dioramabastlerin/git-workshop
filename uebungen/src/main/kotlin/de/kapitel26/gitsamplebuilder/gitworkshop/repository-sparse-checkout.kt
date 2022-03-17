@@ -52,7 +52,7 @@ fun CollectionOfSamples.sparseCeckout
         ) {
             git("clone --sparse repo myrepo")
             inRepo("myrepo") {
-                bash("ls -1")
+                ll()
             }
         }
 
@@ -68,7 +68,7 @@ fun CollectionOfSamples.sparseCeckout
                 git("sparse-checkout add component-a")
                 git("sparse-checkout list")
                 git("checkout")
-                bash("ls -1")
+                ll()
             }
         }
 
@@ -82,7 +82,7 @@ fun CollectionOfSamples.sparseCeckout
             inRepo("myrepo") {
                 git("sparse-checkout disable")
                 git("checkout")
-                bash("ls -1")
+                ll()
             }
         }
 
@@ -98,7 +98,7 @@ fun CollectionOfSamples.sparseCeckout
                 git("sparse-checkout init --cone")
                 git("sparse-checkout add component-a")
                 git("checkout")
-                bash("ls -1")
+                ll()
             }
         }
 
@@ -119,7 +119,7 @@ fun CollectionOfSamples.sparseCeckout
 //                git("sparse-checkout add component-a/foo")
 //                git("checkout")
 //                markdown("Man sieht, dass das `checkout` dann auch nicht wie erhofft wirkt.")
-//                bash("ls -R")
+//                ll("-R")
 //                git("status")
 //            }
 //        }
