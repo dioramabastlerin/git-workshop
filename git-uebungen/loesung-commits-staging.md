@@ -116,7 +116,7 @@ Zug 1
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>🥬<br>🐐<br>🐺<br>👨‍🌾<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>total 16K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br></code></pre>
 
 
 Zug 2
@@ -130,7 +130,7 @@ Zug 2
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>ufer/ost:<br>🐐<br>👨‍🌾<br><br>ufer/west:<br>🥬<br>🐺<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>ufer/ost:<br>total 8.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br>ufer/west:<br>total 8.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br><br></code></pre>
 
 
 Zug 3
@@ -144,7 +144,7 @@ Zug 3
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>ufer/ost:<br>🐐<br><br>ufer/west:<br>🥬<br>🐺<br>👨‍🌾<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>ufer/ost:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br><br>ufer/west:<br>total 12K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br></code></pre>
 
 
 Zug 4
@@ -158,7 +158,7 @@ Zug 4
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>ufer/ost:<br>🐐<br>🐺<br>👨‍🌾<br><br>ufer/west:<br>🥬<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>ufer/ost:<br>total 12K<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br>ufer/west:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br><br></code></pre>
 
 
 Zug 5
@@ -172,7 +172,7 @@ Zug 5
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>ufer/ost:<br>🐺<br><br>ufer/west:<br>🥬<br>🐐<br>👨‍🌾<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>ufer/ost:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br><br>ufer/west:<br>total 12K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br></code></pre>
 
 
 Zug 6
@@ -186,7 +186,7 @@ Zug 6
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>ufer/ost:<br>🥬<br>🐺<br>👨‍🌾<br><br>ufer/west:<br>🐐<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>ufer/ost:<br>total 12K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br>ufer/west:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br><br></code></pre>
 
 
 Zug 7
@@ -200,7 +200,7 @@ Zug 7
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>ufer/ost:<br>🥬<br>🐺<br><br>ufer/west:<br>🐐<br>👨‍🌾<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>ufer/ost:<br>total 8.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br><br>ufer/west:<br>total 8.0K<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br></code></pre>
 
 
 Zug 8
@@ -214,7 +214,7 @@ Zug 8
 
 
 
-<pre><code>repo $ <b>ls ufer/*</b><br><br>🥬<br>🐐<br>🐺<br>👨‍🌾<br><br></code></pre>
+<pre><code>repo $ <b>ll ufer/*</b><br><br>total 16K<br>-rw-r--r-- 1 gitpod gitpod 181  🥬<br>-rw-r--r-- 1 gitpod gitpod 181  🐐<br>-rw-r--r-- 1 gitpod gitpod 181  🐺<br>-rw-r--r-- 1 gitpod gitpod 181  👨‍🌾<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-commits-staging.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

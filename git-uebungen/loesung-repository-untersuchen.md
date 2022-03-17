@@ -9,15 +9,15 @@ parent: Lösungen
 Untersuche das Projektverzeichnis.
 
 
-<pre><code>repo $ <b>ls -1AF</b><br><br>foo/<br>.git/<br>hallo-welt<br>nachher<br>restaurant<br>und-tschuess<br><br></code></pre>
+<pre><code>repo $ <b>ll </b><br><br>total 12K<br>drwxr-xr-x 2 gitpod gitpod  17  foo<br>-rw-r--r-- 1 gitpod gitpod 253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod 375  nachher<br>-rw-r--r-- 1 gitpod gitpod   0  restaurant<br>-rw-r--r-- 1 gitpod gitpod 181  und-tschuess<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>ls -1AF foo</b><br><br>bar<br><br></code></pre>
+<pre><code>repo $ <b>ll foo</b><br><br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 350  bar<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>ls -1AF .git</b><br><br>branches/<br>COMMIT_EDITMSG<br>config<br>description<br>HEAD<br>hooks/<br>index<br>info/<br>logs/<br>objects/<br>refs/<br><br></code></pre>
+<pre><code>repo $ <b>ll .git</b><br><br>total 28K<br>drwxr-xr-x  2 gitpod gitpod    6  branches<br>-rw-r--r--  1 gitpod gitpod   58  COMMIT_EDITMSG<br>-rw-r--r--  1 gitpod gitpod   92  config<br>-rw-r--r--  1 gitpod gitpod   73  description<br>-rw-r--r--  1 gitpod gitpod   23  HEAD<br>drwxr-xr-x  2 gitpod gitpod 4.0K  hooks<br>-rw-r--r--  1 gitpod gitpod  477  index<br>drwxr-xr-x  2 gitpod gitpod   21  info<br>drwxr-xr-x  3 gitpod gitpod   30  logs<br>drwxr-xr-x 50 gitpod gitpod 4.0K  objects<br>drwxr-xr-x  4 gitpod gitpod   31  refs<br><br></code></pre>
 
 
 Man sieht: Das Projekt enthält einige Dateien, ein Unterverzeichnis
@@ -81,7 +81,7 @@ Und jetzt holen wir genau diese Version in den Workspace:
 
 
 
-<pre><code>repo $ <b>ls -Rl --time-style=+&quot;&quot;</b><br><br>.:<br>total 8<br>drwxr-xr-x 2 gitpod gitpod  17  foo<br>-rw-r--r-- 1 gitpod gitpod 253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod 375  nachher<br>-rw-r--r-- 1 gitpod gitpod   0  restaurant<br><br>./foo:<br>total 4<br>-rw-r--r-- 1 gitpod gitpod 350  bar<br><br></code></pre>
+<pre><code>repo $ <b>ll </b><br><br>total 8.0K<br>drwxr-xr-x 2 gitpod gitpod  17  foo<br>-rw-r--r-- 1 gitpod gitpod 253  hallo-welt<br>-rw-r--r-- 1 gitpod gitpod 375  nachher<br>-rw-r--r-- 1 gitpod gitpod   0  restaurant<br><br></code></pre>
 
 
 ## Lösung zu Schritt 5 - Branches und Tags

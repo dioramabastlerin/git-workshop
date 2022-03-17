@@ -21,7 +21,7 @@ Untersuche dann die entstandene Verzeichnisstruktur.
 Man sieht, dass die Module als eigenständige Git-Repositorys mit separatem `.git`-Verzeichnis eingebettet wurden.
 
 
-<pre><code>submodules $ <b>ls -1 mod-a mod-b</b><br><br>mod-a:<br>anton<br><br>mod-b:<br>berta<br><br></code></pre>
+<pre><code>submodules $ <b>ll mod-a mod-b</b><br><br>mod-a:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 181  anton<br><br>mod-b:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 181  berta<br><br></code></pre>
 
 
 Achtung! Die submodule wurden hinzugefügt, aber es fehlt noch ein Commit.
@@ -166,7 +166,7 @@ Vergiß nicht, ein `submodule update` auszuführen.
 Die Modulverzeichnisse sind da aber noch leer:
 
 
-<pre><code>mysubmodules $ <b>ls -1 mod-a mod-b</b><br><br>mod-a:<br><br>mod-b:<br><br></code></pre>
+<pre><code>mysubmodules $ <b>ll mod-a mod-b</b><br><br>mod-a:<br>total 0<br><br>mod-b:<br>total 0<br><br></code></pre>
 
 
 Jetzt holen wir die Module:
@@ -176,7 +176,7 @@ Jetzt holen wir die Module:
 
 
 
-<pre><code>mysubmodules $ <b>ls -1 mod-a mod-b</b><br><br>mod-a:<br>anton<br><br>mod-b:<br>berta<br><br></code></pre>
+<pre><code>mysubmodules $ <b>ll mod-a mod-b</b><br><br>mod-a:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 248  anton<br><br>mod-b:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 248  berta<br><br></code></pre>
 
 
 
