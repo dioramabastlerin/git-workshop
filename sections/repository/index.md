@@ -1,28 +1,14 @@
-
-## Der `clone`-Befehl
-
-Erstellt lokale Kopie eines Git-Repositorys in einem lokalen Verzeichnis,z.B. 
-
-```bash
-    $ git clone https://github.com/bstachmann/git-workshop.git
-```    
-
-## Klon
-
-Eine solche Kopie nennt man einen **Klon**.
+## Repository und Workspace
 
 ---
 
-### Demo
+### Übung/Demo
 
-Wir untersuchen ein Repository. 
-
+Wir untersuchen ein Repository. Der `clone`-Befehl bringt es auf unseren Rechner.
 ```bash
-    $ git clone https://github.com/bstachmann/git-workshop.git
-
+    $ git clone <server-url>/git-workshop.git
     $ cd git-workshop
-
-    $ ll
+    $ ls -lah
     ...
     drwxrwxr-x   3 bjoern bjoern 4,0K Aug  9 19:54 css
     drwxrwxr-x   2 bjoern bjoern 4,0K Jun 24 18:20 debugging
@@ -38,112 +24,84 @@ Zwei Dinge sind aufgetaucht:
 
  1. Das **Repository**
 
-    (es liegt in `.git` im obersten Verzeichnis des Projekts)
+    (es liegt in `.git`)
 
  1. Der **Workspace**
 
    (alle anderen Dateien und Verzeichnisse, die nicht in `.git` liegen)
 
-Sonderfall: Repositorys ohne Workspace nennt man *bare Repositorys*.
-
-
 ---
 
+### Der Workspace
+
+umfasst alle Dateien und Verzeichnisse des Projekts
+
+ * **versionierte Dateien**
+   Dateien, die in der aktuellsten Git-Revision des Projekts,
+   `HEAD` genannt, schon bekannt sind.
+ * **unversionierte Dateien**
+   Neue Dateien, die Git "noch nicht kennt".
+ * **ignorierte Dateien**
+   Die gar nicht versioniert werden sollen (Stichwort: `.gitignore`)
+
+---
 
 ### Repository
 
-Eine Datenbank über die **Historie** des Projekts
+Damit Git **dezentral** (unabhängig vom Server) arbeiten kann,
+enthält es eine Datenbank
+mit der **gesamten Historie** eines Projekts.
 
-### Commits 
-
-Auch **Revisions** oder **Versionen** genannt
-
- * Snapshots über alle Daten des Projekts
- * **+** Autor, Zeitpunkt, Beschreibungen
-
- ### `HEAD`
-
-bezeichnet das aktuelle Commit 
-und ist Urprung der Dateien im Workspace.
-
-`HEAD` ist bei vielen Befehlen Default-Wert\
-und darf weggelassen werden.
-
+ * alle Versionen aller Dateien
+ * Metadaten: Autor, Zeitpunkt
+ * Branches: Ermöglichen parallele Entwicklungsstränge
+ * Markierte Versionen, genannt Tags
 
 ---
 
+### Übung
 
-## Repository untersuchen
-
- * `git log`: Auflisung von Commits
- * `git branch`: Listet Branche
- * `git tag: Listet Tags (bennante Versionen)
- * `git show`: Details zu *einem* Commit
- * `git ls-tree`: Listet Verzeichnisstruktur eines Commits
-
-
----
-
-### Demo: `git log`
-
+Wir lassen uns die Commits zeigen.
 ```bash
-    $ git log --all --graph --oneline
+    $ git log --oneline
 
-    * 215f901 (feature-a) : Edit file bar
-    | * da35f72 (HEAD -> master) Created file und-tschuess 
-    | * e639565 (tag: release1.1) : Edit file bar 
-    | * a15459c (some-old-branch) : Edit file bar 
-    |/  
-    * 1614349 : Edit file hallo-welt 
+    909af6d (HEAD -> master) Fix obsolete text on page
+    02d3329 fix typo in link
+    38efbcb Enable offline use
+    28e7071 Enable offline use
+    6721664 Overwork repository chapter
+    2ca78c1 Remove duplicated slides
+    330fd73 Fix missing git before command
     ...
 ```
-
- * `HEAD` ist das aktive Commit.
- * `main` ist der Name eines Branches.
- * `release1.1` ist ein Tag (benannte Version)
-
+Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie des Projekts.
 
 ---
 
-
-## `git log` 
-
-Zeigt die Historie des `HEAD`-Commits
-
- * `--oneline`: Eine Zeile je Commit
- * `--graph`: Graphische Darstellung
- * `--all`: Historie aller Branches und Tags
-
+## Klone
 
 ---
 
+Das lokale Repository ist eine Kopie des Projekts mit der gesamten Historie, genannt **Klon**.
 
+---
 
-### Der Commit-Graph
+Warum enthält\
+das geklonte Repository\
+die ganze Historie des Projekts?
 
-Das Log kann Verzweigungen enthalten und Zusammenführungen (Merges) enthalten,
-z. B. wenn mehrere Entwickler parallel gearbeitet haben.
+---
 
-```
-* | 5c65d40 Notizen zur Wiederholung
-* | 040bb7d Zeitplan für early birds hinzugefügt
-|/  
-* b1fae20 Fixup
-* 4137535 Add some aufgaben
-* 8f900ba Refactor: Split git intro 
-*   351872f Merge branch 'master' 
-|\  
-| * c81fde8 Update index.en.md
-* | 9bf4c61 Add workshop: Git basics and best practices
-|/  
-* 5f58070 Modify link to edit files on github
-```
-
+ * In jedem Klon wird unabhängig gearbeit.
+ * Fast alle Befehle arbeiten lokal (und damit schnell).
+ * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
+ * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
 ---
 
 
 ## Commits und Revision-Hashes
+
 
 ---
 
@@ -156,21 +114,13 @@ in Form von *Commits*. Jedes Commit wiederum hat
  * **Revision Hash** - die "Versionsnummer" von Git
    Prüfsumme über alle oben angegebenen Informationen.
 
-
-
 ---
 
+### `HEAD`
 
-### Begriff: `HEAD`
-
-`HEAD` bezeichnet die vorige Version.
-
-(von vorigem `commit`, oder `checkout`)
-
-```bash
-git show HEAD
-```
-
+bezeichnet das aktuelle Commit,/
+ist bei vielen Befehlen Default-Wert\
+und kann oft weggelassen werden.
 
 ---
 
@@ -238,6 +188,28 @@ Tipp: Mit `~` kann man Vorfahren adressieren.
 
 ---
 
+### Der Commit-Graph
+
+Das Log kann Verzweigungen enthalten und Zusammenführungen (Merges) enthalten,
+z. B. wenn mehrere Entwickler parallel gearbeitet haben.
+
+```
+* | 5c65d40 Notizen zur Wiederholung
+* | 040bb7d Zeitplan für early birds hinzugefügt
+|/  
+* b1fae20 Fixup
+* 4137535 Add some aufgaben
+* 8f900ba Refactor: Split git intro 
+*   351872f Merge branch 'master' 
+|\  
+| * c81fde8 Update index.en.md
+* | 9bf4c61 Add workshop: Git basics and best practices
+|/  
+* 5f58070 Modify link to edit files on github
+```
+
+---
+
 Die Option `--graph` kann dies darstellen:
 
 ```bash
@@ -284,130 +256,59 @@ Zeigt, für jede Zeile, in welchem Commit diese zuletzt bearbeitet wurde.
 
 ---
 
-
-## Branches
-
-Branches repräsentieren unterschiedliche Stränge der Entwicklung, z. B. für
-
- * parallele Entwicklung von Features
- * Pflege von mehreren Release-Lines/Produktgenerationen
-
-
-Technisch: Branches sind bewegliche Zeiger auf Commits.
-
+## Branches, Tags und HEAD
 
 ---
 
-Anzeigen, welche Branches es *lokal* gibt. 
-
-`*` zeigt, welcher Branch gerade aktiv ist.
-
-```bash
-$ git branch
-  feature-a
-* master
-```
-
-`-r` zeigt, welche Branches *Origin* hat.
-
-```bash
-$ git branch -r
-  origin/main
-  origin/feature-b
-```
-
-*Origin* ist das Repo von dem man geklont hat.
-
----
-
-## Branch wechseln
-
-`switch` lädt den Stand eines Branches in den Workspace.
-
-```bash
-$ git switch feature-b
-Switched to branch 'feature-b'
-```
-
-Außerdem wird der Branch zum *aktiven Branch*.
-
-
----
-
-
-## Tags
-
-Tags sind *eingefrorene* Stände des Projekts, z. B. 
-
- * für Releases, z. B. `v1.0.2`, `v1.0.3`
- * zur Kennzeichnung von Versionen,<br/> z. B. `itest-passed/2022-02-17`
-
-
-Technisch: Tags sind feste Zeiger auf Commits.
-
-
----
-
-`tag` liste die Tags auf:
-
-```bash
-$ git tag
-release1.0
-release1.1
-```
-
----
-
-
-### Begrif: Ref 
-
-*Ref* ist Oberbegriff für Branches, Tags und `HEAD`.
+### Ref - Ein Name für ein Commit
 
 Ein *Ref* ist ein Zeiger auf ein Commit.
-Der Log-Befehl zeigt die Refs an.
+Der Log-Befehl zeigt die Refs idR. mit an, d. h. `--decorate` kann weggelassen werden.
 
 ```bash
-$ git log --oneline
+git log --decorate --oneline
 
 1d8425c (HEAD -> master, tag: testtag) Add content to commits chapter.
 bb00978 (origin/master) Add content to repository chapter.
 ```
 
-Die *Refs* sind in `.git/refs/` abgelegt.
-
-
 ---
 
-## Auf beliebige Versionen wechseln
+### Beispiele für Refs
 
-mit `--detach` kann `switch` kann nicht nur auf Branches, sondern auf beliebige Versionsstände wechseln.
+ * `HEAD`
+ * `master` (Branch)
+ * `feature-a` (Branch)
+ * `v1.0.0` (Branch)
 
+Mit der Option `--all` zeig `log` nicht nur die Historie des `HEAD`,
+sonder aller Tags und Branches.
 
 ```bash
-$ git switch --detach 39a7fe
-$ git switch --detach v1.0.3
-$ git switch --detach HEAD
-$ git switch --detach HEAD~3
+    git log --all --graph
 ```
-
-Allerdings gibt es dann natürlich keinen *aktiven Branch* (`detached head`). 
-
 
 ---
 
+## Branches und Tags anzeigen
+
+```bash
+git branch
+
+git tag
+```
+
+---
+
+# TODO switch and restore
+
+---
 
 ## Checkout
 
-`checkout` kann auf andere Versionen wechseln und/oder Inhalte von Dateien und Verzeichnisse wiederherstellen.
-
-In neuen Versione von Git gibt es dafür zwei separate Befehle:
-
- * `switch` wechselt den ganzen Workspace und `HEAD` auf eine andere Version/Branch
- * `restore` tauscht gezielt Inhalte von Dateien/Verzeichnissen aus.
-
 ---
 
-### Checkout (deprecated)
+### Checkout
  
 Commit -> Workspace
 
