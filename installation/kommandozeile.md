@@ -35,7 +35,7 @@ Oft genügt es wenige Zeichen zu tippen und dann vervollständigen zu lassen
  * 1x Tab-Taste: Vervollständigt Kommando/Dateipfad/Branch/... sofern eindeutig.
  * 2x Tab-Taste: Zeigt die Optionen, wenn nicht eindeutig.
 
-Mit den **Cursor-Tasten Hoch/Runter** kann **vorherige Kommandos** zurückholen und ggf. bearbeiten und dann mit der Enter-Taste erneut ausführen.
+Mit den **Cursor-Tasten Hoch/Runter** kann man **vorherige Kommandos** zurückholen und ggf. bearbeiten und dann mit der Enter-Taste erneut ausführen.
 
 Profi-Tipp: Mit strg+r kann man in den vorherigen befehlen suchen. Mit Enter kann man das Sucherergbnis übernehmen, mit erneutem strg+r kann man erneut suchen, mit der ecs-Taste kann man die Suche abbrechen.
 
