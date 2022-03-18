@@ -20,6 +20,8 @@ Zunächst einmal brauchen wir natürlich Git. [Installiert es](https://git-scm.c
 
 **Windows**: Git-Bash öffnen. Drückt dazu kurz die Windows-Taste und gebt dann Git-Bash ein (oder klickt auf das Icon welches der Installer dafür hinterlassen hat). Dann sollte sich ein Terminal der Git-Bash öffnen. Info: Wir führen die (Kommandozeilen-) Beispiele für diesen Workshop mit Bash aus, weil dies sowohl auf Windows also auch Linux und MacOs gut funktioniert. Erfahrene User können natürlich gerne ihr Lieblings-Shell nutzen, z. B. zsh oder powershell.
 
+[Ein paar Tipps zum Arbeiten mit der *Bash*](installation/kommandozeile.html)
+
 Gebt Folgendes ein:
 
     $ git version
