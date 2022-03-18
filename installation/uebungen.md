@@ -31,7 +31,18 @@ Die folgenden Einstellungen, damit
 
     $ git config --global core.editor notepad
 
-Tipp: Auf [dieser Seite](https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config) findet man Beispielkonfigurationen einige beliebte Editoren.
+Tipp: [Beispielkonfigurationen für beliebte Editoren](https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config). Auf der Seite etwas nach unten scrollen.
 
+## Diff- und Merge-Tools
 
+### TortoiseGit
+
+```bash
+    $ git config --global merge.tool tortoisemerge
+
+    $ git config --global diff.tool tortoisediff
+    $ git config --global difftool.tortoisediff.cmd "TortoiseGitMerge \$LOCAL \$REMOTE"
+```
+
+Mehr dazu auf [stackoverflow](https://stackoverflow.com/questions/16493368/can-tortoisemerge-be-used-as-a-difftool-with-windows-git-bash)
 
