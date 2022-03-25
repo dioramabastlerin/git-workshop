@@ -4,7 +4,9 @@ import de.kapitel26.gitsamplebuilder.CommandLineException
 import java.io.InputStream
 import java.lang.ProcessBuilder.Redirect
 import java.lang.ProcessBuilder.Redirect.PIPE
+import java.lang.ProcessBuilder.Redirect.DISCARD
 import java.nio.file.Paths
+import java.io.BufferedReader
 
 abstract class AbstractWorkingDir<T>(
     rootDir: java.io.File,
@@ -77,16 +79,30 @@ abstract class AbstractWorkingDir<T>(
         processBuilder.environment()["GIT_AUTHOR_DATE"] = "2021-07-29T00:00:00"
         processBuilder.environment()["GIT_COMMITTER_DATE"] = "2021-07-29T00:00:00"
 
-        processBuilder.environment()["GIT_AUTHOR_NAME"] = "bjoern"
-        processBuilder.environment()["GIT_AUTHOR_EMAIL"] = "kapitel26blog@gmail.com"
-        processBuilder.environment()["GIT_COMMITTER_NAME"] = "bjoern"
-        processBuilder.environment()["GIT_COMMITTER_EMAIL"] = "kapitel26blog@gmail.com"
+        val userName = getLocalGitConfig("user.name")
+        val userEmail = getLocalGitConfig("user.email")
+        processBuilder.environment()["GIT_AUTHOR_NAME"] = userName ?: "bjoern"
+        processBuilder.environment()["GIT_AUTHOR_EMAIL"] = userEmail ?: "kapitel26blog@gmail.com"
+        processBuilder.environment()["GIT_COMMITTER_NAME"] = userName ?: "bjoern"
+        processBuilder.environment()["GIT_COMMITTER_EMAIL"] = userEmail ?: "kapitel26blog@gmail.com"
 
         val process = processBuilder.start()
         process.waitFor()
         validateOutcome(process)
         return process
     }
+
+    fun getLocalGitConfig(propertyName : String): String? {
+        val processBuilder = ProcessBuilder(listOf("git", "config", "--local", propertyName))
+        processBuilder.directory(rootDir)
+        processBuilder.redirectOutput(PIPE)
+        processBuilder.redirectError(DISCARD)
+        val process = processBuilder.start()
+        if(process.waitFor() == 0)
+            return process.inputStream.bufferedReader().use(BufferedReader::readText)
+        else
+            return null
+    } 
 
     private fun assertExitCode(p: Process, expectedExits: Set<Int>, command: String) {
         if (p.exitValue() !in expectedExits)
@@ -207,12 +223,8 @@ abstract class AbstractWorkingDir<T>(
         return lines.singleOrNull() ?: "MASTER"
     }
 
-    fun currentUser(): String =
-        executeProcess("git", "config", "user.name")
-            .inputStream
-            .bufferedReader()
-            .readLines()
-            .single()
+    fun currentUser(): String = getLocalGitConfig("user.name") ?: "bjoern"
+
 
     fun applyLoesungen(fullName: String) =
         logTo("loesung-${fullName}.md") {
