@@ -24,7 +24,7 @@ von dem geklont wurde.
 
 
 
-<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>684e919 Created file bar on branch master by bstachmann.<br>d8650f1 Created file foo on branch master by bstachmann.<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>0ff0778 Created file bar on branch master by bjoern.<br>dcf127a Created file foo on branch master by bjoern.<br><br></code></pre>
 
 
 
@@ -44,11 +44,11 @@ Erstelle ein Commit und zeige dann den Status.
 
 
 
-<pre><code>myfirstclone $ <b># Edit file foo at line 3 on branch master by bstachmann.</b><br><br><br></code></pre>
+<pre><code>myfirstclone $ <b># Edit file foo at line 3 on branch master by bjoern.</b><br><br><br></code></pre>
 
 
 
-<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bstachmann. &quot;</b><br><br>[master 47687e2] : Edit file foo at line 3 on branch master by bstachmann.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bjoern. &quot;</b><br><br>[master f8652d1] : Edit file foo at line 3 on branch master by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
