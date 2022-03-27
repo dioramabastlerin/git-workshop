@@ -1,19 +1,3 @@
-### Lernziel (Befehle)
-
-```bash
-    # Commits erstellen
-    git clone <repo-url>
-
-    # Remote-Adressen verwalten
-    git remote add <name> <repo-url>
-    git remote -v
-
-    # Synchronisieren
-    git fetch
-    git pull
-    git push
-```
-
 
 ---
 
