@@ -18,3 +18,18 @@
    - Plumbing: "Rohe" Befehle, Dateiformate
    - Porcelaine: Komfortable End-User-Befehle
  * **Abwärtskompatibilität**
+
+---
+
+# vorher
+
+
+---
+
+
+<section data-eeee=".e/decentral/index.md"></section>
+
+e
+---
+
+# nachher
