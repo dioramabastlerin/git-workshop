@@ -1,7 +1,6 @@
 
-ee#ee Zentral e. Dezentral
-e
-e
+# Zentral e. Dezentral
+
 ---
 
 Zentral
@@ -11,10 +10,11 @@ Zentral
 
 ---
 
+
 Dezentral: Lokale Commits, lokale Historie
 
 ![Dezentral](zentral-dezentral-2.png)
-eee
+
 
 ---
 
