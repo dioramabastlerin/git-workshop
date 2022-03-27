@@ -29,8 +29,9 @@ Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
 ### Herausforderungen der Kernel-Community
 
  * Viele sehr unabhängige Entwickler
- * Viele Patches
  * Parallele Entwicklung
+ * Kleine Patches und große Features
+ * Nachweis der Herkunft von Code
 
 
 ---
@@ -45,30 +46,41 @@ Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
 
 ---
 
+2005 gab es zur Versionsverwaltung
 
-## Warum Git?
+ * erfolgreiche kommerzielle Produkte
+ * etablierte Open-Source-Lösungen
 
-  * Robustes und einfaches Branching und Merging
-  * Dezentraler Ansatz
-  * Performant, auch bei sehr vielen Quelltexten
-  * Sehr flexibler Workflow
-  * Open-Source
-  * Quasi-Standard: Viele Projekte und Unternehmen nutzen Git
-  * und ...
+ oft mit tollen UIs und mehr Features.
 
+## Also, warum Git?
+
+Was war das "Killer-Feature"?
 
 ---
 
-
-... das "Killer-Feature"
 
 Der **Pull-Request**
 erleichtert es, Änderungen dezentral zu erstellen und
 später anderen zur Integration anzubieten.
 
-*GitHub*, *GitLab*, *BitBucket* haben dies als Webanwendungen angeboten.
+*Ironie dabei: Das Killer-Feature von Git ist gar kein Feature von Git:*
+
+Git-Hoster **GitHub* *(und *GitLab*, *BitBucket*, ...) haben dies als Webanwendungen angeboten und populär gemacht.
 
 **Git erleichtert Open-Source-Contributions!**
+
+
+---
+
+
+  * Robustes und einfaches Branching und Merging
+  * Performant, auch bei sehr vielen Quelltexten
+  * Sehr flexibler Workflow
+  * Austausch zwischen Repos (Forking/Dezentralität)
+  * Open-Source
+  * Quasi-Standard  
+  * und ...
 
 
 ---
