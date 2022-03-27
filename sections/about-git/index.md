@@ -3,6 +3,15 @@
 
 [Watch it on YouTube](https://www.youtube.com/watch?v=4XpnKHJAok8)
 
+---
+
+### Die Entwickler von Git
+
+ * Junio C. Hamano
+ * Shawn O. Pearce
+ * Linus Torvalds
+ * uvm.
+
 
 ---
 
@@ -32,16 +41,6 @@ Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
  * Parallele Entwicklung
  * Kleine Patches und große Features
  * Nachweis der Herkunft von Code
-
-
----
-
-### Die Entwickler von Git
-
- * Junio C. Hamano
- * Shawn O. Pearce
- * Linus Torvalds
- * uvm.
 
 
 ---
