@@ -1,15 +1,4 @@
 
-> Subversion used to say it is CVS done right:
-> with that slogan there is nowhere you can go.
->
-> There is no way to do CVS right.
-
-(Linus Torvalds, Mai 2007)
-
-
----
-
-
 ![Torvalds Git Talk](torvalds-tech-talk-on-git.png)
 
 [Watch it on YouTube](https://www.youtube.com/watch?v=4XpnKHJAok8)
@@ -22,6 +11,17 @@ Der Linux-Kernel wurde lange Zeit händisch versioniert (Tarballs & Patches).
 
 Später wurde eine kommerzielle Versionsverwaltung Namens Bitkeeper genutzt.
 Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
+
+
+---
+
+
+> Subversion used to say it is CVS done right:
+> with that slogan there is nowhere you can go.
+>
+> There is no way to do CVS right.
+
+(Linus Torvalds, Mai 2007)
 
 
 ---
