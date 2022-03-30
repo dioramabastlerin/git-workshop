@@ -47,7 +47,10 @@ abstract class AbstractWorkingDir<T>(
     fun git(gitCommand: String? = null, acceptableExitCodes: Set<Int> = setOf(0)) =
         bash("git $gitCommand", acceptableExitCodes)
 
-    fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0)): List<String> {
+    fun ll(additionalArgs: String = "") =
+        bash("ls -lh --time-style=+\'\' $additionalArgs", commandRepresentation = "ll $additionalArgs")
+
+    fun bash(command: String, acceptableExitCodes: Set<Int> = setOf(0), commandRepresentation: String = command): List<String> {
         val process = executeProcess(
             "/bin/bash",
             "-c",
@@ -60,7 +63,7 @@ abstract class AbstractWorkingDir<T>(
 
         val outputLines = process.inputStream.bufferedReader().readLines()
         val errorLines = process.errorStream.bufferedReader().readLines()
-        log.shell(command, rootDir.name, outputLines, errorLines)
+        log.shell(commandRepresentation, rootDir.name, outputLines, errorLines)
 
         return outputLines
     }

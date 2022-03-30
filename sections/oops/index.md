@@ -14,7 +14,7 @@ Angefangene Änderungen kann man jeder zeit mit `stash` wegsichern.
 ### Oops - fehlerhaftes Commit
 
 
-  git revert  HEAD~3
+    git revert  HEAD~3
 
 
 ---

@@ -89,7 +89,7 @@ fun CollectionOfSamples.submodules() {
                 markdown("Man sieht, dass die Module als eigenständige" +
                         " Git-Repositorys mit separatem `.git`-Verzeichnis" +
                         " eingebettet wurden.")
-                bash("ls -1 mod-a mod-b")
+                ll("mod-a mod-b")
                 markdown("Achtung! Die submodule wurden hinzugefügt, aber es fehlt noch ein Commit.")
                 git("status")
                 git("commit -m 'add mod-a and mod-b'")
@@ -155,10 +155,10 @@ fun CollectionOfSamples.submodules() {
 
             inRepo("mysubmodules") {
                 markdown("Die Modulverzeichnisse sind da aber noch leer:")
-                bash("ls -1 mod-a mod-b")
+                ll("mod-a mod-b")
                 markdown("Jetzt holen wir die Module:")
                 git("submodule update --init")
-                bash("ls -1 mod-a mod-b")
+                ll("mod-a mod-b")
             }
         }
     }

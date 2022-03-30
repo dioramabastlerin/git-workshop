@@ -56,7 +56,7 @@ fun CollectionOfSamples.halloWelt() {
 
 
         createAufgabe(
-                "Das erste Repos", """
+                "Das erste Repo", """
                 Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
                 
                     $ git init myrepo

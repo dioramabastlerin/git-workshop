@@ -38,7 +38,7 @@ Konfigurieren Sie Benutzername und Email:
     $ git config --global user.name mein-name
     $ git config --global user.email meine-email
 
-<!--UEB-Hallo Git!--><h2>Schritt 3 - Das erste Repos</h2>
+<!--UEB-Hallo Git!--><h2>Schritt 3 - Das erste Repo</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-hallo-welt`.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: In der Cloud
-nav_order: 20
+nav_order: 40
 parent: Installation
 ---
 

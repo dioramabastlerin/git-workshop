@@ -109,9 +109,9 @@ fun CollectionOfSamples.repositoryUntersuchen() {
         """
             ) {
 
-                bash("ls -1AF")
-                bash("ls -1AF foo")
-                bash("ls -1AF .git")
+                ll()
+                ll("foo")
+                ll(".git")
 
                 markdown("""
                     Man sieht: Das Projekt enthält einige Dateien, ein Unterverzeichnis
@@ -157,7 +157,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 git("show HEAD~1:foo/bar")
                 markdown("\n\nUnd jetzt holen wir genau diese Version in den Workspace:")
                 git("checkout HEAD~1")
-                bash("ls -Rl --time-style=+\"\"")
+                ll()
             }
 
             createAufgabe(

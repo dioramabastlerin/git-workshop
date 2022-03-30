@@ -1,37 +1,7 @@
 
-> Subversion used to say it is CVS done right:
-> with that slogan there is nowhere you can go.
->
-> There is no way to do CVS right.
-
-(Linus Torvalds, Mai 2007)
-
-
----
-
-
 ![Torvalds Git Talk](torvalds-tech-talk-on-git.png)
 
 [Watch it on YouTube](https://www.youtube.com/watch?v=4XpnKHJAok8)
-
-
----
-
-
-Der Linux-Kernel wurde lange Zeit händisch versioniert (Tarballs & Patches).
-
-Später wurde eine kommerzielle Versionsverwaltung Namens Bitkeeper genutzt.
-Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
-
-
----
-
-### Herausforderungen der Kernel-Community
-
- * Viele sehr unabhängige Entwickler
- * Viele Patches
- * Parallele Entwicklung
-
 
 ---
 
@@ -46,27 +16,56 @@ Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
 ---
 
 
-## Warum Git?
+Der Linux-Kernel wurde lange Zeit händisch versioniert (Tarballs & Patches).
 
-  * Robustes und einfaches Branching und Merging
-  * Dezentraler Ansatz
-  * Performant, auch bei sehr vielen Quelltexten
-  * Sehr flexibler Workflow
-  * Open-Source
-  * Quasi-Standard: Viele Projekte und Unternehmen nutzen Git
-  * und ...
+Später wurde eine kommerzielle Versionsverwaltung Namens Bitkeeper genutzt.
+Aus Lizenzgründen wurde ab 2005 eine Alternative dazu gesucht.
 
 
 ---
 
 
-... das "Killer-Feature"
+> Subversion used to say it is CVS done right:
+> with that slogan there is nowhere you can go.
+>
+> There is no way to do CVS right.
+
+(Linus Torvalds, Mai 2007)
+
+
+---
+
+### Herausforderungen der Kernel-Community
+
+ * Viele sehr unabhängige Entwickler
+ * Parallele Entwicklung
+ * Kleine Patches und große Features
+ * Nachweis der Herkunft von Code
+
+
+---
+
+2005 gab es zur Versionsverwaltung
+
+ * erfolgreiche kommerzielle Produkte
+ * etablierte Open-Source-Lösungen
+
+ oft mit tollen UIs und mehr Features.
+
+## Also, warum Git?
+
+Was war das "Killer-Feature"?
+
+---
+
 
 Der **Pull-Request**
 erleichtert es, Änderungen dezentral zu erstellen und
 später anderen zur Integration anzubieten.
 
-*GitHub*, *GitLab*, *BitBucket* haben dies als Webanwendungen angeboten.
+*Ironie dabei: Das Killer-Feature von Git ist gar kein Feature von Git:*
+
+Git-Hoster **GitHub* *(und *GitLab*, *BitBucket*, ...) haben dies als Webanwendungen angeboten und populär gemacht.
 
 **Git erleichtert Open-Source-Contributions!**
 
@@ -74,15 +73,12 @@ später anderen zur Integration anzubieten.
 ---
 
 
-### Achitektur von Git
+  * Robustes und einfaches Branching und Merging
+  * Performant, auch bei sehr vielen Quelltexten
+  * Sehr flexibler Workflow
+  * Austausch zwischen Repos (Forking/Dezentralität)
+  * Open-Source
+  * Quasi-Standard  
+  * und ...
 
- * **dezentral** \
-   Kein Server/Service/Dämon. \
-   Nur Kommandos, die mit Dateien arbeiten.
- * nicht **opinionated** \
-   unterstützt unterschiedlichste Workflows \
-   ohne Präferenz für *richtigen Workflow*
- * **"Porcelaine & Plumbing"**
-   - Plumbing: "Rohe" Befehle, Dateiformate
-   - Porcelaine: Komfortable End-User-Befehle
- * **Abwärtskompatibilität**
+
