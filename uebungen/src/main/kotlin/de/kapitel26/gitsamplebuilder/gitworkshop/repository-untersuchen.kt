@@ -22,7 +22,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
                   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
                   - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
-                  - `--show-numbers` zeigt vorherige Zeilennummern.
+                  - `--show-number` zeigt vorherige Zeilennummern.
                   - `-C` ermittelt Kopien/Verschiebungen aus Dateien im selben  Commit, in dem die Zeile bearbeitet wurde,
                     `-C -C -C` sogar aus beliebigen Dateien.
                    
