@@ -85,7 +85,8 @@ fun CollectionOfSamples.erstellen() {
 
             createAufgabe(
                     "Commit - Datei verschieben/umbenennen", """
-                    Benenne die Datei `hello-world` in `renamed-world` um.
+                    Benenne die Datei `hello-world` in `renamed-world` um
+                    und bestätige dies durch ein Commit.
              """) {
 
                 bash("mv hello-world renamed-world")
