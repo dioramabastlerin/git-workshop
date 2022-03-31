@@ -300,42 +300,25 @@ git tag
 
 ---
 
-# TODO switch and restore
-
----
-
-## Checkout
-
----
-
-### Checkout
+### `git switch`
  
-Commit -> Workspace
 
-Einzelne Dateien/Verzeichnisse wieder herstellen:
+ * `HEAD` wird auf eine Zielversion gesetzt
+ * Alle (versionierten) Dateien im Workspace werden auf den Stand gebraucht.
+ * `git switch <branch>` wechselt auf einen Branch. `<branch>` ist dann aktiver Branch
+ * `git switch --detach <commit>` wechselt auf beliebiege Versionen. Danach ist kein Branch aktiv.
+ * *uncommitted Changes* werden mitgenommen
 
-```bash
-    git checkout 83fe378~1 -- foo         # Vorige Version von "foo" in den Workspace bringen
-    git checkout 83fe378~1 -- src/        # Vorige Version aller Datein in src
-                                            Workspace bringen
-
-    git checkout HEAD -- foo              # Lokale Änderungen an "foo" entfernen
-```
-
-Anmerkung: Wenn Dateien oder Verzeichniss angegeben sind, wechselt `HEAD` nicht
-
-**Vorsicht!** Dateien werden ohne Sicherung überschreiben.
 
 ---
 
-Auf eine ältere Version zurückgehen
 
-    git checkout 83fe378
-    
-Anmerkung: Da keine Dateien oder Verzeichniss angegeben sind, wechselt der `HEAD`-Stand.
+### (veraltet)Checkout
+ 
 
-ACHTUNG: `Detached HEAD`-State! Man kann die Version verwenden, aber nicht sinnvoll weiterbearbeiten. Dazu benötigt man einen Branch (späteres Kapitel).
-
+Der Befehl `checkout`kann sowohl Branches wechseln Versionen wechseln, als auch Datei- und Versionhalte austauschen.
+Leichter verständlich und weniger fehleranfällig sind jedoch die neueren
+Befehle `switch` und `restore`.
 
 ---
 

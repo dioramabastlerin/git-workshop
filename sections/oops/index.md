@@ -26,11 +26,11 @@ Vorsicht: Dateien werden überschrieben!
 
 Datei versehentlich geändert
 
-    git checkout HEAD -- foo
+    git restore foo
 
 Alte Version einer Datei wieder herstellen
 
-    git checkout HEAD~3 -- foo
+    git restore -s HEAD~3 -- foo
 
 Ganzen Workspace zurücksetzen
 
