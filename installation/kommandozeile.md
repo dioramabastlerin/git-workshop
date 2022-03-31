@@ -25,7 +25,13 @@ Um Git gut zu verstehen empfiehlt es sich daher die zentralen Git-Befehle kennen
 
  ## In das übergeordnete Verzeichnis gehen
  $ cd ..
+
+ ## In untergeordnetes Verzeichnis gehen
  $ cd foo
+
+ ## Verzeichnis erstellen
+ $ mkdir myverzeichnis
+
 ```
 
 ## Autocomplete und Kommandohistorie
