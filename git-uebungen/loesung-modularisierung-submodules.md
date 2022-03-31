@@ -176,7 +176,7 @@ Jetzt holen wir die Module:
 
 
 
-<pre><code>mysubmodules $ <b>ll mod-a mod-b</b><br><br>mod-a:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 248  anton<br><br>mod-b:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 248  berta<br><br></code></pre>
+<pre><code>mysubmodules $ <b>ll mod-a mod-b</b><br><br>mod-a:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 244  anton<br><br>mod-b:<br>total 4.0K<br>-rw-r--r-- 1 gitpod gitpod 244  berta<br><br></code></pre>
 
 
 

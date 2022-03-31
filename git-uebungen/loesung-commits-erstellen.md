@@ -80,7 +80,8 @@ Lösche `hallo-welt` und bestätige dies per Commit.
 
 ## Lösung zu Schritt 5 - Commit - Datei verschieben/umbenennen
 
-Benenne die Datei `hello-world` in `renamed-world` um.
+Benenne die Datei `hello-world` in `renamed-world` um
+und bestätige dies durch ein Commit.
 
 
 <pre><code>repo $ <b>mv hello-world renamed-world</b><br><br><br></code></pre>

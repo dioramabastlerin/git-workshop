@@ -62,7 +62,8 @@ Lösche `hallo-welt` und bestätige dies per Commit.
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/commits-erstellen/repo`.
 
-Benenne die Datei `hello-world` in `renamed-world` um.
+Benenne die Datei `hello-world` in `renamed-world` um
+und bestätige dies durch ein Commit.
 
 <!--UEB-Commits erstellen--><h2>Schritt 6 - ⭐ Rename detection</h2>
 
