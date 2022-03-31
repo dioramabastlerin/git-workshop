@@ -27,7 +27,7 @@ Unterschied zwischen Workspace und Stage:
 
     git diff
 
-Unterschied zwischen Workspace und Stage:
+Unterschied zwischen Stage und `HEAD`:
 
     git diff --staged
 
