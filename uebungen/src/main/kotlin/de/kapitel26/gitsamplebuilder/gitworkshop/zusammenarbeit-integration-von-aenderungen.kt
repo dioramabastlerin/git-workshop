@@ -31,8 +31,10 @@ fun CollectionOfSamples.integrationVonAenderungen() {
 
                 ## Tipps
                 
-                * `git pull` Holt und integriert Änderungen Äquivalent zu `git fetch` + `git merge`)
+                * `git pull` holt und integriert Änderungen Äquivalent zu `git fetch` + `git merge`)
                 * `git log --graph` zeigt den Commit-Graphen
+                * `git diff master origin/master` zeigt die Änderungen der Anderen
+                * `git log master..origin/master` zeigt die Commits der Anderen
                 * `HEAD^1` und `HEAD^2` bezeichnen den ersten bzw. zweiten Vorgänger,
                   des aktuellen `HEAD`-Commits.
                 * `git diff HEAD^1...HEAD^2` zeigt die "fremden" Änderungen 
