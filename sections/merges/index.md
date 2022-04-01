@@ -134,6 +134,31 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
 ---
 
 
+**Merge-Konflike** können anstrengend sein. Was kann man tun, um sie
+
+### zu vermeiden?
+
+### weniger schlimm zu machen?
+
+### leichter lösen zu können?
+
+
+---
+
+
+ * klare Modularsierung, Architektur
+ * Abstimmung (Wer macht was?)
+ * häufige Integration
+ * Schritt zurück, Änderungen analysieren
+ * Kommunikation vorab, oder Autoren fragen
+ * Commit-Kommentare
+ * schrittweises Mergen
+ * fein granulare Commits
+ * gute Merge-Tools
+
+
+---
+
 ![Merges mildern](merges-mildern.jpg)
 
 
