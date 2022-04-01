@@ -10,6 +10,11 @@ fun CollectionOfSamples.pushFetchPull() {
             """
 
                 ## Tipps
+
+                * `git fetch` holt Änderungen, ohne zu integrieren
+                * `git status` zeigt unterschiede am aktuellen Branch
+                * `git branch -r` zeigt, welche Branches es Remote gibt.
+                * `git pull` integriert (erst Fetch, dann Merge)
                 
                 ## Setup
                                   
