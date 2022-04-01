@@ -34,10 +34,11 @@ Erstelle einen Klon von `myfirstrepo` mit dem Namen `myfirstclone`.
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-klonen`.
 
-Schaue die Commits and und
+Schaue die Commits an und
 zeige den Origin des Klons `myfirstclone`.
 `origin` steht in der Regel für jenes Repository,
 von dem geklont wurde.
+Zeige dann den Status.
 
 <!--UEB-Klonen von Repositorys--><h2>Schritt 3 - Im Klon arbeiten</h2>
 

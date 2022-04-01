@@ -9,6 +9,12 @@ parent: Aufgaben
 
 ## Tipps
 
+* `git fetch` holt Änderungen, ohne zu integrieren
+* `git status` zeigt unterschiede am aktuellen Branch
+* `git branch -r` zeigt, welche Branches es Remote gibt.
+* `git pull` integriert (erst Fetch, dann Merge)
+* `git log --graph --oneline` zeigt den Graphen mit Merges
+
 ## Setup
                   
 
