@@ -149,7 +149,7 @@ Wenn sich auf einer Seite des Merges nichts getan hat, macht Git idR. ein *fast-
  * klare Modularsierung, Architektur
  * Abstimmung (Wer macht was?)
  * häufige Integration
- * Schritt zurück, Änderungen analysieren
+ * Schritt zurück, Änderungen analysieren, Intention erkennen
  * Kommunikation vorab, oder Autoren fragen
  * Commit-Kommentare
  * schrittweises Mergen
