@@ -45,10 +45,11 @@ fun CollectionOfSamples.klonen() {
         createAufgabe(
                 "Klon untersuchen",
                 """
-                    Schaue die Commits and und
+                    Schaue die Commits an und
                     zeige den Origin des Klons `myfirstclone`.
                     `origin` steht in der Regel für jenes Repository,
                     von dem geklont wurde.
+                    Zeige dann den Status.
                 """
         ) {
             inRepo("myfirstclone") {
