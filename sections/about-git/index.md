@@ -67,7 +67,7 @@ später anderen zur Integration anzubieten.
 
 Git-Hoster **GitHub* *(und *GitLab*, *BitBucket*, ...) haben dies als Webanwendungen angeboten und populär gemacht.
 
-**Git ERSCHWERT Open-Source-Contributions!**
+**Git erleichtert Open-Source-Contributions!**
 
 
 ---
