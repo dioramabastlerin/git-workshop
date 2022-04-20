@@ -1,6 +1,5 @@
 # Repository
 
-<!-- .slide: data-background-image="repository/git-log.png" data-background-opacity="0.7" -->
 
 ---
 
@@ -12,6 +11,7 @@ Ein Git-Repository enthält die Geschichte aller Versionen eines Projekts. Du le
  * auf beliebige Versionen (*Commits*) zu wechseln,
  * Versionen zu untersuchen und zu vergleichen (*Diff*), und
  * die Historie (*Log*) mit seinen Verzweigungen (*Branches*) zu lesen.
+
 
 ---
 

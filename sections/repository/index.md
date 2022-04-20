@@ -1,5 +1,33 @@
 ## Repository und Workspace
 
+
+---
+
+## Repository
+
+**Git** ist eine Versionsverwaltung.
+
+Ein Git-**Repository** ein ist eine (hochspezialisierte) Datenbank zur Archivierung von Entwicklungsständen eines Softwareprojekts.
+
+Das Repository enthält sämtliche Versionen aller Dateien des Projekts inklusive Information über Autoren und Zeitpunkte von Änderugen.
+
+
+---
+
+
+## Klonen
+
+Um mit Git zu arbeiten,
+erstellt man eine *lokale Kopie* des Repositorys,
+genannt *Klon*.
+
+Der Befehl dazu ist 
+
+```bash
+$ git clone <wo-das-original-liegt>
+```
+
+
 ---
 
 ### Übung/Demo
@@ -20,18 +48,18 @@ Wir untersuchen ein Repository. Der `clone`-Befehl bringt es auf unseren Rechner
 
 ---
 
+
 Zwei Dinge sind aufgetaucht:
 
- 1. Das **Repository**
+Das **Repository** (es liegt in `.git`).
+Es enthält die gesamte Historie des Projekts:
+Alle Versionen aller Dateien, Informationen über Autoren und Änderungszeitpunkt, alle Verzweigungen (*Branches*) und *Tags*.
 
-    (es liegt in `.git`)
+Der **Workspace** (alle anderen Dateien und Verzeichnisse, die nicht in `.git` liegen)
+enthält die Dateien und Verzeichnisse *eines Versionsstandes* (genannt  `HEAD`) zur Bearbeitung.
 
- 1. Der **Workspace**
-
-   (alle anderen Dateien und Verzeichnisse, die nicht in `.git` liegen)
 
 ---
-
 ### Der Workspace
 
 umfasst alle Dateien und Verzeichnisse des Projekts
@@ -43,6 +71,7 @@ umfasst alle Dateien und Verzeichnisse des Projekts
    Neue Dateien, die Git "noch nicht kennt".
  * **ignorierte Dateien**
    Die gar nicht versioniert werden sollen (Stichwort: `.gitignore`)
+
 
 ---
 
