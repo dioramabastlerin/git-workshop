@@ -39,6 +39,7 @@ Exercises can be found in `build/git-uebungen`.
 
 ### Anmerkung
 
+Ich finde Pull-Requests toll.
 
 ## Remotes
 
