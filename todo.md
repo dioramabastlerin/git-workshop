@@ -1,3 +1,4 @@
+ * git config --global merge.conflictStyle diff3 -> in den übungrepos konfigurieren und in den Slides erwähnen
  * git merge beispiele -> in dem Repo merge als default für
  * Git-Merge -> add vor dem commit
  * partial checkout nach hinten
