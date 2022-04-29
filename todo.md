@@ -1,3 +1,5 @@
+ * git merge beispiele -> in dem Repo merge als default für
+ * Git-Merge -> add vor dem commit
  * partial checkout nach hinten
  * restore aus Repository raus
  * übuungen im Repository chapter auftrennen
