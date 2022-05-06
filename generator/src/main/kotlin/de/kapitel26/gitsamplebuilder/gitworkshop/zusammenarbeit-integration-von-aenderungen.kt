@@ -85,6 +85,7 @@ fun CollectionOfSamples.integrationVonAenderungen() {
                 }
 
                 createClone("../changes-in-same-files") {
+                    git("config merge.conflictStyle diff3")
                     inFile("average.kts") {
                         replace("val s = ", "val summe = ")
                         replace("{s/args.size}", replaceWith = "{summe/args.size}")
@@ -220,6 +221,9 @@ fun CollectionOfSamples.integrationVonAenderungen() {
                 markdown("Wie erwartet, ist es zu einem Konflikt gekommen.")
 
                 git("status")
+
+                markdown("In der Datei stehen Konfliktmarkierungen.")
+                bash("cat average.kts")
 
                 inFile("average.kts") {
                     replaceRegex(

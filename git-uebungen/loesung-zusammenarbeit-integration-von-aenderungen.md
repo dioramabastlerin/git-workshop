@@ -130,6 +130,12 @@ Wie erwartet, ist es zu einem Konflikt gekommen.
 <pre><code>changes-in-same-files $ <b>git status</b><br><br>On branch master<br>Your branch and 'origin/master' have diverged,<br>and have 1 and 3 different commits each, respectively.<br>  (use &quot;git pull&quot; to merge the remote branch into yours)<br><br>You have unmerged paths.<br>  (fix conflicts and run &quot;git commit&quot;)<br>  (use &quot;git merge --abort&quot; to abort the merge)<br><br>Changes to be committed:<br>	modified:   README.md<br><br>Unmerged paths:<br>  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)<br>	both modified:   average.kts<br><br><br></code></pre>
 
 
+In der Datei stehen Konfliktmarkierungen.
+
+
+<pre><code>changes-in-same-files $ <b>cat average.kts</b><br><br>if(args.isEmpty())<br>    throw RuntimeException(&quot;No arguments given!&quot;)<br><br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>val summe = args.map{ it.toInt() }.sum()<br>||||||| d19e196<br>val s = args.map{ it.toInt() }.sum()<br>=======<br>val s = args.map{ it.toDouble() }.sum()<br>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 23c4b7d2b3f64005c4aae33fe59b0965dcea4e2b<br><br>println(&quot;The average is ${summe/args.size}&quot;)<br><br></code></pre>
+
+
 
 <pre><code>changes-in-same-files $ <b># Edit average.kts replacing pattern with val summe = args.map{ it.toDouble() }.sum()</b><br><br><br></code></pre>
 

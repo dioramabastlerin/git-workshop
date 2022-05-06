@@ -29,6 +29,7 @@ aber bei `merge` und `rebase` ganz ähnlich..
 
 ## Tipps
 
+* `git config --global merge.conflictStyle diff3` verbessert die Darstellung bei Konflikten.
 * `git pull` holt und integriert Änderungen Äquivalent zu `git fetch` + `git merge`)
 * `git log --graph` zeigt den Commit-Graphen
 * `git diff master origin/master` zeigt die Änderungen der Anderen
