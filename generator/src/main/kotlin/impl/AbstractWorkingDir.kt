@@ -81,7 +81,8 @@ abstract class AbstractWorkingDir<T>(
 
         processBuilder.environment()["GIT_AUTHOR_DATE"] = "2021-07-29T00:00:00"
         processBuilder.environment()["GIT_COMMITTER_DATE"] = "2021-07-29T00:00:00"
-
+        processBuilder.environment()["GIT_CONFIG_PARAMETERS"] = "'color.ui=never'"
+ 
         val userName = getLocalGitConfig("user.name")
         val userEmail = getLocalGitConfig("user.email")
         processBuilder.environment()["GIT_AUTHOR_NAME"] = userName ?: "bjoern"
