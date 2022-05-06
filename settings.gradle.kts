@@ -1,3 +1,3 @@
 rootProject.name = "git-workshop"
 
-include(":uebungen")
+include(":generator")

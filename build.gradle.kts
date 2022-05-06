@@ -36,7 +36,7 @@ allprojects {
 }
 
 dependencies {
-    implementation(project(":uebungen"))
+    implementation(project(":generator"))
 }
 
 
