@@ -1,4 +1,12 @@
- * git merge beispiele -> in dem Repo merge als default für
+ * Sylesheet - Inline-Code schwarzgrün
+ * Kommandozeilen intro: https://bstachmann.github.io/git-workshop/installation/kommandozeile.html + ll -a
+ * Linkliste zu Informationen (Hilfe, Cheat-Sheet etc.) über git in Website aufnehmen und auf einer Slide verlinken
+ * Übung hallo Git: Link auf Hilfe zur Kommandozeile. Config erst abfragen, dann setzen
+ * log und show-demos im intro-hallo-welt repo zeigen
+ * Übung im Abschnitt Repository splitten, damit der Vortragsblock nicht so lang ist.
+ * Ein paarmal steht übung wo demo stehen sollte
+ * --decorate streichen
+* git merge beispiele -> in dem Repo merge als default für
  * Git-Merge -> add vor dem commit
  * partial checkout nach hinten
  * restore aus Repository raus
