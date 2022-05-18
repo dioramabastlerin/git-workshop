@@ -1,4 +1,6 @@
- * Schritt 0 bei übungen -> mit cd ../../asdf hinweis
+ * Morgen GitHub/Bitbuckte zeigen und SourceTree
+ * Übung Klonen. Repos aus repository unterschuchen nutzen. und dann als 4. Aufgabe die Remote refs untersuchen.
+* Klone Abschnitt entrümplen (viel Duplikation) * Schritt 0 bei übungen -> mit cd ../../asdf hinweis
  * Bilder für Revison
  * Für die Repo untersuchen Aufgabe: öffentliches Beispielrepo als Bonusaufgabe
  * diff --stat in übung
