@@ -1,3 +1,7 @@
+ * Schritt 0 bei übungen -> mit cd ../../asdf hinweis
+ * Bilder für Revison
+ * Für die Repo untersuchen Aufgabe: öffentliches Beispielrepo als Bonusaufgabe
+ * diff --stat in übung
  * Sylesheet - Inline-Code schwarzgrün
  * Kommandozeilen intro: https://bstachmann.github.io/git-workshop/installation/kommandozeile.html + ll -a
  * Linkliste zu Informationen (Hilfe, Cheat-Sheet etc.) über git in Website aufnehmen und auf einer Slide verlinken
