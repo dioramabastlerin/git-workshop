@@ -1,3 +1,4 @@
+ * todo slides zur Spitze-Klammern notation beim 
   * commit optionen
  * editor-config in der ersten übung checken
  * tODO status erklaeren
