@@ -1,3 +1,4 @@
+  * commit optionen
  * editor-config in der ersten übung checken
  * tODO status erklaeren
   ( Beispiel für Scriptautomatisierung)
