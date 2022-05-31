@@ -1,7 +1,8 @@
- * todo slides zur Spitze-Klammern notation beim 
+ * Bessere beispiel fÜr Pull-Requests
+* todo slides zur Spitze-Klammern notation beim 
   * commit optionen
  * editor-config in der ersten übung checken
- * tODO status erklaeren
+ * To Do status erklaeren
   ( Beispiel für Scriptautomatisierung)
  
  * Morgen GitHub/Bitbuckte zeigen und SourceTree
