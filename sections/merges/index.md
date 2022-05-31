@@ -70,6 +70,71 @@ Aus dem Merge entsteht idR. ein Commit:
 
 ---
 
+
+## Änderungen 
+
+### automatisch zusammengeführt
+ 
+ * verschiedene Dateien
+ * verschiedene Zeilenbereichen einer Datei
+
+### als Konflikt gemeldet
+
+ * verschiedene Zeilenbereichen einer Datei
+
+
+---
+
+
+```bash
+   $ git status
+``` 
+zeigt, um welche Dateien es geht.
+
+```
+  Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+          both modified:   average.kts
+```
+
+---
+
+
+In den betroffenen Dateien stehen dann
+Konfliktmarker.
+
+
+```
+  <<<<<<< HEAD
+  val summe = args.map{ it.toInt() }.sum()
+  ||||||| d19e196
+  val s = args.map{ it.toInt() }.sum()
+  =======
+  val s = args.map{ it.toDouble() }.sum()
+  >>>>>>> 04781863ba5f6ffe3303c84d463546043a932e5
+```
+*(Ausnahme: Binärdateien)*
+
+---
+
+## Konflikt auflösen
+
+1. `git status` zeigt Konfliktdateien
+1. Für jede Konfliktdatei
+   1. Datei öffnen, Konfliktmarker sucehn
+   1. Zeilen manuell zusammenführen
+   1. Konfiktmarker löschen
+   1. `git add <file>` zum Bestätigen
+1. Mit `git commit` abschließen
+
+## Alternativ
+
+```bash
+ $ git mergetool
+```
+
+---
+
 ### Merge und Diff
 
 Die "Stimmgabel"
@@ -79,7 +144,7 @@ Die "Stimmgabel"
 
 Welches Diff ich sehe, hängt davon ab, von wo ich schaue.
 
----
+
 
 ### Merge - Fast Forward
 
