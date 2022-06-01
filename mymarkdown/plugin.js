@@ -397,8 +397,9 @@ const MyMarkdown = () => {
 			section.innerHTML = 
 				marked( markdown, { baseUrl: section.getAttribute("marked-base-url") } )
 				+ `\n<div style="position:absolute;bottom:-40px;right:0px;font-size: 12px;">`
-				+ `${sectionName}<br/>`
-				+ `<a href="https://github.dev/bstachmann/git-workshop/blob/main/${sourcePath}" target="_blank">GitHub dev</a>`
+				+ ``
+				+ `<button type="button" onClick="navigator.clipboard.writeText('${sourcePath}')">${sectionName} ▸ 📋</button>`
+				+ `<br/><a href="https://github.dev/bstachmann/git-workshop/blob/main/${sourcePath}" target="_blank">GitHub dev</a>`
 				+ ` / <a href="https://github.com/bstachmann/git-workshop/blob/main/${sourcePath}" target="_blank">GitHub classic</a>`
 				+ ` <br/><a href="https://gitpod.io#https://github.com/bstachmann/git-workshop/blob/main/${sourcePath}" target="_blank">GitPod</a>`
 				+ ` / <a href="https://bitbucket.org/bstachmann/git-workshop/src/main/${sourcePath}?mode=edit" target="_blank">BitBucket</a>`
