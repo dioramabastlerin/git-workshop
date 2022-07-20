@@ -153,8 +153,12 @@ body {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
 .reveal code {
+  color: lightgreen;
+  background-color: black;
   font-family: monospace;
-  text-transform: none; }
+  text-transform: none; 
+  border: 2px solid black;
+}
 
 .reveal pre code {
   display: block;
