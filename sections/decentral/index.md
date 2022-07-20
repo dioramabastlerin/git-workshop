@@ -1,5 +1,5 @@
 
-# Zentral e. Dezentral
+# Zentral vs. Dezentral
 
 ---
 
