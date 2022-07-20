@@ -25,7 +25,6 @@
  * restore aus Repository raus
  * übuungen im Repository chapter auftrennen
  * Quick-Fixes
- * "e."
  * Branch create and --
  * switch/restore  in repository-untersuchen und in slides
  * Progress server -> "bin dabei" links, den man setzt wenn man startet
