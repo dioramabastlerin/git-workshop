@@ -1,5 +1,5 @@
  * Bessere beispiel fÜr Pull-Requests
-* todo slides zur Spitze-Klammern notation beim 
+ * todo slides zur Spitze-Klammern notation beim merge
   * commit optionen
  * editor-config in der ersten übung checken
  * To Do status erklaeren
@@ -44,24 +44,9 @@
   * evtl. Blog-Post zu file-Annotations oder file-Properties
   * übung heiss push fetch pull, obwohl nur pull und fetch gemacht wird
   * SVG-Beispiel zu push rejected um Pull ergänzen.
-  * Kommandpromt für Demos kürzen
-    
-      export PS1="\e[0;34m \W  $ \e[m"
-
-   * Am Anfang der Übungen den Hauptfad anzeigen, nicht nur das unterverzeichnis   
-   * Progess tool toggled beim Refresh
+  * Progess tool toggled beim Refresh
 
 
 
    ## Notizen
 
-<<<<<<< HEAD
-||||||| 6d722e5
-   markdown: {
-    smartypants: true
-  }
-=======
-   markdown: {
-    smartypants: true
-  }
->>>>>>> 1030082ce695b6e591ecab6e9f682c39b3d9bce8
