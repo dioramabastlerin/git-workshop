@@ -29,10 +29,10 @@ fun CollectionOfSamples.setup() {
                   - git verseion
 
             """
-        )
-
-        createDir("hallo") {
-            createFile("README.md", "Herzlich Willkomen!")
+        ) {
+            createDir("git-workshop") {
+                createFile("herzlich-willkommen.txt", "Moin!")
+            }
         }
 
         inDir("../..") {
@@ -46,9 +46,8 @@ fun CollectionOfSamples.setup() {
                 bash("ls")
                 inDir("aufgaben") {
                     inDir("intro-setup") {
-                        inDir("hallo") {
+                        inDir("git-workshop") {
                             bash("ls")
-                            bash("cat README.md")
                         }
                     }
                 }
