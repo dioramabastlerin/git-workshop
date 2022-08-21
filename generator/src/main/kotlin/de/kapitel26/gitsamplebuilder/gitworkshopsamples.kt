@@ -12,6 +12,7 @@ fun buildGitUebungen() {
     createCollectionOfSamples("git-uebungen", LogBuilderOptions(outputFormat = BOTH)) {
 
         thema("Intro") {
+            setup()
             halloWelt()
         }
 
