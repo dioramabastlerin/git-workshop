@@ -1,9 +1,5 @@
 # Git Workshop Material
 
-Pull-Requests sind toll.
-
-In GitLab heissen die Merge-Requests.
-
 ## Vorgebaute Übungen entpacken
 
     $ unzip build.zip -d build
