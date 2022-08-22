@@ -15,45 +15,15 @@ fun CollectionOfSamples.halloWelt() {
                 was passiert.
                 Was die Kommandos genau tun, erfahren Sie im Verlauf des Seminars.
 
-                ## Tipps
+                ## Kurze Info zu den ersten Git-Befehlen
                 
-                * Für Windows Nutzer:
-                  - Nutzen sie die **Git-Bash**-Kommandozeile dann können sie Beispiele
-                    genau wie hier angegeben ausführen.
-                  - Verwenden sie '/' statt '\', für Verzeichnispfade.
-                  - Wenn Sie mit der Windows-Kommandozeile CMD arbeiten,
-                    müssen sie ggf. kleiner Änderungen vornehmen,
-                    damit die Beispiele funktionieren.
+                * `git init` Erstellt ein neues Git-Repository.
+                * `git add <datei(en)>` Datei(-änderungen) für das nächsten Commit hinzufügen.
+                * `git commit -m <beschreibung>` Erstellt ein Commit.
+                * `git log` zeigt Commits an.
 
             """
         )
-
-        createAufgabe(
-                "Hilfe", """
-                    Lassen Sie sich die Hilfeseite zum `log`-Befehl ausgeben.
-        """) {
-            val output = """
-                GIT-LOG(1)                                                        Git Manual                                                        GIT-LOG(1)
-
-                NAME
-                       git-log - Show commit logs
-                ...
-            """.trimIndent()
-            log.shell("git help log", rootDir.name, output.lines(), emptyList())
-        }
-
-
-        createAufgabe(
-                "Setup", """
-                Konfigurieren Sie Benutzername und Email:
-                
-                    $ git config --global user.name mein-name
-                    $ git config --global user.email meine-email
-        """) {
-            log.shell("git config --global user.name mein-name", rootDir.name, emptyList(), emptyList())
-            log.shell("git config --global user.email meine-email", rootDir.name, emptyList(), emptyList())
-        }
-
 
         createAufgabe(
                 "Das erste Repo", """

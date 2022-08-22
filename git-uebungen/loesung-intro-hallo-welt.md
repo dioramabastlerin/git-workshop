@@ -4,30 +4,7 @@ title: <code>intro-hallo-welt</code>
 parent: Lösungen
 
 ---
-## Lösung zu Schritt 1 - Hilfe
-
-Lassen Sie sich die Hilfeseite zum `log`-Befehl ausgeben.
-
-
-<pre><code>$ <b>git help log</b><br><br>GIT-LOG(1)                                                        Git Manual                                                        GIT-LOG(1)<br><br>NAME<br>       git-log - Show commit logs<br>...<br><br></code></pre>
-
-
-## Lösung zu Schritt 2 - Setup
-
-Konfigurieren Sie Benutzername und Email:
-
-    $ git config --global user.name mein-name
-    $ git config --global user.email meine-email
-
-
-<pre><code>$ <b>git config --global user.name mein-name</b><br><br><br></code></pre>
-
-
-
-<pre><code>$ <b>git config --global user.email meine-email</b><br><br><br></code></pre>
-
-
-## Lösung zu Schritt 3 - Das erste Repo
+## Lösung zu Schritt 1 - Das erste Repo
 
 Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 
