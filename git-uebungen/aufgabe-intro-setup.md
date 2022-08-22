@@ -20,26 +20,20 @@ das `git`-Kommando kennenzulernen.
     müssen sie ggf. kleiner Änderungen vornehmen,
     damit die Beispiele funktionieren.
 
-* TODO
-  - cd, ls, ll
-  - less/notepad/editor
-  - git verseion
+* Bash-Kommandos
+  - `cd <verzeichnisname>`, wechselt in ein anderes Verzeichnis.
+  - `cd ..`, wechselt in das übergeordente Verzeichnis.
+    Eine Ebene hoch!
+  - `ls` zeigt die Namen der Dateien und Unterverzeichnisse im aktuellen Verzeichnisse.
+  - `ll` Wie `ls` nur mehr Details.
+  - `less`. Inhalt einer Datei anzeigen. Scrollen mit Pfeiltasten. Mit Taste `q` beenden.
 
-
-
-<pre><code>$ <b>mkdir hallo</b><br><br><br></code></pre>
-
-
-
-<pre><code>hallo $ <b>cd hallo</b><br><br><br></code></pre>
-
-
-
-<pre><code>hallo $ <b># created file 'README.md'</b><br><br><br></code></pre>
-
-
-
-<pre><code>hallo $ <b>cd ..</b><br><br><br></code></pre>
+* Git-Kommandos
+  - `git version` zeigt welche Version von Git installiert ist.
+  - `git help <kommando>` zeigt Hilfe.
+  - `git config <property>` zeigt Wert aus der Konfiguration an. 
+  - `git config set --global <property> <new-value>` 
+    setzt einen Wert in der Konfiguration.
 
 
 
@@ -69,11 +63,16 @@ Gib aus, welche Version von Git installiert ist.
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-setup`.
 
-Lassen Sie sich die Hilfeseite zum `log`-Befehl ausgeben.
+Zeige die Hilfeseite zum `log`-Befehl an.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 4 - Setup</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-setup`.
+
+Prüfe die User-Konfiguration:
+
+    $ git config user.name
+    $ git config user.email
 
 Konfigurieren Sie Benutzername und Email:
 

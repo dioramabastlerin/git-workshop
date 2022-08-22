@@ -23,10 +23,20 @@ fun CollectionOfSamples.setup() {
                     müssen sie ggf. kleiner Änderungen vornehmen,
                     damit die Beispiele funktionieren.
 
-                * TODO
-                  - cd, ls, ll
-                  - less/notepad/editor
-                  - git verseion
+                * Bash-Kommandos
+                  - `cd <verzeichnisname>`, wechselt in ein anderes Verzeichnis.
+                  - `cd ..`, wechselt in das übergeordente Verzeichnis.
+                    Eine Ebene hoch!
+                  - `ls` zeigt die Namen der Dateien und Unterverzeichnisse im aktuellen Verzeichnisse.
+                  - `ll` Wie `ls` nur mehr Details.
+                  - `less`. Inhalt einer Datei anzeigen. Scrollen mit Pfeiltasten. Mit Taste `q` beenden.
+
+                * Git-Kommandos
+                  - `git version` zeigt welche Version von Git installiert ist.
+                  - `git help <kommando>` zeigt Hilfe.
+                  - `git config <property>` zeigt Wert aus der Konfiguration an. 
+                  - `git config set --global <property> <new-value>` 
+                    setzt einen Wert in der Konfiguration.
 
             """
         ) {
@@ -54,7 +64,6 @@ fun CollectionOfSamples.setup() {
             }
         }
         
-
         createAufgabe(
                 "Git-Version prüfen", """
                 Gib aus, welche Version von Git installiert ist.
@@ -64,7 +73,7 @@ fun CollectionOfSamples.setup() {
 
         createAufgabe(
                 "Hilfe", """
-                    Lassen Sie sich die Hilfeseite zum `log`-Befehl ausgeben.
+                    Zeige die Hilfeseite zum `log`-Befehl an.
         """) {
             val output = """
                 GIT-LOG(1)                                                        Git Manual                                                        GIT-LOG(1)
@@ -75,10 +84,14 @@ fun CollectionOfSamples.setup() {
             """.trimIndent()
             log.shell("git help log", rootDir.name, output.lines(), emptyList())
         }
-
-
+ 
         createAufgabe(
                 "Setup", """
+                Prüfe die User-Konfiguration:
+
+                    $ git config user.name
+                    $ git config user.email
+
                 Konfigurieren Sie Benutzername und Email:
                 
                     $ git config --global user.name mein-name
