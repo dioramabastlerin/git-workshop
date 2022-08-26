@@ -333,7 +333,7 @@ git tag
  
 
  * `HEAD` wird auf eine Zielversion gesetzt
- * Alle (versionierten) Dateien im Workspace werden auf den Stand gebraucht.
+ * Alle (versionierten) Dateien im Workspace werden auf den Stand gebracht.
  * `git switch <branch>` wechselt auf einen Branch. `<branch>` ist dann aktiver Branch
  * `git switch --detach <commit>` wechselt auf beliebiege Versionen. Danach ist kein Branch aktiv.
  * *uncommitted Changes* werden mitgenommen
