@@ -14,7 +14,7 @@ parent: Aufgaben
    (auch Index genannt) registriert werden
 * `git commit -m 'Mein Senf'` Erstellt ein Commit mit allen 
    im Staging-Bereich registrierten Änderungen.
-* `git commit -a` Regsitriert alle Änderungen an bereits in Git versionierten 
+* `git commit -a` Registriert alle Änderungen an bereits in Git versionierten 
   Dateien im Staging-Bereich, so dass man sich den separaten
   `add`-Aufruf sparen kann.
 * `git log --follow -- <file-name>`
