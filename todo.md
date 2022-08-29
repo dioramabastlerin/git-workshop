@@ -1,6 +1,3 @@
- * übung push, fetch und pull -> fetch & pull
- * loses "e" entfernen
- * "jeder zeit" -> "jederzeit"
  * Repository untersuchen: Übung splitten
  * Für jede übung einen Checkin-Schritt, damit man sieht, dass es losgejt
  * Tabelle mit Teilnehmernamen zu Schritten

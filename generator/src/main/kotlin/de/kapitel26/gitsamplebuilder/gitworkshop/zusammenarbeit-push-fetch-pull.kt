@@ -2,11 +2,11 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.pushFetchPull() {
+fun CollectionOfSamples.fetchAndPull() {
     createAufgabenFolge("push-fetch-pull") {
 
         createIntro(
-            """Push, fetch und pull""",
+            """Fetch und Pull""",
             """
 
                 ## Tipps
