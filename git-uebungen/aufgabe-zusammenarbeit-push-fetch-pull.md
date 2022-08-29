@@ -4,7 +4,7 @@ title: <code>zusammenarbeit-push-fetch-pull</code>
 parent: Aufgaben
 
 ---
-# Übung - Push, fetch und pull
+# Übung - Fetch und Pull
 
 
 ## Tipps
@@ -22,14 +22,14 @@ parent: Aufgaben
 <pre><code>$ <b>cd mein-klon</b><br><br><br></code></pre>
 
 
-<!--UEB-Push, fetch und pull--><h2>Schritt 1 - Änderungen holen</h2>
+<!--UEB-Fetch und Pull--><h2>Schritt 1 - Änderungen holen</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull/mein-klon`.
 
 Hole die beiden neuen Commits vom `origin`-Repository,
 ohne den lokalen `master` zu verändern.
 
-<!--UEB-Push, fetch und pull--><h2>Schritt 2 - Änderungen untersuchen</h2>
+<!--UEB-Fetch und Pull--><h2>Schritt 2 - Änderungen untersuchen</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull/mein-klon`.
 
@@ -38,7 +38,7 @@ und untersuche dann,
 welche Commits im `master` des `origin`-Repository vorhanden sind,
 welche im lokalen `master` noch nicht integriert wurden..
 
-<!--UEB-Push, fetch und pull--><h2>Schritt 3 - Änderungen integrieren</h2>
+<!--UEB-Fetch und Pull--><h2>Schritt 3 - Änderungen integrieren</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull/mein-klon`.
 

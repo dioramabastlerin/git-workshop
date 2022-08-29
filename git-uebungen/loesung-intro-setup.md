@@ -24,15 +24,15 @@ Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 
 
 
-<pre><code>intro-setup $ <b>cd git-workshop</b><br><br><br></code></pre>
+<pre><code>intro-setup $ <b>cd hallo</b><br><br><br></code></pre>
 
 
 
-<pre><code>git-workshop $ <b>ls</b><br><br>herzlich-willkommen.txt<br><br></code></pre>
+<pre><code>hallo $ <b>ls</b><br><br>herzlich-willkommen.txt<br><br></code></pre>
 
 
 
-<pre><code>git-workshop $ <b>cd ..</b><br><br><br></code></pre>
+<pre><code>hallo $ <b>cd ..</b><br><br><br></code></pre>
 
 
 
