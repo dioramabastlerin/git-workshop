@@ -56,7 +56,7 @@ fun CollectionOfSamples.setup() {
                 bash("ls")
                 inDir("aufgaben") {
                     inDir("intro-setup") {
-                        inDir("git-workshop") {
+                        inDir("hallo") {
                             bash("ls")
                         }
                     }
