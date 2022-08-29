@@ -1,3 +1,6 @@
+ * Für jede übung einen Checkin-Schritt, damit man sieht, dass es losgejt
+ * Tabelle mit Teilnehmernamen zu Schritten
+ * 
  * Bessere beispiel fÜr Pull-Requests
  * todo slides zur Spitze-Klammern notation beim merge
   * commit optionen
