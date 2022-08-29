@@ -1,6 +1,6 @@
 ### Oops - Unterbrechung!
 
-Angefangene Änderungen kann man jeder zeit mit `stash` wegsichern.
+Angefangene Änderungen kann man jederzeit mit `stash` wegsichern.
 
     git stash
     git stash -u
