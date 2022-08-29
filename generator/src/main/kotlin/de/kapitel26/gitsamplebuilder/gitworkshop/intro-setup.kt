@@ -40,7 +40,7 @@ fun CollectionOfSamples.setup() {
 
             """
         ) {
-            createDir("git-workshop") {
+            createDir("hallo") {
                 createFile("herzlich-willkommen.txt", "Moin!")
             }
         }
