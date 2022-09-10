@@ -130,9 +130,10 @@ fun Route.aufgabenFilesLocalJekyll() {
             call.respondHtml() {
                 body {
                     h2 { +"Git Workshop - Progress Monitor - Teilnehmer" }
+                    p { +"Gib einen Namen oder Alias an, damit Dir Dein Übungsfortschritt zugeordnet werden kann." }
                     form(action = "#", method = FormMethod.get) {
                         label { text("Dein Name/Alias:") }
-                        input(name = "newAlias") { value = "torfnase" }
+                        input(name = "newAlias") { value = "" }
                         submitInput()
                     }    
                 }

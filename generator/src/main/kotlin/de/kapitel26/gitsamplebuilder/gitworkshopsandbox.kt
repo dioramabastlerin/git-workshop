@@ -17,7 +17,7 @@ fun main() {
             // commitsErstellen()
             // staging()
             // cloning()
-            // pushFetchPull()
+            // fetchAndPull()
             // pushRejected()
             // integrationOfChanges()
             // rebasing()

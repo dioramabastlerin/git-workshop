@@ -40,7 +40,7 @@ fun CollectionOfSamples.setup() {
 
             """
         ) {
-            createDir("git-workshop") {
+            createDir("hallo") {
                 createFile("herzlich-willkommen.txt", "Moin!")
             }
         }
@@ -56,7 +56,7 @@ fun CollectionOfSamples.setup() {
                 bash("ls")
                 inDir("aufgaben") {
                     inDir("intro-setup") {
-                        inDir("git-workshop") {
+                        inDir("hallo") {
                             bash("ls")
                         }
                     }

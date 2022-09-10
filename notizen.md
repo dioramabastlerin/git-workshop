@@ -1,4 +1,5 @@
 ## Ideen zur Interaktion
+ * eine tolle neue Idee
 
  * Schlagabstausch
    - 2 Teams

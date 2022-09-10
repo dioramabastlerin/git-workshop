@@ -13,7 +13,7 @@ Was bedeutet dezentrales Arbeiten in Git? Was passiert beim Klonen?
 * Hosting: GitHub, GitLab & Co.
 * Lokale vs remote Refs
 
-e
+
 ---
 
 

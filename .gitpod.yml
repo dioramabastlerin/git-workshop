@@ -25,7 +25,7 @@ ports:
     onOpen: ignore
 
   - port: 8080
-    onOpen: open-preview
+    onOpen: ignore
     visibility: public
 
 github:

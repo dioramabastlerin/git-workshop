@@ -58,7 +58,7 @@ plugins:
 #   - vendor/ruby/
 
 exclude:
-  - uebungen/
+  - generator/
   - build/
   - revealjs/css/theme/README.md
   - .gradle
