@@ -8,7 +8,7 @@ Doch eines Tages:
 > dort schwerfällig und
 > es gäbe da was Besseres ...
 
-Ich fand das nicht gut und wusste damals noch nicht,
+Ich fand das *nicht gut*, wusste damals aber noch nicht,
 dass dieserTag den Beginn einer langen Reise für mich 
 markieren würde.
 
