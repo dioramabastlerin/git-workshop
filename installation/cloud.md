@@ -3,6 +3,7 @@ layout: page
 title: In der Cloud
 nav_order: 40
 parent: Installation
+permalink: /installation/cloud
 ---
 
 ## In der Cloud arbeiten (Gitpod IDE)

@@ -1,48 +1,29 @@
 ---
 layout: page
 title: Übungen vorbereiten
-nav_order: 10
+nav_order: 20
 parent: Installation
+permalink: /installation/uebungen
 ---
 
-Um die erste Übung beginnen zu können tun sie bitte Folgendes:
 
-### Übungen entpacken
+### Übungen herunterladen
 
-Die Übungen liegen jetzt als Zip-Datei vor und können entpackt werden.
+Öffen sie die [Git-Bash](installation/kommandozeile). Legen sie ein Arbeitsverzeichnis `git-workshop` für diesen Workshop an. 
 
+Amerkung: Das Herunterladen und und Entpacken kann statt mit der Git-Bash natürlich auch mit dem *File Explorer* gemacht werden.
+
+    $ mkdir git-workshop
+
+Die Übung kann aus einem Zip-Archiv entpackt werden. Dieses erhalten Sie unter 
+
+[Download build.zip](https://github.com/bstachmann/git-workshop/raw/main/build.zip) 
+
+oder es wird über die Seminarorganisation bereit gestellt. Speichern Sie `build.zip` im eben erstellten `git-workshop`-Verzeichnis.
+
+    $ cd git-workshop
     $ unzip build.zip
     $ cd build/git-uebungen/aufgaben/intro-hallo-welt/
-    
 
-### Git konfigurieren
 
-Zunächst werden Name und Email konfiguriert:
-
-    $ git config --global user.name <mein-name>
-    $ git config --global user.email <meine-email>
-
-Die folgenden Einstellungen, damit 
-
-    $ git config --global pull.rebase false
-    $ git config --global merge.conflictStyle diff3
-
-(Optional) Editor für Commit-Message etc. konfigurieren, hier z. B. `notepad`:
-
-    $ git config --global core.editor notepad
-
-Tipp: [Beispielkonfigurationen für beliebte Editoren](https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config). Auf der Seite etwas nach unten scrollen.
-
-## Diff- und Merge-Tools
-
-### TortoiseGit
-
-```bash
-    $ git config --global merge.tool tortoisemerge
-
-    $ git config --global diff.tool tortoisediff
-    $ git config --global difftool.tortoisediff.cmd "TortoiseGitMerge \$LOCAL \$REMOTE"
-```
-
-Mehr dazu auf [stackoverflow](https://stackoverflow.com/questions/16493368/can-tortoisemerge-be-used-as-a-difftool-with-windows-git-bash)
-
+**Tipp**: Arbeiten Sie, wenn möglich, auf einen lokalen Laufwerk. Auf Netzlaufwerken gibt es manchmal  Performance-Probleme. 

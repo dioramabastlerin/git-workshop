@@ -4,6 +4,7 @@ title: Kommandozeile
 description: Arbeiten mit der Bash
 nav_order: 30
 parent: Installation
+permalink: /installation/kommandozeile
 ---
 
 Git ist vom Design her ein Kommandozeilen-Tool. Es gibt hervorragende grafische User Interfaces für Git.
