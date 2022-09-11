@@ -1,3 +1,4 @@
+ * config pull-rebase for den integrationsübungen checken.
  * Repository untersuchen: Übung splitten
  * Für jede übung einen Checkin-Schritt, damit man sieht, dass es losgejt
  * Tabelle mit Teilnehmernamen zu Schritten
