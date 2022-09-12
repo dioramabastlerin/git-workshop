@@ -51,55 +51,87 @@ Es sollte open-Source sein. Aber **CSV** und
 
 *Quelle: [Git auf de.wikipedia.org](https://de.wikipedia.org/wiki/Git)*
 
+---
+
+### Für's Glossar: **Repository**
+
+Mit **Repository** bezeichnen wir Datenbank mit allen Versionständen der Quelltexte des Projekts.
+
 
 ---
 
 
-Die Anforderungen ergaben sich  
-aus der Kernel-Community:
+Die Anforderungen an ein Sourcecode-Repository ergaben sich  
+aus Bedürfnissen der Kernel-Community:
 
  * **Parallele Entwicklung** (1.000+ Contributors)
- * **Sicherheit**
- * **Herkunft von Code nachweisen können**
+ * **Sicherheit und Herkunftsnachweise**
  * **Linux Style** für Kerne-Entwickler
 
 
 ---
 
+### Parallele Entwicklung
 
-### Parallele Entwicklung (1)
-
- * 1.000+ unabhängige Entwickler
- * unterschiedliche Arbeitsweisen
- * wenig Koordination
- * Mischung aus kleinsten Patches und gewaltigen Features.
+<table>
+  <tr>
+    <th>Herausforderung</th>
+    <th>Lösungsansatz</th>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        <li>kleinst Patches und große Features,</li>
+        <li>viele Entwickler (1.000+),</li>
+        <li>wenig Koordination</li>
+        <li>schwer zentral zu managen</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>Klone: Dezentrales Arbeiten<br/>
+      auf unabhängigen Repository-Kopien</li>
+        <li>Push/Pull-Operationen<br/>
+        ermitteln und übertragen Unterschiede
+        nachträglich<br/>
+        von Klon zu Klon</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+ 
 
 ---
 
 
-### Parallele Entwicklung (2)
+### Sicherheit
 
-**Repository**: Eine Datenbank mit allen Versionen aller Quelltexte des Projekts.
-
-Jeder Entwickler hat eine *vollständige unabhängige Kopie* des Projektrepositorys auf seinem loalen Rechner (genant: *Klon*) und kann dort uneingeschränkt Änderungen vornehmen. Git kann **Unterscheide zwischen Klonen** ermitteln, übertragen, kontrolliert zusammenführen kann (**Push** und **Pull**)
-
-
----
-
-
-### Sicherheit und Herkunftsnachweis
-
-Linux-Kernel hochgradig sicherheitsrelevant. Kontrollierte Übernahme von Änderungen wichtig.
-
- * **Überprüfbarkeit**  
-   SHA1-Hashes als Prüfsumme auf allen Inhalten
- * **Digitale Signiermöglichkeit**
- * **Network of Trust**
-   1. *Blessed Repository* nur für Maintainer
-   2. Entwickler arbeiten auf separaten *Klonen*
-   3. bieten ihre Änderungen an (*Pull-Request*) 
-   4. Maintainer prüfen beim *Pull* 
-
+<table>
+  <tr>
+    <th>Herausforderung</th>
+    <th>Lösungsansatz</th>
+  </tr>
+  <tr>
+    <td>
+        Wer darf Änderungen vornehmen?
+    </td>
+    <td>
+      Schreibrecht nur für Maintainer.<br/>
+      Enwickler arbeiten auf Klonen,<br/>
+      bieten Änderungen zum Abholen an.<br/>
+      ➔ Pull-Request
+    </td>
+  </tr>
+  <tr>
+    <td>
+        Nachvollziehbarkeit
+    </td>
+    <td>
+      SHA1-Prüfsumme auf allen Inhalten<br/>
+      Digitale Signiermöglichkeit
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -107,26 +139,24 @@ Linux-Kernel hochgradig sicherheitsrelevant. Kontrollierte Übernahme von Änder
 ### *Linux Style* für Kernel-Entwickler
 
  * Wenig Abängigkeiten, "überall" installierbar
-
- * Hoch performant  
+ * Hoch performant* 
    filesystem-optimiert (Write-once)
-
- * Automatisierbar
-   stabile Kommandozeilenbefehle
+ * Stabile Kommandozeilenbefehle erleichtern Automatisierung
 
 \* *für Projekte aus vielen Quelltextdateien*
 
 
 ---
 
+# Git
 
+  * Dezentral: Klone, Push und Pull
   * Robustes und einfaches Branching und Merging
   * Performant, auch bei sehr vielen Quelltexten
   * Sehr flexibler Workflow
   * Austausch zwischen Repos (Push/Pull)
   * Open-Source
   * Quasi-Standard  
-  * und ...
 
 
 ---
