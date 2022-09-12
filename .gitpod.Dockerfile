@@ -6,7 +6,7 @@ RUN bash -lc "gem install jekyll bundler minima jekyll-feed jekyll-remote-theme 
 
 RUN brew install kotlin 
 
-RUN echo "PS1='\[\e[0;34m\]\]\W\[\e[0m\] \$ '" >> /home/gitpod/.bashrc \
+RUN echo "PS1='\W \$ '" >> /home/gitpod/.bashrc \
     && git config --global pull.rebase false \
     && git config --global merge.conflictStyle diff3
 
