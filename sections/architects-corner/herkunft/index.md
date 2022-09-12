@@ -51,12 +51,6 @@ Es sollte open-Source sein. Aber **CSV** und
 
 *Quelle: [Git auf de.wikipedia.org](https://de.wikipedia.org/wiki/Git)*
 
----
-
-### Für's Glossar: **Repository**
-
-Mit **Repository** bezeichnen wir Datenbank mit allen Versionständen der Quelltexte des Projekts.
-
 
 ---
 
