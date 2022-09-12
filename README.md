@@ -1,5 +1,7 @@
 # Git Workshop Material
 
+Viele Grüsse von Annika!
+
 ## Vorgebaute Übungen entpacken
 
     $ unzip build.zip -d build
