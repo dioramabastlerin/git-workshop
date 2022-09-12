@@ -13,6 +13,7 @@
 | ❤️ Programming           | Kotlin, Python, Elm, Ruby, Smalltalk  |
 | 🚀 IDE | VScode, IDEA, Eclipse, GitPod |
 | Versionierung | CVS, Subversion, ClearCase, Git |
+| Autor | [Git-Buch](https://dpunkt.de/produkt/git/) |
 | Freizeit           | 🚲 🍞  🎲  |
 
 
