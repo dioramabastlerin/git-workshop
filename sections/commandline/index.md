@@ -4,21 +4,16 @@
 
 ---
 
-## Setup
+Falls noch nicht geschehen:
 
-
-1. Git [installieren](https://git-scm.com/downloads)
-2. Git-Hoster aufrufen, z. B. Gitlab
-3. User anlegen bzw. einloggen, falls User schon vorhanden ist.
-4. `git-workshop`-Projekt klonen.
-   [GitHub](https://github.com/bstachmann/git-workshop) oder
-   [GitLab](https://gitlab.com/bjoern.stachmann/git-workshop)
+[Git installieren](/git-workshop/installation/git)
 
 
 ---
 
 
- ## Setup
+[Git konfigurieren](/git-workshop/installation/konfigurieren)
+
 
 ```bash
     $ git config --global user.email <Ihre-Email>
@@ -27,6 +22,28 @@
 
 ---
 
+
+[Übungen herunterladen und entpacken](/git-workshop/installation/uebungen)
+
+![Entpacktes Build-Verzeichnis](build-verzeichnis.png)
+
+
+---
+
+
+## Terminal/Shell
+
+Für die Übungen wird ein Terminal/Shell-Fenster benötigt
+
+ * Linux/Mac: "Terminal" öffnen
+ * Windows: "Git-Bash" öffnen
+
+Tipp: Sie können auch mit anderen Shell arbeiten, z.B PowerShell oder zsh.
+Übungen und Musterlösungen wurden in der Bash-Shell getestest bzw. aufgezeichnet.
+
+
+
+---
 
 ### Credential Helper
 
@@ -57,17 +74,4 @@ Bei GitHub findet man ein [schönes Cheatsheet](https://training.github.com/down
 [Git Starter Kit](../../git-starter-kit.md) zeigt (fast) alle Befehle, die in den Übungen genutz werden.
 
 
-
----
-
-## Editor einrichten
-
-```bash
-$ git config --global core.editor vim
-$ git config --global core.editor nano
-$ git config --global core.editor notepad 
-$ git config --global core.editor "atom --wait"
-$ git config --global core.editor "\"c:\Program Files\Sublime Text 3\subl.exe\" -w -n"
-$ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
-```
 

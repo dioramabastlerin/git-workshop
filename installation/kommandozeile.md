@@ -11,6 +11,12 @@ Git ist vom Design her ein Kommandozeilen-Tool. Es gibt hervorragende grafische 
 Aber auch diese führen letzlich nur die zugrundeliegenden Kommandozeilenbefehle aus.
 Um Git gut zu verstehen empfiehlt es sich daher die zentralen Git-Befehle kennen zu lernen.
 
+## Shell/Terminal öffnen
+
+ * Windows: WIN+d "Git-Bash"
+ * MacOs: CMD+Space "Terminal"
+ * Ubuntu: SUPER "Terminal"
+
 ## Navigation und Überblick in Verzeichnissen
 
  * `.` aktuelles Verzeichnis

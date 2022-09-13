@@ -9,7 +9,7 @@ permalink: /installation/uebungen
 
 ### Übungen herunterladen
 
-Öffen sie die [Git-Bash](installation/kommandozeile). Legen sie ein Arbeitsverzeichnis `git-workshop` für diesen Workshop an. 
+Öffen sie die [Git-Bash](/installation/kommandozeile). Legen sie ein Arbeitsverzeichnis `git-workshop` für diesen Workshop an. 
 
 Amerkung: Das Herunterladen und und Entpacken kann statt mit der Git-Bash natürlich auch mit dem *File Explorer* gemacht werden.
 
