@@ -48,7 +48,7 @@ Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 Gib aus, welche Version von Git installiert ist.
 
 
-<pre><code>$ <b>git version</b><br><br>git version 2.35.1<br><br></code></pre>
+<pre><code>$ <b>git version</b><br><br>git version 2.37.3<br><br></code></pre>
 
 
 ## Lösung zu Schritt 3 - Hilfe

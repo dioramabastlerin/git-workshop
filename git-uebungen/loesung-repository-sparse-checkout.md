@@ -40,7 +40,7 @@ Validiere, dass `component-a` jetzt da ist.
 
 
 
-<pre><code>myrepo $ <b>git sparse-checkout list</b><br><br>/*<br>!/*/<br>component-a<br><br></code></pre>
+<pre><code>myrepo $ <b>git sparse-checkout list</b><br><br>component-a<br><br></code></pre>
 
 
 

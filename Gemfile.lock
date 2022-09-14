@@ -81,6 +81,7 @@ GEM
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.8.0)
+    webrick (1.7.0)
 
 PLATFORMS
   x86_64-linux
@@ -94,6 +95,7 @@ DEPENDENCIES
   jekyll-remote-theme
   just-the-docs
   minima (~> 2.5)
+  webrick (~> 1.7.0)
 
 BUNDLED WITH
-   2.3.8
+   2.3.22
