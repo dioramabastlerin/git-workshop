@@ -7,9 +7,9 @@
 ---
 
 
-### Was Git nicht ist?
+### Git ist kein Client-Server-System
 
-Die (vermutlich) meisten Versionsverwaltungssysteme (z. B. auch Subversion) sind **Client-Server**-Systeme:
+Klassische Versionsverwaltunge bestehen aus:
 
  1. Server
     * Verwaltet Archiv Versionhistorie auf dem Server

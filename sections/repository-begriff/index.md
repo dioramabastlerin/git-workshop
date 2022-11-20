@@ -1,3 +1,5 @@
-### Für's Glossar: **Repository**
+### Für's Glossar
 
-Mit **Repository** bezeichnen wir eine Datenbank in der alle Versionstände der Quelltexte eines Projekts gespeichert werden.
+## Repository
+
+Mit **Repository** bezeichnen wir eine Datenbank in der **alle Versionstände** der **Quelltexte eines Projekts** gespeichert werden.
