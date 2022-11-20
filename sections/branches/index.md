@@ -108,7 +108,7 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
  * Beim Commit wird der aktive Branch weiter gesetzt.
  * Branches sind lokal
 
-----
+---
 
 ### `log` und `diff` beim Branching
 
