@@ -4,6 +4,7 @@
 
 ---
 
+
 Falls noch nicht geschehen:
 
 [Git installieren](/git-workshop/installation/git)
@@ -11,6 +12,13 @@ Falls noch nicht geschehen:
 
 ---
 
+### Credential Helper
+
+[Git Credential Helper](https://kapitel26.github.io/git/2012/12/03/Passwoerter-verwalten.html)
+
+
+
+---
 
 
 ## Terminal/Shell
@@ -24,33 +32,28 @@ Tipp: Sie können auch mit anderen Shell arbeiten, z.B PowerShell oder zsh.
 Übungen und Musterlösungen wurden in der Bash-Shell getestest bzw. aufgezeichnet.
 
 
+---
+
+
+[Tipps zum Arbeiten mit der Kommandozeile](/git-workshop/installation/kommandozeile)
+
 
 ---
 
-[Git konfigurieren](/git-workshop/installation/konfigurieren)
 
+## Git Befehle
 
-```bash
-    $ git config --global user.email <Ihre-Email>
-    $ git config --global user.name <Ihr-Name>
+```
+    git <sub-command> <options> <arguments>
 ```
 
----
+z.B.
+```bash
+    $ git commit -a -m "Hallo Welt!"
 
-
-[Übungen herunterladen und entpacken](/git-workshop/installation/uebungen)
-
-![Entpacktes Build-Verzeichnis](build-verzeichnis.png)
-
-
-
-
----
-
-### Credential Helper
-
-[Git Credential Helper](https://kapitel26.github.io/git/2012/12/03/Passwoerter-verwalten.html)
-
+    $ git version
+    git version 2.37.3
+```
 
 ---
 
@@ -67,13 +70,44 @@ Tipp: Sie können auch mit anderen Shell arbeiten, z.B PowerShell oder zsh.
  $ git help revisions
  ```
 
+---
+
+## Befehl: `git config`
+
+```bash
+  $ git config user.name               # Konfiguration ausgeben
+  bjoern
+
+  $ git config --global user.name      # Konfiguration ändern
+```
+
+[Git konfigurieren](/git-workshop/installation/konfigurieren)
+
+---
+
+Konfigurationsempfehlungen für diesen Workshop:
+
+```bash
+    $ git config --global user.email <Ihre-Email>
+    $ git config --global user.name <Ihr-Name>
+    $ git config --global pull.rebase false 
+    $ git config --global merge.conflictStyle diff3
+```
 
 ---
 
 
-Bei GitHub findet man ein [schönes Cheatsheet](https://training.github.com/downloads/de/github-git-cheat-sheet/) zu den wichtigsten Git-Befehlen.
+[Übungen herunterladen und entpacken](/git-workshop/installation/uebungen)
 
-[Git Starter Kit](../../git-starter-kit.md) zeigt (fast) alle Befehle, die in den Übungen genutz werden.
+![Entpacktes Build-Verzeichnis](build-verzeichnis.png)
+
+
+---
+
+
+### Übung
+
+<h2><a href="git-uebungen/aufgabe-intro-setup.html" target="_blank">Das Git-Kommando<a></h2>
 
 
 

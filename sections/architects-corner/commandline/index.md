@@ -22,7 +22,7 @@ Klassische Versionsverwaltunge:
 ---
 
 
-### Git ist ein Kommanzeilentool
+### Git ist ein Kommandozeilentool
 
 Ein **Repository** in Git besteht aus Dateien,
 die in einem Verzeichnis (meist: `.git`) gespeichert sind. 
@@ -34,4 +34,15 @@ Git ist passiv: Es gibt keinen dauerhaft laufenden Prozess (Dämon).
 *Don't Panic: Im Alltag braucht man <10*
 
 
+---
 
+**Bedeutet dass denn, ich muss ab jetzt mit per Kommandozeile arbeiten?**
+
+Nein, es gibt zahlreiche grafische Benuzeroberflächen für den Desktop und das Web. Trotzdem sollte man die Kommandozeile von Git kennen:
+
+ * **Alle** Git-Funktionalitäten sind so erreichbar
+ * Manches geht sehr **effizient**
+ * **Tipps und Anleitungen** zeigen meist Kommandos
+ * Mit Kommandos lassen sich Vorgänge leicht **automatisieren**.
+
+Erfahrene Git-User nutzen meist beides.
