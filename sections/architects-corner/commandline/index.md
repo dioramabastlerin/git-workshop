@@ -32,7 +32,7 @@ Git besteht aus mehr 100 Kommandozeilenbefehlen* mit denen dieses Repository man
 
 Git ist passiv: Es gibt keinen dauerhaft laufenden Prozess (Dämon).
 
-* * Don't Panic: Im Entwickleralltag brauch man weniger als 10 davon.*
+*Don't Panic: Im Alltag braucht man <10*
 
 
 

@@ -52,7 +52,7 @@ Mit den **Cursor-Tasten Hoch/Runter** kann man **vorherige Kommandos** zurückho
 
 Profi-Tipp: Mit strg+r kann man in den vorherigen befehlen suchen. Mit Enter kann man das Sucherergbnis übernehmen, mit erneutem strg+r kann man erneut suchen, mit der ecs-Taste kann man die Suche abbrechen.
 
-## Scrollen in langen ausgaben
+## Scrollen in langen Ausgaben
 
 Wenn Git-Befehle lange Ausgaben macheen kommt mann in einen Scroll/Blätter-Modus.
 
