@@ -72,7 +72,7 @@ z.B.
 
 ---
 
-## Befehl: `git config`
+### Befehl: `git config`
 
 ```bash
   $ git config user.name               # Konfiguration ausgeben

@@ -9,7 +9,7 @@
 
 ### Git ist kein Client-Server-System
 
-Klassische Versionsverwaltunge:
+Klassische Versionsverwaltungen:
 
  1. Server
     * Verwaltet Archiv Versionhistorie auf dem Server

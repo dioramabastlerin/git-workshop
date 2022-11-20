@@ -91,14 +91,20 @@ fun CollectionOfSamples.setup() {
 
                     $ git config user.name
                     $ git config user.email
+                    $ git config pull.rebase
+                    $ git config merge.conflictStyle
 
                 Konfigurieren Sie Benutzername und Email:
                 
                     $ git config --global user.name mein-name
                     $ git config --global user.email meine-email
+                    $ git config --global pull.rebase false 
+                    $ git config --global merge.conflictStyle diff3
         """) {
             log.shell("git config --global user.name mein-name", rootDir.name, emptyList(), emptyList())
             log.shell("git config --global user.email meine-email", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global pull.rebase false ", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global merge.conflictStyle diff3", rootDir.name, emptyList(), emptyList())
         }
     }
 }
