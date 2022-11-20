@@ -17,8 +17,11 @@ parent: Aufgaben
 * `git switch -c <name>` erzeugt einen neuen Branch und aktiviert 
   diesen sogleich.
 * `git branch -vv` zeigt Details zu den lokalen Branches
-* `git branch -r -vv` zeigt Details zu den Remote-Branches
 * `git switch <name>` wechselt den aktiven Branch
+* `git merge <branch>` integriert die Änderungen von `branch` und erstellt ein Commit
+   auf dem aktiven Branch.
+* 
+
   
 ## Ausgangssituation
 
@@ -42,28 +45,6 @@ Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching/repo
 
 Merge `feature-a` auf den `master`und
 zeige den Commit-Graphen.
-
-<!--UEB-Branching--><h2>Schritt 3 - ⭐ Merge analysieren</h2>
-
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching/repo`.
-
-Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
-Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
-Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
-
-<!--UEB-Branching--><h2>Schritt 4 - ⭐ Merge analysieren</h2>
-
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching/repo`.
-
-Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
-Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
-Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
-
-<!--UEB-Branching--><h2>Schritt 5 - Remote Branches untersuchen</h2>
-
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching/repo`.
-
-
 
 
 <pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>

@@ -28,10 +28,11 @@ fun buildGitUebungen() {
         }
 
         thema("Zusammenarbeit") {
+            branching()
             fetchAndPull()
             pushRejected()
             integrationVonAenderungen()
-            branching()
+            branchingFortgeschritten()
             reverting()
             rebasing()
         }
