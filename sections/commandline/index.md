@@ -12,6 +12,21 @@ Falls noch nicht geschehen:
 ---
 
 
+
+## Terminal/Shell
+
+Für die Übungen wird ein Terminal/Shell-Fenster benötigt
+
+ * Linux/Mac: "Terminal" öffnen
+ * Windows: "Git-Bash" öffnen
+
+Tipp: Sie können auch mit anderen Shell arbeiten, z.B PowerShell oder zsh.
+Übungen und Musterlösungen wurden in der Bash-Shell getestest bzw. aufgezeichnet.
+
+
+
+---
+
 [Git konfigurieren](/git-workshop/installation/konfigurieren)
 
 
@@ -27,19 +42,6 @@ Falls noch nicht geschehen:
 
 ![Entpacktes Build-Verzeichnis](build-verzeichnis.png)
 
-
----
-
-
-## Terminal/Shell
-
-Für die Übungen wird ein Terminal/Shell-Fenster benötigt
-
- * Linux/Mac: "Terminal" öffnen
- * Windows: "Git-Bash" öffnen
-
-Tipp: Sie können auch mit anderen Shell arbeiten, z.B PowerShell oder zsh.
-Übungen und Musterlösungen wurden in der Bash-Shell getestest bzw. aufgezeichnet.
 
 
 

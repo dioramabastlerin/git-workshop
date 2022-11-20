@@ -9,15 +9,14 @@
 
 ### Git ist kein Client-Server-System
 
-Klassische Versionsverwaltunge bestehen aus:
+Klassische Versionsverwaltunge:
 
  1. Server
     * Verwaltet Archiv Versionhistorie auf dem Server
     * laufender Prozess/Dämon
- 1. Client (evlt. mehrere)
+ 1. Client (evtl. mehrere)
     * Verwalten den Workspace (die Arbeitsdateien) auf dem Client
-
-Beim Arbeiten (Versionen erstellen, Historie abfragen etc) findet kontinuierlich eine Kommunikation zwischen Client und Server statt.
+ 1. kontinuierliche Kommunikation zwischen Client und Server
 
 
 ---
