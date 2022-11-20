@@ -1,4 +1,4 @@
-# Branches
+# Branches und Tags
 
 
 ---
@@ -10,6 +10,6 @@ Wie kann man mit Branches parallele Entwicklungsstränge in Git organisieren?
 
 * Branches zeigen auf Commits
 * Wechseln zwischen Branches
-* Remote Branches
-* Upstream Branches
+* Merge (einfache Fälle)
+* Versionen mit Tags markieren
 
