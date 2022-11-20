@@ -108,6 +108,23 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
  * Beim Commit wird der aktive Branch weiter gesetzt.
  * Branches sind lokal
 
+----
+
+### `log` und `diff` beim Branching
+
+Diese Befehle erlauben *asymmetrische* Vergleiche:
+
+Was haben wir geändert? Was die Anderen?
+
+```bash
+$ # Was haben DIE geändert? 
+$ git log <unser-branch>..<deren-branch>    
+$ git diff <unser-branch>...<deren-branch>    
+
+$ # Was haben WIR geändert? 
+$ git log <deren-branch>..<unser-branch>    
+$ git diff <deren-branch>...<unser-branch>   
+```
 
 ---
 
