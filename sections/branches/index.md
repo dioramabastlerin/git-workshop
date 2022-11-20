@@ -3,11 +3,11 @@
 ```bash
     # Branches erstellen
     git branch my-new-branch
-    git checkout -b my-new-branch
 
-    # Informationen über Branches
-    git branch -vv
-    git log --merged
+    # Branch wechseln
+    git switch old-branch
+    git switch -c my-new-branch
+
 ```
 
 ---
@@ -80,8 +80,14 @@ Notes:
 Jedes Repo hat einen **aktiven Branch**.
 
 ```
-    git checkout new-branch
+    git switch new-branch
 ```
+
+```
+    git switch -c new-branch
+```
+
+Vearaltet, aber weiter nutzbar, `git checkout`
 
 ```
     git checkout -b new-branch
@@ -102,6 +108,20 @@ Bei Verwendung von Worktree, gibt es einen aktiven Branch je Worktree.
  * Beim Commit wird der aktive Branch weiter gesetzt.
  * Branches sind lokal
 
+
+---
+
+### Befehl: `git merge`
+
+Zusammenführen von Änderungen.
+
+```bash
+$ git merge <other-branch>
+```
+
+integriert die Änderungen von `other-branch` in den aktiven Branch und erstellt ein neues Commit dazu.
+
+*Anmerkung:* Zum Umgang mit Konflikten und Sonderfällen folgt später ein separates Kapiteil über *Merges*.
 
 ---
 
