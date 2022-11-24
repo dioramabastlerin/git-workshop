@@ -1,3 +1,7 @@
+Credentialmanager
+
+TortoiseGit
+
 
 ## Typos
 
@@ -14,7 +18,7 @@ Git difftool zeigen.
 
 Fenster vorher öffnen
 
-
+Folder heisst immer noch push-fetch-pull
 
 
 ## Ideen zur Interaktion
