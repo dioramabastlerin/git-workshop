@@ -7,7 +7,7 @@
 
 ## Verschiedenen
 
-Git difftool zeigen.
+Git difftool zeigen
 
 
 ## UI, Webhoster Demos
