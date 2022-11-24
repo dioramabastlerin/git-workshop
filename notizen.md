@@ -1,3 +1,22 @@
+
+## Typos
+
+
+ * Azuer
+
+
+## Verschiedenen
+
+Git difftool zeigen
+
+
+## UI, Webhoster Demos
+
+Fenster vorher öffnen
+
+
+
+
 ## Ideen zur Interaktion
  * eine tolle neue Idee
 
