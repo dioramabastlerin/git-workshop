@@ -1,3 +1,26 @@
+Credentialmanager
+
+TortoiseGit
+
+
+## Typos
+
+
+ * Azuer
+
+
+## Verschiedenen
+
+Git difftool zeigen.
+
+
+## UI, Webhoster Demos
+
+Fenster vorher öffnen
+
+Folder heisst immer noch push-fetch-pull
+
+
 ## Ideen zur Interaktion
  * eine tolle neue Idee
 

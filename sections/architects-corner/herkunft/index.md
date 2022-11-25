@@ -60,7 +60,7 @@ aus Bedürfnissen der Kernel-Community:
 
  * **Parallele Entwicklung** (1.000+ Contributors)
  * **Sicherheit und Herkunftsnachweise**
- * **Linux Style** für Kerne-Entwickler
+ * **Linux Style** für Kernel-Entwickler
 
 
 ---

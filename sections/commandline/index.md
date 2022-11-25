@@ -12,14 +12,6 @@ Falls noch nicht geschehen:
 
 ---
 
-### Credential Helper
-
-[Git Credential Helper](https://kapitel26.github.io/git/2012/12/03/Passwoerter-verwalten.html)
-
-
-
----
-
 
 ## Terminal/Shell
 
