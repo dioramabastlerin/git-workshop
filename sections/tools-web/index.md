@@ -3,7 +3,7 @@ Web-Hoster speichern Repositorys in der Cloud, und bieten oft umfangreiches Tool
  * GitHub
  * GitLab
  * BitBucket
- * Azuer DevOps
+ * Azure DevOps
 
 Anmerkung: Einige davon können auch im eigenen Data-Center (*on-prem*) betrieben werden.
 
