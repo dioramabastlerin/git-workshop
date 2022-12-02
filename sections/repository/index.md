@@ -15,41 +15,8 @@ Das Repository enthält sämtliche Versionen aller Dateien des Projekts inklusiv
 ---
 
 
-## Klonen
+### Ein Projektverzeichnis enthält:
 
-Um mit Git zu arbeiten,
-erstellt man eine *lokale Kopie* des Repositorys,
-genannt *Klon*.
-
-Der Befehl dazu ist 
-
-```bash
-$ git clone <wo-das-original-liegt>
-```
-
-
----
-
-### Übung/Demo
-
-Wir untersuchen ein Repository. Der `clone`-Befehl bringt es auf unseren Rechner.
-```bash
-    $ git clone <server-url>/git-workshop.git
-    $ cd git-workshop
-    $ ls -lah
-    ...
-    drwxrwxr-x   3 bjoern bjoern 4,0K Aug  9 19:54 css
-    drwxrwxr-x   2 bjoern bjoern 4,0K Jun 24 18:20 debugging
-    drwxr-xr-x  10 bjoern bjoern 4,0K Aug  9 20:02 .git
-    -rw-rw-r--   1 bjoern bjoern    6 Apr 25 22:00 .gitignore
-    drwxrwxr-x   3 bjoern bjoern 4,0K Jun 24 18:20 gitlab-ci
-    ...
-```
-
----
-
-
-Zwei Dinge sind aufgetaucht:
 
 Das **Repository** (es liegt in `.git`).
 Es enthält die gesamte Historie des Projekts:
@@ -60,6 +27,13 @@ enthält die Dateien und Verzeichnisse *eines Versionsstandes* (genannt  `HEAD`)
 
 
 ---
+
+
+## Demo: `git-workshop` zeigen
+
+
+---
+
 ### Der Workspace
 
 umfasst alle Dateien und Verzeichnisse des Projekts
@@ -75,6 +49,7 @@ umfasst alle Dateien und Verzeichnisse des Projekts
 
 ---
 
+
 ### Repository
 
 Damit Git **dezentral** (unabhängig vom Server) arbeiten kann,
@@ -86,11 +61,24 @@ mit der **gesamten Historie** eines Projekts.
  * Branches: Ermöglichen parallele Entwicklungsstränge
  * Markierte Versionen, genannt Tags
 
+
 ---
 
-### Übung
 
-Wir lassen uns die Commits zeigen.
+### Begriffe 
+
+**Commit,Revision** ist ein eingefrorener Versionsstand über *alle Dateien des Projekts*.
+
+**`HEAD`** steht für jenes *Commit*, das im Workspace bearbeitet wird.
+
+**Log**: Die Historie. Bezeichnet die Menge aller Commits, die zur Entstehung des `HEAD` beigetragen haben.
+
+
+---
+
+
+### Der `Log`-Befehl zeigt die Commits
+
 ```bash
     $ git log --oneline
 
@@ -105,26 +93,6 @@ Wir lassen uns die Commits zeigen.
 ```
 Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie des Projekts.
 
----
-
-## Klone
-
----
-
-Das lokale Repository ist eine Kopie des Projekts mit der gesamten Historie, genannt **Klon**.
-
----
-
-Warum enthält\
-das geklonte Repository\
-die ganze Historie des Projekts?
-
----
-
- * In jedem Klon wird unabhängig gearbeit.
- * Fast alle Befehle arbeiten lokal (und damit schnell).
- * Nur die Befehle `push`, `pull` und `fetch` übertragen Informationen zwischen den Klonen.
- * Oft erfolgt der Austausch über ein *Blessed Repository*.
 
 ---
 
@@ -133,6 +101,7 @@ die ganze Historie des Projekts?
 
 
 ---
+
 
 Das Git-Repository speichert Versionen (auch Revisions genannt) des Projekts
 in Form von *Commits*. Jedes Commit wiederum hat

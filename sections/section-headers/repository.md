@@ -18,7 +18,6 @@ Ein Git-Repository enthält die Geschichte aller Versionen eines Projekts. Du le
 ## Themen
 
 * Repository und Workspace
-* Klon
 * Commits und Revision-Hashes
 * Das Log
 * Switch, Checkout, Branches und Refs
