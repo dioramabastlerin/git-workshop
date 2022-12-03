@@ -1,18 +1,52 @@
 
 
-## Commits und Revision-Hashes
+Speicher speichert Versionenstände \
+in **Commits** \
+(auch Revisions genannt)
+
+--- 
+
+Ein **Commit** enthält ein
+
+**Tree** ("Snapshot" aller Dateien des Projekts)
+
+und **Metadaten**
+
+ * Beschreibung (Commit-Kommentar)
+ * Zeitpunkt der Änderung
+ * Autor (ggf. auch Commiter)
+ * **Parent(s)** - Verweis auf Vorgängerversion(en)
 
 
 ---
 
+## `git show`
 
-Das Git-Repository speichert Versionen (auch Revisions genannt) des Projekts
-in Form von *Commits*. Jedes Commit wiederum hat
+zeigt Informationen zu einem Commit. 
 
- * **Tree** - "Snapshot" aller Dateien und Verzeichnisse zu eine Zeitpunkt
- * **Metadaten** - Zeitpunkt der Änderung, Autor und Beschreibung der Änderung
- * **Parent(s)** - Vorgängerversion(en)
- * **Revision Hash** - die "Versionsnummer" von Git
+```bash
+$ git show           # zeigt das aktuelle Commit
+
+commit 612a0ee90fedcfcfce170e568ba9607f41655f0c (HEAD -> master)
+Author: bjoern <kapitel26blog@gmail.com>
+Date:   Thu Jul 29 00:00:00 2021 +0000
+
+    Created file und-tschuess on branch master by bjoern.
+
+diff --git a/und-tschuess b/und-tschuess
+new file mode 100644
+index 0000000..36fe753
+
+ ...
+
+```
+
+Zeigt Revision-Hash, Metadaten (Autor, Zeitpunt, Kommentar etc.), und die Änderungen zum Vorgänger (diff)
+
+
+---
+
+**Revision Hash** - die "Versionsnummer" von Git
    Prüfsumme über alle oben angegebenen Informationen.
 
 ---
@@ -20,17 +54,18 @@ in Form von *Commits*. Jedes Commit wiederum hat
 ### `HEAD`
 
 bezeichnet das aktuelle Commit,/
-ist bei vielen Befehlen Default-Wert\
+ist bei vielen Befehlen Defaultwert für parameter\
 und kann oft weggelassen werden.
+
+```bash
+    git show HEAD                # Infos zum HEAD-Commit
+    git show                     # ebenso
 
 ---
 
 ## Befehle zum Untersuchen von Commits
 
 ```bash
-    # show zeigt detaillierte Informationen zu Commits
-    git show HEAD                # Infos zum HEAD-Commit
-    git show                     # ebenso
     git show HEAD:README         # Inhalt einer Datei
     git show --pretty=raw HEAD   # Was Git in der DB hat
 
@@ -38,24 +73,3 @@ und kann oft weggelassen werden.
     git ls-tree -r HEAD
     git ls-tree --abbrev HEAD src/main/java
 ```
-
----
-
-### Revision-Hashes
-
-Die Versionsnummern von Git
-
-Versionen können in Git über ihre Revision-Hashes
-oder über symbolische Namen (Refs) angesprochen werden.
-
-```bash
-    # Revision Hashes
-    git show f6be3b8913aa0ff3daa2be27bd55032316545545
-    git show f6be3b      # es darf abgekürzt werden
-
-    # Refs
-    git show HEAD        # "aktuelle" Version
-    git show master      # ein Branch
-    git show v1.0.0      # ein Tag
-```
-
