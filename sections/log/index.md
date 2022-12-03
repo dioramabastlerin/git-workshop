@@ -1,66 +1,4 @@
 
-
-### Der `Log`-Befehl zeigt die Commits
-
-```bash
-    $ git log --oneline
-
-    909af6d (HEAD -> master) Fix obsolete text on page
-    02d3329 fix typo in link
-    38efbcb Enable offline use
-    28e7071 Enable offline use
-    6721664 Overwork repository chapter
-    2ca78c1 Remove duplicated slides
-    330fd73 Fix missing git before command
-    ...
-```
-Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie des Projekts.
-
-
----
-
-
-## Commits und Revision-Hashes
-
-
----
-
-
-Das Git-Repository speichert Versionen (auch Revisions genannt) des Projekts
-in Form von *Commits*. Jedes Commit wiederum hat
-
- * **Tree** - "Snapshot" aller Dateien und Verzeichnisse zu eine Zeitpunkt
- * **Metadaten** - Zeitpunkt der Änderung, Autor und Beschreibung der Änderung
- * **Parent(s)** - Vorgängerversion(en)
- * **Revision Hash** - die "Versionsnummer" von Git
-   Prüfsumme über alle oben angegebenen Informationen.
-
----
-
-### `HEAD`
-
-bezeichnet das aktuelle Commit,/
-ist bei vielen Befehlen Default-Wert\
-und kann oft weggelassen werden.
-
----
-
-## Befehle zum Untersuchen von Commits
-
-```bash
-    # show zeigt detaillierte Informationen zu Commits
-    git show HEAD                # Infos zum HEAD-Commit
-    git show                     # ebenso
-    git show HEAD:README         # Inhalt einer Datei
-    git show --pretty=raw HEAD   # Was Git in der DB hat
-
-    # ls-tree listet Verzeichnisse auf untersuchen
-    git ls-tree -r HEAD
-    git ls-tree --abbrev HEAD src/main/java
-```
-
----
-
 ### Revision-Hashes
 
 Die Versionsnummern von Git
@@ -82,6 +20,28 @@ oder über symbolische Namen (Refs) angesprochen werden.
 ---
 
 ## Das Log
+
+
+---
+
+
+### Der `Log`-Befehl zeigt die Commits
+
+```bash
+    $ git log --oneline
+
+    909af6d (HEAD -> master) Fix obsolete text on page
+    02d3329 fix typo in link
+    38efbcb Enable offline use
+    28e7071 Enable offline use
+    6721664 Overwork repository chapter
+    2ca78c1 Remove duplicated slides
+    330fd73 Fix missing git before command
+    ...
+```
+Erkenntnis: Das von uns geklonte Repository enthält die ganze Historie des Projekts.
+
+
 
 ---
 
