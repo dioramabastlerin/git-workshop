@@ -1,7 +1,4 @@
 
-## Commits und das Log
-
----
 
 ### Der `Log`-Befehl zeigt die Commits
 
