@@ -43,8 +43,35 @@ index 0000000..36fe753
 
 ```
 
-Zeigt Revision-Hash, Metadaten (Autor, Zeitpunt, Kommentar etc.), und die Änderungen zum Vorgänger (diff)
+Zeigt Revision-Hash, **Metadaten** (Autor, Zeitpunt, Kommentar etc.), und listet dann alle Änderungen zum Vorgänger auf (**diff**)
 
+
+
+---
+
+Mit `--stat` zeigt `git show` nur die Anzahl geänderterter Zeilen je Datei an,
+aber nicht die Inhalte.
+
+```bash
+$ git show --stat
+commit 612a0ee90fedcfcfce170e568ba9607f41655f0c (HEAD -> master)
+Author: bjoern <kapitel26blog@gmail.com>
+Date:   Thu Jul 29 00:00:00 2021 +0000
+
+    Created file und-tschuess on branch master by bjoern.
+
+ und-tschuess | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+```
+
+`--oneline` verkürzt die Metadaten zu einer Zeile:
+
+```bash
+$ git show --stat --oneline
+612a0ee (HEAD -> master) Created file und-tschuess on branch master by bjoern.
+ und-tschuess | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)```
+```
 
 ---
 
