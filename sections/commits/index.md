@@ -4,7 +4,9 @@ Speicher speichert Versionenstände \
 in **Commits** \
 (auch Revisions genannt)
 
+
 --- 
+
 
 Ein **Commit** enthält ein
 
@@ -73,3 +75,20 @@ und kann oft weggelassen werden.
     git ls-tree -r HEAD
     git ls-tree --abbrev HEAD src/main/java
 ```
+
+
+---
+
+## Mit **`~`** Vorfahren adressieren
+
+Jedes Commits (bis auf das erste) hat ein Parent-Commit.
+
+
+```bash
+$ git show HEAD~    # Parent von HEAD
+$ git show HEAD~2   # Parent des Parent von HEAD
+
+$ git show fb3982~2   # Parent des Parent von fb3982
+```
+
+

@@ -2,14 +2,18 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.repositoryUntersuchen() {
+fun CollectionOfSamples.repositoryLog() {
 
-    createAufgabenFolge("untersuchen") {
+    createAufgabenFolge("log") {
 
         createIntro(
-            """Repository untersuchen""",
+            """Repository - Log""",
             """
-                Hier geht es darum, herauszufinden, was in einem Repository enthalten ist.
+                Das Log repräsentiert die Geschichte des Projekts
+                als Folge von Commits.
+                Jedes Commit repräsentiert einen Stand aller Dateien des Projekts.
+                Hier wird geübt, das Log zu Untersuchen und zu Lesen.
+
 
                 ## Tipps
                 
@@ -18,20 +22,13 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 * `git show <some-commit>` zeigt Details zu einem Commit
                 * Mit `~` Adressiert man Vorgänger eines Commits, 
                   z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
-                * `git branch` und `git tag` listen vorhandene Branches und Tags auf.
-                * Mit `git switch <branch-name>` kann man auf andere Branches wechseln.
-                * Mit `git switch --detach <commit>` kann man auf beliebige Versionen wechseln.
                 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
                   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
                   - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
                   - `--show-number` zeigt vorherige Zeilennummern.
                   - `-C` ermittelt Kopien/Verschiebungen aus Dateien im selben  Commit, in dem die Zeile bearbeitet wurde,
                     `-C -C -C` sogar aus beliebigen Dateien.
-                * Mit `git restore -s <commit> -- <datei-oder-pfad>` kann man *Inhalte* beliebiger Versionen 
-                  von Dateien/Pfaden in den Workspace holten. Es wird dabei nicht auf das angegebenen Commit
-                  gewechselt, sondern nur Dateiinhalte in den Workspace geholt. Die betroffenen Dateien 
-                  werden als `modified` angezeigt und können Commited werden.
-                   
+
                 # Setup
     
                 Im Verzeichnis `repo` wartet ein Git-Projekt darauf,
@@ -109,6 +106,46 @@ fun CollectionOfSamples.repositoryUntersuchen() {
 
         inRepo {
 
+            createAufgabe(
+                "Verzeichnisstruktur", """
+                    Untersuche das Projektverzeichnis.
+                    Welche Dateien gibt es im Workspace? Welche Verzeichnisse?
+                    Wo liegt das Repository?
+        """
+            ) {
+
+                ll()
+                ll("foo")
+                ll(".git")
+
+                markdown("""
+                    Man sieht: Das Projekt enthält einige Dateien, ein Unterverzeichnis
+                    und natürlich auch ein `.git`-Verzeichnis, welches das Repository beherbergt.
+                """.trimIndent())
+            }
+
+
+            createAufgabe(
+                "Commits ansehen", """
+                    Sieh Dir die Commits an und lasse dabei Informationen 
+                    zu Branches und Tags mit anzeigen.
+        """
+            ) {
+                git("log --oneline --decorate")
+            }
+
+
+            createAufgabe(
+                "Einzelne Commits untersuchen", """
+                    Zeige Details zur aktuellen Version,
+                    und zur Vorgängerversion des Releases 1.0
+                """
+            ) {
+                markdown("\n\nHier die aktuelle Version `HEAD`:")
+                git("show")
+                markdown("\n\nUnd hier kommt die 1.0:")
+                git("show release1.0~1")
+            }
 
             createAufgabe(
                 "Inhalte vergangener Versionen untersuchen", """
@@ -130,38 +167,25 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 git("switch master")
             }
 
+
             createAufgabe(
-                "Branches und Tags", """
-                    Zeige die Branches und Tags an.
-                    Zeige jetzt den Commit-Graphen über alle Branches an.
+                "⭐ Herkunft von Zeilen ermitteln", """
+                    Es geht darum für die Datei `nachher` Folgendes zu ermitteln:
+
+                    * Für jede Zeile zeigen, in welchem Commit sie zuletzt bearbeitet wurde.
+                    * Innerhalb der Datei wurden Zeilen verschoben. Welche?
+                    * Es wurden auch Zeilen aus anderen Dateien verschoben und kopiert. Welche?
                 """
             ) {
-                git("branch -vv")
-                git("tag")
-                markdown("Im Commit-Graphen sieht man, wo die Branches und Tag stehen:")
-                git("log --decorate --oneline --graph --all")
-            }
-
-           
-            createAufgabe(
-                "⭐ Hole alten Stand einer einzelnen Datei zurück.", """
-                    Die Datei `hallo-welt` wurde nach dem `release1.0` bearbeitet.
-                    Dem Kunden gefällt das nicht. Stelle den alten Zustand mit
-                    einem neuen Commit wieder her. 
-                """
-            ) {
-                markdown("In `release1.0` sah es os aus:")
-                git("show release1.0:hallo-welt")
-                markdown("Jetzt sieh es so aus:")
-                git("show HEAD:hallo-welt")
-                markdown("Gezieltes zurückholen:")
-                git("restore -s release1.0 hallo-welt")
-                git("commit -am 'Zurückgeholt'")
-                markdown("Im Commit-Graphen sieht man, wo die Branches und Tag stehen:")
-                markdown("Jetzt sieh es so wieder so aus:")
-                git("show HEAD:hallo-welt")
-            }
-
+                git("blame nachher -s -w")
+                markdown("Man sieht, in welchem Commit die Zeilen zuletzt bearbeitet wurden, auch über Umbenennungen hinweg.")
+                git("blame nachher -s -w -M --show-number")
+                markdown("Die Zeilennummern zeigen, welche Zeilen verschoben wurden.")
+                git("blame nachher -s -w -M -C")
+                markdown("Hier sieht eine Verschiebung aus der Datei `restaurant`.")
+                git("blame nachher -s -w -M -C -C -C")
+                markdown("Hier sieht man, dass Inhalte aus einer anderen Datei `foo/bar` kopiert wurden.")
+            } 
        }
     }
 }

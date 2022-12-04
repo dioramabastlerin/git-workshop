@@ -17,6 +17,7 @@ fun buildGitUebungen() {
         }
 
         thema("Repository") {
+            repositoryLog()
             repositoryUntersuchen()
             klonen()
             sparseCeckout()
