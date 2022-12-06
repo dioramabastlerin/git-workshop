@@ -12,7 +12,7 @@ und sieh Dir den Inhalt der dort liegenden Datei an.
 Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 
 
-<pre><code>.. $ <b>ls</b><br><br>aufgaben<br>loesungen<br><br></code></pre>
+<pre><code>.. $ <b>ls</b><br><br>aufgaben<br>aufgaben.json<br>loesungen<br>ueberblick.html<br>ueberblick.md<br><br></code></pre>
 
 
 
