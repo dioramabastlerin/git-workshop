@@ -19,9 +19,12 @@ fun CollectionOfSamples.repositoryLog() {
                 
                 * `git log` zeigt alles Commits, die im aktuellen Branch enthalten sind.
                   - `--oneline` macht die Ausgabe kompakter.
+                  - `--stat` zeigt wie viele Dateien in welcher Date geändert wurden.
                 * `git show <some-commit>` zeigt Details zu einem Commit
                 * Mit `~` Adressiert man Vorgänger eines Commits, 
                   z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
+                * `git ls-tree -r <commit>` listet alles Dateien auf, die im angegebenen
+                  Commit versioniert sind.
                 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
                   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
                   - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
@@ -127,11 +130,22 @@ fun CollectionOfSamples.repositoryLog() {
 
             createAufgabe(
                 "Commits ansehen", """
-                    Sieh Dir die Commits an und lasse dabei Informationen 
-                    zu Branches und Tags mit anzeigen.
-        """
+                    Sieh Dir die Commits. 
+                    Achte dabei auf die angezeigten Branches und Tags.
+                """
             ) {
-                git("log --oneline --decorate")
+                git("log --oneline")
+            }
+
+
+            createAufgabe(
+                "⭐ Commits ansehen: Datei-Statistik", """
+                    Sieh Dir die Commits an. 
+                    Lase dir dabei die Statistik anzeigen, 
+                    d.h. wie viele Zeilen in welcher Datei geändert wurden.
+                """
+            ) {
+                git("log --stat")
             }
 
 
@@ -149,22 +163,15 @@ fun CollectionOfSamples.repositoryLog() {
 
             createAufgabe(
                 "Inhalte vergangener Versionen untersuchen", """
-                    Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
+                    Lasse Dir anzeigen welche Dateien es im vorigen Commit gab.
                     
-                    Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
-                    
-                    Wechsle zum vorigen Commit, und untersuche, wie der Workspace dannn aussieht.
-                    Wechsle dann wieder auf `master` zurück.
+                    Gebe den Inhalt der Datei `bar` so aus,  wie er im vorigen Commit war.
                 """
             ) {
                 markdown("\n\nDiese Dateien gab es in `HEAD~1`:")
                 git("ls-tree -r HEAD~1")
                 markdown("\n\nUnd hier der Inhalt von `bar`:")
                 git("show HEAD~1:foo/bar")
-                markdown("\n\nUnd jetzt holen wir genau diese Version in den Workspace:")
-                git("switch --detach HEAD~1")
-                ll()
-                git("switch master")
             }
 
 

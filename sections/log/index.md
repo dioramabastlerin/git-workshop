@@ -138,3 +138,11 @@ Zeigt, für jede Zeile, in welchem Commit diese zuletzt bearbeitet wurde.
  * `-M -C -C -C` Zeigt bei kopierten/verschobenen Zeilen aus anderen Dateien das "Ursprungscommit". 
  * `-w` erkennt Zeilen trotz Whitespace-Änderungen wieder.
 
+---
+
+
+### Übung
+
+<h2><a href="git-uebungen/aufgabe-repository-log.html" target="_blank">Repository - Das Log<a></h2>
+
+
