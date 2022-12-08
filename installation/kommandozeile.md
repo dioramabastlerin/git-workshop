@@ -26,6 +26,7 @@ Um Git gut zu verstehen empfiehlt es sich daher die zentralen Git-Befehle kennen
  # Dateien und Unterverzeichnisse auflisen
  $ ll
  $ ll foo/
+ $ ll -a     # auch hidden files anzeigen
 
  # Aktuelles Verzeichnis anzeigen
  $ pwd
