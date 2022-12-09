@@ -1,24 +1,15 @@
-Credentialmanager
+## repo-log
 
-TortoiseGit
-
-
-## Typos
+>Wechsle zum vorigen Commit, und untersuche, wie der Workspace dannn aussieht. Wechsle dann wieder auf master zurück.
+löshc
 
 
- * Azuer
+ls-tree nicht tab-completion
 
+ll -a
 
-## Verschiedenen
+Deutlicher auf gross W
 
-Git difftool zeigen.
-
-
-## UI, Webhoster Demos
-
-Fenster vorher öffnen
-
-Folder heisst immer noch push-fetch-pull
 
 
 ## Ideen zur Interaktion

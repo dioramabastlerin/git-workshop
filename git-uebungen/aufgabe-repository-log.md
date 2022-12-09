@@ -16,9 +16,12 @@ Hier wird geübt, das Log zu Untersuchen und zu Lesen.
 
 * `git log` zeigt alles Commits, die im aktuellen Branch enthalten sind.
   - `--oneline` macht die Ausgabe kompakter.
+  - `--stat` zeigt wie viele Dateien in welcher Date geändert wurden.
 * `git show <some-commit>` zeigt Details zu einem Commit
 * Mit `~` Adressiert man Vorgänger eines Commits, 
   z. B. ist `HEAD~2` der Vorvorgänger von `HEAD`.
+* `git ls-tree -r <commit>` listet alles Dateien auf, die im angegebenen
+  Commit versioniert sind.
 * Mit `blame` findet man heraus,in welchen Commit Zeilen zuletzt bearbeitet wurden.
   - `-M` ermittelt Verschiebungen innerhalb einer Datei. 
   - `-w` erkennt Zeilen wieder, auch wenn Whitespacing verändert wurde.
@@ -48,28 +51,33 @@ Wo liegt das Repository?
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-log/repo`.
 
-Sieh Dir die Commits an und lasse dabei Informationen 
-zu Branches und Tags mit anzeigen.
+Sieh Dir die Commits. 
+Achte dabei auf die angezeigten Branches und Tags.
 
-<!--UEB-Repository - Log--><h2>Schritt 3 - Einzelne Commits untersuchen</h2>
+<!--UEB-Repository - Log--><h2>Schritt 3 - ⭐ Commits ansehen: Datei-Statistik</h2>
+
+Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-log/repo`.
+
+Sieh Dir die Commits an. 
+Lase dir dabei die Statistik anzeigen, 
+d.h. wie viele Zeilen in welcher Datei geändert wurden.
+
+<!--UEB-Repository - Log--><h2>Schritt 4 - Einzelne Commits untersuchen</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-log/repo`.
 
 Zeige Details zur aktuellen Version,
 und zur Vorgängerversion des Releases 1.0
 
-<!--UEB-Repository - Log--><h2>Schritt 4 - Inhalte vergangener Versionen untersuchen</h2>
+<!--UEB-Repository - Log--><h2>Schritt 5 - Inhalte vergangener Versionen untersuchen</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-log/repo`.
 
-Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
+Lasse Dir anzeigen welche Dateien es im vorigen Commit gab.
 
-Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
+Gebe den Inhalt der Datei `bar` so aus,  wie er im vorigen Commit war.
 
-Wechsle zum vorigen Commit, und untersuche, wie der Workspace dannn aussieht.
-Wechsle dann wieder auf `master` zurück.
-
-<!--UEB-Repository - Log--><h2>Schritt 5 - ⭐ Herkunft von Zeilen ermitteln</h2>
+<!--UEB-Repository - Log--><h2>Schritt 6 - ⭐ Herkunft von Zeilen ermitteln</h2>
 
 Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-log/repo`.
 
