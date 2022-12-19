@@ -1,4 +1,5 @@
  
+ * Pull-fetch übung: Ein paar Optionale einbauen.
  * In übung Branching: die asymmetrischen Diffs mit einbauen
  * Stating schritt zwei: Vorletzte Änderung zurücknehmen.
  * Übungsreihenfolge im Source anpassen
