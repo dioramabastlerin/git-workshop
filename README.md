@@ -1,7 +1,6 @@
 # Git Workshop Material
 
 das wäre besser gewesen
-noch ein Fehler
 
 ## Vorgebaute Übungen entpacken
 
