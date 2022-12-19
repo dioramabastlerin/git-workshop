@@ -1,5 +1,7 @@
 # Git Workshop Material
 
+das wäre besser gewesen
+
 ## Vorgebaute Übungen entpacken
 
     $ unzip build.zip -d build
