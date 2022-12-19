@@ -1,5 +1,6 @@
  
-
+ * Stating schritt zwei: Vorletzte Änderung zurücknehmen.
+ * Übungsreihenfolge im Source anpassen
  * config pull-rebase for den integrationsübungen checken.
  * Für jede übung einen Checkin-Schritt, damit man sieht, dass es losgeht
  * Tabelle mit Teilnehmernamen zu Schritten
