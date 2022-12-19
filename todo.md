@@ -1,23 +1,19 @@
  
+
  * config pull-rebase for den integrationsübungen checken.
- * Repository untersuchen: Übung splitten
- * Für jede übung einen Checkin-Schritt, damit man sieht, dass es losgejt
+ * Für jede übung einen Checkin-Schritt, damit man sieht, dass es losgeht
  * Tabelle mit Teilnehmernamen zu Schritten
- * 
  * Bessere beispiel fÜr Pull-Requests
- * todo slides zur Spitze-Klammern notation beim merge
-  * commit optionen
- * editor-config in der ersten übung checken
+ * commit optionen
  * To Do status erklaeren
   ( Beispiel für Scriptautomatisierung)
- 
- * Morgen GitHub/Bitbuckte zeigen und SourceTree
+ * editor-config in der ersten übung checken 
  * Übung Klonen. Repos aus repository unterschuchen nutzen. und dann als 4. Aufgabe die Remote refs untersuchen.
-* Klone Abschnitt entrümplen (viel Duplikation) * Schritt 0 bei übungen -> mit cd ../../asdf hinweis
+ * Klone Abschnitt entrümplen (viel Duplikation) * Schritt 0 bei übungen -> mit cd ../../asdf hinweis
  * Bilder für Revison
  * Für die Repo untersuchen Aufgabe: öffentliches Beispielrepo als Bonusaufgabe
  * diff --stat in übung
- * Sylesheet - Inline-Code schwarzgrün
+ * Stylesheet - Inline-Code schwarzgrün
  * Kommandozeilen intro: https://bstachmann.github.io/git-workshop/installation/kommandozeile.html + ll -a
  * Linkliste zu Informationen (Hilfe, Cheat-Sheet etc.) über git in Website aufnehmen und auf einer Slide verlinken
  * Übung hallo Git: Link auf Hilfe zur Kommandozeile. Config erst abfragen, dann setzen
@@ -25,7 +21,7 @@
  * Übung im Abschnitt Repository splitten, damit der Vortragsblock nicht so lang ist.
  * Ein paarmal steht übung wo demo stehen sollte
  * --decorate streichen
-* git merge beispiele -> in dem Repo merge als default für
+ * git merge beispiele -> in dem Repo merge als default für
  * Git-Merge -> add vor dem commit
  * partial checkout nach hinten
  * restore aus Repository raus
