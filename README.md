@@ -1,7 +1,5 @@
 # Git Workshop Material
 
-das wäre besser gewesen
-
 ## Vorgebaute Übungen entpacken
 
     $ unzip build.zip -d build
@@ -10,7 +8,7 @@ das wäre besser gewesen
 ## Übungen frisch bauen lassen
 
     $ gradle run distuebungenMarkdown
-    $ cd build/git-uebungen/aufgabenl
+    $ cd build/git-uebungen/aufgaben
 
     
 ## Editing
