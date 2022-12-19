@@ -1,5 +1,5 @@
  
- * tolle sache
+ * In übung Branching: die asymmetrischen Diffs mit einbauen
  * Stating schritt zwei: Vorletzte Änderung zurücknehmen.
  * Übungsreihenfolge im Source anpassen
  * config pull-rebase for den integrationsübungen checken.
