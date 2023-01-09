@@ -14,12 +14,12 @@ jobs:
           git config --global pull.rebase false
           git config --global protocol.file.allow always
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@latest
+        uses: gradle/wrapper-validation-action@v1.0.5
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@latest
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: distUebungenZip
       - uses: actions/upload-artifact@v3
         with:
-          name: workshop
+          name: git-workshop
           path: build/distributions/git-uebungen.zip
