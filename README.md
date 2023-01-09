@@ -2,12 +2,11 @@
 
 ## Vorgebaute Übungen entpacken
 
-    $ unzip build.zip -d build
-    $ cd build/git-uebungen/aufgaben
+    $ unzip build/distribution/uebungen.zip
 
 ## Übungen frisch bauen lassen
 
-    $ gradle run distuebungenMarkdown
+    $ gradle clean assembleDist
     $ cd build/git-uebungen/aufgaben
 
     

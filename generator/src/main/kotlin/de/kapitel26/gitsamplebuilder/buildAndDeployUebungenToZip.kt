@@ -8,7 +8,9 @@ import java.lang.ProcessBuilder.Redirect.PIPE
 fun main() {
     println("Start building")
 
-    val zipFile = File("build/distributions/uebungen.zip")
+    val distPath = File("build/distributions")
+    distPath.mkdirs()
+    val zipFile = File("${distPath}/uebungen.zip")
 
     if(zipFile.exists()) {
         println("Deleting old zip")
