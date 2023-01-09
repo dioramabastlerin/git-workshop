@@ -13,14 +13,13 @@ jobs:
         run: |
           git config --global pull.rebase false
           git config --global protocol.file.allow always
-          ./gradlew assembleDist       
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: assembleDist
       - uses: actions/upload-artifact@v3
         with:
           name: Package
           path: build/distributions/git-uebungen.zip
-# - name: Validate Gradle wrapper
-#   uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-# - name: Build with Gradle
-#   uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-#   with:
-#     arguments: assembleDist
