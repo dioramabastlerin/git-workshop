@@ -5,7 +5,7 @@ import java.io.File
 
 fun main() {
     val srcDir = File("build/git-uebungen/loesungen")
-    val targetDir = File("git-uebungen")
+    val targetDir = File("markdown-git-uebungen")
     targetDir.deleteRecursively()
     copy(srcDir, targetDir)
 }
