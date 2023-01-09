@@ -24,6 +24,7 @@ class CollectionOfSamples(rootDir: File, options: LogBuilderOptions) : AbstractD
         aufgabenNamen.add(fullName)
 
         createSample("loesungen/$fullName") {
+            git("config --global pull.rebase false")
 
             inDir(".") {
                 logTo("aufgabe-$fullName.md") {

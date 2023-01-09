@@ -37,7 +37,6 @@ class Repo(rootDir: File, log: LogBuilder, solutionCollector: SolutionCollector,
     fun user(user: String) {
         git("config user.name $user")
         git("config user.email $user@beispieladresse.de")
-        git("config pull.rebase false")
     }
 
     fun createClone(cloneLocation: String, vararg args: String, commands: (Repo.() -> Unit)? = null) {
