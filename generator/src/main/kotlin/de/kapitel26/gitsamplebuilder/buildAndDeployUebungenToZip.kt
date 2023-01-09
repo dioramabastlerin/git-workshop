@@ -10,7 +10,7 @@ fun main() {
 
     val distPath = File("build/distributions")
     distPath.mkdirs()
-    val zipFile = File("${distPath}/uebungen.zip")
+    val zipFile = File("${distPath}/git-uebungen.zip")
 
     if(zipFile.exists()) {
         println("Deleting old zip")
@@ -18,8 +18,8 @@ fun main() {
     }
 
     println("Zipping")
-    val processBuilder = ProcessBuilder("zip", "-r", zipFile.absolutePath.toString(), "build/git-uebungen")
-    processBuilder.directory(File("."))
+    val processBuilder = ProcessBuilder("zip", "-r", zipFile.absolutePath.toString(), "git-uebungen")
+    processBuilder.directory(File("build"))
     processBuilder.redirectOutput(INHERIT)
     processBuilder.redirectError(INHERIT)
     val process = processBuilder.start()
