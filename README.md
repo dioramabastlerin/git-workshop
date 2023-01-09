@@ -10,7 +10,9 @@
     $ cd git-uebungen/aufgaben
 
     
-## Editing
+## Per GitHub-Action gebautes Zip-File
+
+Der Workflow [ist hier](https://github.com/bstachmann/git-workshop/actions/workflows/zip-git-uebungen.yml)
 
 ### Presentation und Website
 
