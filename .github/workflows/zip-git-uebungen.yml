@@ -22,4 +22,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: git-uebungen
-          path: build/git-uebungen
+          path: build/distributions/git-uebungen.zip
