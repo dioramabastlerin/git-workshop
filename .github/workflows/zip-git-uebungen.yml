@@ -12,6 +12,7 @@ jobs:
       - shell: bash
         run: |
           git config --global pull.rebase false
+          git config --global protocol.file.allow always
           ./gradlew assembleDist       
       - uses: actions/upload-artifact@v3
         with:
