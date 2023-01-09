@@ -14,9 +14,9 @@ jobs:
           git config --global pull.rebase false
           git config --global protocol.file.allow always
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action
+        uses: gradle/wrapper-validation-action@latest
       - name: Build with Gradle
-        uses: gradle/gradle-build-action
+        uses: gradle/gradle-build-action@latest
         with:
           arguments: distUebungenZip
       - uses: actions/upload-artifact@v3
