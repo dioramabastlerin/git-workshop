@@ -29,6 +29,7 @@ allprojects {
     }
 
     dependencies {
+
         implementation(kotlin("script-runtime"))
         implementation(kotlin("stdlib"))
     }
@@ -42,6 +43,11 @@ dependencies {
 
 application {
     mainClassName = "de.kapitel26.gitsamplebuilder.gitworkshop.GitworkshopsamplesKt"
+}
+
+
+tasks.assembleDist {
+    dependsOn(tasks.named<JavaExec>("distUebungenZip")) 
 }
 
 task("distUebungenMarkdown", JavaExec::class) {
