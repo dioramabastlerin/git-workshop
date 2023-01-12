@@ -1,7 +1,7 @@
 name: Build git-uebungen.zip
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build-git-uebungen-zip:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
