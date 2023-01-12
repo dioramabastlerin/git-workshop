@@ -1,7 +1,6 @@
  * branches bild malen
  * slide für restore befehl
  * übung repository-log feingranularer
- * Architects Corner -> Abwärtskompatibilität vorziehen nach switch/restore 
  * Pull-fetch übung: Ein paar Optionale einbauen.
  * In übung Branching: die asymmetrischen Diffs mit einbauen
  * Stating schritt zwei: Vorletzte Änderung zurücknehmen.
