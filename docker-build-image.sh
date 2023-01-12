@@ -1,1 +1,0 @@
-docker build -f .gitpod.Dockerfile -t gitpod-dockerfile-test .
