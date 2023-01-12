@@ -38,6 +38,7 @@ fun CollectionOfSamples.setup() {
                   - `git config set --global <property> <new-value>` 
                     setzt einen Wert in der Konfiguration.
 
+                [Kurze Intro zur Kommandozeile](../installation/kommandozeile)
             """
         ) {
             createDir("hallo") {

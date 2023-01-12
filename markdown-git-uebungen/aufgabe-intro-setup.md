@@ -35,6 +35,7 @@ das `git`-Kommando kennenzulernen.
   - `git config set --global <property> <new-value>` 
     setzt einen Wert in der Konfiguration.
 
+[Kurze Intro zur Kommandozeile](../installation/kommandozeile)
 
 
 <pre><code>$ <b>cd ../..</b><br><br><br></code></pre>
