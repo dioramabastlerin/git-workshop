@@ -41,7 +41,7 @@ Beide Änderungen sollen zurückgenommen werden.
 
 <!--UEB-Reverting--><h2>Schritt 1 - Einzelnes Commit rückgängig machen.</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
 
 In der Historie wurde die Datei `README.md` in `liesmich`
 umbenannt. Mache diese Änderung rückgängig.
@@ -49,7 +49,7 @@ Tipp: Das Commit ist als `umbenennung` getagged.
 
 <!--UEB-Reverting--><h2>Schritt 2 - Merge-Commit rückgängig machen.</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
 
 In der Historie wurde ein Feature-Branch per Merge integriert.file . Mache dies änderung rückgängig.
 Tipp: Das Merge-Commit ist als `feature-merge` getagged. 
@@ -57,7 +57,7 @@ Tipp: Am verschinden der Datei `from-feature` kann man den Erfolg erkennen.
 
 <!--UEB-Reverting--><h2>Schritt 3 - Feature-Branch kaputt!?</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
 
 Ein Revert wird oft genutzt, um ein Feature kurzfristig zurückzunehmen,
 z. B. wegen eine Produktionsproblems.
@@ -71,7 +71,7 @@ Tipp: Das gescheiterte Merge kann mit `git merge --abort` abgebrochen werden.
 
 <!--UEB-Reverting--><h2>Schritt 4 - Merge-Revert wieder rückgängig machen.</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-reverting/repo`.
 
 Der Trick ist, das Revert-Commit selbst zu reverten,
 dann sind jene Änderungen wieder da,

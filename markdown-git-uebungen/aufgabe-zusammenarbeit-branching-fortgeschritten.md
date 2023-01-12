@@ -32,7 +32,7 @@ parent: Aufgaben
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 1 - Branch erstellen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
@@ -41,14 +41,14 @@ Zeige den Commit-Graphen.
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 2 - Branch mergen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
 Merge `feature-a` auf den `master`und
 zeige den Commit-Graphen.
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 3 - ⭐ Merge analysieren</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
 Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
@@ -56,7 +56,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 4 - ⭐ Merge analysieren</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
 Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
@@ -64,7 +64,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 5 - Remote Branches untersuchen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
 
 

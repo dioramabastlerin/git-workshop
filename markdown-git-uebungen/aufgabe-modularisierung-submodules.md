@@ -55,7 +55,7 @@ Diese sollen
 
 <!--UEB-Modularisierung mit Submodules--><h2>Schritt 1 - Module als Submodule einbinden</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-submodules/submodules`.
+Starte im Verzeichnis `git-uebungen/aufgaben/modularisierung-submodules/submodules`.
 
 Binde die Module `mod-a.git` und `mod-b.git`
 per `submodule add` ein.
@@ -67,7 +67,7 @@ Untersuche dann die entstandene Verzeichnisstruktur.
 
 <!--UEB-Modularisierung mit Submodules--><h2>Schritt 2 - Subtree: Änderung aus einem Modul übernehmen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-submodules`.
+Starte im Verzeichnis `git-uebungen/aufgaben/modularisierung-submodules`.
 
 Gehe in das Repo `mod-b` ändere die Datei `berta`, committe und pushe.
 Sie Dir das entstandene Commit an (`show --stat`)
@@ -76,7 +76,7 @@ Sieh Dir das übertragene Commit an.
 
 <!--UEB-Modularisierung mit Submodules--><h2>Schritt 3 - Änderung in ein Modul übertragen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-submodules`.
+Starte im Verzeichnis `git-uebungen/aufgaben/modularisierung-submodules`.
 
 Gehe in `subtrees/mod-a` ändere `anton` und committe.
 Übertrage die Änderung per `push` nach `mod-a.git`.
@@ -84,7 +84,7 @@ Sieh Dir das übertragene Commit in `mod-a.git` an.
 
 <!--UEB-Modularisierung mit Submodules--><h2>Schritt 4 - Übergeordnetes Repo klonen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-submodules`.
+Starte im Verzeichnis `git-uebungen/aufgaben/modularisierung-submodules`.
 
 Klone `submodules` zu `mysubmodules`.
 Untersuche die Verzeichnisstruktur.

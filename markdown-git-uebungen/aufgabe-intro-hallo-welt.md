@@ -22,7 +22,7 @@ Was die Kommandos genau tun, erfahren Sie im Verlauf des Seminars.
 
 <!--UEB-Hallo Git!--><h2>Schritt 1 - Das erste Repo</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-hallo-welt`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-hallo-welt`.
 
 Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
 

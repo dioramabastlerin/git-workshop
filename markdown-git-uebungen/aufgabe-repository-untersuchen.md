@@ -41,7 +41,7 @@ untersucht zu werden.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 1 - Inhalte vergangener Versionen untersuchen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-untersuchen/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/repository-untersuchen/repo`.
 
 Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
 
@@ -52,14 +52,14 @@ Wechsle dann wieder auf `master` zurück.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 2 - Branches und Tags</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-untersuchen/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/repository-untersuchen/repo`.
 
 Zeige die Branches und Tags an.
 Zeige jetzt den Commit-Graphen über alle Branches an.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 3 - ⭐ Hole alten Stand einer einzelnen Datei zurück.</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/repository-untersuchen/repo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/repository-untersuchen/repo`.
 
 Die Datei `hallo-welt` wurde nach dem `release1.0` bearbeitet.
 Dem Kunden gefällt das nicht. Stelle den alten Zustand mit

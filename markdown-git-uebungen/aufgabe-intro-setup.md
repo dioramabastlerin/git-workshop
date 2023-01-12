@@ -42,7 +42,7 @@ das `git`-Kommando kennenzulernen.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 1 - Navigation in Übungsverzeichnisse</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/<unknown>`.
+Starte im Verzeichnis `git-uebungen/aufgaben/<unknown>`.
 
 Starte in jenem Verzeichnis, wo `build.zip` entpackt wurde.
 Navigiere in das Unterverzeichnis `aufgaben/intro-setup/hallo`
@@ -55,19 +55,19 @@ Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 2 - Git-Version prüfen</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-setup`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-setup`.
 
 Gib aus, welche Version von Git installiert ist.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 3 - Hilfe</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-setup`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-setup`.
 
 Zeige die Hilfeseite zum `log`-Befehl an.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 4 - Setup</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/intro-setup`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-setup`.
 
 Prüfe die User-Konfiguration:
 

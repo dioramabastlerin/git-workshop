@@ -34,7 +34,7 @@ sind bereits vorhanden.
 
 <!--UEB-Kleine Projekte zusammenfuehren--><h2>Schritt 1 - Zusammenführen `git subtree`</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-repositorys-zusammenfuehren`.
+Starte im Verzeichnis `git-uebungen/aufgaben/modularisierung-repositorys-zusammenfuehren`.
 
 
 1. Erstelle ein Repo `application` mit einem Commit.
@@ -44,7 +44,7 @@ Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-repositorys-z
 
 <!--UEB-Kleine Projekte zusammenfuehren--><h2>Schritt 2 - Zusammenführen mit `fetch`, `mv` und `merge`</h2>
 
-Starte im Verzeichnis `build/git-uebungen/aufgaben/modularisierung-repositorys-zusammenfuehren`.
+Starte im Verzeichnis `git-uebungen/aufgaben/modularisierung-repositorys-zusammenfuehren`.
 
 UI und Backend sollen in einem neuen Klon `gesamt` zusammengeführt werden.
 Folge den Anweisungen im Kapitel *"Kleine Projekte zusammenführen"*.
