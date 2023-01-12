@@ -1,7 +1,5 @@
  ☐ Linus Torvalds 
  ☐ Workspace 
- ☐ Log
- ☐ Tag 
  ☐ `--detach` 
  ☐ Repository
  ☐ `--oneline`
@@ -12,9 +10,7 @@
  ☐ `.git` 
  ☐ Commit
  `git branch`
- ☐ blessed Repo
  ☐ `git switch` 
- ☐ Version 
  ☐ `.gitignore` 
  ☐ Revision-Hash
  ☐ `git checkout`
@@ -22,13 +18,13 @@
  ☐ Branch
  ☐ `--graph`
  ☐ Revision
- ☐ opinionated
  ☐ Porcelain
  ☐ `HEAD`
  ☐ dezentral
  ☐ `git tag`
- ☐ Tree
+ ☐ Tree, Blob
  ☐ `git diff`
  ☐ `git show:README.md`
  ☐ `git restore`
+
 
