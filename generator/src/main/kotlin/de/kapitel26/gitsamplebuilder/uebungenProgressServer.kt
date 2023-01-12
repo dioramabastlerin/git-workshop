@@ -148,7 +148,7 @@ fun Route.aufgabenFilesLocalJekyll() {
                 update(state.copy(achievements = state.achievements + (sidParam to updatedAchievements)))
             }
 
-            val response = this.getStaticContent("git-uebungen/" + (call.parameters.getAll("path")?.joinToString("/") ?: ""))
+            val response = this.getStaticContent("markdown-git-uebungen/" + (call.parameters.getAll("path")?.joinToString("/") ?: ""))
             val processedContent = response.readText().replace(
                 """\<\!\-\-UEB\-(.+?)\-\-\> \<h2\> (.+?)\ <\/h2\>""".toRegex(), 
                 { step -> 
