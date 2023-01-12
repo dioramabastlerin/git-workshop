@@ -74,7 +74,7 @@ $ git clone https://<server>/<pfad>/git-training-protocol.git
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-repository-klonen.html" target="_blank">Klonen<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-repository-klonen.html" target="_blank">Klonen<a></h2>
 
 ---
 
@@ -132,7 +132,7 @@ git show origin/master        # origin nach letztem Synch
 
 ### Demo
 
-<h2><a href="git-uebungen/aufgabe-repository-sparse-checkout.html" target="_blank">Sparse Checkout<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-repository-sparse-checkout.html" target="_blank">Sparse Checkout<a></h2>
 
 
 

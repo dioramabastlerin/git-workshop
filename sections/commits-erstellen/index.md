@@ -214,4 +214,4 @@ Ggf. legt man ein hidden File an, z. B. `.gitkeep`
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-commits-erstellen.html" target="_blank">Commits erstellen<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-commits-erstellen.html" target="_blank">Commits erstellen<a></h2>

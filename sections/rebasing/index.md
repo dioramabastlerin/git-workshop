@@ -80,7 +80,7 @@ Ohne Parameter: Upstream Branch.
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-zusammenarbeit-rebasing.html" target="_blank">Rebasing<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-zusammenarbeit-rebasing.html" target="_blank">Rebasing<a></h2>
 
 
 

@@ -31,21 +31,21 @@
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-modularisierung-submodules.html" target="_blank">Submodules<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-modularisierung-submodules.html" target="_blank">Submodules<a></h2>
 
 
 ---
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-modularisierung-subtrees.html" target="_blank">Subtrees<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-modularisierung-subtrees.html" target="_blank">Subtrees<a></h2>
 
 
 ---
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-modularisierung-repositorys-zusammenfuehren.html" target="_blank">Repositorys zusammenführen<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-modularisierung-repositorys-zusammenfuehren.html" target="_blank">Repositorys zusammenführen<a></h2>
 
 
 

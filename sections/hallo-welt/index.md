@@ -33,5 +33,5 @@ Bei GitHub findet man ein [schönes Cheatsheet](https://training.github.com/down
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-intro-hallo-welt.html" target="_blank">Hallo Welt!<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-intro-hallo-welt.html" target="_blank">Hallo Welt!<a></h2>
 

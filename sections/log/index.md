@@ -143,6 +143,6 @@ Zeigt, für jede Zeile, in welchem Commit diese zuletzt bearbeitet wurde.
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-repository-log.html" target="_blank">Repository - Das Log<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-repository-log.html" target="_blank">Repository - Das Log<a></h2>
 
 

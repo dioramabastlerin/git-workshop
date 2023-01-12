@@ -13,4 +13,4 @@
 
 ## Git LFS
 
-<h2><a href="git-uebungen/aufgabe-modularisierung-lfs.html" target="_blank">Git LFS<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-modularisierung-lfs.html" target="_blank">Git LFS<a></h2>

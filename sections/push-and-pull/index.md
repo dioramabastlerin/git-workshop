@@ -110,7 +110,7 @@ git pull
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-zusammenarbeit-push-fetch-pull.html" target="_blank">Übung push, fetch und pull<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-zusammenarbeit-push-fetch-pull.html" target="_blank">Übung push, fetch und pull<a></h2>
 
 
 ---
@@ -150,7 +150,7 @@ Technisch: Beim Push muss das neue Commit Nachfahre des Vorherigen sein!
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-zusammenarbeit-push-rejected.html" target="_blank">Push rejected!<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-zusammenarbeit-push-rejected.html" target="_blank">Push rejected!<a></h2>
 
 
 

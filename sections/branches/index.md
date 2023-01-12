@@ -144,6 +144,6 @@ integriert die Änderungen von `other-branch` in den aktiven Branch und erstellt
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-zusammenarbeit-branching.html" target="_blank">Branches<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-zusammenarbeit-branching.html" target="_blank">Branches<a></h2>
 
 

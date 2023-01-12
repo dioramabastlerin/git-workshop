@@ -99,7 +99,7 @@ Konfigurationsempfehlungen für diesen Workshop:
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-intro-setup.html" target="_blank">Das Git-Kommando<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-intro-setup.html" target="_blank">Das Git-Kommando<a></h2>
 
 
 

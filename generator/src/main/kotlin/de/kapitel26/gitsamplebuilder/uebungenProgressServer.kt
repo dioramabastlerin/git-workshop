@@ -104,7 +104,7 @@ val ApplicationCall.userId : String get() =
     ?: java.util.Random().nextInt().toString().also { sessions.set(UserSession(it)) }
 
 fun Route.aufgabenFilesLocalJekyll() {
-    get("/git-workshop/git-uebungen/{path...}") {
+    get("/git-workshop/markdown-git-uebungen/{path...}") {
         println("Aufgabe request ${call.parameters.getAll("path")}")
         val previous = call.sessions.get<UserSession>() 
         val session = 

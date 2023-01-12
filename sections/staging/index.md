@@ -45,7 +45,7 @@ Setzt Workspace auf den Stage-Stand zurück:
 
 ### Übung
 
-<h2><a href="git-uebungen/aufgabe-commits-staging.html" target="_blank">Staging<a></h2>
+<h2><a href="markdown-git-uebungen/aufgabe-commits-staging.html" target="_blank">Staging<a></h2>
 
 
 
