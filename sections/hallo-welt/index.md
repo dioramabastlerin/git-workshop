@@ -25,9 +25,6 @@ $ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -m
 
 Bei GitHub findet man ein [schönes Cheatsheet](https://training.github.com/downloads/de/github-git-cheat-sheet/) zu den wichtigsten Git-Befehlen.
 
-[Git Starter Kit](../../git-starter-kit.md) zeigt (fast) alle Befehle, die in den Übungen genutz werden.
-
-
 
 ---
 

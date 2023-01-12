@@ -26,12 +26,6 @@ Weitere Informationen finden Sie in unserem Blog [Kapitel 26](http://kapitel26.g
 
 ---
 
-# Git Starter
-
-[Git Starter Kit](http:/git-starter-kit.html)
-
-
----
 
 ## Zeiten
 
