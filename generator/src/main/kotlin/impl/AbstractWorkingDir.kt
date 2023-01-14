@@ -194,12 +194,12 @@ abstract class AbstractWorkingDir<T>(
 
     fun editAndCommit(
         fileName: String,
-        commitMesssage: String = "Edited file $fileName on branch ${currentBranch()} by ${currentUser()}.",
+        message: String = "Edited file $fileName on branch ${currentBranch()} by ${currentUser()}.",
         commands: File.() -> Unit = {}
     ) {
         inFile(fileName, commands)
         git("""add $fileName""")
-        git { commit(fileName, commitMesssage ) }
+        git { commit(fileName, message ) }
     }
 
 

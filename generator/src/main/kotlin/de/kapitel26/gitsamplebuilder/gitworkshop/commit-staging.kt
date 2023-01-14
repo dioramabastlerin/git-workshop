@@ -10,9 +10,10 @@ fun CollectionOfSamples.staging() {
                 """Staging""",
                 """
                 Es geht um den *Stage-Bereich* (auch Index genannt).
-                Änderungen (bearbeitete, neue oder gelöschte Dateien) werden nur dann
-                in ein Commit übernommen, wenn sie vorher im *Stage-Bereich*
-                registriert werden, z.B. mit `add`
+                Jede Änderung (bearbeitete, neue oder gelöschte Dateien) 
+                wird muss als "Snapshot" im Stage-Bereich registriert werden
+                (z.B. mit `git add`),
+                bevor Sie in ein Commit übernommen werden kann.
 
                 ## Tipps
                 
@@ -24,9 +25,9 @@ fun CollectionOfSamples.staging() {
                 * `git restore --staged <file>` nimmt ein Staging zurück.
                 * `git restore <file>` stellt eine Datei im Workspace wieder her.
                    **Achtung**: Die lokale Änderungen werden dabei überschreiben!
-                   - mit `-s <revision>` kann man bestimmen, welche Version wiederhergestellt wird.
-                * `git clean -df`: Räumt nicht versionierte Daten und Verzeichnisse ab.
-
+                * mit `-s <revision>` können auch beliebige andere Stände von Dateien und Verzeichnisse
+                  geholt werden.
+                        
                 # Setup
     
                 Im Verzeichnis `repo` wartet ein Git-Projekt darauf,
@@ -35,6 +36,11 @@ fun CollectionOfSamples.staging() {
             """
         ) {
             createRepo {
+                createFileAndCommit("demo") { content = "Fit\nist\ndoof.\n" }
+                createFileAndCommit("beispiel", message = "dazwischen") {  content = "So war es zuerst." }
+                editAndCommit("beispiel", message = "dazwischen") { content = "Dann kam das mit dem Mittelteil." }
+                editAndCommit("beispiel", message = "später") { content = "Und so endete es." }
+
                 createDir("ufer") { 
                     createDir("west") {
                         createFile("👨‍🌾")
@@ -61,7 +67,6 @@ fun CollectionOfSamples.staging() {
                     }
                 }
 
-                createFileAndCommit("demo") { content = "Fit\nist\ndoof.\n" }
             }
         }
 
@@ -112,14 +117,17 @@ fun CollectionOfSamples.staging() {
             }
 
             createAufgabe(
-                    "Restore - Datei wiederherstellen", """
-                    Die letzte Änderung soll ganz verworfen werden. 
+                    "Restore - Änderung ganz zurücknehmen", """
+                    Die Änderungen an demo sollen ganz zurückgenommen werden.
+                    Lasse Dir nachher Status und Diffs anzeigen.
              """) {
+                git("status")
                 git("restore demo")
                 git("status")
-                git("diff")
+                                git("diff")
                 git("diff --staged")
                 markdown("Jetzt sind die Änderungen ganz weg.")
+
             }
 
             createAufgabe(
@@ -128,7 +136,7 @@ fun CollectionOfSamples.staging() {
                     Stelle die Spielstände nach, 
                     indem Du `restore` auf das `ufer`-Verzeichnis anwendest.
                     
-                    Tipp: `ls ufer/*` zeigt die Verzeichnisse des Spiels.
+                    Tipp: `ll ufer/*` zeigt die Verzeichnisse des Spiels.
                     
                     Tipp: Beim `restore` werden unversionierte Dateien nicht abgeräumt.
                     Man kann sie mit dem `clean`-Befehl abräumen.
@@ -136,8 +144,8 @@ fun CollectionOfSamples.staging() {
                 git("log --oneline -- ufer/")
                 (1..8).forEach { i ->
                     markdown("Zug $i")
-                    git("clean -df")
-                    git("restore -s HEAD~${9-i} ufer")
+                    git("stash -u")
+                    git("restore -s HEAD~${8-i} ufer")
                     ll("ufer/*")               
                 }
             }
