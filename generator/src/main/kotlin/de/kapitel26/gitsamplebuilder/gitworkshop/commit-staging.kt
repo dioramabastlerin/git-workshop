@@ -27,6 +27,8 @@ fun CollectionOfSamples.staging() {
                    **Achtung**: Die lokale Änderungen werden dabei überschreiben!
                 * mit `-s <revision>` können auch beliebige andere Stände von Dateien und Verzeichnisse
                   geholt werden.
+                * `git stash -u` entfernt alle Änderungen (und unversioniert Dateien)
+                  aus dem Workspace (und sichert diese im Stash).
                         
                 # Setup
     
@@ -118,7 +120,7 @@ fun CollectionOfSamples.staging() {
 
             createAufgabe(
                     "Restore - Änderung ganz zurücknehmen", """
-                    Die Änderungen an demo sollen ganz zurückgenommen werden.
+                    Die Änderungen an `demo` sollen ganz zurückgenommen werden.
                     Lasse Dir nachher Status und Diffs anzeigen.
              """) {
                 git("status")
@@ -131,7 +133,18 @@ fun CollectionOfSamples.staging() {
             }
 
             createAufgabe(
-                    "⭐ Restore - Zurückholen älterer Datei- und Verzeichnisversionen", """
+                    "⭐ Restore - Älteren Inhalt einer Datei zurückholen", """
+                    Die Datei `beispiel` wurde dreimal bearbeitet.
+                    Hole den mittleren Stand zurück und erstelle ein Commit.
+             """) {
+                git("log --oneline beispiel")
+                git("restore -s HEAD~9 beispiel")
+                git("diff")
+                git("commit -am \"Mittlerer Stand wiederhergestellt.\"")
+            }
+
+            createAufgabe(
+                    "⭐ Restore - Zurückholen älterer Verzeichnisversionen", """
                     Im Folder `ufer` wurde ein Spiel gespielt.
                     Stelle die Spielstände nach, 
                     indem Du `restore` auf das `ufer`-Verzeichnis anwendest.
@@ -139,7 +152,7 @@ fun CollectionOfSamples.staging() {
                     Tipp: `ll ufer/*` zeigt die Verzeichnisse des Spiels.
                     
                     Tipp: Beim `restore` werden unversionierte Dateien nicht abgeräumt.
-                    Man kann sie mit dem `clean`-Befehl abräumen.
+                    Man kann sie mit dem `stash`-Befehl abräumen.
              """) {
                 git("log --oneline -- ufer/")
                 (1..8).forEach { i ->
