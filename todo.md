@@ -1,3 +1,5 @@
+ * Bonusaufgaben immer am Ende
+ * Optionals für Integration von änderung: Löschen von Dateien, Umbenennen/Verschieben
  * branches bild malen
  * slide für restore befehl
  * übung repository-log feingranularer

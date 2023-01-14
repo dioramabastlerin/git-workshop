@@ -24,7 +24,7 @@
  ☐ `git tag`
  ☐ Tree, Blob
  ☐ `git diff`
- ☐ `git show:README.md`
+ ☐ `git show HEAD:README.md`
  ☐ `git restore`
 
 
