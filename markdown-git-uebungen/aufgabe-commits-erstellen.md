@@ -19,7 +19,7 @@ parent: Aufgaben
 * `git commit -a` Registriert alle Änderungen an bereits in Git versionierten 
   Dateien im Staging-Bereich, so dass man sich den separaten
   `add`-Aufruf sparen kann.
-* Die optionen `-a` und `-m` können kombiniert werden: `git commit -am "Kommentar"`
+* Die optionen `-a` und `-m` dürfen auch kombiniert werden: `git commit -am "Kommentar"`
 * `git log --follow -- <file-name>`
    Zeigt die Historie einer Datei auch über Umbenennungen hinweg.
 
