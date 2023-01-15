@@ -8,7 +8,7 @@ parent: Aufgaben
 
 Hier geht es darum, ein Gefühl dafür zu bekommen,
 wie die Git-Kommandozeile funktioniert.
-Führen sie die vorgegebenen Kommandos aus und schauen Sie,
+Führen Sie die vorgegebenen Kommandos aus und schauen Sie,
 was passiert.
 Was die Kommandos genau tun, erfahren Sie im Verlauf des Seminars.
 
@@ -32,6 +32,27 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
     $ git add hallo
     $ git commit -m 'Hallo Welt!'
     $ git log
+
+<!--UEB-Hallo Git!--><h2>Schritt 2 - ⭐ Und noch ein Commit</h2>
+
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-hallo-welt`.
+
+Bearbeiten Sie die Datei 'hallo' und erstellen ein neues commit.
+Mit der Option `-am` brauchen Sie 'git add hallo` nicht erneut aufrufen.
+Schauen Sie dann das log an.
+
+    $ git commit -am 'Es geht weiter!'
+    $ git log
+
+<!--UEB-Hallo Git!--><h2>Schritt 3 - ⭐ Wo liegt das Repository</h2>
+
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-hallo-welt`.
+
+Untersuchen Sie das Verzeichnis.
+Wo liegt wohl das Git-Repository? Was enthält es?
+
+    $ ll -a
+    $ ll .git/
 
 [Zur Lösung](loesung-intro-hallo-welt.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
 

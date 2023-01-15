@@ -202,6 +202,12 @@ abstract class AbstractWorkingDir<T>(
         git { commit(fileName, message ) }
     }
 
+    fun edit(
+        fileName: String,
+        commands: File.() -> Unit = {}
+    ) {
+        inFile(fileName, commands)
+    }
 
     fun createFileAndCommit(
         fileName: String,
