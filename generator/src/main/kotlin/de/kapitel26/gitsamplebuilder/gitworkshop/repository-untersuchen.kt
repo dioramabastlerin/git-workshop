@@ -117,7 +117,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                     Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
                     
                     Wechsle zum vorigen Commit, und untersuche, wie der Workspace dannn aussieht.
-                    Wechsle dann wieder auf `master` zurück.
+                    Wechsle dann wieder auf `main` zurück.
                 """
             ) {
                 markdown("\n\nDiese Dateien gab es in `HEAD~1`:")
@@ -127,7 +127,7 @@ fun CollectionOfSamples.repositoryUntersuchen() {
                 markdown("\n\nUnd jetzt holen wir genau diese Version in den Workspace:")
                 git("switch --detach HEAD~1")
                 ll()
-                git("switch master")
+                git("switch main")
             }
 
             createAufgabe(

@@ -30,7 +30,7 @@ Ersetze `doof` durch `toll`.
 
 
 
-<pre><code>repo $ <b>git status</b><br><br>On branch master<br>Changes to be committed:<br>  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)<br>	modified:   demo<br><br>Changes not staged for commit:<br>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<br>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<br>	modified:   demo<br><br><br></code></pre>
+<pre><code>repo $ <b>git status</b><br><br>On branch main<br>Changes to be committed:<br>  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)<br>	modified:   demo<br><br>Changes not staged for commit:<br>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<br>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<br>	modified:   demo<br><br><br></code></pre>
 
 
 Die Datei `demo` wird sowohl in `Changes to be committed:` als auch in `Changes not staged for commit` geführt.
@@ -55,7 +55,7 @@ nehme sie zurück.
 
 
 
-<pre><code>repo $ <b>git status</b><br><br>On branch master<br>Changes not staged for commit:<br>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<br>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<br>	modified:   demo<br><br>no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<br><br></code></pre>
+<pre><code>repo $ <b>git status</b><br><br>On branch main<br>Changes not staged for commit:<br>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<br>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<br>	modified:   demo<br><br>no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<br><br></code></pre>
 
 
 
@@ -74,7 +74,7 @@ Die Änderungen an `demo` sollen ganz zurückgenommen werden.
 Lasse Dir nachher Status und Diffs anzeigen.
 
 
-<pre><code>repo $ <b>git status</b><br><br>On branch master<br>Changes not staged for commit:<br>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<br>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<br>	modified:   demo<br><br>no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<br><br></code></pre>
+<pre><code>repo $ <b>git status</b><br><br>On branch main<br>Changes not staged for commit:<br>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<br>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<br>	modified:   demo<br><br>no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<br><br></code></pre>
 
 
 
@@ -82,7 +82,7 @@ Lasse Dir nachher Status und Diffs anzeigen.
 
 
 
-<pre><code>repo $ <b>git status</b><br><br>On branch master<br>nothing to commit, working tree clean<br><br></code></pre>
+<pre><code>repo $ <b>git status</b><br><br>On branch main<br>nothing to commit, working tree clean<br><br></code></pre>
 
 
 
@@ -101,7 +101,7 @@ Die Datei `beispiel` wurde dreimal bearbeitet.
 Hole den mittleren Stand zurück und erstelle ein Commit.
 
 
-<pre><code>repo $ <b>git log --oneline beispiel</b><br><br>c702a2f später<br>c60a910 dazwischen<br>6bfc762 dazwischen<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline beispiel</b><br><br>c67dc27 später<br>4222f43 dazwischen<br>dfe79fa dazwischen<br><br></code></pre>
 
 
 
@@ -113,7 +113,7 @@ Hole den mittleren Stand zurück und erstelle ein Commit.
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;Mittlerer Stand wiederhergestellt.&quot;</b><br><br>[master 5c89605] Mittlerer Stand wiederhergestellt.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;Mittlerer Stand wiederhergestellt.&quot;</b><br><br>[main 385245c] Mittlerer Stand wiederhergestellt.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br></code></pre>
 
 
 ## Lösung zu Schritt 5 - ⭐ Restore - Zurückholen älterer Verzeichnisversionen
@@ -128,7 +128,7 @@ Tipp: Beim `restore` werden unversionierte Dateien nicht abgeräumt.
 Man kann sie mit dem `stash`-Befehl abräumen.
 
 
-<pre><code>repo $ <b>git log --oneline -- ufer/</b><br><br>c211be0 Zug 7<br>12c4f86 Zug 6<br>735d335 Zug 5<br>1406f15 Zug 4<br>1b74b7e Zug 3<br>4d102a7 Zug 2<br>1b2e426 Zug 1<br>3b3f142 Starte spiel<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline -- ufer/</b><br><br>903358a Zug 7<br>8860599 Zug 6<br>008b7ed Zug 5<br>20816d2 Zug 4<br>a53bca8 Zug 3<br>e22a495 Zug 2<br>250324b Zug 1<br>a6d16cd Starte spiel<br><br></code></pre>
 
 
 Zug 1
@@ -148,7 +148,7 @@ Zug 1
 Zug 2
 
 
-<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on master: 5c89605 Mittlerer Stand wiederhergestellt.<br><br></code></pre>
+<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on main: 385245c Mittlerer Stand wiederhergestellt.<br><br></code></pre>
 
 
 
@@ -162,7 +162,7 @@ Zug 2
 Zug 3
 
 
-<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on master: 5c89605 Mittlerer Stand wiederhergestellt.<br><br></code></pre>
+<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on main: 385245c Mittlerer Stand wiederhergestellt.<br><br></code></pre>
 
 
 
@@ -176,7 +176,7 @@ Zug 3
 Zug 4
 
 
-<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on master: 5c89605 Mittlerer Stand wiederhergestellt.<br><br></code></pre>
+<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on main: 385245c Mittlerer Stand wiederhergestellt.<br><br></code></pre>
 
 
 
@@ -190,7 +190,7 @@ Zug 4
 Zug 5
 
 
-<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on master: 5c89605 Mittlerer Stand wiederhergestellt.<br><br></code></pre>
+<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on main: 385245c Mittlerer Stand wiederhergestellt.<br><br></code></pre>
 
 
 
@@ -204,7 +204,7 @@ Zug 5
 Zug 6
 
 
-<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on master: 5c89605 Mittlerer Stand wiederhergestellt.<br><br></code></pre>
+<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on main: 385245c Mittlerer Stand wiederhergestellt.<br><br></code></pre>
 
 
 
@@ -218,7 +218,7 @@ Zug 6
 Zug 7
 
 
-<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on master: 5c89605 Mittlerer Stand wiederhergestellt.<br><br></code></pre>
+<pre><code>repo $ <b>git stash -u</b><br><br>Saved working directory and index state WIP on main: 385245c Mittlerer Stand wiederhergestellt.<br><br></code></pre>
 
 
 

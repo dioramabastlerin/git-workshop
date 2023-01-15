@@ -62,7 +62,7 @@ fun CollectionOfSamples.branching() {
                     """
                     Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
                     und erstelle ein Commit.
-                    Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
+                    Wechsle dann zurück auf den `main` und bearbeite dort `bar`.
                     Zeige den Commit-Graphen.
                     """
             ) {
@@ -77,7 +77,7 @@ fun CollectionOfSamples.branching() {
             createAufgabe(
                     "Branch mergen",
                     """
-                    Merge `feature-a` auf den `master`und
+                    Merge `feature-a` auf den `main`und
                     zeige den Commit-Graphen.
                     """
             ) {

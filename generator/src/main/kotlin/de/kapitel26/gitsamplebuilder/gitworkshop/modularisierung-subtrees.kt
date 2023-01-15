@@ -79,8 +79,8 @@ fun CollectionOfSamples.subtrees() {
                     Untersuche dann die entstandene Verzeichnisstruktur.
                     """
             ) {
-                git("subtree add --prefix=mod-a ../mod-a.git master")
-                git("subtree add --prefix=mod-b ../mod-b.git master")
+                git("subtree add --prefix=mod-a ../mod-a.git main")
+                git("subtree add --prefix=mod-b ../mod-b.git main")
                 git("ls-tree -r HEAD")
             }
         }
@@ -101,7 +101,7 @@ fun CollectionOfSamples.subtrees() {
             }
 
             inRepo("subtrees") {
-                git("subtree pull --prefix=mod-b ../mod-b.git master")
+                git("subtree pull --prefix=mod-b ../mod-b.git main")
                 git("show --stat ")
             }
         }
@@ -117,7 +117,7 @@ fun CollectionOfSamples.subtrees() {
             inRepo("subtrees") {
 
                 editAndCommit("mod-a/anton", 3)
-                git("subtree push --prefix=mod-a ../mod-a.git master")
+                git("subtree push --prefix=mod-a ../mod-a.git main")
             }
 
             inRepo("mod-a.git") {

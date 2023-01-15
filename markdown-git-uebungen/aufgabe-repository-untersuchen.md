@@ -48,7 +48,7 @@ Lasse Dir anzeigen welche Dateien es in vorigen Commit gab.
 Gebe den Inhalt der Datei `bar`,  wie er im vorigen Commit war. aus.
 
 Wechsle zum vorigen Commit, und untersuche, wie der Workspace dannn aussieht.
-Wechsle dann wieder auf `master` zurück.
+Wechsle dann wieder auf `main` zurück.
 
 <!--UEB-Repository untersuchen--><h2>Schritt 2 - Branches und Tags</h2>
 

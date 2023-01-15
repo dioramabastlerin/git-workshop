@@ -35,7 +35,7 @@ fun CollectionOfSamples.rebasing() {
                     editAndCommit("foo", 5, "Feature weitermachen.")
                 }
 
-                editAndCommit("bar", 1, "Neuerung auf dem master")
+                editAndCommit("bar", 1, "Neuerung auf dem main")
 
                 git("checkout feature")
             }
@@ -45,7 +45,7 @@ fun CollectionOfSamples.rebasing() {
             createAufgabe(
                 "Feature-Branch per Rebase aktualiseren.",
                 """
-                    Auf dem master gibt es Neuerungen.
+                    Auf dem main gibt es Neuerungen.
                     
                     Lasse Dir den Commit-Graphen über alle Branches zeigen.
  
@@ -57,7 +57,7 @@ fun CollectionOfSamples.rebasing() {
 
                 git("log --graph --all --decorate --oneline")
 
-                git("rebase master")
+                git("rebase main")
 
                 git("log --graph --all --decorate --oneline")
             }

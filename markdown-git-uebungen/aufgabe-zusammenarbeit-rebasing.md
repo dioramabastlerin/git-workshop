@@ -30,7 +30,7 @@ Rebasing ist, neben dem Merging, eine weitere Möglichkeit,
 
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-rebasing/repo`.
 
-Auf dem master gibt es Neuerungen.
+Auf dem main gibt es Neuerungen.
 
 Lasse Dir den Commit-Graphen über alle Branches zeigen.
 

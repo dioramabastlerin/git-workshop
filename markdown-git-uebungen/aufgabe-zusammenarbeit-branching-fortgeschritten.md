@@ -36,21 +36,21 @@ Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschr
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
-Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
+Wechsle dann zurück auf den `main` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 2 - Branch mergen</h2>
 
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
-Merge `feature-a` auf den `master`und
+Merge `feature-a` auf den `main`und
 zeige den Commit-Graphen.
 
 <!--UEB-Branching (fortgeschritten)--><h2>Schritt 3 - ⭐ Merge analysieren</h2>
 
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
-Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+Zeige, welche Commits vom `main` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
 Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
@@ -58,7 +58,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching-fortgeschritten/repo`.
 
-Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+Zeige, welche Commits vom `main` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
 Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 

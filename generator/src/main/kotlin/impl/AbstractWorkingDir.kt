@@ -224,7 +224,7 @@ abstract class AbstractWorkingDir<T>(
         val lines = executeProcess(
             "git", "symbolic-ref", "--short", "HEAD"
         ).inputStream.bufferedReader().readLines()
-        return lines.singleOrNull() ?: "MASTER"
+        return lines.singleOrNull() ?: "main"
     }
 
     fun currentUser(): String = getLocalGitConfig("user.name") ?: "bjoern"

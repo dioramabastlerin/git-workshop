@@ -29,11 +29,11 @@ class WorkingWithGitReposTest : StringSpec({
     "executing commands in repositorys"  {
         buildGitSamples(description().name) {
             createRepo("repo1") {
-                git("status")[0] shouldBe "On branch master"
+                git("status")[0] shouldBe "On branch main"
             }
 
             inRepo("repo1") {
-                git("status") should containAll("On branch master")
+                git("status") should containAll("On branch main")
             }
 
             shouldThrow<IllegalStateException> {
@@ -77,15 +77,15 @@ class WorkingWithGitReposTest : StringSpec({
                 startBranch("salami") { editAndCommit("myfile", 5) }
                 startBranch("stracke") { editAndCommit("myfile", 11) }
                 onBranch("salami") { editAndCommit("myfile", 6) }
-                editAndCommit("myfile", 1) // will be back on master
-                onBranch("master") { editAndCommit("myfile", 2) }
+                editAndCommit("myfile", 1) // will be back on main
+                onBranch("main") { editAndCommit("myfile", 2) }
 
                 git("merge salami")
                 git("merge stracke")
                 val resultLines = File(rootDir, "myfile").readLines()
-                resultLines[0] should include("master")
-                resultLines[1] should include("master")
-                resultLines[2] should include("master")
+                resultLines[0] should include("main")
+                resultLines[1] should include("main")
+                resultLines[2] should include("main")
                 resultLines[5] should include("salami")
                 resultLines[6] should include("salami")
                 resultLines[11] should include("stracke")

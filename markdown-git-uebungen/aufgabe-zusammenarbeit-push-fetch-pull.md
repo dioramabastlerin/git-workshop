@@ -27,7 +27,7 @@ parent: Aufgaben
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull/mein-klon`.
 
 Hole die beiden neuen Commits vom `origin`-Repository,
-ohne den lokalen `master` zu verändern.
+ohne den lokalen `main` zu verändern.
 
 <!--UEB-Fetch und Pull--><h2>Schritt 2 - Änderungen untersuchen</h2>
 
@@ -35,15 +35,15 @@ Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull/mein
 
 Lasse dir den Status zeigen,
 und untersuche dann,
-welche Commits im `master` des `origin`-Repository vorhanden sind,
-welche im lokalen `master` noch nicht integriert wurden..
+welche Commits im `main` des `origin`-Repository vorhanden sind,
+welche im lokalen `main` noch nicht integriert wurden..
 
 <!--UEB-Fetch und Pull--><h2>Schritt 3 - Änderungen integrieren</h2>
 
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-push-fetch-pull/mein-klon`.
 
 Integriere die neuesten Commits vom `origin`-Repository
-in den lokalen `master`.
+in den lokalen `main`.
 
 
 <pre><code>mein-klon $ <b>cd ..</b><br><br><br></code></pre>

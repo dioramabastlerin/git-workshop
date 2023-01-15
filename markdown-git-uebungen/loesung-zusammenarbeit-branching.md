@@ -8,7 +8,7 @@ parent: Lösungen
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
-Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
+Wechsle dann zurück auf den `main` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
 
@@ -24,24 +24,24 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git switch master</b><br><br>Your branch is up to date with 'origin/master'.<br>Switched to branch 'master'<br><br></code></pre>
+<pre><code>repo $ <b>git switch main</b><br><br>Your branch is up to date with 'origin/main'.<br>Switched to branch 'main'<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b># Edit file bar at line 3 on branch master by bjoern.</b><br><br><br></code></pre>
+<pre><code>repo $ <b># Edit file bar at line 3 on branch main by bjoern.</b><br><br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch master by bjoern. &quot;</b><br><br>[master f62ae23] : Edit file bar at line 3 on branch master by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch main by bjoern. &quot;</b><br><br>[main b5cd7e9] : Edit file bar at line 3 on branch main by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>| * f62ae23 (HEAD -&gt; master) : Edit file bar at line 3 on branch master by bjoern.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>| * b5cd7e9 (HEAD -&gt; main) : Edit file bar at line 3 on branch main by bjoern.<br>|/  <br>* 6014eb9 (origin/main) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 2 - Branch mergen
 
-Merge `feature-a` auf den `master`und
+Merge `feature-a` auf den `main`und
 zeige den Commit-Graphen.
 
 
@@ -49,7 +49,7 @@ zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   46cbb6c (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>* | f62ae23 : Edit file bar at line 3 on branch master by bjoern.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   c00b978 (HEAD -&gt; main) Merge branch 'feature-a'<br>|\  <br>| * 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>* | b5cd7e9 : Edit file bar at line 3 on branch main by bjoern.<br>|/  <br>* 6014eb9 (origin/main) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-branching.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

@@ -25,15 +25,15 @@ aber bei `merge` und `rebase` ganz ähnlich..
 ## Infos
 
 * `git pull` integriert den lokalen Branch mit seinem "upstream" Gegenstück,
-   hier: `master` und `origin/master`
+   hier: `main` und `origin/main`
 
 ## Tipps
 
 * `git config --global merge.conflictStyle diff3` verbessert die Darstellung bei Konflikten.
 * `git pull` holt und integriert Änderungen Äquivalent zu `git fetch` + `git merge`)
 * `git log --graph` zeigt den Commit-Graphen
-* `git diff master origin/master` zeigt die Änderungen der Anderen
-* `git log master..origin/master` zeigt die Commits der Anderen
+* `git diff main origin/main` zeigt die Änderungen der Anderen
+* `git log main..origin/main` zeigt die Commits der Anderen
 * `HEAD^1` und `HEAD^2` bezeichnen den ersten bzw. zweiten Vorgänger,
   des aktuellen `HEAD`-Commits.
 * `git diff HEAD^1...HEAD^2` zeigt die "fremden" Änderungen 

@@ -67,13 +67,19 @@ Prüfe die User-Konfiguration:
     $ git config user.email
     $ git config pull.rebase
     $ git config merge.conflictStyle
+    $ git config --global init.defaultBranch 
 
 Konfigurieren Sie Benutzername und Email:
 
     $ git config --global user.name mein-name
     $ git config --global user.email meine-email
+
+Und, wenn sie mögen, auch:
+
     $ git config --global pull.rebase false 
     $ git config --global merge.conflictStyle diff3
+    $ git config --global init.defaultBranch main
+
 
 
 <pre><code>$ <b>git config --global user.name mein-name</b><br><br><br></code></pre>
@@ -89,6 +95,10 @@ Konfigurieren Sie Benutzername und Email:
 
 
 <pre><code>$ <b>git config --global merge.conflictStyle diff3</b><br><br><br></code></pre>
+
+
+
+<pre><code>$ <b>git config --global init.defaultBranch main</b><br><br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-intro-setup.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

@@ -31,9 +31,9 @@ fun CollectionOfSamples.rebasingSandbox() {
         ) {
 
             inRepo("repo-rebase") {
-                // rebase onto master, but keep feature
+                // rebase onto main, but keep feature
                 startBranch("f-tmp", "feature") {
-                    git("rebase master")
+                    git("rebase main")
                 }
                 git("rebase f-tmp")
                 git("branch -d f-tmp")
@@ -46,7 +46,7 @@ fun CollectionOfSamples.rebasingSandbox() {
                 git("add wurst")
                 git("commit --amend -m 'Amended'")
                 git("log --graph --all --decorate --oneline")
-                git("rebase master", acceptableExitCodes = setOf(1))
+                git("rebase main", acceptableExitCodes = setOf(1))
                 bash("cat hello")
 
             }
@@ -67,7 +67,7 @@ fun CollectionOfSamples.rebasingSandbox() {
                 git("log --graph --all --decorate --oneline")
 
                 git("switch feature")
-                git("merge master", acceptableExitCodes = setOf(0))
+                git("merge main", acceptableExitCodes = setOf(0))
                 bash("cat hello")
 
             }

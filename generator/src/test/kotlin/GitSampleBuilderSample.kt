@@ -19,7 +19,7 @@ class GitSampleBuilderSample : StringSpec({
                         editAndCommit("file", 5, "to be REBASED")
                     }
 
-                    onBranch("master") {
+                    onBranch("main") {
                         editAndCommit("file", 1)
                     }
 
@@ -28,7 +28,7 @@ class GitSampleBuilderSample : StringSpec({
                 createSampleVariant("rebased-commit-will-not-merge") {
                     inRepo {
                         startBranch("rebased-feature", "feature") {
-                            git("rebase master")
+                            git("rebase main")
                         }
 
                         git("checkout feature")
@@ -44,7 +44,7 @@ class GitSampleBuilderSample : StringSpec({
                 createSampleVariant("merge-will-work") {
                     inRepo {
                         startBranch("merged-feature", "feature") {
-                            git("merge master")
+                            git("merge main")
                         }
 
                         git("checkout feature")
@@ -57,7 +57,7 @@ class GitSampleBuilderSample : StringSpec({
                     inRepo {
 
                         startBranch("rebased-feature", "feature") {
-                            git("rebase master")
+                            git("rebase main")
                         }
 
                         git("checkout feature")

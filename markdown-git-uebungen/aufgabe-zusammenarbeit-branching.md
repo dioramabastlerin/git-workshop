@@ -36,14 +36,14 @@ Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching/repo`.
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
-Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
+Wechsle dann zurück auf den `main` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
 <!--UEB-Branching--><h2>Schritt 2 - Branch mergen</h2>
 
 Starte im Verzeichnis `git-uebungen/aufgaben/zusammenarbeit-branching/repo`.
 
-Merge `feature-a` auf den `master`und
+Merge `feature-a` auf den `main`und
 zeige den Commit-Graphen.
 
 

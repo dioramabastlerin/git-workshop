@@ -44,7 +44,7 @@ Validiere, dass `component-a` jetzt da ist.
 
 
 
-<pre><code>myrepo $ <b>git checkout</b><br><br>Your branch is up to date with 'origin/master'.<br><br></code></pre>
+<pre><code>myrepo $ <b>git checkout</b><br><br>Your branch is up to date with 'origin/main'.<br><br></code></pre>
 
 
 
@@ -69,7 +69,7 @@ Validiere, dass `component-a` jetzt da ist.
 
 
 
-<pre><code>myrepo $ <b>git checkout</b><br><br>Your branch is up to date with 'origin/master'.<br><br></code></pre>
+<pre><code>myrepo $ <b>git checkout</b><br><br>Your branch is up to date with 'origin/main'.<br><br></code></pre>
 
 
 
@@ -102,7 +102,7 @@ und mache ein Checkout. Nutze die `--cone`-Option.
 
 
 
-<pre><code>myclone $ <b>git checkout</b><br><br>Your branch is up to date with 'origin/master'.<br><br></code></pre>
+<pre><code>myclone $ <b>git checkout</b><br><br>Your branch is up to date with 'origin/main'.<br><br></code></pre>
 
 
 

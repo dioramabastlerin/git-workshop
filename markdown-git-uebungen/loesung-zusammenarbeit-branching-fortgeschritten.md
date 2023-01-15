@@ -8,7 +8,7 @@ parent: Lösungen
 
 Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
 und erstelle ein Commit.
-Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
+Wechsle dann zurück auf den `main` und bearbeite dort `bar`.
 Zeige den Commit-Graphen.
 
 
@@ -24,24 +24,24 @@ Zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git switch master</b><br><br>Your branch is up to date with 'origin/master'.<br>Switched to branch 'master'<br><br></code></pre>
+<pre><code>repo $ <b>git switch main</b><br><br>Your branch is up to date with 'origin/main'.<br>Switched to branch 'main'<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b># Edit file bar at line 3 on branch master by bjoern.</b><br><br><br></code></pre>
+<pre><code>repo $ <b># Edit file bar at line 3 on branch main by bjoern.</b><br><br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch master by bjoern. &quot;</b><br><br>[master f62ae23] : Edit file bar at line 3 on branch master by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
+<pre><code>repo $ <b>git commit -am &quot;`bar`: Edit file bar at line 3 on branch main by bjoern. &quot;</b><br><br>[main b5cd7e9] : Edit file bar at line 3 on branch main by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: bar: command not found<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>| * f62ae23 (HEAD -&gt; master) : Edit file bar at line 3 on branch master by bjoern.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>* 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>| * b5cd7e9 (HEAD -&gt; main) : Edit file bar at line 3 on branch main by bjoern.<br>|/  <br>* 6014eb9 (origin/main) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 2 - Branch mergen
 
-Merge `feature-a` auf den `master`und
+Merge `feature-a` auf den `main`und
 zeige den Commit-Graphen.
 
 
@@ -49,17 +49,17 @@ zeige den Commit-Graphen.
 
 
 
-<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   46cbb6c (HEAD -&gt; master) Merge branch 'feature-a'<br>|\  <br>| * 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>* | f62ae23 : Edit file bar at line 3 on branch master by bjoern.<br>|/  <br>* 6014eb9 (origin/master) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git log --all --oneline --graph --decorate</b><br><br>*   c00b978 (HEAD -&gt; main) Merge branch 'feature-a'<br>|\  <br>| * 300f5e9 (feature-a) : Edit file foo at line 7 on branch feature-a by bjoern.<br>* | b5cd7e9 : Edit file bar at line 3 on branch main by bjoern.<br>|/  <br>* 6014eb9 (origin/main) Initial edit before cloning<br>* de06cfe Initial edit before cloning<br><br></code></pre>
 
 
 ## Lösung zu Schritt 3 - ⭐ Merge analysieren
 
-Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+Zeige, welche Commits vom `main` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
 Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
-<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit f62ae238e18d9154fe369dea5b9ed76c0bbac9f5<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch master by bjoern.<br><br></code></pre>
+<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit b5cd7e9efbe9aa3a6383b3207e231941b7d00df7<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch main by bjoern.<br><br></code></pre>
 
 
 
@@ -67,7 +67,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
 
-<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..6ef87e6 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch master by bjoern. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
+<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..ce9e24d 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch main by bjoern. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
 
 
 
@@ -76,12 +76,12 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 ## Lösung zu Schritt 4 - ⭐ Merge analysieren
 
-Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+Zeige, welche Commits vom `main` im Merge hinzugekommen sind.
 Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
 Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
-<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit f62ae238e18d9154fe369dea5b9ed76c0bbac9f5<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch master by bjoern.<br><br></code></pre>
+<pre><code>repo $ <b>git log HEAD^2..HEAD^1</b><br><br>commit b5cd7e9efbe9aa3a6383b3207e231941b7d00df7<br>Author: bjoern &lt;kapitel26blog@gmail.com&gt;<br>Date:   Thu Jul 29 00:00:00 2021 +0000<br><br>    : Edit file bar at line 3 on branch main by bjoern.<br><br></code></pre>
 
 
 
@@ -89,7 +89,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
 
-<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..6ef87e6 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch master by bjoern. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
+<pre><code>repo $ <b>git diff HEAD^2...HEAD^1</b><br><br>diff --git a/bar b/bar<br>index 36fe753..ce9e24d 100644<br>--- a/bar<br>+++ b/bar<br>@@ -1,7 +1,7 @@<br> line 0 created<br> line 1 created<br> line 2 created<br>-line 3 created<br>+line 3 Edit file bar at line 3 on branch main by bjoern. / line 3 created<br> line 4 created<br> line 5 created<br> line 6 created<br><br></code></pre>
 
 
 
@@ -101,7 +101,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
 
-<pre><code>repo $ <b>git branch -r -vv</b><br><br>  origin/master 6014eb9 Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git branch -r -vv</b><br><br>  origin/main 6014eb9 Initial edit before cloning<br><br></code></pre>
 
 
 
@@ -109,7 +109,7 @@ Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
 
 
 
-<pre><code>repo $ <b>git branch -r -vv</b><br><br>  origin/feature-x b04a371 : Edit file datei-x at line 3 on branch feature-x by bjoern.<br>  origin/feature-y 3181804 Created file datei-y on branch feature-y by bjoern.<br>  origin/master    6014eb9 Initial edit before cloning<br><br></code></pre>
+<pre><code>repo $ <b>git branch -r -vv</b><br><br>  origin/feature-x b04a371 : Edit file datei-x at line 3 on branch feature-x by bjoern.<br>  origin/feature-y 3181804 Created file datei-y on branch feature-y by bjoern.<br>  origin/main      6014eb9 Initial edit before cloning<br><br></code></pre>
 
 
 

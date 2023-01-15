@@ -24,6 +24,11 @@ Falls nicht, trage Deine Daten so ein:
     $ git config --global user.email <meine-email>
 ```
 
+### (Optional) Default-Branchnamen konfigurieren
+
+```bash
+ git config --global init.defaultBranch main
+```
 ### (Optional) Mergeverhalten konfigurieren
 
 Für die Übungen empfehle ich die folgenden Einstellungen, 

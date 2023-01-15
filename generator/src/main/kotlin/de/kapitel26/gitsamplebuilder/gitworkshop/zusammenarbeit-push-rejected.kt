@@ -122,20 +122,20 @@ fun CollectionOfSamples.pushRejected() {
             ) {
                 markdown("`fetch` holt die Daten, ohne den Workspace oder Deine lokalen Branches zu verändern.")
                 git("fetch")
-                markdown("Die Ausgabe zeigt, dass neue Commit für den `origin/master` geholt wurden")
+                markdown("Die Ausgabe zeigt, dass neue Commit für den `origin/main` geholt wurden")
                 markdown("Die `..`-Notation zeigt, welche Commits hinzugekommen sind:")
-                git("log --oneline master..origin/master")
+                git("log --oneline main..origin/main")
                 markdown("""
                     Das normale (symmetrische) Diff zeig alle Unterschiede. 
                     Sowohl das, was du gemacht hast, als auch das, was Anja gemacht hat:"
                 """)
-                git("diff --stat HEAD origin/master")
+                git("diff --stat HEAD origin/main")
                 markdown("""
                     Das asymmetrische Diff `...` zeigt nur jene Änderungen,
                     die Anja gemacht hat
                     (bezogen auf den letzten gemeinsamen Vorgänger):"
                 """)
-                git("diff --stat HEAD...origin/master")
+                git("diff --stat HEAD...origin/main")
             }
 
             createAufgabe(

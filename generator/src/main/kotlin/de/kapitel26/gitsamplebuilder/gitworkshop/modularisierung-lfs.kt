@@ -98,12 +98,12 @@ fun CollectionOfSamples.lfs() {
 
         createAufgabe(
             "Auf alte Versionen wechseln", """
-                Erstelle einen neuen Klon `myclone2` und checke dort `master~2` aus.
+                Erstelle einen neuen Klon `myclone2` und checke dort `main~2` aus.
                 Schau Dir die `png`-Datei an.  
         """) {
             git("clone repo.git myclone2")
             inRepo("myclone2") {
-                git("-c advice.detachedHead=false checkout master~1")
+                git("-c advice.detachedHead=false checkout main~1")
                 markdown("Beim Checkout wurde das bild nacheholt.")
                 bash("cat bild.png")
             }
@@ -113,7 +113,7 @@ fun CollectionOfSamples.lfs() {
             "Trouble", """
                 Erstelle einen neuen Klon `myclone3`
                 Entferne jetzt Hauptrepository durch `rm -rf repo.git` und versuche auf 
-                dann in `myclone3` auf `master~2` zu wechseln. Was passiert?                
+                dann in `myclone3` auf `main~2` zu wechseln. Was passiert?                
         """) {
             git("clone repo.git myclone3")
 

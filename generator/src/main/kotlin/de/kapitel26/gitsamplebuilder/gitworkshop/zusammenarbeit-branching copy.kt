@@ -62,7 +62,7 @@ fun CollectionOfSamples.branchingFortgeschritten() {
                     """
                     Erstelle einen Branch `feature-a`, bearbeite die Datei `foo`
                     und erstelle ein Commit.
-                    Wechsle dann zurück auf den `master` und bearbeite dort `bar`.
+                    Wechsle dann zurück auf den `main` und bearbeite dort `bar`.
                     Zeige den Commit-Graphen.
                     """
             ) {
@@ -77,7 +77,7 @@ fun CollectionOfSamples.branchingFortgeschritten() {
             createAufgabe(
                     "Branch mergen",
                     """
-                    Merge `feature-a` auf den `master`und
+                    Merge `feature-a` auf den `main`und
                     zeige den Commit-Graphen.
                     """
             ) {
@@ -88,7 +88,7 @@ fun CollectionOfSamples.branchingFortgeschritten() {
             createAufgabe(
                     "⭐ Merge analysieren",
                     """
-                    Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+                    Zeige, welche Commits vom `main` im Merge hinzugekommen sind.
                     Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
                     Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
                     """
@@ -102,7 +102,7 @@ fun CollectionOfSamples.branchingFortgeschritten() {
             createAufgabe(
                     "⭐ Merge analysieren",
                     """
-                    Zeige, welche Commits vom `master` im Merge hinzugekommen sind.
+                    Zeige, welche Commits vom `main` im Merge hinzugekommen sind.
                     Zeige, welche Commits von `feature-a` im Merge hinzugekommen sind.
                     Zeige ebenfalls die Änderungen (Diffs) für beide Seiten.
                     """

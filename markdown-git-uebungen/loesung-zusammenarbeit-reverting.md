@@ -15,7 +15,7 @@ Tipp: Das Commit ist als `umbenennung` getagged.
 
 
 
-<pre><code>repo $ <b>git revert umbenennung</b><br><br>[master 88e7dea] Revert &quot;umbenennen&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 0 insertions(+), 0 deletions(-)<br> rename liesmich =&gt; README.md (100%)<br><br></code></pre>
+<pre><code>repo $ <b>git revert umbenennung</b><br><br>[main 4a063fa] Revert &quot;umbenennen&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 0 insertions(+), 0 deletions(-)<br> rename liesmich =&gt; README.md (100%)<br><br></code></pre>
 
 
 
@@ -33,7 +33,7 @@ Tipp: Am verschinden der Datei `from-feature` kann man den Erfolg erkennen.
 
 
 
-<pre><code>repo $ <b>git revert -m 1 feature-merge</b><br><br>[master 88dcb99] Revert &quot;Merge branch 'feature'&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 12 deletions(-)<br> delete mode 100644 from-feature<br><br></code></pre>
+<pre><code>repo $ <b>git revert -m 1 feature-merge</b><br><br>[main 0cde08b] Revert &quot;Merge branch 'feature'&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 12 deletions(-)<br> delete mode 100644 from-feature<br><br></code></pre>
 
 
 
@@ -65,7 +65,7 @@ Tipp: Das gescheiterte Merge kann mit `git merge --abort` abgebrochen werden.
 
 
 
-<pre><code>repo $ <b>git log --oneline --graph</b><br><br>* 88dcb99 Revert &quot;Merge branch 'feature'&quot;<br>* 88e7dea Revert &quot;umbenennen&quot;<br>*   a1e0384 Merge branch 'feature'<br>|\  <br>| * 09386e0 Created file from-feature on branch feature by bjoern.<br>* | 0c3ae2f umbenennen<br>|/  <br>* eae5317 Created file README.md on branch master by bjoern.<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline --graph</b><br><br>* 0cde08b Revert &quot;Merge branch 'feature'&quot;<br>* 4a063fa Revert &quot;umbenennen&quot;<br>*   6001692 Merge branch 'feature'<br>|\  <br>| * 2caf490 Created file from-feature on branch feature by bjoern.<br>* | 48619ce umbenennen<br>|/  <br>* 50bb121 Created file README.md on branch main by bjoern.<br><br></code></pre>
 
 
 Das Merge scheitert, weil Git Commits,
@@ -87,7 +87,7 @@ auf denen die Weiterentwicklung des Features basiert.
 Tipp: Das Commit ist als `feature-merge` getagged.
 
 
-<pre><code>repo $ <b>git revert merge-reverted</b><br><br>[master 0f92dec] Revert &quot;Revert &quot;Merge branch 'feature'&quot;&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 12 insertions(+)<br> create mode 100644 from-feature<br><br></code></pre>
+<pre><code>repo $ <b>git revert merge-reverted</b><br><br>[main 9357146] Revert &quot;Revert &quot;Merge branch 'feature'&quot;&quot;<br> Date: Thu Jul 29 00:00:00 2021 +0000<br> 1 file changed, 12 insertions(+)<br> create mode 100644 from-feature<br><br></code></pre>
 
 
 
@@ -95,11 +95,11 @@ Tipp: Das Commit ist als `feature-merge` getagged.
 
 
 
-<pre><code>repo $ <b>git log --oneline --graph</b><br><br>*   d20005b Merge branch 'feature'<br>|\  <br>| * f61eaf2 : Weiterentwicklung<br>* | 0f92dec Revert &quot;Revert &quot;Merge branch 'feature'&quot;&quot;<br>* | 88dcb99 Revert &quot;Merge branch 'feature'&quot;<br>* | 88e7dea Revert &quot;umbenennen&quot;<br>* | a1e0384 Merge branch 'feature'<br>|\| <br>| * 09386e0 Created file from-feature on branch feature by bjoern.<br>* | 0c3ae2f umbenennen<br>|/  <br>* eae5317 Created file README.md on branch master by bjoern.<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline --graph</b><br><br>*   834d9f3 Merge branch 'feature'<br>|\  <br>| * dc5cc98 : Weiterentwicklung<br>* | 9357146 Revert &quot;Revert &quot;Merge branch 'feature'&quot;&quot;<br>* | 0cde08b Revert &quot;Merge branch 'feature'&quot;<br>* | 4a063fa Revert &quot;umbenennen&quot;<br>* | 6001692 Merge branch 'feature'<br>|\| <br>| * 2caf490 Created file from-feature on branch feature by bjoern.<br>* | 48619ce umbenennen<br>|/  <br>* 50bb121 Created file README.md on branch main by bjoern.<br><br></code></pre>
 
 
 
-<pre><code>repo $ <b>git log --oneline from-feature</b><br><br>f61eaf2 : Weiterentwicklung<br>09386e0 Created file from-feature on branch feature by bjoern.<br><br></code></pre>
+<pre><code>repo $ <b>git log --oneline from-feature</b><br><br>dc5cc98 : Weiterentwicklung<br>2caf490 Created file from-feature on branch feature by bjoern.<br><br></code></pre>
 
 
 [Zur Aufgabe](aufgabe-zusammenarbeit-reverting.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}

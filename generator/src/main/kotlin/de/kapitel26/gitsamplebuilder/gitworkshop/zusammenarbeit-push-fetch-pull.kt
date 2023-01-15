@@ -48,11 +48,11 @@ fun CollectionOfSamples.fetchAndPull() {
             createAufgabe(
                 "Änderungen holen", """
                     Hole die beiden neuen Commits vom `origin`-Repository,
-                    ohne den lokalen `master` zu verändern.
+                    ohne den lokalen `main` zu verändern.
         """
             ) {
                 git("fetch")
-                markdown("Die Ausgabe zeigt, dass Änderungen auf dem Branch `master` geholt wurden.")
+                markdown("Die Ausgabe zeigt, dass Änderungen auf dem Branch `main` geholt wurden.")
                 git("status")
             }
 
@@ -60,25 +60,25 @@ fun CollectionOfSamples.fetchAndPull() {
                 "Änderungen untersuchen", """
                     Lasse dir den Status zeigen,
                     und untersuche dann,
-                    welche Commits im `master` des `origin`-Repository vorhanden sind,
-                    welche im lokalen `master` noch nicht integriert wurden..
+                    welche Commits im `main` des `origin`-Repository vorhanden sind,
+                    welche im lokalen `main` noch nicht integriert wurden..
         """
             ) {
                 git("status")
                 markdown(
                     """
                         Der Status zeigt, dass es im Origin-Repo
-                        (auf dem Branch `master`) zwei Commits gibt,
+                        (auf dem Branch `main`) zwei Commits gibt,
                         die wir noch nicht integriert haben.
                     """
                 )
-                git("log master..origin/master")
+                git("log main..origin/main")
                 markdown(
                     """
                         Die `..`-Notation zeigt genau jene Commits,
-                        die in `origing/master` aber noch nicht in `master` enthalten sind.
-                        Etwas kürzer hätte man hier auch auch `git log ..origin/master` schreiben
-                        könne, da wir `master` ja gerade `HEAD` ist.
+                        die in `origing/main` aber noch nicht in `main` enthalten sind.
+                        Etwas kürzer hätte man hier auch auch `git log ..origin/main` schreiben
+                        könne, da wir `main` ja gerade `HEAD` ist.
                     """
                 )
 
@@ -87,7 +87,7 @@ fun CollectionOfSamples.fetchAndPull() {
             createAufgabe(
                 "Änderungen integrieren", """
                     Integriere die neuesten Commits vom `origin`-Repository
-                    in den lokalen `master`.
+                    in den lokalen `main`.
         """
             ) {
                 git("pull")

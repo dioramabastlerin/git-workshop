@@ -25,7 +25,7 @@ Zeige dann den Status.
 
 
 
-<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>0ff0778 Created file bar on branch master by bjoern.<br>dcf127a Created file foo on branch master by bjoern.<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git log --oneline</b><br><br>097f971 Created file bar on branch main by bjoern.<br>9799da6 Created file foo on branch main by bjoern.<br><br></code></pre>
 
 
 
@@ -45,15 +45,15 @@ Erstelle ein Commit und zeige dann den Status.
 
 
 
-<pre><code>myfirstclone $ <b># Edit file foo at line 3 on branch master by bjoern.</b><br><br><br></code></pre>
+<pre><code>myfirstclone $ <b># Edit file foo at line 3 on branch main by bjoern.</b><br><br><br></code></pre>
 
 
 
-<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch master by bjoern. &quot;</b><br><br>[master f8652d1] : Edit file foo at line 3 on branch master by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git commit -am &quot;`foo`: Edit file foo at line 3 on branch main by bjoern. &quot;</b><br><br>[main b654c9e] : Edit file foo at line 3 on branch main by bjoern.<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br>/bin/bash: foo: command not found<br><br></code></pre>
 
 
 
-<pre><code>myfirstclone $ <b>git status</b><br><br>On branch master<br>Your branch is ahead of 'origin/master' by 1 commit.<br>  (use &quot;git push&quot; to publish your local commits)<br><br>nothing to commit, working tree clean<br><br></code></pre>
+<pre><code>myfirstclone $ <b>git status</b><br><br>On branch main<br>Your branch is ahead of 'origin/main' by 1 commit.<br>  (use &quot;git push&quot; to publish your local commits)<br><br>nothing to commit, working tree clean<br><br></code></pre>
 
 
 

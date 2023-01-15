@@ -74,8 +74,8 @@ fun CollectionOfSamples.repositorysZusammenfuehren() {
                 markdown("Wir erzeugen ein erstes Commmit, damit der `subtree`-Befehl ausgeführt werden kann.")
                 createFileAndCommit("README")
                 markdown("Dann fügen wir die Repos mit `subtree` hinzu:")
-                git("subtree add --prefix=backend ../backend.git master")
-                git("subtree add --prefix=ui ../ui.git master")
+                git("subtree add --prefix=backend ../backend.git main")
+                git("subtree add --prefix=ui ../ui.git main")
 
                 markdown("Man sieht ui und backend wurden mitsamt Historie zusammengeführt:")
                 git("ls-tree -r --name-only HEAD")
@@ -99,19 +99,19 @@ fun CollectionOfSamples.repositorysZusammenfuehren() {
                 git("mv src test backend")
                 git("commit -m 'backend-Verzeichnis angelegt'")
 
-                markdown("Inhalt des UI-Repository in einen lokalen Branch `uimaster` holen:")
+                markdown("Inhalt des UI-Repository in einen lokalen Branch `uimain` holen:")
                 git("remote add ui ../ui/")
                 git("fetch ui")
-                git("checkout -b uimaster ui/master")
+                git("checkout -b uimain ui/main")
 
                 markdown("UI-Dateien in Unterverzeichnis verschieben:")
                 bash("mkdir ui")
                 git("mv src test ui")
                 git("commit -m 'ui-Verzeichnis angelegt'")
 
-                markdown("`uimaster` integrieren:")
-                git("checkout master")
-                git("merge uimaster --allow-unrelated-histories")
+                markdown("`uimain` integrieren:")
+                git("checkout main")
+                git("merge uimain --allow-unrelated-histories")
 
                 markdown("Man sieht ui und backend wurden mitsamt Historie zusammengeführt:")
                 git("ls-tree -r --name-only HEAD")
