@@ -69,8 +69,8 @@ fun CollectionOfSamples.halloWelt() {
                 $ ll .git/
         """) {
             inRepo("myrepo") {
-                bash("ls -alh")
-                bash("ls -alh .git/")
+                ll("-a")
+                ll("-a .git/")
             }
         }
     }

@@ -87,11 +87,11 @@ Wo liegt wohl das Git-Repository? Was enthält es?
 
 
 
-<pre><code>myrepo $ <b>ls -alh</b><br><br>total 4.0K<br>drwxr-xr-x 3 gitpod gitpod  31 Jan 15 17:33 .<br>drwxr-xr-x 3 gitpod gitpod  92 Jan 15 17:33 ..<br>drwxr-xr-x 8 gitpod gitpod 166 Jan 15 17:33 .git<br>-rw-r--r-- 1 gitpod gitpod  10 Jan 15 17:33 hallo<br><br></code></pre>
+<pre><code>myrepo $ <b>ll -a</b><br><br>total 4.0K<br>drwxr-xr-x 3 gitpod gitpod  31  .<br>drwxr-xr-x 3 gitpod gitpod  92  ..<br>drwxr-xr-x 8 gitpod gitpod 166  .git<br>-rw-r--r-- 1 gitpod gitpod  10  hallo<br><br></code></pre>
 
 
 
-<pre><code>myrepo $ <b>ls -alh .git/</b><br><br>total 24K<br>drwxr-xr-x  8 gitpod gitpod  166 Jan 15 17:33 .<br>drwxr-xr-x  3 gitpod gitpod   31 Jan 15 17:33 ..<br>drwxr-xr-x  2 gitpod gitpod    6 Jan 15 17:33 branches<br>-rw-r--r--  1 gitpod gitpod   16 Jan 15 17:33 COMMIT_EDITMSG<br>-rw-r--r--  1 gitpod gitpod   92 Jan 15 17:33 config<br>-rw-r--r--  1 gitpod gitpod   73 Jan 15 17:33 description<br>-rw-r--r--  1 gitpod gitpod   21 Jan 15 17:33 HEAD<br>drwxr-xr-x  2 gitpod gitpod 4.0K Jan 15 17:33 hooks<br>-rw-r--r--  1 gitpod gitpod  137 Jan 15 17:33 index<br>drwxr-xr-x  2 gitpod gitpod   21 Jan 15 17:33 info<br>drwxr-xr-x  3 gitpod gitpod   30 Jan 15 17:33 logs<br>drwxr-xr-x 10 gitpod gitpod   90 Jan 15 17:33 objects<br>drwxr-xr-x  4 gitpod gitpod   31 Jan 15 17:33 refs<br><br></code></pre>
+<pre><code>myrepo $ <b>ll -a .git/</b><br><br>total 24K<br>drwxr-xr-x  8 gitpod gitpod  166  .<br>drwxr-xr-x  3 gitpod gitpod   31  ..<br>drwxr-xr-x  2 gitpod gitpod    6  branches<br>-rw-r--r--  1 gitpod gitpod   16  COMMIT_EDITMSG<br>-rw-r--r--  1 gitpod gitpod   92  config<br>-rw-r--r--  1 gitpod gitpod   73  description<br>-rw-r--r--  1 gitpod gitpod   21  HEAD<br>drwxr-xr-x  2 gitpod gitpod 4.0K  hooks<br>-rw-r--r--  1 gitpod gitpod  137  index<br>drwxr-xr-x  2 gitpod gitpod   21  info<br>drwxr-xr-x  3 gitpod gitpod   30  logs<br>drwxr-xr-x 10 gitpod gitpod   90  objects<br>drwxr-xr-x  4 gitpod gitpod   31  refs<br><br></code></pre>
 
 
 
