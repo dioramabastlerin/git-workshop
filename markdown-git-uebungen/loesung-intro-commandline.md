@@ -1,6 +1,6 @@
 ---
 layout: page
-title: <code>intro-setup</code>
+title: <code>intro-commandline</code>
 parent: Lösungen
 
 ---
@@ -20,11 +20,11 @@ Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 
 
 
-<pre><code>aufgaben $ <b>cd intro-setup</b><br><br><br></code></pre>
+<pre><code>aufgaben $ <b>cd intro-commandline</b><br><br><br></code></pre>
 
 
 
-<pre><code>intro-setup $ <b>cd hallo</b><br><br><br></code></pre>
+<pre><code>intro-commandline $ <b>cd hallo</b><br><br><br></code></pre>
 
 
 
@@ -36,7 +36,7 @@ Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 
 
 
-<pre><code>intro-setup $ <b>cd ..</b><br><br><br></code></pre>
+<pre><code>intro-commandline $ <b>cd ..</b><br><br><br></code></pre>
 
 
 
@@ -101,7 +101,7 @@ Und, wenn sie mögen, auch:
 <pre><code>$ <b>git config --global init.defaultBranch main</b><br><br><br></code></pre>
 
 
-[Zur Aufgabe](aufgabe-intro-setup.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Aufgabe](aufgabe-intro-commandline.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
 
 [Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 

@@ -2,9 +2,9 @@ package de.kapitel26.gitsamplebuilder.gitworkshop
 
 import impl.CollectionOfSamples
 
-fun CollectionOfSamples.setup() {
+fun CollectionOfSamples.commandline() {
 
-    createAufgabenFolge("setup") {
+    createAufgabenFolge("commandline") {
 
         createIntro(
                 """Das `git`-Kommando!""",
@@ -56,7 +56,7 @@ fun CollectionOfSamples.setup() {
             """) {
                 bash("ls")
                 inDir("aufgaben") {
-                    inDir("intro-setup") {
+                    inDir("intro-commandline") {
                         inDir("hallo") {
                             bash("ls")
                         }

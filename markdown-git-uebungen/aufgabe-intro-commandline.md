@@ -1,6 +1,6 @@
 ---
 layout: page
-title: <code>intro-setup</code>
+title: <code>intro-commandline</code>
 parent: Aufgaben
 
 ---
@@ -56,19 +56,19 @@ Navigiere dann wieder zurück ins Ursprungsverzeichnis.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 2 - Git-Version prüfen</h2>
 
-Starte im Verzeichnis `git-uebungen/aufgaben/intro-setup`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline`.
 
 Gib aus, welche Version von Git installiert ist.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 3 - Hilfe</h2>
 
-Starte im Verzeichnis `git-uebungen/aufgaben/intro-setup`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline`.
 
 Zeige die Hilfeseite zum `log`-Befehl an.
 
 <!--UEB-Das `git`-Kommando!--><h2>Schritt 4 - Setup</h2>
 
-Starte im Verzeichnis `git-uebungen/aufgaben/intro-setup`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline`.
 
 Prüfe die User-Konfiguration:
 
@@ -90,7 +90,7 @@ Und, wenn sie mögen, auch:
     $ git config --global init.defaultBranch main
 
 
-[Zur Lösung](loesung-intro-setup.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
+[Zur Lösung](loesung-intro-commandline.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
 
 [Zum Überblick](../../ueberblick.html){:style="visibility: hidden"}
 
