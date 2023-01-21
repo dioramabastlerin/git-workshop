@@ -1,3 +1,4 @@
+ * Übung zu --squash, Bonusübung zu Orphan-Branches
  * Bonusaufgaben immer am Ende
  * Optionals für Integration von änderung: Löschen von Dateien, Umbenennen/Verschieben
  * branches bild malen
