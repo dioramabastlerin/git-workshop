@@ -16,7 +16,7 @@ Erstellen sie ihr erstes Repository mit den folgenden Befehlen:
     $ git log
 
 
-<pre><code>$ <b>git init myrepo </b><br><br>Initialized empty Git repository in /workspace/git-workshop/build/git-uebungen/loesungen/intro-hallo-welt/myrepo/.git/<br><br></code></pre>
+<pre><code>$ <b>git init -b main myrepo </b><br><br>Initialized empty Git repository in /workspace/git-workshop/build/git-uebungen/loesungen/intro-hallo-welt/myrepo/.git/<br><br></code></pre>
 
 
 
