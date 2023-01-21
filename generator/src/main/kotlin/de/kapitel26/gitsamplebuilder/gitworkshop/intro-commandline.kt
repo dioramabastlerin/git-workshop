@@ -142,7 +142,7 @@ fun CollectionOfSamples.commandline() {
                 """.trimIndent()
                 log.shell("git log", rootDir.name, output.lines(), emptyList())
                 markdown("Quit with `q`")
-                bash("cat some-file", commandRepresentation="less some-file")
+                bash("cat some-file.txt", commandRepresentation="less some-file.txt")
                 markdown("Quit with `q`")
             }
 
