@@ -104,6 +104,7 @@ fun CollectionOfSamples.erstellen() {
                 git("commit -am 'Neue Dateien'")
             }
 
+            // dateien erstellen und bearbeiten editor konfigurieren
 
             createAufgabe(
                     "⭐ Commit - Datei verschieben/umbenennen", """
