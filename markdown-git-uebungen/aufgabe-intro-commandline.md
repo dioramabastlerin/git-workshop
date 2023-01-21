@@ -34,6 +34,10 @@ das `git`-Kommando kennenzulernen.
   - `git config <property>` zeigt Wert aus der Konfiguration an. 
   - `git config set --global <property> <new-value>` 
     setzt einen Wert in der Konfiguration.
+  - Wenn die Ausgabe mehr Zeilen hat, als Terminalfenster hoch ist,
+    wird die Ausgabe in einem Viewer (`less`) dargestellt.
+    Man kann dann mit Pfeiltasten rauf- und runter scrollen.
+    Den `less` modus beendet man mit der Taste `q`.
 
 [Kurze Intro zur Kommandozeile](../installation/kommandozeile)
 
@@ -70,9 +74,30 @@ Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline/hallo`.
 
 Zeige die Hilfeseite zum `log`-Befehl an.
 
-<!--UEB-Das `git`-Kommando!--><h2>Schritt 4 - Konfiguration von Git</h2>
 
-Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline/hallo`.
+<pre><code>hallo $ <b>cd ..</b><br><br><br></code></pre>
+
+
+
+<pre><code>$ <b>cd repo</b><br><br><br></code></pre>
+
+
+<!--UEB-Das `git`-Kommando!--><h2>Schritt 4 - `less` und gange Ausgaben</h2>
+
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline/repo`.
+
+Wenn Sie `git log` ausführen, sollen 99 Commits angezeigt werden.
+Weil diese nicht in ein Terminalfenster passt,
+wird der `less`-Viewer geöffnet. Schliessen sie ihn.
+Nutzen sie dann `less some-file` um eine Datei im `less`-Modus anzusehen.
+
+
+<pre><code>repo $ <b>cd ..</b><br><br><br></code></pre>
+
+
+<!--UEB-Das `git`-Kommando!--><h2>Schritt 5 - Konfiguration von Git</h2>
+
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline`.
 
 Prüfe die User-Konfiguration:
 
@@ -97,18 +122,14 @@ Es ist empfehlenswert sie für diesen Workshop setzen:
     $ git config --global init.defaultBranch main
 
 
-<!--UEB-Das `git`-Kommando!--><h2>Schritt 5 - ⭐ Historie</h2>
+<!--UEB-Das `git`-Kommando!--><h2>Schritt 6 - ⭐ Historie</h2>
 
-Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline/hallo`.
+Starte im Verzeichnis `git-uebungen/aufgaben/intro-commandline`.
 
 Blättern sie die 🡅-Taste mehrfach und drücken dann enter,
 um einen der vorigen Befehle erneut auszuführen.
 Tippen sie `strg+r` und geben sie dann `conflict`ein,
 um den Befehl zum Setzen von `merge.conflictStyle` erneut auszuführen.
-
-
-<pre><code>hallo $ <b>cd ..</b><br><br><br></code></pre>
-
 
 [Zur Lösung](loesung-intro-commandline.html){:style="position: fixed; right: 10px; top:60px" .btn .btn-purple}
 

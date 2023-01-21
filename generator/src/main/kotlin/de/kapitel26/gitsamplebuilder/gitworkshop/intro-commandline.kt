@@ -37,6 +37,10 @@ fun CollectionOfSamples.commandline() {
                   - `git config <property>` zeigt Wert aus der Konfiguration an. 
                   - `git config set --global <property> <new-value>` 
                     setzt einen Wert in der Konfiguration.
+                  - Wenn die Ausgabe mehr Zeilen hat, als Terminalfenster hoch ist,
+                    wird die Ausgabe in einem Viewer (`less`) dargestellt.
+                    Man kann dann mit Pfeiltasten rauf- und runter scrollen.
+                    Den `less` modus beendet man mit der Taste `q`.
 
                 [Kurze Intro zur Kommandozeile](../installation/kommandozeile)
             """
@@ -45,6 +49,12 @@ fun CollectionOfSamples.commandline() {
                 createFile("herzlich-willkommen.txt", "Moin!")
             }
 
+            createRepo() {
+                createFileAndCommit("some-file")
+                (1..99).forEach {
+                    editAndCommit("some-file", message="Edit nr ${it}") { edit(0, content = "Editet in Commit ${it}")} 
+                }
+            }
         }
 
         inDir("../..") {
@@ -87,55 +97,97 @@ fun CollectionOfSamples.commandline() {
                 """.trimIndent()
                 log.shell("git help log", rootDir.name, output.lines(), emptyList())
             }
-    
-            createAufgabe(
-                    "Konfiguration von Git", """
-                    Prüfe die User-Konfiguration:
 
-                        $ git config user.name
-                        $ git config user.email
-                        $ git config pull.rebase
-                        $ git config merge.conflictStyle
-                        $ git config --global init.defaultBranch 
-
-                    Konfiguriere Sie Benutzername und -Email, 
-                    sofern noch nicht gesetzt:
-                    
-                        $ git config --global user.name mein-name
-                        $ git config --global user.email meine-email
-                    
-                    Die folgenden Konfigurationen wurden beim Aufzeichnen der 
-                    Musterlösung genutzt.
-                    Es ist empfehlenswert sie für diesen Workshop setzen:
-
-                        $ git config --global pull.rebase false 
-                        $ git config --global merge.conflictStyle diff3
-                        $ git config --global init.defaultBranch main
-
-            """) {
-                log.shell("git config --global user.name mein-name", rootDir.name, emptyList(), emptyList())
-                log.shell("git config --global user.email meine-email", rootDir.name, emptyList(), emptyList())
-                log.shell("git config --global pull.rebase false ", rootDir.name, emptyList(), emptyList())
-                log.shell("git config --global merge.conflictStyle diff3", rootDir.name, emptyList(), emptyList())
-                log.shell("git config --global init.defaultBranch main", rootDir.name, emptyList(), emptyList())   
-            }
-
-            createAufgabe(
-                "⭐ Historie", """
-                    Blättern sie die 🡅-Taste mehrfach und drücken dann enter,
-                    um einen der vorigen Befehle erneut auszuführen.
-                    Tippen sie `strg+r` und geben sie dann `conflict`ein,
-                    um den Befehl zum Setzen von `merge.conflictStyle` erneut auszuführen.
-                """) {
-                log.shell("git config --global user.email meine-email", rootDir.name, emptyList(), emptyList())
-                log.shell("git config --global merge.conflictStyle diff3", rootDir.name, emptyList(), emptyList())
-            }
-
-            // todo less 
-
-            // dateien erstellen und bearbeiten editor konfigurieren
-
-            // start . , pwd
         }
+
+        inRepo() {
+            createAufgabe(
+                    "`less` und gange Ausgaben", """
+                    Wenn Sie `git log` ausführen, sollen 99 Commits angezeigt werden.
+                    Weil diese nicht in ein Terminalfenster passt,
+                    wird der `less`-Viewer geöffnet. Schliessen sie ihn.
+                    Nutzen sie dann `less some-file` um eine Datei im `less`-Modus anzusehen.
+            """) {
+                val output = """
+                    commit 5e14e1dc688e7a2cd02c9ccad3dedf397d407e2e (HEAD -> main)
+                    Author: bjoern <kapitel26blog@gmail.com>
+                    Date:   Thu Jul 29 00:00:00 2021 +0000
+                    
+                        : Edit file some-file at line 3 on branch main by bjoern.
+                    
+                    commit 41984e9ac879b9b56c8e91228a8d5887bca228fd
+                    Author: bjoern <kapitel26blog@gmail.com>
+                    Date:   Thu Jul 29 00:00:00 2021 +0000
+                    
+                        : Edit file some-file at line 3 on branch main by bjoern.
+                    
+                    commit 99399d263ccc8fe4a1bc59a49c93147b17115518
+                    Author: bjoern <kapitel26blog@gmail.com>
+                    Date:   Thu Jul 29 00:00:00 2021 +0000
+                    
+                        : Edit file some-file at line 3 on branch main by bjoern.
+                    
+                    commit df80cb240781a015f2f0ad62a48fc42964fdfe8b
+                    Author: bjoern <kapitel26blog@gmail.com>
+                    Date:   Thu Jul 29 00:00:00 2021 +0000
+                    
+                        : Edit file some-file at line 3 on branch main by bjoern.
+                    :
+                """.trimIndent()
+                log.shell("git log", rootDir.name, output.lines(), emptyList())
+                markdown("Quit with `q`")
+                bash("cat some-file", commandRepresentation="less some-file")
+                markdown("Quit with `q`")
+            }
+        }
+
+        createAufgabe(
+                "Konfiguration von Git", """
+                Prüfe die User-Konfiguration:
+
+                    $ git config user.name
+                    $ git config user.email
+                    $ git config pull.rebase
+                    $ git config merge.conflictStyle
+                    $ git config --global init.defaultBranch 
+
+                Konfiguriere Sie Benutzername und -Email, 
+                sofern noch nicht gesetzt:
+                
+                    $ git config --global user.name mein-name
+                    $ git config --global user.email meine-email
+                
+                Die folgenden Konfigurationen wurden beim Aufzeichnen der 
+                Musterlösung genutzt.
+                Es ist empfehlenswert sie für diesen Workshop setzen:
+
+                    $ git config --global pull.rebase false 
+                    $ git config --global merge.conflictStyle diff3
+                    $ git config --global init.defaultBranch main
+
+        """) {
+            log.shell("git config --global user.name mein-name", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global user.email meine-email", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global pull.rebase false ", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global merge.conflictStyle diff3", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global init.defaultBranch main", rootDir.name, emptyList(), emptyList())   
+        }
+
+        createAufgabe(
+            "⭐ Historie", """
+                Blättern sie die 🡅-Taste mehrfach und drücken dann enter,
+                um einen der vorigen Befehle erneut auszuführen.
+                Tippen sie `strg+r` und geben sie dann `conflict`ein,
+                um den Befehl zum Setzen von `merge.conflictStyle` erneut auszuführen.
+            """) {
+            log.shell("git config --global user.email meine-email", rootDir.name, emptyList(), emptyList())
+            log.shell("git config --global merge.conflictStyle diff3", rootDir.name, emptyList(), emptyList())
+        }
+        
+        // pwd
+
+        // dateien erstellen und bearbeiten editor konfigurieren
+
+        // start . , xdg-open
     }
 }
