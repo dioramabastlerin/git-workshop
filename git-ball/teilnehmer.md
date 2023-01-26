@@ -1,11 +1,9 @@
 ⚽ Bjørn
 
-Gerda
-Rene
-Ingo
-Andreas
-Victoria
-Jürgen
-Laura
-Daniel
-
+Rashid
+Angelika
+Christina
+Christoph
+Engelbert
+Fanny
+Patrick
