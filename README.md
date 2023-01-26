@@ -42,7 +42,7 @@ Exercises can be found in `build/git-uebungen`.
 
 ### Anmerkung
 
-Dritte änderung
+Dritte Änderung!
 
 Ich finde Pull-Requests toll.
 
