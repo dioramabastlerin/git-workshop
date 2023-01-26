@@ -1,5 +1,7 @@
 # Git Workshop Material
 
+erste änderung
+
 ## Vorgebaute Übungen entpacken
 
     $ unzip build/distributions/git-uebungen.zip
@@ -41,6 +43,7 @@ Exercises can be found in `build/git-uebungen`.
 ### Anmerkung
 
 drite änderung
+
 Ich finde Pull-Requests toll.
 
 ## Remotes
