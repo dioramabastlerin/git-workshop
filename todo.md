@@ -1,3 +1,5 @@
+ * slide für restore befehl vor repo untersuchen übung!
+ * Repository Log/Repository Untersuchen: Bonusaufgabe: Nutzt euer IDE-UI, um dieselben Dinge wiederzufinden.
  * Intro-Teil: Diskussion zu Anforderung an Versionsverwaltung
  * Intro-Kapitel: Reihenfolge einige Slides doppelt, zu spät.
  * Commit-Messages, Editor and Editor-Konfig -> übung
@@ -5,7 +7,6 @@
  * Bonusaufgaben immer am Ende
  * Optionals für Integration von änderung: Löschen von Dateien, Umbenennen/Verschieben
  * branches bild malen
- * slide für restore befehl
  * übung repository-log feingranularer
  * Pull-fetch übung: Ein paar Optionale einbauen.
  * In übung Branching: die asymmetrischen Diffs mit einbauen
