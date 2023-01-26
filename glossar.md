@@ -9,6 +9,7 @@ permalink: /glossar
 ### 1st Parent History 
 
 Beim Auflisten der History wird im Falle von Merges im nur der erste Vorgänger berücksichtigt. 
+Hier muss noch was hin.
 
 ### Aktiver Branch
 
