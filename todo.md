@@ -1,3 +1,4 @@
+ * update-Merge als optionale übung in branching
  * slide für restore befehl vor repo untersuchen übung!
  * Repository Log/Repository Untersuchen: Bonusaufgabe: Nutzt euer IDE-UI, um dieselben Dinge wiederzufinden.
  * Intro-Teil: Diskussion zu Anforderung an Versionsverwaltung
