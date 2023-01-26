@@ -4,6 +4,7 @@ title: Kapitel26 Git-Workshop
 description: "Präsentationen und Übungen zu dem Kapitel26 Git-Workshops"
 nav_exclude: true
 ---
+zweite änderung
 
 # Git Workshops
 
