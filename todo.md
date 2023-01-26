@@ -1,3 +1,5 @@
+ * Intro-Teil: Diskussion zu Anforderung an Versionsverwaltung
+ * Intro-Kapitel: Reihenfolge einige Slides doppelt, zu spät.
  * Commit-Messages, Editor and Editor-Konfig -> übung
  * Übung zu --squash, Bonusübung zu Orphan-Branches
  * Bonusaufgaben immer am Ende
