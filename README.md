@@ -1,6 +1,6 @@
 # Git Workshop Material
 
-falsche änderung!
+erste änderung
 
 ## Vorgebaute Übungen entpacken
 
