@@ -59,7 +59,7 @@ git tag
 ### (veraltet)Checkout
  
 
-Der Befehl `checkout`kann sowohl Branches wechseln Versionen wechseln, als auch Datei- und Versionhalte austauschen.
+Der Befehl `checkout`kann sowohl Branches wechseln Versionen wechseln, als auch Datei- und Versionsinhalte austauschen.
 Leichter verständlich und weniger fehleranfällig sind jedoch die neueren
 Befehle `switch` und `restore`.
 
