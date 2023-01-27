@@ -123,7 +123,7 @@ Konfliktmarker.
 1. Für jede Konfliktdatei
    1. Datei öffnen, Konfliktmarker sucehn
    1. Zeilen manuell zusammenführen
-   1. Konfiktmarker löschen
+   1. Konfliktmarker löschen
    1. `git add <file>` zum Bestätigen
 1. Mit `git commit` abschließen
 
